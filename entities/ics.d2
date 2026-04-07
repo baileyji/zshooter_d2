@@ -1,0 +1,110 @@
+software_runtime: {
+  class: instrument_container
+  label: Software Runtime
+  zshooter_pc: @zshooter.hardware_system.k1_rnas.zshooter.zspec.zspec_control_box.zspec_ubuntu
+  zshooter_pc.class: computer_host_container
+
+
+
+  zshooter_pc: {
+    #grid-columns: 5
+    zfront_control: @daemons.zfront_control
+    spec_focus: @daemons.focus_controller
+    spec_focus.label: ZSpec Focus Controller
+    image_focus: @daemons.focus_controller
+    image_focus.label: ZImage Focus Controller
+    vacuum_monitor: @daemons.vacuum_monitor
+    fine_guiding: @daemons.fine_guiding
+
+    vis_slitcam: @zspec.zspec.hardware.zspec_visible.zspec_vis_slit_viewer.daemon
+    ir_slitcam: @zspec.zspec.hardware.zspec_nir.zspec_ir_cryostat.ir_slit_viewer.daemon
+    zimage_filter_wheel: @zimage.zimage.hardware.zimage_filter_wheel.daemon
+    zimage_focus: @zimage.zimage.hardware.zimage_focus.daemon
+    zimage_u_rotator: @zimage.zimage.hardware.zimage_u_rotator.daemon
+    zimage_v_rotator: @zimage.zimage.hardware.zimage_v_rotator.daemon
+    zimage_z_rotator: @zimage.zimage.hardware.zimage_z_rotator.daemon
+    zimage_u_rotator.label: "u Rotator (`ZIRotatorDaemon`)"
+    zimage_v_rotator.label: "v Rotator (`ZIRotatorDaemon`)"
+    zimage_z_rotator.label: "z Rotator (`ZIRotatorDaemon`)"
+    vis_rotator: @zspec.zspec.hardware.zspec_visible.vis_rotator.daemon
+    vis_adc: @zspec.zspec.hardware.zspec_visible.vis_adc.daemon
+    vis_nod: @zspec.zspec.hardware.zspec_visible.vis_nod.daemon
+    vis_slit: @zspec.zspec.hardware.zspec_visible.vis_slit.daemon
+    zspec_focus_b: @zspec.zspec.hardware.zspec_visible.dcs_b.focus.daemon
+    zspec_focus_g: @zspec.zspec.hardware.zspec_visible.dcs_g.focus.daemon
+    zspec_focus_r: @zspec.zspec.hardware.zspec_visible.dcs_r.focus.daemon
+    zspec_focus_ir: "Run @ Cooldown"
+    ir_rotator: @zspec.zspec.hardware.zspec_nir.zspec_ir_cryostat.ir_rotator.daemon
+    ir_adc: @zspec.zspec.hardware.zspec_nir.zspec_ir_cryostat.ir_adc.daemon
+    ir_nodder: @zspec.zspec.hardware.zspec_nir.zspec_ir_cryostat.ir_nodder.daemon
+    ir_slit: @zspec.zspec.hardware.zspec_nir.zspec_ir_cryostat.ir_slit.daemon
+    shutter_monitor
+    glycol_monitor
+    temp_log
+
+    fine_guiding -> ir_nodder: {
+      class: command_conn
+      label: command
+    }
+    fine_guiding -> ir_rotator: {
+      class: command_conn
+      label: command
+    }
+    fine_guiding -> ir_adc: {
+      class: command_conn
+      label: command
+    }
+    fine_guiding -> vis_nod: {
+      class: command_conn
+      label: command
+    }
+    fine_guiding -> vis_rotator: {
+      class: command_conn
+      label: command
+    }
+    fine_guiding -> vis_adc: {
+      class: command_conn
+      label: command
+    }
+    image_focus -> zimage_focus: {
+      class: command_conn
+      label: command
+    }
+    spec_focus -> zspec_focus_*: {
+      class: command_conn
+      label: command
+    }
+  }
+
+  zimage_readout_pc: {
+    class: computer_host_container
+    label: ZImage Readout PC
+    notebook_server: @common.jupyter_notebook_server
+    readout_u: @devices.orca_readout.daemon
+    readout_u.label: 'u Readout'
+    readout_v: @devices.orca_readout.daemon
+    readout_v.label: 'v Readout'
+    readout_z: @devices.orca_readout.daemon
+    readout_z.label: 'z Readout'
+  }
+
+  zspec_readout_pc: {
+    class: computer_host_container
+    label: ZSpec Readout PC
+    notebook_server: @common.jupyter_notebook_server
+    readout_opt_b: @zspec.zspec.hardware.zspec_visible.dcs_b.readout.daemon
+    readout_opt_g: @zspec.zspec.hardware.zspec_visible.dcs_g.readout.daemon
+    readout_opt_r: @zspec.zspec.hardware.zspec_visible.dcs_r.readout.daemon
+    readout_ir_yj: @zspec.zspec.hardware.zspec_nir.zspec_ir_readout_yj.daemon
+    readout_ir_h: @zspec.zspec.hardware.zspec_nir.zspec_ir_readout_h.daemon
+    readout_ir_k: @zspec.zspec.hardware.zspec_nir.zspec_ir_readout_k.daemon
+    readout_opt_b.label: "Archon B (qCCDDaemon)"
+    readout_opt_g.label: "Archon G (qCCDDaemon)"
+    readout_opt_r.label: "Archon R (qCCDDaemon)"
+    readout_ir_yj.label: "Archon YJ (APDDaemon)"
+    readout_ir_h.label: "Archon H (APDDaemon)"
+    readout_ir_k.label: "Archon K (APDDaemon)"
+  }
+
+  observer_gui: @daemons.observer_gui
+}

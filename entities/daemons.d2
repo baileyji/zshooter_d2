@@ -1,0 +1,430 @@
+focus_controller: {
+  ...@../common/styles.templates.daemon
+  label: "Focus Controller (FocusController)"
+  device: suspend
+  eng: suspend
+  config: {
+    "main.yaml": zspec.focus_controller
+    "logger.yaml": present
+  }
+  status: {
+    "focus_curve_params [rw*]": CurveSet
+    "maintain_focus [rw]": bool
+  }
+  events: {
+    "domain_error": Event
+    "set_focus_error": Event
+  }
+  ops: {
+    "get_focus_curve_params()"
+    "set_focus_curve_params(...)"
+    "start_maintain_focus()"
+    "stop_maintain_focus()"
+  }
+}
+
+focus: {
+  ...@../common/styles.templates.daemon
+  label: "Focus Drive (FocusDriveDaemon)"
+  device: {
+    driver: {
+      class: [object_block]
+      label: "FocusDriveDevice (SerialDevice)"
+    }
+  }
+  config: {
+    "main.yaml": zimage.focus
+    "logger.yaml": present
+  }
+  status: {
+    "position [rw]": Position
+    "drive_settings [rw]": Settings
+  }
+  events: {
+    "drive_fault": Event
+  }
+  ops: {
+    "get_focus()"
+    "set_focus_abs(pos: float)"
+    "set_focus_rel(delta: float)"
+    "calibrate()"
+    "stop_motion()"
+    "estop()"
+  }
+}
+
+vacuum_monitor: {
+  ...@../common/styles.templates.daemon
+  label: "Vacuum Monitor (VacuumMonitorDaemon)"
+  eng: suspend
+  config: {
+    "main.yaml": zspec.vacuum_monitor
+    "logger.yaml": present
+  }
+  status: {
+    "vacuum_state": State
+  }
+  events: {
+    "range_alert": Event
+  }
+  ops: {
+    "get_vacuum()"
+  }
+}
+
+fine_guiding: {
+  ...@../common/styles.templates.daemon
+  device: suspend
+  eng: suspend
+  label: "Fine Guiding (FineGuidingDaemon)"
+  config: {
+    "main.yaml": zspec.fine_guiding
+    "logger.yaml": present
+  }
+  status: {
+    "guiding_mode [rw]": Mode
+  }
+  events: {
+    "guide_fault": Event
+  }
+  ops: {
+    "enable()"
+    "disable()"
+    "set_mode(mode: GuideMode)"
+  }
+}
+
+zfront_control: {
+  ...@../common/styles.templates.daemon
+  label: "ZFront Control (ZFrontControlDaemon)"
+  eng: suspend
+  device: {
+    cal_driver: {
+      class: [object_block]
+      label: CalSourceController
+    }
+    sel_driver: {
+      class: [object_block]
+      label: SelectorController
+    }
+  }
+  config: {
+    "main.yaml": zfront.calibration_control
+    "logger.yaml": present
+  }
+  status: {
+    "lamp_state [rw]": State
+    "selector_state [rw]": State
+  }
+  events: {
+    "lamp_fault": Event
+  }
+  ops: {
+    "set_lamp_state(...)"
+    "set_selector_state(...)"
+    "estop()"
+  }
+}
+
+observer_gui: {
+  ...@../common/styles.templates.daemon
+  device: suspend
+  eng: suspend
+  label: Observer GUI
+  config: {
+    "main.yaml": gui
+    "logger.yaml": present
+  }
+  status: {
+    "ui_state": State
+  }
+  events: {
+    "user_command": Event
+  }
+  ops: {
+    "subscribe_raw_stream(...)"
+    "subscribe_prelim_products(...)"
+  }
+}
+
+rotator: {
+    ...@../common/styles.templates.daemon
+    label: "Rotator (FieldRotatorDaemon)"
+    device: {
+      driver: {
+        class: [object_block]
+        label: "RotatorDevice (SerialDevice)"
+      }
+    }
+    config: {
+      "main.yaml": zspec....
+      "logger.yaml": present
+    }
+    status: {
+      "field_angle_offset [rw*]": Angle
+      "mode [rw]": Mode
+    }
+    events: {
+      "drive_fault": Event
+    }
+    ops: {
+      "set_field_angle(angle: float)"
+      "set_mode(mode: RotatorMode)"
+      "calibrate()"
+      "stop_motion()"
+      "estop()"
+    }
+}
+
+adc: {
+  ...@../common/styles.templates.daemon
+  label: "ADC (ADCCorrectorDaemon)"
+  device: {
+    driver: {
+      class: [object_block]
+      label: "ADCDevice (SerialDevice)"
+    }
+  }
+  config: {
+    "main.yaml": zspec.opt_adc
+    "logger.yaml": present
+  }
+  status: {
+    "correction_angle [rw]": Angle
+    "phase_offset [rw*]": Angle
+  }
+  events: {
+    "drive_fault": Event
+  }
+  ops: {
+    "set_correction(angle: float)"
+    "set_mode(mode: ADCMode)"
+    "calibrate()"
+    "stop_motion()"
+    "estop()"
+  }
+}
+
+nodder: {
+  ...@../common/styles.templates.daemon
+  label: "Nodder (NodderDaemon)"
+  device: {
+    driver: {
+      class: [object_block]
+      label: "NodderDevice (SerialDevice)"
+    }
+  }
+  config: {
+    "main.yaml": zspec.opt_nodder
+    "logger.yaml": present
+  }
+  status: {
+    "slit_plane_position [rw]": Position
+  }
+  events: {
+    "drive_fault": Event
+  }
+  ops: {
+    "set_position_abs_slit_plane(...)"
+    "set_position_rel_slit_plane(...)"
+    "stop_motion()"
+    "estop()"
+  }
+}
+
+filter_wheel: {
+  ...@../common/styles.templates.daemon
+  label: "Filter Wheel (FilterWheelDaemon)"
+  device: {
+    driver: {
+      class: [object_block]
+      label: "FilterWheelDevice (SerialDevice)"
+    }
+  }
+  config: {
+    "main.yaml": zimage.filter_wheel
+    "logger.yaml": present
+  }
+  status: {
+    "filter_name [rw]": FilterName
+    "position": Position
+  }
+  events: {
+    "drive_fault": Event
+  }
+  ops: {
+    "set_filter(name: FilterName)"
+    "calibrate()"
+    "stop_motion()"
+    "estop()"
+  }
+  eng: {
+    "set_drive_settings(...)"
+    "set_raw_position(...)"
+  }
+}
+
+slit_selector: {
+  ...@../common/styles.templates.daemon
+  label: "Optical Slit (SlitDaemon)"
+  device: {
+    driver: {
+      class: [object_block]
+      label: "SlitDevice (SerialDevice)"
+    }
+  }
+  config: {
+    "main.yaml": zspec.opt_slit
+    "logger.yaml": present
+  }
+  status: {
+    "slit_position [rw]": Position
+  }
+  events: {
+    "drive_fault": Event
+  }
+  ops: {
+    "set_position_abs(pos: float)"
+    "set_position_rel(delta: float)"
+    "stop_motion()"
+    "estop()"
+  }
+}
+
+slit_view: {
+  ...@../common/styles.templates.daemon
+  label: "nIR Slit Viewer (SlitcamDaemon)"
+  device: {
+    driver: {
+      class: [object_block]
+      label: "SlitCamera (Ethernet)"
+    }
+  }
+  config: {
+    "main.yaml": zspec.slitcam_ir
+    "logger.yaml": present
+  }
+  status: {
+    "stream_state": State
+  }
+  events: {
+    "frame_ready": Event
+  }
+  ops: {
+    "start_stream()"
+    "stop_stream()"
+  }
+}
+
+motor_controller: {
+  ...@../common/styles.templates.daemon
+  label: "Generic Motor Bus/Controller ()"
+  device: {
+    driver: {
+      class: [object_block]
+      label: "MotorController"
+    }
+  }
+  config: {
+    "main.yaml": controller
+    "logger.yaml": present
+  }
+  events: {
+
+    "drive_fault": Event
+  }
+  ops: {
+    "calibrate()"
+    "stop_motion()"
+    "estop()"
+  }
+}
+
+
+quest2readout: {
+   ...@../common/styles.templates.daemon
+   label: "Quest2 Readout (ImagerReadoutDaemon)"
+   device: {
+     driver: {
+       class: [object_block]
+       label: "Quest2Driver (CoaXPressDevice)"
+     }
+   }
+   config: {
+     "main.yaml": zimage.readout_z
+     "logger.yaml": present
+   }
+   status: {
+     "exposure_type [rw]": ExposureType
+     "exposure_time_s [rw]": float
+     "readout_mode [rw]": Mode
+   }
+   events: {
+     "exposure_complete": Event
+     "thermal_fault": Event
+   }
+   ops: {
+     "set_exposure_type(kind: ExposureType)"
+     "set_exposure_time(t_exp_s: float)"
+     "set_readout_mode(mode: ReadoutMode)"
+     "start_exposure()"
+     "abort_exposure()"
+     "stop_exposure()"
+   }
+}
+
+
+archonreadout: {
+  ...@../common/styles.templates.daemon
+  label: "Archon Readout (ReadoutDaemon)"
+  device: {
+    driver: {
+      class: [object_block]
+      label: ArchonDriver
+    }
+  }
+  object_model: unsuspend {
+    exposure_config: {
+      class: [object_block]
+      label: ExposureConfig
+    }
+    readout_status: {
+      class: [object_block]
+      label: ReadoutStatus
+    }
+  }
+  config: {
+    "main.yaml": zspec.readout_opt_b
+    "archon/*.wdl": present
+    "logger.yaml": present
+  }
+  status: {
+    "exposure_type [rw]": ExposureType
+    "exposure_time_s [rw]": float
+    "readout_region [rw]": RegionSpec
+    "readout_mode [rw]": ReadoutMode
+    "gain_mode [rw]": GainMode
+    "speed_mode [rw]": SpeedMode
+    "binning [rw]": BinSpec
+    "amplifier_selection [rw]": AmpSpec
+    "detector_temperature": float
+    "controller_state": ControllerState
+  }
+  events: {
+    "exposure_complete": Event
+    "thermal_fault": Event
+  }
+  ops: {
+    "set_exposure_type(kind: ExposureType)"
+    "set_exposure_time(t_exp_s: float)"
+    "set_readout_region(region: RegionSpec)"
+    "set_readout_format(gain: GainMode, speed: SpeedMode, binning: BinSpec, amps: AmpSpec)"
+    "set_readout_mode(mode: ReadoutMode)"
+    "start_exposure()"
+    "abort_exposure()"
+  }
+  eng: {
+    "set_engineering(param: str, value: Any)"
+    "get_engineering(param: str)"
+  }
+}

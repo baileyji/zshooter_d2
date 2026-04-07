@@ -1,0 +1,259 @@
+motor_controller: {
+  class: entity_wrapper
+  hardware: {
+    class: [controller_device_node; serial_device; req_software]
+    label: Motor Controller
+    }
+  daemon: @daemons.motor_controller
+}
+
+
+temp_monitor_module: {
+  class: entity_wrapper
+  label: ""
+  (daemon.device.driver->hardware.temp_hub).class: hw_sw_conn
+  hardware: {
+    class: entity_wrapper
+
+    temp_hub: @common.onewire_hub_block
+    temp_hub.label: Temp Monitoring Hub
+
+    temp_sensor_1: @common.onewire_temp_sensor_block
+    temp_sensor_1.label: Temp Sensor 1
+    temp_sensor_2: @common.onewire_temp_sensor_block
+    temp_sensor_2.label: Temp Sensor ...
+    temp_sensor_3: @common.onewire_temp_sensor_block
+    temp_sensor_3.label: Temp Sensor N
+
+    temp_hub->temp_sensor_*:{
+      class: sensor_fanout_conn
+    }
+  }
+  daemon: {
+    ...@../common/styles.templates.daemon
+    #driver: suspend
+    eng: suspend
+    label: "Temp Monitor (`TempMonitorDaemon`)"
+    device: {
+      class: device_section_container
+      driver: {
+        class: [object_block]
+        label: OneWireHubDevice
+      }
+    }
+    config: {
+      "main.yaml": zspec.opt_temp_monitor
+      "logger.yaml": present
+    }
+    status: {
+      "sensor_state": SensorState
+    }
+    events: {
+      "range_alert": Event
+    }
+    ops: {
+      "get_temperature(...)"
+    }
+  }
+}
+
+opt_rotator: {
+  class: entity_wrapper
+  label: ""
+  hardware: {
+    class: [motion_device_node; serial_device; req_software]
+    label: Optical Rotator
+  }
+  daemon: @daemons.rotator
+  daemon.label: "Vis-${base_label}"
+  optical: {
+    class: optical_node
+    label: Optical Rotator Optics
+  }
+}
+
+opt_adc: {
+    class: entity_wrapper
+    label: ""
+    hardware: {
+      class: [motion_device_node; serial_device; req_software]
+      label: Optical ADC
+    }
+    daemon: @daemons.adc
+    daemon.label: "Vis ADC Daemon"
+    optical: {
+      class: optical_node
+      label: Optical ADC Optics
+    }
+  }
+
+slit_viewer: {
+  class: entity_wrapper
+  label: Slit View Camera
+  hardware: {
+    class: [camera_device_node; ethernet_device; req_software]
+    label: nIR Slit Viewer
+  }
+  daemon: @daemons.slit_view
+  optical: {
+    class: [detector_device_node]
+    label: Slit View Camera
+  }
+}
+
+
+ir_slit: {
+  class: entity_wrapper
+  label: ""
+  hardware: {
+    class: [motion_device_node; serial_device; req_software]
+    label: nIR Slit Selector
+  }
+  daemon: @daemons.slit_selector
+  daemon.label: "nIR Slit (SlitDaemon)"
+  optical: {
+    class: optical_node
+    label: nIR Slit Aperture
+  }
+}
+
+ir_nodder: {
+  class: entity_wrapper
+  label: ""
+  hardware: {
+    class: [motion_device_node; serial_device; req_software]
+    label: nIR Nodder
+  }
+
+  daemon: @daemons.nodder
+  daemon.label: "IR Nodder"
+ # vars: {
+ #   base_label: @daemons.nodder.label
+ # }
+ # daemon.label: "IR-${base_label}"
+
+  optical: {
+    class: optical_node
+    label: nIR Nod Optics
+  }
+}
+
+ir_rotator: {
+  class: entity_wrapper
+  label: ""
+  hardware: {
+    class: [motion_device_node; serial_device; req_software]
+    label: nIR Rotator
+  }
+
+  daemon: @daemons.rotator
+  daemon.label: "IR Rotator"
+  #vars: {
+  #  base_label: @daemons.rotator.label
+  #}
+  #daemon.label: "IR-${base_label}"
+
+  optical: {
+    class: optical_node
+    label: nIR Rotator Optics
+  }
+}
+ir_adc: {
+  class: entity_wrapper
+  label: ""
+  hardware: {
+    class: [motion_device_node; serial_device; req_software]
+    label: nIR ADC
+  }
+  daemon: @daemons.adc
+  daemon.label: "nIR ADC (ADCCorrectorDaemon)"
+  optical: {
+    class: optical_node
+    label: nIR ADC Optics
+  }
+}
+
+opt_nodder: {
+  class: entity_wrapper
+  label: ""
+  hardware: {
+    class: [motion_device_node; serial_device; req_software]
+    label: Optical Nodder
+  }
+  daemon: @daemons.nodder
+  optical: {
+    class: optical_node
+    label: Optical Nod Optics
+  }
+}
+
+opt_slit: {
+  class: entity_wrapper
+  label: ""
+  hardware: {
+    class: [motion_device_node; serial_device; req_software]
+    label: Optical Slit Selector
+  }
+  daemon: @daemons.slit_selector
+  optical: {
+    class: optical_node
+    label: Optical Slit Aperture
+  }
+}
+
+
+filter_wheel: {
+  class: entity_wrapper
+  label: ""
+  hardware: {
+    class: [motion_device_node; serial_device; req_software]
+    label: Filter Wheel
+  }
+  daemon: @daemons.filter_wheel
+  optical: {
+      class: optical_node
+      label: Filter Wheel
+  }
+}
+
+focus: {
+  class: entity_wrapper
+  label: ""
+  hardware: @common.focus_actuator
+  daemon: @daemons.focus
+  (daemon.device.driver->hardware).class: hw_sw_conn
+  (daemon.device.driver->hardware)[0].label: "HELLLLOOOOOOO"
+}
+
+cryofocus:{
+  class: entity_wrapper
+  label: ""
+  hardware: @common.focus_actuator
+  hardware.class: motion_device_node
+  hardware.label: Cryo Focus Actuator
+  daemon: {
+    class: daemon_card_container
+    AIT Only
+  }
+}
+
+
+archon_readout: {
+    class: entity_wrapper
+    label: Archon Readout
+    hardware: {
+        class: [controller_device_node; ethernet_device]
+        label: Archon Controller
+    }
+    daemon: @daemons.archonreadout
+}
+
+orca_readout: {
+    class: entity_wrapper
+    label: Orca Readout
+    hardware: {
+        class: [controller_device_node; coaxpress_device]
+        label: Orca Readout Card
+    }
+    daemon: @daemons.quest2readout
+}

@@ -1,0 +1,65 @@
+software_runtime.zimage_readout_pc.readout_u.device.driver -> hardware_system.k1_rnas.zshooter.zimage.zimage_u_detector: {
+  class: coaxpress_conn
+  label: driver
+}
+software_runtime.zimage_readout_pc.readout_v.device.driver -> hardware_system.k1_rnas.zshooter.zimage.zimage_v_detector: {
+  class: coaxpress_conn
+  label: driver
+}
+software_runtime.zimage_readout_pc.readout_z.device.driver -> hardware_system.k1_rnas.zshooter.zimage.zimage_z_detector: {
+  class: coaxpress_conn
+  label: driver
+}
+software_runtime.zspec_readout_pc.readout_opt_b.device.driver -> hardware_system.k1_rnas.zshooter.zspec.zspec_visible.dcs_b.readout.hardware: {
+  class: detector_conn
+  label: driver
+}
+software_runtime.zspec_readout_pc.readout_opt_g.device.driver -> hardware_system.k1_rnas.zshooter.zspec.zspec_visible.dcs_g.readout.hardware: {
+  class: detector_conn
+  label: driver
+}
+software_runtime.zspec_readout_pc.readout_opt_r.device.driver -> hardware_system.k1_rnas.zshooter.zspec.zspec_visible.dcs_r.readout.hardware: {
+  class: detector_conn
+  label: driver
+}
+software_runtime.zspec_readout_pc.readout_ir_yj.device.driver -> hardware_system.k1_rnas.zshooter.zspec.zspec_nir.zspec_ir_readout_yj.hardware: {
+  class: detector_conn
+  label: driver
+}
+software_runtime.zspec_readout_pc.readout_ir_h.device.driver -> hardware_system.k1_rnas.zshooter.zspec.zspec_nir.zspec_ir_readout_h.hardware: {
+  class: detector_conn
+  label: driver
+}
+software_runtime.zspec_readout_pc.readout_ir_k.device.driver -> hardware_system.k1_rnas.zshooter.zspec.zspec_nir.zspec_ir_readout_k.hardware: {
+  class: detector_conn
+  label: driver
+}
+
+(software_runtime.zshooter_pc.vis_slitcam.device.driver->hardware_system.k1_rnas.zshooter.zspec.zspec_visible.zspec_vis_slit_viewer.hardware).class: driver_conn
+(software_runtime.zshooter_pc.ir_slitcam.device.driver->hardware_system.k1_rnas.zshooter.zspec.zspec_nir.zspec_ir_cryostat.ir_slit_viewer.hardware).class: driver_conn
+(software_runtime.zshooter_pc.zimage_filter_wheel.device.driver->hardware_system.k1_rnas.zshooter.zimage.zimage_filter_wheel.hardware).class: driver_conn
+(software_runtime.zshooter_pc.zimage_focus.device.driver->hardware_system.k1_rnas.zshooter.zimage.zimage_focus.hardware).class: driver_conn
+(software_runtime.zshooter_pc.zimage_u_rotator.device.driver->hardware_system.k1_rnas.zshooter.zimage.zimage_u_rotator.hardware).class: driver_conn
+(software_runtime.zshooter_pc.zimage_v_rotator.device.driver->hardware_system.k1_rnas.zshooter.zimage.zimage_v_rotator.hardware).class: driver_conn
+(software_runtime.zshooter_pc.zimage_z_rotator.device.driver->hardware_system.k1_rnas.zshooter.zimage.zimage_z_rotator.hardware).class: driver_conn
+(software_runtime.zshooter_pc.vis_rotator.device.driver->hardware_system.k1_rnas.zshooter.zspec.zspec_visible.vis_rotator.hardware).class: driver_conn
+(software_runtime.zshooter_pc.vis_adc.device.driver->hardware_system.k1_rnas.zshooter.zspec.zspec_visible.vis_adc.hardware).class: driver_conn
+(software_runtime.zshooter_pc.vis_nod.device.driver->hardware_system.k1_rnas.zshooter.zspec.zspec_visible.vis_nod.hardware).class: driver_conn
+(software_runtime.zshooter_pc.vis_slit.device.driver->hardware_system.k1_rnas.zshooter.zspec.zspec_visible.vis_slit.hardware).class: driver_conn
+(software_runtime.zshooter_pc.zspec_focus_b.device.driver->hardware_system.k1_rnas.zshooter.zspec.zspec_visible.dcs_b.focus.hardware).class: driver_conn
+(software_runtime.zshooter_pc.zspec_focus_g.device.driver->hardware_system.k1_rnas.zshooter.zspec.zspec_visible.dcs_g.focus.hardware).class: driver_conn
+(software_runtime.zshooter_pc.zspec_focus_r.device.driver->hardware_system.k1_rnas.zshooter.zspec.zspec_visible.dcs_r.focus.hardware).class: driver_conn
+(software_runtime.zshooter_pc.ir_rotator.device.driver->hardware_system.k1_rnas.zshooter.zspec.zspec_nir.zspec_ir_cryostat.ir_rotator.hardware).class: driver_conn
+(software_runtime.zshooter_pc.ir_adc.device.driver->hardware_system.k1_rnas.zshooter.zspec.zspec_nir.zspec_ir_cryostat.ir_adc.hardware).class: driver_conn
+(software_runtime.zshooter_pc.ir_nodder.device.driver->hardware_system.k1_rnas.zshooter.zspec.zspec_nir.zspec_ir_cryostat.ir_nodder.hardware).class: driver_conn
+(software_runtime.zshooter_pc.ir_slit.device.driver->hardware_system.k1_rnas.zshooter.zspec.zspec_nir.zspec_ir_cryostat.ir_slit.hardware).class: driver_conn
+(software_runtime.zshooter_pc.zfront_control.device.sel_driver->hardware_system.k1_rnas.zshooter.zfront.zfront_embedded_controller).class: driver_conn
+(software_runtime.zshooter_pc.zfront_control.device.cal_driver->hardware_system.k1_rnas.zshooter.zfront.zcal.zcal_embedded_controller).class: driver_conn
+(software_runtime.zshooter_pc.glycol_monitor.device.driver->hardware_system.k1_rnas.zshooter.zshooter_glycol_manifold).class: driver_conn
+(software_runtime.zshooter_pc.temp_log.device.driver->hardware_system.k1_rnas.zshooter.zspec.zspec_visible.temp_monitor.hardware.temp_hub).class: driver_conn
+(software_runtime.zshooter_pc.temp_log.device.driver->hardware_system.k1_rnas.zshooter.zimage.zimage_temp_monitor.hardware.temp_hub).class: driver_conn
+(software_runtime.zshooter_pc.temp_log.device.ir_driver->hardware_system.k1_rnas.zshooter.zspec.zspec_nir.temp_controller_hw).class: driver_conn
+(software_runtime.zshooter_pc.vacuum_monitor->hardware_system.k1_rnas.zshooter.zspec.zspec_visible.dcs_*.vacuum_gauge).class: driver_conn
+(software_runtime.zshooter_pc.vacuum_monitor->hardware_system.k1_rnas.zshooter.zspec.zspec_nir.vacuum_gauge).class: driver_conn
+(software_runtime.zshooter_pc.shutter_monitor->hardware_system.k1_rnas.zshooter.zspec.zspec_nir.zspec_ir_cryostat.ir_cryoshutter.hardware).class: driver_conn
+(software_runtime.zshooter_pc.shutter_monitor->hardware_system.k1_rnas.zshooter.zspec.zspec_visible.shutter.hardware).class: driver_conn

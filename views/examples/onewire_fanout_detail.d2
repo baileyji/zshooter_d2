@@ -1,0 +1,45 @@
+direction: down
+...@../../common/styles
+hardware_system: @../../entities/zshooter.hardware_system
+...@../../models/hardware_connections
+
+# Focus on 1-Wire hubs and sensor fanout while keeping context.
+***: {
+  suspend: true
+}
+*** -> ***: {
+  suspend: true
+}
+
+***: {
+  &class: room_container
+  unsuspend: true
+}
+***: {
+  &class: instrument_container
+  unsuspend: true
+}
+***: {
+  &class: subinstrument_container
+  unsuspend: true
+}
+***: {
+  &class: enclosure_container
+  unsuspend: true
+}
+***: {
+  &class: cryostat_container
+  unsuspend: true
+}
+***: {
+  &class: onewire_hub
+  unsuspend: true
+}
+***: {
+  &class: onewire_temp_sensor
+  unsuspend: true
+}
+*** -> ***: {
+  &class: sensor_fanout_conn
+  unsuspend: true
+}

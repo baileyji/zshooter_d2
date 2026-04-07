@@ -1,0 +1,43 @@
+direction: down
+...@../../common/styles
+hardware_system: @../../entities/zshooter.hardware_system
+...@../../models/hardware_connections
+
+***: {
+  suspend: true
+}
+*** -> ***: {
+  suspend: true
+}
+
+# Keep structural context visible.
+***: {
+  &class: room_container
+  unsuspend: true
+}
+***: {
+  &class: instrument_container
+  unsuspend: true
+}
+***: {
+  &class: subinstrument_container
+  unsuspend: true
+}
+***: {
+  &class: enclosure_container
+  unsuspend: true
+}
+***: {
+  &class: cryostat_container
+  unsuspend: true
+}
+
+# Show only network edges and their connected endpoints.
+*** -> ***: {
+  &class: network_conn
+  unsuspend: true
+}
+***: {
+  &connected: true
+  unsuspend: true
+}

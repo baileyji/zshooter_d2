@@ -1,0 +1,32 @@
+# Suggested render:
+#   d2 --layout elk views/hardware_systems_full.d2 hardware_systems_full.svg
+
+direction: right
+...@../common/styles
+...@../common/legend
+...@../entities/zshooter.hardware_system
+
+# Full enough for system review, but suppress overwhelming 1-Wire fanout.
+templates: suspend
+
+**: {
+  &class: entity_wrapper
+  optical: suspend
+  daemon: suspend
+  daemons: suspend
+}
+**: {
+  &class: computer_device_node
+  daemons: suspend
+}
+
+**: suspend {
+  &class: onewire_temp_sensor
+}
+**: suspend {
+  &class: cryo_temp_sensor
+}
+(** -> **)[*]: suspend {
+  &class: sensor_fanout_conn
+}
+

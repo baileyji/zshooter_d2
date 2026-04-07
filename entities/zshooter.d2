@@ -1,0 +1,240 @@
+hardware_system: {
+  class: rectangle #instrument_container
+  label: Hardware System
+
+  k1_rnas: {
+    class: room_container
+    label: K1 Right Nasmyth
+
+    facility_air: @external.facility_air
+    facility_glycol: @external.facility_glycol
+    facility_ac: @external.facility_ac
+    facility_1000base_t: @external.facility_1000base_t
+
+    zshooter: {
+      class: instrument_container
+      label: ZShooter
+
+      zshooter_glycol_manifold: @common.glycol_manifold_block
+      zshooter_glycol_manifold.label: ZShooter Glycol Manifold
+
+      zshooter_air_manifold: @common.air_manifold_block
+      zshooter_air_manifold.label: ZShooter Air Manifold
+
+      zimage: @zimage.zimage.hardware
+      zspec: @zspec.zspec.hardware
+      zfront: @zfront.zfront.hardware
+
+      (zshooter_glycol_manifold -> zspec.zspec_nir.zspec_ir_coldhead).class: glycol_conn
+      (zshooter_glycol_manifold -> zspec.zspec_nir.*readout*.hardware).class: glycol_conn
+      (zshooter_glycol_manifold -> zspec.zspec_visible.dcs_*.readout.hardware).class: glycol_conn
+      (zshooter_glycol_manifold -> zspec.zspec_visible.dcs_*.cryocooler).class: glycol_conn
+      (zshooter_glycol_manifold -> zspec.zspec_visible.zspec_vis_slit_viewer.hardware).class: glycol_conn
+      (zshooter_glycol_manifold -> zimage.zimage_glycol_submanifold).class: glycol_conn
+
+      (zspec.zspec_control_box.zspec_data_hub -> zimage.zimage_ebox.zimage_data_hub).class: data_conn
+
+
+      (zshooter_air_manifold -> zspec.zspec_visible).class: air_conn
+      (zshooter_air_manifold -> zfront).class: air_conn
+      (zshooter_air_manifold -> zimage).class: air_conn
+    }
+
+    (facility_ac-> zshooter.zfront.zfront_dc_distribution).class: ac_conn
+    (facility_ac-> zshooter.zimage.zimage_ebox.zimage_ac_distribution).class: ac_conn
+    (facility_ac-> zshooter.zspec.zspec_control_box.zspec_ac_distribution).class: ac_conn
+
+    (facility_1000base_t -> zshooter.zfront.zfront_data_hub).class: network_conn
+    (facility_1000base_t -> zshooter.zspec.zspec_control_box.zspec_network_switch).class: network_conn
+    (facility_1000base_t -> zshooter.zimage.zimage_ebox.zimage_ubuntu).class: [network_conn; optional_conn]
+
+    (facility_glycol -> zshooter.zimage.zimage_glycol_submanifold).class: [glycol_conn; optional_conn]
+    (facility_glycol -> zshooter.zshooter_glycol_manifold).class: glycol_conn
+    (facility_air -> zshooter.zshooter_air_manifold).class: air_conn
+    (facility_air -> zshooter.zimage).class: [air_conn; optional_conn]
+
+  }
+
+
+
+  k1_server_room: {
+    class: room_container
+    label: K1 Server Room
+
+    facility_ac: @external.facility_ac
+    facility_ethernet: @external.facility_ethernet
+    network_switch: @common.network_switch_block
+    managed_ups: {
+      class: [device_node; power_device; req_software]
+      label: Managed UPS
+      #TODO: pyNUT daemon missing or defined elsewhere
+    }
+    zimage_readout_computer: {
+      class: [computer_device_node; ethernet_device]
+      label: ZImage Readout Computer
+    }
+    zspec_readout_computer: {
+      class: [computer_device_node; ethernet_device]
+      label: ZSpec Readout Computer
+    }
+    zshooter_reduction_computer: {
+      class: [computer_device_node; ethernet_device]
+      label: ZShooter Reduction Computer
+    }
+
+    (managed_ups -> *_computer).class: ac_conn
+    (facility_ac -> managed_ups -> network_switch).class: ac_conn
+    (facility_ethernet -> network_switch -> managed_ups).class: network_conn
+    (network_switch -> *_computer).class: network_conn
+  }
+
+  k1_mechanical_room: {
+    class: room_container
+    label: K1 Mechanical Room
+
+    facility_ethernet: @external.facility_ethernet
+    facility_glycol: @external.facility_glycol
+    facility_ac: @external.facility_ac
+    zspec_ir_cryo_compressor: {
+      class: [device_node]
+      label: ZSpec IR Cryo Compressor
+    }
+    zspec_cryo_monitor: {
+      class: [controller_device_node; ethernet_device]
+      label: ZSpec Cryo Monitor
+    }
+    (facility_ac -> zspec_cryo_monitor).class: ac_conn
+    (facility_glycol -> zspec_ir_cryo_compressor).class: glycol_conn
+    (facility_ethernet -> zspec_cryo_monitor).class: network_conn
+    (zspec_cryo_monitor -> zspec_ir_cryo_compressor).class: custom_conn
+  }
+
+  (k1_rnas.zshooter.zimage.*_detector -> k1_server_room.zimage_readout_computer).class: coaxpress_conn
+
+  (k1_mechanical_room.zspec_ir_cryo_compressor -> k1_rnas.zshooter.zspec.zspec_nir.zspec_ir_coldhead).class: helium_conn
+  k1_mechanical_room.zspec_ir_cryo_compressor -> k1_rnas.zshooter.zspec.zspec_nir.zspec_ir_coldhead: {
+    class: motor_control_conn
+    label: "Vane Motor"
+  }
+}
+
+optical_system: {
+  class: instrument_container
+  label: Optical Train
+
+  tel: @external.keck_telescope
+  inst_sel: @zfront.zfront.hardware.zfront_instrument_selector
+  left_inst: @external.left_instrument
+  right_inst: @external.right_instrument
+
+  zs: {
+    class: instrument_container
+    label: ZShooter
+
+    zss_zsi_sel: @zfront.zfront.hardware.zfront_zim_zcal_selector
+
+    zss_path: {
+      class: subinstrument_container
+      label: ZSpec Path
+      zss_dichroic: {
+        class: [optical_node]
+        label: ZSpec Dichroic
+      }
+
+      vis_rotator: @zspec.zspec.hardware.zspec_visible.vis_rotator.optical
+      vis_adc: @zspec.zspec.hardware.zspec_visible.vis_adc.optical
+      vis_nod: @zspec.zspec.hardware.zspec_visible.vis_nod.optical
+      vis_slit: @zspec.zspec.hardware.zspec_visible.vis_slit.optical
+      vis_slit_view: @zspec.zspec.hardware.zspec_visible.zspec_vis_slit_viewer.optical
+      vis_spec: {
+        class: [optical_node]
+        label: Visible Spectrograph
+      }
+      vis_cam_b: {
+        class: [optical_node]
+        label: Visible Camera B
+      }
+      vis_cam_g: {
+        class: [optical_node]
+        label: Visible Camera G
+      }
+      vis_cam_r: {
+        class: [optical_node]
+        label: Visible Camera R
+      }
+      detector_b: @zspec.zspec.hardware.zspec_visible.dcs_b.dewar.qccd
+      detector_g: @zspec.zspec.hardware.zspec_visible.dcs_g.dewar.qccd
+      detector_r: @zspec.zspec.hardware.zspec_visible.dcs_r.dewar.qccd
+      vis_rotator -> vis_adc -> vis_nod -> vis_slit -> vis_spec -> vis_cam_*
+      vis_slit -> vis_slit_view
+      vis_cam_b -> detector_b
+      vis_cam_g -> detector_g
+      vis_cam_r -> detector_r
+      (*->*)[*]: {
+        class: optical_conn
+      }
+
+      zs_nir: {
+        class: subinstrument_container
+        label: nIR Cryostat
+
+        nir_rotator: @zspec.zspec.hardware.zspec_nir.zspec_ir_cryostat.ir_rotator.optical
+        nir_adc: @zspec.zspec.hardware.zspec_nir.zspec_ir_cryostat.ir_adc.optical
+        nir_nod: @zspec.zspec.hardware.zspec_nir.zspec_ir_cryostat.ir_nodder.optical
+        nir_slit: @zspec.zspec.hardware.zspec_nir.zspec_ir_cryostat.ir_slit.optical
+        nir_slit_view: @zspec.zspec.hardware.zspec_nir.zspec_ir_cryostat.ir_slit_viewer.optical
+        nir_spec: {
+          class: [optical_node]
+          label: nIR Spectrograph
+        }
+        nir_cam_yj: {
+          class: [optical_node]
+          label: nIR Camera YJ
+        }
+        nir_cam_h: {
+          class: [optical_node]
+          label: nIR Camera H
+        }
+        nir_cam_k: {
+          class: [optical_node]
+          label: nIR Camera K
+        }
+        detector_yj: @zspec.zspec.hardware.zspec_nir.zspec_ir_cryostat.apd_yj
+        detector_h: @zspec.zspec.hardware.zspec_nir.zspec_ir_cryostat.apd_h
+        detector_k: @zspec.zspec.hardware.zspec_nir.zspec_ir_cryostat.apd_k
+        nir_rotator -> nir_adc -> nir_nod -> nir_slit -> nir_spec -> nir_cam_*
+        nir_slit -> nir_slit_view
+        nir_cam_yj -> detector_yj
+        nir_cam_h -> detector_h
+        nir_cam_k -> detector_k
+        (*->*)[*]: {
+          class: optical_conn
+        }
+      }
+
+      (zss_dichroic -> vis_rotator).class: optical_conn
+      (zss_dichroic -> zs_nir.nir_rotator).class: optical_conn
+    }
+
+    zsi_path: {
+        class: subinstrument_container
+        label: ZImage
+        ...@zimage.zimage.optical
+    }
+    zss_zsi_sel -> zss_path.zss_dichroic: {
+      class: optical_conn
+      label: ZSpec passthrough
+    }
+    (zss_zsi_sel->zsi_path.zsi_dichroic_u).class: optical_conn
+  }
+
+  (tel -> inst_sel -> zs.zss_zsi_sel).class: optical_conn
+  inst_sel -> left_inst: {
+    class: optical_conn
+    label: to Left
+  }
+  inst_sel -> right_inst: {
+    class: optical_conn
+    label: to Right
+  }
+}

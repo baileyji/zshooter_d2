@@ -1,0 +1,92 @@
+
+dcs_b: {
+    class: entity_wrapper
+    label: Blue Detector System (TODO inherit?)
+
+    focus: @devices.focus
+    focus.hardware.label: Focus B
+
+    readout: @devices.archon_readout
+    readout.hardware.label: Archon B
+
+    vacuum_gauge: @common.vacuum_gauge
+    vacuum_gauge.label: Vacuum Gauge B
+
+    cryocooler: @common.cryocooler
+    cryocooler.label: Cryocooler B
+
+    dewar: {
+        class: cryostat_container
+        label: Blue Optical Dewar
+        vib: @common.vib
+        qccd: {
+          class: [detector_device_node]
+          label: qCCD B w/heater & temp
+        }
+        (vib -> qccd).class: detector_conn
+    }
+    (readout.hardware -> dewar.vib).class: detector_conn
+
+}
+
+
+dcs_g: {
+
+  class: entity_wrapper
+  label: Green Detector System (TODO inherit?)
+
+  focus: @devices.focus
+  focus.hardware.label: Focus G
+
+  readout: @devices.archon_readout
+  readout.hardware.label: Archon G
+
+  vacuum_gauge: @common.vacuum_gauge
+  vacuum_gauge.label: Vacuum Gauge G
+
+  cryocooler: @common.cryocooler
+  cryocooler.label: Cryocooler G
+
+  dewar: {
+      class: cryostat_container
+      label: Green Optical Dewar
+      vib: @common.vib
+
+      qccd: {
+        class: [detector_device_node]
+        label: qCCD G w/heater & temp
+      }
+      (vib -> qccd).class: detector_conn
+  }
+  (readout.hardware -> dewar.vib).class: detector_conn
+}
+
+
+dcs_r: {
+  class: entity_wrapper
+  label: Red Detector System (TODO inherit?)
+
+  focus: @devices.focus
+  focus.hardware.label: Focus G
+
+  readout: @devices.archon_readout
+  readout.hardware.label: Archon R
+
+  vacuum_gauge: @common.vacuum_gauge
+  vacuum_gauge.label: Vacuum Gauge R
+
+  cryocooler: @common.cryocooler
+  cryocooler.label: Cryocooler R
+
+  dewar: {
+      class: cryostat_container
+      label: Red Optical Dewar
+      vib: @common.vib
+      qccd: {
+        class: [detector_device_node]
+        label: qCCD R w/heater & temp
+      }
+      (vib -> qccd).class: detector_conn
+  }
+  (readout.hardware -> dewar.vib).class: detector_conn
+}

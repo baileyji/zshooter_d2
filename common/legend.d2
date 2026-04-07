@@ -1,0 +1,236 @@
+vars: {
+
+d2-legend:  {
+  near: top-right
+
+
+    room_container: "Room / Area" {
+      class: room_container
+    }
+
+    instrument_container: "Instrument" {
+      class: instrument_container
+    }
+
+    subinstrument_container: "Subinstrument" {
+      class: subinstrument_container
+    }
+
+    enclosure_container: "Enclosure" {
+      class: enclosure_container
+    }
+
+    cryostat_container: "Cryostat" {
+      class: cryostat_container
+    }
+
+    computer_host_container: "Computer Host" {
+      class: computer_host_container
+    }
+
+    utility_node: "Utility" {
+      class: utility_node
+    }
+
+    service_node: "Service" {
+      class: service_node
+    }
+
+    device_node: "Device" {
+      class: device_node
+    }
+
+    detector_device_node: "Detector Device" {
+      class: detector_device_node
+    }
+
+    optical_node: "Optic(s)" {
+      class: optical_node
+    }
+
+    controller_device_node: "Controller Device" {
+      class: controller_device_node
+    }
+
+    motion_device_node: "Motion Device" {
+      class: motion_device_node
+    }
+
+    sensor_device_node: "Sensor Device" {
+      class: sensor_device_node
+    }
+
+    distribution_device_node: "Power Distribution" {
+      class: distribution_device_node
+    }
+
+    manifold_device_node: "Manifold Device" {
+      class: manifold_device_node
+    }
+
+    computer_device_node: "Computer Device" {
+      class: computer_device_node
+    }
+
+#    daemon_card_container: "Daemon Card" {
+#      class: daemon_card_container
+#    }
+#
+#    object_model_container: "Object Model" {
+#      class: object_model_container
+#    }
+#
+#    config_section_block: "Daemon Section" {
+#      class: config_section_block
+#    }
+#
+#    ops_section_block: "Ops Section" {
+#      class: ops_section_block
+#    }
+#
+#    eng_section_block: "Engineering Section" {
+#      class: eng_section_block
+#    }
+#
+#    status_section_block: "Status Section" {
+#      class: status_section_block
+#    }
+#
+#    event_section_block: "Event Section" {
+#      class: event_section_block
+#    }
+#
+#    device_section_container: "Device Section" {
+#      class: device_section_container
+#    }
+#
+#    object_block: "Object Block" {
+#      class: object_block
+#    }
+
+    onewire_temp_sensor: "1-Wire Temp Sensor" {
+      class: onewire_temp_sensor
+    }
+
+    cryo_temp_sensor: "Cryo Temp Sensor" {
+      class: cryo_temp_sensor
+    }
+
+
+
+    data_a.style.opacity: 0
+    data_b.style.opacity: 0
+    data_a -> data_b: "Data" {
+      class: data_conn
+    }
+
+    network_a.style.opacity: 0
+    network_b.style.opacity: 0
+    network_a -> network_b: "Ethernet" {
+      class: network_conn
+    }
+
+    usb_a.style.opacity: 0
+    usb_b.style.opacity: 0
+    usb_a -> usb_b: "USB" {
+      class: usb_conn
+    }
+
+    serial_a.style.opacity: 0
+    serial_b.style.opacity: 0
+    serial_a -> serial_b: "Serial" {
+      class: serial_conn
+    }
+
+    detector_a.style.opacity: 0
+    detector_b.style.opacity: 0
+    detector_a -> detector_b: "Detector" {
+      class: detector_conn
+    }
+
+    custom_a.style.opacity: 0
+    custom_b.style.opacity: 0
+    custom_a -> custom_b: "Custom" {
+      class: custom_conn
+    }
+
+    motor_a.style.opacity: 0
+    motor_b.style.opacity: 0
+    motor_a -> motor_b: "Motor Harness" {
+      class: motor_control_conn
+    }
+
+    coaxpress_a.style.opacity: 0
+    coaxpress_b.style.opacity: 0
+    coaxpress_a -> coaxpress_b: "CoaXPress (4x)" {
+      class: coaxpress_conn
+    }
+
+    helium_a.style.opacity: 0
+    helium_b.style.opacity: 0
+    helium_a -> helium_b: "Cryo-He" {
+      class: helium_conn
+    }
+
+    ac_a.style.opacity: 0
+    ac_b.style.opacity: 0
+    ac_a -> ac_b: "AC" {
+      class: ac_conn
+    }
+
+    dc_a.style.opacity: 0
+    dc_b.style.opacity: 0
+    dc_a -> dc_b: "DC" {
+      class: dc_conn
+    }
+
+    glycol_a.style.opacity: 0
+    glycol_b.style.opacity: 0
+    glycol_a -> glycol_b: "Glycol (2x)" {
+      class: glycol_conn
+    }
+
+    air_a.style.opacity: 0
+    air_b.style.opacity: 0
+    air_a -> air_b: "Air" {
+      class: air_conn
+    }
+
+    sensor_a.style.opacity: 0
+    sensor_b.style.opacity: 0
+    sensor_a -> sensor_b: "Sensor Fanout" {
+      class: sensor_fanout_conn
+    }
+
+#    optical_a: "" {
+#      style.opacity: 0
+#    }
+#    optical_b: "" {
+#      style.opacity: 0
+#    }
+#    optical_a -> optical_b: "Photons" {
+#      class: optical_conn
+#    }
+
+#    publish_a: "" {
+#      style.opacity: 0
+#    }
+#    publish_b: "" {
+#      style.opacity: 0
+#    }
+#    publish_a -> publish_b: "Publish" {
+#      class: publish_conn
+#    }
+
+#    command_a: "" {
+#      style.opacity: 0
+#    }
+#    command_b: "" {
+#      style.opacity: 0
+#    }
+#    command_a -> command_b: "Command" {
+#      class: command_conn
+#    }
+
+}
+}

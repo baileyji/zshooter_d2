@@ -1,0 +1,84 @@
+network_switch_block: {
+  class: [distribution_device_node; ethernet_device]
+  label: Network Switch
+}
+
+glycol_manifold_block: {
+  class: [manifold_device_node]
+  label: Glycol Manifold
+}
+
+air_manifold_block: {
+  class: [manifold_device_node]
+  label: Air Manifold
+}
+
+ac_distribution_block: {
+  class: [distribution_device_node]
+  label: AC Distribution
+}
+
+dc_distribution_block: {
+  class: [distribution_device_node]
+  label: DC Distribution
+}
+
+ac_to_dc_block: {
+  class: [device_node; distribution_device_node]
+  label: AC to DC Bus
+}
+
+data_hub_block: {
+  class: [distribution_device_node; ethernet_device; usb_device]
+  label: "Data Hub (Eth/USB)"
+}
+
+onewire_hub_block: {
+  class: [onewire_hub; req_software]
+  label: 1-Wire Hub
+}
+
+onewire_temp_sensor_block: {
+  class: [sensor_device_node; onewire_temp_sensor]
+  label: 1-Wire Temp Sensor
+}
+
+instrument_telemetry_db: {
+  class: [service_node; database_service]
+  label: Instrument Telemetry Database
+}
+
+jupyter_notebook_server: {
+  class: [service_node; notebook_service]
+  label: Jupyter Notebook Server
+}
+
+focus_actuator: {
+  class: [motion_device_node; serial_device; req_software]
+  label: Focus Actuator
+}
+
+vib: {
+  class: [device_node]
+  label: VIB
+}
+
+vacuum_gauge: {
+  class: [sensor_device_node; serial_device; req_software]
+  label: Vacuum Gauge
+}
+
+cryocooler: {
+  class: [device_node]
+  label: Cryocooler
+}
+
+quest2_detector: {
+  class: [detector_device_node; coaxpress_device; req_software]
+  label: Orca-Quest2
+}
+
+apd_detector: {
+  class: [detector_device_node]
+  label: 2k sq APD w/heater & temp
+}
