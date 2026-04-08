@@ -40,7 +40,7 @@ dcs_b: {
         label: Blue Optical Dewar
         vib: @common.vib
         qccd: {
-          class: [detector_device_node]
+          class: detector_device_node
           label: qCCD B w/heater & temp
         }
         (vib -> qccd).class: detector_conn
@@ -73,7 +73,7 @@ dcs_g: {
       vib: @common.vib
 
       qccd: {
-        class: [detector_device_node]
+        class: detector_device_node
         label: qCCD G w/heater & temp
       }
       (vib -> qccd).class: detector_conn
@@ -103,7 +103,7 @@ dcs_r: {
       label: Red Optical Dewar
       vib: @common.vib
       qccd: {
-        class: [detector_device_node]
+        class: detector_device_node
         label: qCCD R w/heater & temp
       }
       (vib -> qccd).class: detector_conn

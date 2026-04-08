@@ -1,109 +1,64 @@
 zimage: {
-  class: entity_wrapper
-  hardware: {
-    class: subinstrument_container
-    label: ZImage
-    ebox: {
-      class: enclosure_container
-      label: ZImage EBox
-      ac_distribution: @common.ac_distribution_block
-      dc_bus: @common.ac_to_dc_block
+  class: subinstrument_container
+  label: ZImage
+  ebox: {
+    class: enclosure_container
+    label: ZImage EBox
+    ac_distribution: @common.ac_distribution_block
+    dc_bus: @common.ac_to_dc_block
 
-      data_hub: @common.data_hub_block
-      motor_control: @devices.motor_controller
+    data_hub: @common.data_hub_block
+    motor_control: @devices.motor_controller
 
-      ubuntu: {
-        class: [computer_device_node; ethernet_device; optional_node]
-        label: ZImage Ubuntu
-      }
-      (ac_distribution->dc_bus).class: ac_conn
-      (ac_distribution->ubuntu).class: [ac_conn; optional_conn]
-
-      (dc_bus->data_hub).class: dc_conn
-      (dc_bus->motor_control.hardware).class: dc_conn
-
-      (ubuntu->data_hub).class: [data_conn; optional_conn]
-      (data_hub->motor_control.hardware).class: data_conn
+    ubuntu: {
+      class: [computer_device_node; ethernet_device; optional_node]
+      label: ZImage Ubuntu
     }
-    glycol_submanifold: @common.glycol_manifold_block
-    temp_monitor: @subsystems.temp_monitor_module
+    (ac_distribution->dc_bus).class: ac_conn
+    (ac_distribution->ubuntu).class: [ac_conn; optional_conn]
 
-    filter_wheel: @devices.filter_wheel
-    focus: @devices.focus
+    (dc_bus->data_hub).class: dc_conn
+    (dc_bus->motor_control.hardware).class: dc_conn
 
-    u_rotator: @devices.opt_rotator
-    u_rotator.hardware.label: u Detector Rotator
-
-    v_rotator: @devices.opt_rotator
-    v_rotator.hardware.label: v Detector Rotator
-
-    z_rotator: @devices.opt_rotator
-    z_rotator.hardware.label: z Detector Rotator
-
-    u_detector: @common.quest2_detector
-    v_detector: @common.quest2_detector
-    z_detector: @common.quest2_detector
-    u_detector.label: 'u Orca-Quest2'
-    v_detector.label: 'v Orca-Quest2'
-    z_detector.label: 'z Orca-Quest2'
-
-    (ebox.data_hub->glycol_submanifold).class: data_conn
-    (ebox.data_hub->temp_monitor.temp_hub.hardware).class: data_conn
-
-    (ebox.motor_control.hardware->filter_wheel.hardware).class: motor_control_conn
-    (ebox.motor_control.hardware->focus.hardware).class: motor_control_conn
-    (ebox.motor_control.hardware->u_rotator.hardware).class: motor_control_conn
-    (ebox.motor_control.hardware->v_rotator.hardware).class: motor_control_conn
-    (ebox.motor_control.hardware->z_rotator.hardware).class: motor_control_conn
-
-
-    (ebox.data_hub->u_detector).class: data_conn
-    (ebox.data_hub->v_detector).class: data_conn
-    (ebox.data_hub->z_detector).class: data_conn
-
-    (glycol_submanifold->u_detector).class: glycol_conn
-    (glycol_submanifold->v_detector).class: glycol_conn
-    (glycol_submanifold->z_detector).class: glycol_conn
+    (ubuntu->data_hub).class: [data_conn; optional_conn]
+    (data_hub->motor_control.hardware).class: data_conn
   }
+  glycol_submanifold: @common.glycol_manifold_block
+  temp_monitor: @subsystems.temp_monitor_module
 
-  optical: {
+  filter_wheel: @devices.filter_wheel
+  focus: @devices.focus
 
-    zsi_filter_wheel: @devices.filter_wheel.optical
+  u_rotator: @devices.opt_rotator
+  u_rotator.hardware.label: u Detector Rotator
 
-    zsi_dichroic_u: {
-      class: [optical_node]
-      label: ZImage u Longpass
-    }
-    zsi_dichroic_z: {
-      class: [optical_node]
-      label: ZImage z Longpass
-    }
+  v_rotator: @devices.opt_rotator
+  v_rotator.hardware.label: v Detector Rotator
 
-    zsi_u_cam: {
-      class: [optical_node]
-      label: u Camera
-    }
-    zsi_v_cam: {
-      class: [optical_node]
-      label: v Camera
-    }
-    zsi_z_cam: {
-      class: [optical_node]
-      label: z Camera
-    }
+  z_rotator: @devices.opt_rotator
+  z_rotator.hardware.label: z Detector Rotator
 
-    tor: @common.quest2_detector
-    tor: @common.quest2_detector
-    z_detector: @common.quest2_detector
-    u_detector.label: 'u Orca-Quest2'
-    v_detector.label: 'v Orca-Quest2'
-    z_detector.label: 'z Orca-Quest2'
+  u_detector: @common.quest2_detector
+  v_detector: @common.quest2_detector
+  z_detector: @common.quest2_detector
+  u_detector.label: 'u Orca-Quest2'
+  v_detector.label: 'v Orca-Quest2'
+  z_detector.label: 'z Orca-Quest2'
 
-    (zsi_dichroic_u->zsi_u_cam-> u_detector).class: optical_conn
-    (zsi_dichroic_u -> zsi_dichroic_z -> zsi_filter_wheel ->zsi_v_cam).class: optical_conn
+  (ebox.data_hub->glycol_submanifold).class: data_conn
+  (ebox.data_hub->temp_monitor.temp_hub.hardware).class: data_conn
 
-    (zsi_v_cam-> v_detector).class: optical_conn
-    (zsi_dichroic_z->zsi_z_cam-> z_detector).class: optical_conn
+  (ebox.motor_control.hardware->filter_wheel.hardware).class: motor_control_conn
+  (ebox.motor_control.hardware->focus.hardware).class: motor_control_conn
+  (ebox.motor_control.hardware->u_rotator.hardware).class: motor_control_conn
+  (ebox.motor_control.hardware->v_rotator.hardware).class: motor_control_conn
+  (ebox.motor_control.hardware->z_rotator.hardware).class: motor_control_conn
 
-  }
+  (ebox.data_hub->u_detector).class: data_conn
+  (ebox.data_hub->v_detector).class: data_conn
+  (ebox.data_hub->z_detector).class: data_conn
+
+  (glycol_submanifold->u_detector).class: glycol_conn
+  (glycol_submanifold->v_detector).class: glycol_conn
+  (glycol_submanifold->z_detector).class: glycol_conn
 }

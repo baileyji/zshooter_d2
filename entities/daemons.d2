@@ -1,41 +1,5 @@
-vars: {
-  daemon_template: {
-    #grid-rows: 3
-    class: daemon_card_container
-    label: "Daemon Template"
-    config: {
-      class: config_section_block
-      label: Config
-    }
-    device: {
-      class: device_section_container
-      label: Device Drivers
-    }
-    status: {
-      class: status_section_block
-      label: Status
-    }
-    events: {
-      class: event_section_block
-      label: Alerts/Pub
-    }
-    ops: {
-      class: ops_section_block
-      label: Commands
-    }
-    eng: {
-      class: eng_section_block
-      label: Eng. Cmds
-    }
-    object_model: suspend {
-      class: object_model_container
-      label: Object Model
-    }
-  }
-}
-
 focus_controller: {
-  ...${daemon_template}
+  ...@../common/templates.daemon
   label: "Focus Controller (FocusController)"
   device: suspend
   eng: suspend
@@ -60,13 +24,10 @@ focus_controller: {
 }
 
 focus: {
-  ...${daemon_template}
+  ...@../common/templates.daemon
   label: "Focus Drive (FocusDriveDaemon)"
   device: {
-    driver: {
-      class: [object_block]
-      label: "FocusDriveDevice (SerialDevice)"
-    }
+    FocusDriveDevice: SerialDevice
   }
   config: {
     "main.yaml": zimage.focus
@@ -90,9 +51,10 @@ focus: {
 }
 
 vacuum_monitor: {
-  ...${daemon_template}
+  ...@../common/templates.daemon
   label: "Vacuum Monitor (VacuumMonitorDaemon)"
   eng: suspend
+  device: suspend
   config: {
     "main.yaml": zspec.vacuum_monitor
     "logger.yaml": present
@@ -109,7 +71,7 @@ vacuum_monitor: {
 }
 
 fine_guiding: {
-  ...${daemon_template}
+  ...@../common/templates.daemon
   device: suspend
   eng: suspend
   label: "Fine Guiding (FineGuidingDaemon)"
@@ -131,18 +93,12 @@ fine_guiding: {
 }
 
 zfront_control: {
-  ...${daemon_template}
+  ...@../common/templates.daemon
   label: "ZFront Control (ZFrontControlDaemon)"
   eng: suspend
   device: {
-    cal_driver: {
-      class: [object_block]
-      label: CalSourceController
-    }
-    sel_driver: {
-      class: [object_block]
-      label: SelectorController
-    }
+    Calibration Driver: CalSourceController
+    Path Selector: SelectorController
   }
   config: {
     "main.yaml": zfront.calibration_control
@@ -163,7 +119,7 @@ zfront_control: {
 }
 
 observer_gui: {
-  ...${daemon_template}
+  ...@../common/templates.daemon
   device: suspend
   eng: suspend
   label: Observer GUI
@@ -184,71 +140,62 @@ observer_gui: {
 }
 
 rotator: {
-    ...${daemon_template}
-    label: "Rotator (FieldRotatorDaemon)"
-    device: {
-      driver: {
-        class: [object_block]
-        label: "RotatorDevice (SerialDevice)"
-      }
-    }
-    config: {
-      "main.yaml": zspec....
-      "logger.yaml": present
-    }
-    status: {
-      "field_angle_offset [rw*]": Angle
-      "mode [rw]": Mode
-    }
-    events: {
-      "drive_fault": Event
-    }
-    ops: {
-      "set_field_angle(angle: float)"
-      "set_mode(mode: RotatorMode)"
-      "calibrate()"
-      "stop_motion()"
-      "estop()"
-    }
-}
-
-adc: {
-  ...${daemon_template}
-  label: "ADC (ADCCorrectorDaemon)"
+  ...@../common/templates.daemon
+  label: "Rotator (FieldRotatorDaemon)"
   device: {
-    driver: {
-      class: [object_block]
-      label: "ADCDevice (SerialDevice)"
-    }
+    RotatorDevice: (SerialDevice)
   }
   config: {
-    "main.yaml": zspec.opt_adc
+    "main.yaml": zspec....
     "logger.yaml": present
   }
   status: {
-    "correction_angle [rw]": Angle
-    "phase_offset [rw*]": Angle
+    "field_angle_offset [rw*]": Angle
+    "mode [rw]": Mode
   }
   events: {
     "drive_fault": Event
   }
   ops: {
-    "set_correction(angle: float)"
-    "set_mode(mode: ADCMode)"
+    "set_field_angle(angle: float)"
+    "set_mode(mode: RotatorMode)"
     "calibrate()"
     "stop_motion()"
     "estop()"
   }
 }
 
+adc: {
+  ...@../common/templates.daemon
+  label: "ADC (ADCCorrectorDaemon)"
+  device: {
+    ADCDevice: (SerialDevice)
+  }
+  config: {
+   "main.yaml": zspec.opt_adc
+   "logger.yaml": present
+  }
+  status: {
+   "correction_angle [rw]": Angle
+   "phase_offset [rw*]": Angle
+  }
+  events: {
+   "drive_fault": Event
+  }
+  ops: {
+   "set_correction(angle: float)"
+   "set_mode(mode: ADCMode)"
+   "calibrate()"
+   "stop_motion()"
+   "estop()"
+  }
+}
+
 nodder: {
-  ...${daemon_template}
+  ...@../common/templates.daemon
   label: "Nodder (NodderDaemon)"
   device: {
-    driver: {
-      class: [object_block]
-      label: "NodderDevice (SerialDevice)"
-    }
+      NodderDevice: (SerialDevice)
   }
   config: {
     "main.yaml": zspec.opt_nodder
@@ -269,13 +216,10 @@ nodder: {
 }
 
 filter_wheel: {
-  ...${daemon_template}
+  ...@../common/templates.daemon
   label: "Filter Wheel (FilterWheelDaemon)"
   device: {
-    driver: {
-      class: [object_block]
-      label: "FilterWheelDevice (SerialDevice)"
-    }
+      FilterWheelDevice: (SerialDevice)
   }
   config: {
     "main.yaml": zimage.filter_wheel
@@ -301,13 +245,10 @@ filter_wheel: {
 }
 
 slit_selector: {
-  ...${daemon_template}
+  ...@../common/templates.daemon
   label: "Optical Slit (SlitDaemon)"
   device: {
-    driver: {
-      class: [object_block]
-      label: "SlitDevice (SerialDevice)"
-    }
+      SlitDevice: (SerialDevice)
   }
   config: {
     "main.yaml": zspec.opt_slit
@@ -328,13 +269,10 @@ slit_selector: {
 }
 
 slit_view: {
-  ...${daemon_template}
+  ...@../common/templates.daemon
   label: "nIR Slit Viewer (SlitcamDaemon)"
   device: {
-    driver: {
-      class: [object_block]
-      label: "SlitCamera (Ethernet)"
-    }
+      SlitCamera: (Ethernet)
   }
   config: {
     "main.yaml": zspec.slitcam_ir
@@ -353,13 +291,10 @@ slit_view: {
 }
 
 motor_controller: {
-  ...${daemon_template}
+  ...@../common/templates.daemon
   label: "Generic Motor Bus/Controller ()"
   device: {
-    driver: {
-      class: [object_block]
-      label: "MotorController"
-    }
+    "MotorController": (Somedriver)
   }
   config: {
     "main.yaml": controller
@@ -378,13 +313,10 @@ motor_controller: {
 
 
 quest2readout: {
-   ...${daemon_template}
+  ...@../common/templates.daemon
    label: "Quest2 Readout (ImagerReadoutDaemon)"
    device: {
-     driver: {
-       class: [object_block]
-       label: "Quest2Driver (CoaXPressDevice)"
-     }
+     Quest2Driver: (CoaXPressDevice)
    }
    config: {
      "main.yaml": zimage.readout_z
@@ -411,21 +343,18 @@ quest2readout: {
 
 
 archonreadout: {
-  ...${daemon_template}
+  ...@../common/templates.daemon
   label: "Archon Readout (ReadoutDaemon)"
   device: {
-    driver: {
-      class: [object_block]
-      label: ArchonDriver
-    }
+    ArchonDriver: (camerad heritage)
   }
   object_model: unsuspend {
     exposure_config: {
-      class: [object_block]
+      class: object_block
       label: ExposureConfig
     }
     readout_status: {
-      class: [object_block]
+      class: object_block
       label: ReadoutStatus
     }
   }
@@ -466,15 +395,11 @@ archonreadout: {
 }
 
 temp_monitor: {
-  ...${daemon_template}
-  #driver: suspend
+  ...@../common/templates.daemon
   eng: suspend
   label: "Temp Monitor (`TempMonitorDaemon`)"
   device: {
-    driver: {
-      class: [object_block]
-      label: OneWireHubDevice
-    }
+    OneWireHubDevice: (MQTT Something)
   }
   config: {
     "main.yaml": zspec.opt_temp_monitor

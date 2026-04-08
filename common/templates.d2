@@ -1,0 +1,34 @@
+
+daemon: {
+  grid-rows: 3
+  class: daemon_card_container
+  label: "Daemon Template"
+  config: {
+    class: config_section_block
+    label: Config
+  }
+  device: {
+    class: device_section_container
+    label: Device Drivers
+  }
+  status: {
+    class: status_section_block
+    label: Status
+  }
+  events: {
+    class: event_section_block
+    label: Alerts/Pub
+  }
+  ops: {
+    class: ops_section_block
+    label: Commands
+  }
+  eng: {
+    class: eng_section_block
+    label: Eng. Cmds
+  }
+  object_model: suspend {
+    class: object_model_container
+    label: Object Model
+  }
+}

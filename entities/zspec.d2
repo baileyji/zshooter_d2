@@ -1,236 +1,235 @@
 zspec: {
-  hardware: {
-    class: entity_wrapper
-    zspec_visible: {
-      class: subinstrument_container
-      label: ZSpec Visible
 
-      motor_controller: @devices.motor_controller.hardware
+  class: subinstrument_container
+  zspec_visible: {
+    class: subinstrument_container
+    label: ZSpec Visible
 
-      data_hub: @common.data_hub_block
-      data_hub.label: "Optical Data Hub (Eth/USB)"
+    motor_controller: @devices.motor_controller.hardware
 
-      dc_distribution: @common.dc_distribution_block
-      dc_distribution.label: Optical DC Distribution
+    data_hub: @common.data_hub_block
+    data_hub.label: "Optical Data Hub (Eth/USB)"
 
-      slit_viewer: @devices.slit_viewer
-      slit_viewer.hardware.label: Visible Slit Viewer
-      slit_viewer.daemon.label: "Visible Slit Camera Daemon"
+    dc_distribution: @common.dc_distribution_block
+    dc_distribution.label: Optical DC Distribution
 
-      temp_monitor: @subsystems.temp_monitor_module
+    slit_viewer: @devices.slit_viewer
+    slit_viewer.hardware.label: Visible Slit Viewer
+    slit_viewer.daemon.label: "Visible Slit Camera Daemon"
 
-      shutter: {
+    temp_monitor: @subsystems.temp_monitor_module
+
+    shutter: {
+        class: entity_wrapper
+        hardware:{
+          class: [motion_device_node; controller_device_node]
+          label: Light Shutter
+        }
+    }
+
+    rotator: @devices.opt_rotator
+    adc: @devices.opt_adc
+    nod: @devices.opt_nodder
+    slit: @devices.opt_slit
+
+    dcs_b: @subsystems.dcs_b
+    dcs_g: @subsystems.dcs_g
+    dcs_r: @subsystems.dcs_r
+
+    (motor_controller -> rotator.hardware).class: motor_control_conn
+    (motor_controller -> adc.hardware).class: motor_control_conn
+    (motor_controller -> nod.hardware).class: motor_control_conn
+    (motor_controller -> slit.hardware).class: motor_control_conn
+    (motor_controller -> dcs_*.focus.hardware).class: motor_control_conn
+
+    (dcs_*.readout.hardware->shutter.hardware).class: data_conn
+    (shutter.hardware->data_hub).class: data_conn
+
+    (dc_distribution -> shutter.hardware).class: dc_conn
+    (dc_distribution -> slit_viewer.hardware).class: dc_conn
+    (dc_distribution -> data_hub).class: dc_conn
+    (dc_distribution -> motor_controller).class: dc_conn
+    (dc_distribution -> dcs_*.cryocooler).class: dc_conn
+    (dc_distribution -> dcs_*.vacuum_gauge).class: dc_conn
+
+    (data_hub -> slit_viewer.hardware).class: network_conn
+
+    (data_hub -> temp_monitor.temp_hub.hardware).class: data_conn
+    (data_hub -> dcs_*.cryocooler).class: data_conn
+    (data_hub -> dcs_*.vacuum_gauge).class: data_conn
+    (data_hub -> motor_controller).class: data_conn
+  }
+
+
+  zspec_nir: {
+    class: subinstrument_container
+    label: ZSpec nIR
+
+    motor_controller: @devices.motor_controller.hardware
+
+    temp_controller_hw: {
+      class: [controller_device_node; ethernet_device]
+      label: nIR Temp Controller
+    }
+
+    coldhead: {
+      class: device_node
+      label: Coldhead
+    }
+    vacuum_gauge: @common.vacuum_gauge
+    vacuum_gauge.label: Vacuum Gauge nIR
+
+    data_hub: @common.data_hub_block
+    data_hub.label: "nIR Data Hub (Eth/USB)"
+
+    dc_distribution: @common.dc_distribution_block
+    dc_distribution.label: nIR DC Distribution
+
+    readout_yj: @devices.archon_readout
+    readout_yj.hardware.label: YJ Archon
+    readout_h: @devices.archon_readout
+    readout_h.hardware.label: H Archon
+    readout_k: @devices.archon_readout
+    readout_k.hardware.label: K Archon
+
+    (readout_*.hardware->cryostat.detector_vib).class: detector_con
+    (data_hub->cryostat.support_vib).class: data_conn
+    (data_hub->temp_controller_hw).class: data_conn
+    (data_hub->vacuum_gauge).class: data_conn
+    (dc_distribution->vacuum_gauge).class: dc_conn
+    (dc_distribution->data_hub).class: dc_conn
+    (dc_distribution->motor_controller).class: dc_conn
+    (dc_distribution->temp_controller_hw).class: dc_conn
+    (data_hub->motor_controller).class: data_conn
+    (temp_controller_hw->cryostat.support_vib).class: custom_conn
+    (motor_controller->cryostat.support_vib).class: motor_control_conn
+
+    cryostat: {
+      class: cryostat_container
+      label: nIR Cryostat
+
+      support_vib: @common.vib
+      support_vib.label: Support & Motion VIB
+      detector_vib: @common.vib
+      detector_vib.label: Detector VIB
+
+      cryoshutter: {
           class: entity_wrapper
           hardware:{
             class: [motion_device_node; controller_device_node]
-            label: Light Shutter
+            label: Cryo Light Shutter
           }
       }
+      rotator: @devices.ir_rotator
+      adc: @devices.ir_adc
+      nodder: @devices.ir_nodder
+      slit: @devices.ir_slit
+      slit_viewer: @devices.slit_viewer
+      slit_viewer.hardware.class: [camera_device_node; req_software]
+      slit_viewer.hardware.class: nIR Slit Viewer
+      slit_viewer.daemon.label: "IR Slit Camera Daemon"
 
-      rotator: @devices.opt_rotator
-      adc: @devices.opt_adc
-      nod: @devices.opt_nodder
-      slit: @devices.opt_slit
+      focus_yj: @devices.cryofocus
+      focus_yj.hardware.label: Focus YJ
+      focus_h: @devices.cryofocus
+      focus_h.hardware.label: Focus H
+      focus_k: @devices.cryofocus
+      focus_k.hardware.label: Focus K
 
-      dcs_b: @subsystems.dcs_b
-      dcs_g: @subsystems.dcs_g
-      dcs_r: @subsystems.dcs_r
 
-      (motor_controller -> rotator.hardware).class: motor_control_conn
-      (motor_controller -> adc.hardware).class: motor_control_conn
-      (motor_controller -> nod.hardware).class: motor_control_conn
-      (motor_controller -> slit.hardware).class: motor_control_conn
-      (motor_controller -> dcs_*.focus.hardware).class: motor_control_conn
+      (support_vib -> cryoshutter.hardware).class: motor_control_conn
+      (support_vib -> rotator.hardware).class: motor_control_conn
+      (support_vib -> adc.hardware).class: motor_control_conn
+      (support_vib -> nodder.hardware).class: motor_control_conn
+      (support_vib -> slit.hardware).class: motor_control_conn
+      (support_vib -> focus*.hardware).class: motor_control_conn
+      (support_vib -> slit_viewer.hardware).class: detector_conn
 
-      (dcs_*.readout.hardware->shutter.hardware).class: data_conn
-      (shutter.hardware->data_hub).class: data_conn
+      heaters: {
+        class: device_node
+        label: Heaters
+      }
+      (support_vib->heaters).class: dc_conn
+      (support_vib->heaters)[*].label: "DC (High Current)"
 
-      (dc_distribution -> shutter.hardware).class: dc_conn
-      (dc_distribution -> slit_viewer.hardware).class: dc_conn
-      (dc_distribution -> data_hub).class: dc_conn
-      (dc_distribution -> motor_controller).class: dc_conn
-      (dc_distribution -> dcs_*.cryocooler).class: dc_conn
-      (dc_distribution -> dcs_*.vacuum_gauge).class: dc_conn
+      temp_sensor_1: {
+        class: [sensor_device_node; cryo_temp_sensor]
+        label: Cryo Temp Sensor 1
+      }
+      temp_sensor_2: {
+        class: [sensor_device_node; cryo_temp_sensor]
+        label: Cryo Temp Sensor ...
+      }
+      temp_sensor_3: {
+        class: [sensor_device_node; cryo_temp_sensor]
+        label: Cryo Temp Sensor N
+      }
+      (support_vib-> temp_sensor_*).class: sensor_fanout_conn
 
-      (data_hub -> slit_viewer.hardware).class: network_conn
+      apd_yj: @common.apd_detector
+      apd_h: @common.apd_detector
+      apd_k: @common.apd_detector
 
-      (data_hub -> temp_monitor.temp_hub.hardware).class: data_conn
-      (data_hub -> dcs_*.cryocooler).class: data_conn
-      (data_hub -> dcs_*.vacuum_gauge).class: data_conn
-      (data_hub -> motor_controller).class: data_conn
+      apd_yj.label: "YJ 2k sq APD w/heater & temp"
+      apd_h.label: "H 2k sq APD w/heater & temp"
+      apd_k.label: "K 2k sq APD w/heater & temp"
+
+      detector_vib -> apd_* :{
+        class: detector_conn
+      }
+
     }
-
-
-    zspec_nir: {
-      class: subinstrument_container
-      label: ZSpec nIR
-
-      motor_controller: @devices.motor_controller.hardware
-
-      temp_controller_hw: {
-        class: [controller_device_node; ethernet_device]
-        label: nIR Temp Controller
-      }
-
-      coldhead: {
-        class: [device_node]
-        label: Coldhead
-      }
-      vacuum_gauge: @common.vacuum_gauge
-      vacuum_gauge.label: Vacuum Gauge nIR
-
-      data_hub: @common.data_hub_block
-      data_hub.label: "nIR Data Hub (Eth/USB)"
-
-      dc_distribution: @common.dc_distribution_block
-      dc_distribution.label: nIR DC Distribution
-
-      readout_yj: @devices.archon_readout
-      readout_yj.hardware.label: YJ Archon
-      readout_h: @devices.archon_readout
-      readout_h.hardware.label: H Archon
-      readout_k: @devices.archon_readout
-      readout_k.hardware.label: K Archon
-
-      (readout_*.hardware->cryostat.detector_vib).class: detector_con
-      (data_hub->cryostat.support_vib).class: data_conn
-      (data_hub->temp_controller_hw).class: data_conn
-      (data_hub->vacuum_gauge).class: data_conn
-      (dc_distribution->vacuum_gauge).class: dc_conn
-      (dc_distribution->data_hub).class: dc_conn
-      (dc_distribution->motor_controller).class: dc_conn
-      (dc_distribution->temp_controller_hw).class: dc_conn
-      (data_hub->motor_controller).class: data_conn
-      (temp_controller_hw->cryostat.support_vib).class: custom_conn
-      (motor_controller->cryostat.support_vib).class: motor_control_conn
-
-      cryostat: {
-        class: cryostat_container
-        label: nIR Cryostat
-
-        support_vib: @common.vib
-        support_vib.label: Support & Motion VIB
-        detector_vib: @common.vib
-        detector_vib.label: Detector VIB
-
-        cryoshutter: {
-            class: entity_wrapper
-            hardware:{
-              class: [motion_device_node; controller_device_node]
-              label: Cryo Light Shutter
-            }
-        }
-        rotator: @devices.ir_rotator
-        adc: @devices.ir_adc
-        nodder: @devices.ir_nodder
-        slit: @devices.ir_slit
-        slit_viewer: @devices.slit_viewer
-        slit_viewer.hardware.class: [camera_device_node; req_software]
-        slit_viewer.hardware.class: nIR Slit Viewer
-        slit_viewer.daemon.label: "IR Slit Camera Daemon"
-
-        focus_yj: @devices.cryofocus
-        focus_yj.hardware.label: Focus YJ
-        focus_h: @devices.cryofocus
-        focus_h.hardware.label: Focus H
-        focus_k: @devices.cryofocus
-        focus_k.hardware.label: Focus K
-
-
-        (support_vib -> cryoshutter.hardware).class: motor_control_conn
-        (support_vib -> rotator.hardware).class: motor_control_conn
-        (support_vib -> adc.hardware).class: motor_control_conn
-        (support_vib -> nodder.hardware).class: motor_control_conn
-        (support_vib -> slit.hardware).class: motor_control_conn
-        (support_vib -> focus*.hardware).class: motor_control_conn
-        (support_vib -> slit_viewer.hardware).class: detector_conn
-
-        heaters: {
-          class: [device_node]
-          label: Heaters
-        }
-        (support_vib->heaters).class: dc_conn
-        (support_vib->heaters)[*].label: "DC (High Current)"
-
-        temp_sensor_1: {
-          class: [sensor_device_node; cryo_temp_sensor]
-          label: Cryo Temp Sensor 1
-        }
-        temp_sensor_2: {
-          class: [sensor_device_node; cryo_temp_sensor]
-          label: Cryo Temp Sensor ...
-        }
-        temp_sensor_3: {
-          class: [sensor_device_node; cryo_temp_sensor]
-          label: Cryo Temp Sensor N
-        }
-        (support_vib-> temp_sensor_*).class: sensor_fanout_conn
-
-        apd_yj: @common.apd_detector
-        apd_h: @common.apd_detector
-        apd_k: @common.apd_detector
-
-        apd_yj.label: "YJ 2k sq APD w/heater & temp"
-        apd_h.label: "H 2k sq APD w/heater & temp"
-        apd_k.label: "K 2k sq APD w/heater & temp"
-
-        detector_vib -> apd_* :{
-          class: detector_conn
-        }
-
-      }
-    }
-
-    zspec_control_box: {
-      class: enclosure_container
-      label: ZSpec Control Box
-
-      zspec_ac_distribution: @common.ac_distribution_block
-      zspec_dc_bus: @common.ac_to_dc_block
-      zspec_network_switch: @common.network_switch_block
-      zspec_data_hub: @common.data_hub_block
-      zspec_ubuntu: {
-        class: [computer_device_node; ethernet_device]
-        label: ZSpec Ubuntu
-      }
-      zspec_heat_exchanger: {
-        class: [device_node]
-        label: Heat Exchanger
-      }
-      zspec_supporting_electronics: {
-        class: [device_node]
-        label: Supporting Electronics
-      }
-
-      zspec_ac_distribution -> zspec_dc_bus
-      zspec_ac_distribution -> zspec_ubuntu
-
-      zspec_dc_bus -> zspec_data_hub
-      zspec_dc_bus -> zspec_supporting_electronics
-      zspec_dc_bus -> zspec_network_switch
-      #zspec_ac_distribution -> zspec_network_switch
-
-      (zspec_ac_distribution -> *)[*] : {
-        class: ac_conn
-      }
-      (zspec_dc_bus -> *)[*] : {
-        class: dc_conn
-      }
-      zspec_ubuntu <- zspec_network_switch -> zspec_supporting_electronics: {
-        class: network_conn
-      }
-      zspec_ubuntu -> zspec_data_hub -> zspec_supporting_electronics: {
-        class: data_conn
-      }
-    }
-    (zspec_control_box.zspec_network_switch -> zspec_nir.*readout*.hardware).class: network_conn
-    (zspec_control_box.zspec_network_switch -> zspec_visible.dcs_*.readout.hardware).class: network_conn
-    (zspec_control_box.zspec_ac_distribution -> zspec_nir.*readout*.hardware).class: ac_conn
-    (zspec_control_box.zspec_ac_distribution -> zspec_visible.dcs_*.readout.hardware).class: ac_conn
-    (zspec_control_box.zspec_dc_bus -> zspec_visible.dc_distribution).class: dc_conn
-    (zspec_control_box.zspec_dc_bus -> zspec_nir.dc_distribution).class: dc_conn
-
-    (zspec_control_box.zspec_data_hub -> zspec_nir.data_hub).class: data_conn
-    (zspec_control_box.zspec_data_hub -> zspec_visible.data_hub).class: data_conn
   }
+
+  zspec_control_box: {
+    class: enclosure_container
+    label: ZSpec Control Box
+
+    zspec_ac_distribution: @common.ac_distribution_block
+    zspec_dc_bus: @common.ac_to_dc_block
+    zspec_network_switch: @common.network_switch_block
+    zspec_data_hub: @common.data_hub_block
+    zspec_ubuntu: {
+      class: [computer_device_node; ethernet_device]
+      label: ZSpec Ubuntu
+    }
+    zspec_heat_exchanger: {
+      class: device_node
+      label: Heat Exchanger
+    }
+    zspec_supporting_electronics: {
+      class: device_node
+      label: Supporting Electronics
+    }
+
+    zspec_ac_distribution -> zspec_dc_bus
+    zspec_ac_distribution -> zspec_ubuntu
+
+    zspec_dc_bus -> zspec_data_hub
+    zspec_dc_bus -> zspec_supporting_electronics
+    zspec_dc_bus -> zspec_network_switch
+    #zspec_ac_distribution -> zspec_network_switch
+
+    (zspec_ac_distribution -> *)[*] : {
+      class: ac_conn
+    }
+    (zspec_dc_bus -> *)[*] : {
+      class: dc_conn
+    }
+    zspec_ubuntu <- zspec_network_switch -> zspec_supporting_electronics: {
+      class: network_conn
+    }
+    zspec_ubuntu -> zspec_data_hub -> zspec_supporting_electronics: {
+      class: data_conn
+    }
+  }
+  (zspec_control_box.zspec_network_switch -> zspec_nir.*readout*.hardware).class: network_conn
+  (zspec_control_box.zspec_network_switch -> zspec_visible.dcs_*.readout.hardware).class: network_conn
+  (zspec_control_box.zspec_ac_distribution -> zspec_nir.*readout*.hardware).class: ac_conn
+  (zspec_control_box.zspec_ac_distribution -> zspec_visible.dcs_*.readout.hardware).class: ac_conn
+  (zspec_control_box.zspec_dc_bus -> zspec_visible.dc_distribution).class: dc_conn
+  (zspec_control_box.zspec_dc_bus -> zspec_nir.dc_distribution).class: dc_conn
+
+  (zspec_control_box.zspec_data_hub -> zspec_nir.data_hub).class: data_conn
+  (zspec_control_box.zspec_data_hub -> zspec_visible.data_hub).class: data_conn
 }
