@@ -36,13 +36,12 @@ optical_system: {
         label: Visible Camera R
       }
 
-      (zspec_visible.slit.optical-> zspec_visible.coll_echelle_xdisp -> zspec_visible.camera_*).class: optical_conn
-      (zspec_visible.camera_b -> zspec_visible.dcs_b.dewar.qccd).class: optical_conn
-      (zspec_visible.camera_g -> zspec_visible.dcs_g.dewar.qccd).class: optical_conn
-      (zspec_visible.camera_r -> zspec_visible.dcs_r.dewar.qccd).class: optical_conn
+      (zspec_visible.slit_op -> zspec_visible.coll_echelle_xdisp -> zspec_visible.camera_*).class: optical_conn
+      (zspec_visible.camera_b -> zspec_visible.dcs_b.dewar.detector).class: optical_conn
+      (zspec_visible.camera_g -> zspec_visible.dcs_g.dewar.detector).class: optical_conn
+      (zspec_visible.camera_r -> zspec_visible.dcs_r.dewar.detector).class: optical_conn
 
-
-      cryostat.nir_spec: {
+      cryostat.coll_echelle_xdisp: {
         class: optical_node
         label: nIR Spectrograph
       }
@@ -58,13 +57,13 @@ optical_system: {
         class: optical_node
         label: nIR Camera K
       }
-      (cryostat.slit.optical-> cryostat.nir_spec -> cryostat.camera_*).class: optical_conn
+      (cryostat.slit_op -> cryostat.coll_echelle_xdisp -> cryostat.camera_*).class: optical_conn
       (cryostat.camera_yj -> cryostat.apd_yj).class: optical_conn
       (cryostat.camera_h -> cryostat.apd_h).class: optical_conn
       (cryostat.camera_k -> cryostat.apd_k).class: optical_conn
 
-      (zss_dichroic -> zspec_visible.rotator.optical).class: optical_conn
-      (zss_dichroic -> cryostat.rotator.optical).class: optical_conn
+      (zss_dichroic -> zspec_visible.shutter_op).class: optical_conn
+      (zss_dichroic -> cryostat.shutter_op).class: optical_conn
 
 
       zimage: @zimage.zimage
@@ -83,7 +82,6 @@ optical_system: {
         label: ZImage z Fold
       }
 
-
       zimage.zsi_u_cam: {
         class: optical_node
         label: u Camera
@@ -96,13 +94,9 @@ optical_system: {
         class: optical_node
         label: z Camera
       }
-      #vars: {
-      #  bob: {
-      #    ...@zimage.zimage.filter_wheel}
-      #}
-      #zimage.filter_wheel: ${bob.optical}
+
       (zimage.zsi_dichroic_u -> zimage.zsi_u_cam -> zimage.u_detector).class: optical_conn
-      (zimage.zsi_dichroic_u -> zimage.zsi_dichroic_z -> zimage.filter_wheel.optical -> zimage.zsi_v_cam).class: optical_conn
+      (zimage.zsi_dichroic_u -> zimage.zsi_dichroic_z -> zimage.filter_wheel_op -> zimage.zsi_v_cam).class: optical_conn
 
       (zimage.zsi_v_cam-> zimage.v_detector).class: optical_conn
       (zimage.zsi_dichroic_z->zimage.zsi_z_fold->zimage.zsi_z_cam-> zimage.z_detector).class: optical_conn

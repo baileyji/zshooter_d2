@@ -5,7 +5,6 @@ Network Diagram
 ...@../entities/zshooter.hardware_system
 
 # Full enough for system review, but suppress overwhelming 1-Wire fanout.
-templates: suspend
 
 ***: suspend
 (*** -> ***)[*]: suspend
@@ -21,13 +20,13 @@ templates: suspend
   &class: subinstrument_container
 }
 ***: unsuspend {
-  &class: enclosure_container
+  &class: ebox_enclosure_container
 }
 
 # Show only network edges and their connected endpoints.
-(** -> **)[*]: unsuspend {
-  &class: network_conn
-}
+#(** -> **)[*]: unsuspend {
+#  &class: network_conn
+#}
 
 ***: unsuspend {
   &connected: true

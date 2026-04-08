@@ -25,10 +25,10 @@ hardware_system: {
       zspec: @zspec.zspec
 
       (glycol_manifold -> zspec.zspec_nir.coldhead).class: glycol_conn
-      (glycol_manifold -> zspec.zspec_nir.*readout*.hardware).class: glycol_conn
-      (glycol_manifold -> zspec.zspec_visible.dcs_*.readout.hardware).class: glycol_conn
+      (glycol_manifold -> zspec.zspec_nir.readout*_hw).class: glycol_conn
+      (glycol_manifold -> zspec.zspec_visible.dcs_*.readout_hw).class: glycol_conn
       (glycol_manifold -> zspec.zspec_visible.dcs_*.cryocooler).class: glycol_conn
-      (glycol_manifold -> zspec.zspec_visible.slit_viewer.hardware).class: glycol_conn
+      (glycol_manifold -> zspec.zspec_visible.slit_viewer_hw).class: glycol_conn
       (glycol_manifold -> zimage.glycol_submanifold).class: glycol_conn
 
       (zspec.zspec_control_box.zspec_data_hub -> zimage.ebox.data_hub).class: data_conn

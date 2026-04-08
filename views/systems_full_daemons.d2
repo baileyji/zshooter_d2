@@ -4,8 +4,8 @@ direction: down
 
 templates: suspend
 
-(k1_rnas.zshooter.zspec.zspec_control_box.zspec_ubuntu.vis_slitcam.device.driver-> k1_rnas.zshooter.zspec.zspec_visible.slit_viewer.hardware).class: driver_conn
-(k1_rnas.zshooter.zspec.zspec_control_box.zspec_ubuntu.ir_slitcam.device.driver-> k1_rnas.zshooter.zspec.zspec_nir.cryostat.slit_viewer.hardware).class: driver_conn
+(k1_rnas.zshooter.zspec.zspec_control_box.zspec_ubuntu.vis_slitcam.device.driver-> k1_rnas.zshooter.zspec.zspec_visible.slit_viewer_hw).class: driver_conn
+(k1_rnas.zshooter.zspec.zspec_control_box.zspec_ubuntu.ir_slitcam.device.driver-> k1_rnas.zshooter.zspec.zspec_nir.cryostat.slit_viewer_hw).class: driver_conn
 (k1_rnas.zshooter.zspec.zspec_control_box.zspec_ubuntu.zimage_filter_wheel.device.driver-> k1_rnas.zshooter.zimage.filter_wheel.hardware).class: driver_conn
 (k1_rnas.zshooter.zspec.zspec_control_box.zspec_ubuntu.zimage_focus.device.driver-> k1_rnas.zshooter.zimage.focus.hardware).class: driver_conn
 (k1_rnas.zshooter.zspec.zspec_control_box.zspec_ubuntu.zimage_u_rotator.device.driver-> k1_rnas.zshooter.zimage.u_rotator.hardware).class: driver_conn
@@ -13,7 +13,7 @@ templates: suspend
 (k1_rnas.zshooter.zspec.zspec_control_box.zspec_ubuntu.zimage_z_rotator.device.driver-> k1_rnas.zshooter.zimage.z_rotator.hardware).class: driver_conn
 (k1_rnas.zshooter.zspec.zspec_control_box.zspec_ubuntu.vis_rotator.device.driver-> k1_rnas.zshooter.zspec.zspec_visiblerotator.hardware).class: driver_conn
 (k1_rnas.zshooter.zspec.zspec_control_box.zspec_ubuntu.vis_adc.device.driver-> k1_rnas.zshooter.zspec.zspec_visibleadc.hardware).class: driver_conn
-(k1_rnas.zshooter.zspec.zspec_control_box.zspec_ubuntu.vis_nod.device.driver-> k1_rnas.zshooter.zspec.zspec_visiblenod.hardware).class: driver_conn
+(k1_rnas.zshooter.zspec.zspec_control_box.zspec_ubuntu.vis_nodder.device.driver-> k1_rnas.zshooter.zspec.zspec_visiblenod.hardware).class: driver_conn
 (k1_rnas.zshooter.zspec.zspec_control_box.zspec_ubuntu.vis_slit.device.driver-> k1_rnas.zshooter.zspec.zspec_visibleslit.hardware).class: driver_conn
 (k1_rnas.zshooter.zspec.zspec_control_box.zspec_ubuntu.zspec_focus_b.device.driver-> k1_rnas.zshooter.zspec.zspec_visible.dcs_b.focus.hardware).class: driver_conn
 (k1_rnas.zshooter.zspec.zspec_control_box.zspec_ubuntu.zspec_focus_g.device.driver-> k1_rnas.zshooter.zspec.zspec_visible.dcs_g.focus.hardware).class: driver_conn
@@ -25,12 +25,12 @@ templates: suspend
 (k1_rnas.zshooter.zspec.zspec_control_box.zspec_ubuntu.zfront_control.device.sel_driver-> k1_rnas.zshooter.zfront.selector_controller).class: driver_conn
 (k1_rnas.zshooter.zspec.zspec_control_box.zspec_ubuntu.zfront_control.device.cal_driver-> k1_rnas.zshooter.zfront.zcal.cal_controller).class: driver_conn
 (k1_rnas.zshooter.zspec.zspec_control_box.zspec_ubuntu.glycol_monitor.device.driver-> k1_rnas.zshooter.glycol_manifold).class: driver_conn
-(k1_rnas.zshooter.zspec.zspec_control_box.zspec_ubuntu.temp_log.device.driver-> k1_rnas.zshooter.zspec.zspec_visible.temp_monitor.temp_hub.hardware).class: driver_conn
-(k1_rnas.zshooter.zspec.zspec_control_box.zspec_ubuntu.temp_log.device.driver-> k1_rnas.zshooter.zimage.temp_monitor.temp_hub.hardware).class: driver_conn
+(k1_rnas.zshooter.zspec.zspec_control_box.zspec_ubuntu.temp_log.device.driver-> k1_rnas.zshooter.zspec.zspec_visible.temp_monitor_hub_hw).class: driver_conn
+(k1_rnas.zshooter.zspec.zspec_control_box.zspec_ubuntu.temp_log.device.driver-> k1_rnas.zshooter.zimage.temp_monitor_hub_hw).class: driver_conn
 (k1_rnas.zshooter.zspec.zspec_control_box.zspec_ubuntu.temp_log.device.ir_driver-> k1_rnas.zshooter.zspec.zspec_nir.temp_controller_hw).class: driver_conn
 (k1_rnas.zshooter.zspec.zspec_control_box.zspec_ubuntu.vacuum_monitor-> k1_rnas.zshooter.zspec.zspec_visible.dcs_*.vacuum_gauge).class: driver_conn
 (k1_rnas.zshooter.zspec.zspec_control_box.zspec_ubuntu.vacuum_monitor-> k1_rnas.zshooter.zspec.zspec_nir.vacuum_gauge).class: driver_conn
-(k1_rnas.zshooter.zspec.zspec_control_box.zspec_ubuntu.shutter_monitor-> k1_rnas.zshooter.zspec.zspec_nir.cryostat.cryoshutter.hardware).class: driver_conn
+(k1_rnas.zshooter.zspec.zspec_control_box.zspec_ubuntu.shutter_monitor-> k1_rnas.zshooter.zspec.zspec_nir.cryostat.shutter.hardware).class: driver_conn
 (k1_rnas.zshooter.zspec.zspec_control_box.zspec_ubuntu.shutter_monitor-> k1_rnas.zshooter.zspec.zspec_visible.shutter.hardware).class: driver_conn
 
 k1_server_room.zimage_readout_computer: {
@@ -80,7 +80,7 @@ k1_rnas.zshooter.zspec.zspec_control_box.zspec_ubuntu: {
     zimage_z_rotator.label: "z Rotator (`ZIRotatorDaemon`)"
     vis_rotator: @zspec.zspec.zspec_visiblerotator.daemon
     vis_adc: @zspec.zspec.zspec_visibleadc.daemon
-    vis_nod: @zspec.zspec.zspec_visiblenod.daemon
+    vis_nodder: @zspec.zspec.zspec_visiblenod.daemon
     vis_slit: @zspec.zspec.zspec_visibleslit.daemon
     zspec_focus_b: @zspec.zspec.zspec_visible.dcs_b.focus.daemon
     zspec_focus_g: @zspec.zspec.zspec_visible.dcs_g.focus.daemon
@@ -106,7 +106,7 @@ k1_rnas.zshooter.zspec.zspec_control_box.zspec_ubuntu: {
       class: command_conn
       label: command
     }
-    fine_guiding -> vis_nod: {
+    fine_guiding -> vis_nodder: {
       class: command_conn
       label: command
     }

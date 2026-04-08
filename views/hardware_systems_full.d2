@@ -10,6 +10,15 @@ direction: right
   optical: suspend
   daemon: suspend
 }
+***: suspend {
+  &class: daemon_card_container
+}
+***: suspend {
+  &class: optical_node
+}
+(*** -> ***)[*]: suspend {
+  &class: optical_conn
+}
 **: {
   &class: computer_device_node
   daemons: suspend

@@ -13,6 +13,19 @@ hardware_system: {
   **: suspend {
     &leaf: true
   }
+  **: unsuspend {
+  &class: room_container
+  }
+  **: unsuspend {
+    &class: instrument_container
+  }
+  **: unsuspend {
+    &class: subinstrument_container
+  }
+  **: unsuspend {
+    &class: ebox_enclosure_container
+  }
+
   **: suspend {
     &class: daemon_card_container
   }
@@ -23,6 +36,9 @@ hardware_system: {
     &class: controller_device_node
   }
   **: {
+    dcs_*.dewar: suspend
+  }
+    **: {
     dcs_*.dewar: suspend
   }
 }

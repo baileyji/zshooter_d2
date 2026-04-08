@@ -8,7 +8,8 @@ zimage: {
     dc_bus: @common.ac_to_dc_block
 
     data_hub: @common.data_hub_block
-    motor_control: @devices.motor_controller
+    motor_control_hw: @devices.motor_controller.hardware
+    motor_control_sw: @devices.motor_controller.daemon
 
     ubuntu: {
       class: [computer_device_node; ethernet_device; optional_node]
@@ -18,25 +19,36 @@ zimage: {
     (ac_distribution->ubuntu).class: [ac_conn; optional_conn]
 
     (dc_bus->data_hub).class: dc_conn
-    (dc_bus->motor_control.hardware).class: dc_conn
+    (dc_bus->motor_control_hw).class: dc_conn
 
     (ubuntu->data_hub).class: [data_conn; optional_conn]
-    (data_hub->motor_control.hardware).class: data_conn
+    (data_hub->motor_control_hw).class: data_conn
   }
+
   glycol_submanifold: @common.glycol_manifold_block
-  temp_monitor: @subsystems.temp_monitor_module
 
-  filter_wheel: @devices.filter_wheel
-  focus: @devices.focus
+  ...@subsystems.temp_monitor_module
 
-  u_rotator: @devices.opt_rotator
-  u_rotator.hardware.label: u Detector Rotator
+  filter_wheel_hw: @devices.filter_wheel.hardware
+  filter_wheel_sw: @devices.filter_wheel.daemon
+  filter_wheel_op: @devices.filter_wheel.optical
+  focus_hw: @devices.focus.hardware
+  focus_sw: @devices.focus.daemon
 
-  v_rotator: @devices.opt_rotator
-  v_rotator.hardware.label: v Detector Rotator
+  u_rotator_hw: @devices.opt_rotator.hardware
+  u_rotator_hw.label: u Detector Rotator
+  u_rotator_sw: @devices.opt_rotator.daemon
+  u_rotator_sw.label: u Detector Rotator
 
-  z_rotator: @devices.opt_rotator
-  z_rotator.hardware.label: z Detector Rotator
+  v_rotator_hw: @devices.opt_rotator.hardware
+  v_rotator_hw.label: v Detector Rotator
+  v_rotator_sw: @devices.opt_rotator.daemon
+  v_rotator_sw.label: v Detector Rotator
+
+  z_rotator_hw: @devices.opt_rotator.hardware
+  z_rotator_hw.label: z Detector Rotator
+  z_rotator_sw: @devices.opt_rotator.daemon
+  z_rotator_sw.label: z Detector Rotator
 
   u_detector: @common.quest2_detector
   v_detector: @common.quest2_detector
@@ -46,13 +58,13 @@ zimage: {
   z_detector.label: 'z Orca-Quest2'
 
   (ebox.data_hub->glycol_submanifold).class: data_conn
-  (ebox.data_hub->temp_monitor.temp_hub.hardware).class: data_conn
+  (ebox.data_hub->temp_monitor_hub_hw).class: data_conn
 
-  (ebox.motor_control.hardware->filter_wheel.hardware).class: motor_control_conn
-  (ebox.motor_control.hardware->focus.hardware).class: motor_control_conn
-  (ebox.motor_control.hardware->u_rotator.hardware).class: motor_control_conn
-  (ebox.motor_control.hardware->v_rotator.hardware).class: motor_control_conn
-  (ebox.motor_control.hardware->z_rotator.hardware).class: motor_control_conn
+  (ebox.motor_control_hw->filter_wheel_hw).class: motor_control_conn
+  (ebox.motor_control_hw->focus_hw).class: motor_control_conn
+  (ebox.motor_control_hw->u_rotator_hw).class: motor_control_conn
+  (ebox.motor_control_hw->v_rotator_hw).class: motor_control_conn
+  (ebox.motor_control_hw->z_rotator_hw).class: motor_control_conn
 
   (ebox.data_hub->u_detector).class: data_conn
   (ebox.data_hub->v_detector).class: data_conn

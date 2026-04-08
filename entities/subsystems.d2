@@ -1,11 +1,8 @@
 
 temp_monitor_module: {
-    class: entity_wrapper
-    label: ""
-    temp_hub.class: entity_wrapper
-    temp_hub.hardware: @common.onewire_hub_block
-    temp_hub.hardware.label: Temp Monitoring Hub
-    temp_hub.daemon: @daemons.temp_monitor
+    temp_monitor_hub_hw: @common.onewire_hub_block
+    temp_monitor_hub_hw.label: 1-Wire Temp Monitor
+    temp_monitor_hub_sw: @daemons.temp_monitor
 
     temp_sensor_1: @common.onewire_temp_sensor_block
     temp_sensor_1.label: Temp Sensor 1
@@ -13,100 +10,33 @@ temp_monitor_module: {
     temp_sensor_2.label: Temp Sensor ...
     temp_sensor_3: @common.onewire_temp_sensor_block
     temp_sensor_3.label: Temp Sensor N
-
-    (temp_hub.hardware->temp_sensor_*).class: sensor_fanout_conn
-
+    
+    (temp_monitor_hub_hw->temp_sensor_*).class: sensor_fanout_conn
 }
 
 
-dcs_b: {
+dcs: {
     class: entity_wrapper
-    label: Blue Detector System (TODO inherit?)
+    label: Detector System
 
-    focus: @devices.focus
-    focus.hardware.label: Focus B
+    focus_hw: @devices.focus.hardware
+    focus_sw: @devices.focus.daemon
 
-    readout: @devices.archon_readout
-    readout.hardware.label: Archon B
+    readout_hw: @devices.archon_readout.hardware
+    readout_sw: @devices.archon_readout.daemon
 
     vacuum_gauge: @common.vacuum_gauge
-    vacuum_gauge.label: Vacuum Gauge B
-
     cryocooler: @common.cryocooler
-    cryocooler.label: Cryocooler B
 
     dewar: {
         class: cryostat_container
-        label: Blue Optical Dewar
         vib: @common.vib
-        qccd: {
+        detector: {
           class: detector_device_node
-          label: qCCD B w/heater & temp
+          label: qCCD w/heater & temp
         }
-        (vib -> qccd).class: detector_conn
+        (vib -> detector).class: detector_conn
     }
-    (readout.hardware -> dewar.vib).class: detector_conn
+    (readout_hw -> dewar.vib).class: detector_conn
 
-}
-
-
-dcs_g: {
-
-  class: entity_wrapper
-  label: Green Detector System (TODO inherit?)
-
-  focus: @devices.focus
-  focus.hardware.label: Focus G
-
-  readout: @devices.archon_readout
-  readout.hardware.label: Archon G
-
-  vacuum_gauge: @common.vacuum_gauge
-  vacuum_gauge.label: Vacuum Gauge G
-
-  cryocooler: @common.cryocooler
-  cryocooler.label: Cryocooler G
-
-  dewar: {
-      class: cryostat_container
-      label: Green Optical Dewar
-      vib: @common.vib
-
-      qccd: {
-        class: detector_device_node
-        label: qCCD G w/heater & temp
-      }
-      (vib -> qccd).class: detector_conn
-  }
-  (readout.hardware -> dewar.vib).class: detector_conn
-}
-
-
-dcs_r: {
-  class: entity_wrapper
-  label: Red Detector System (TODO inherit?)
-
-  focus: @devices.focus
-  focus.hardware.label: Focus G
-
-  readout: @devices.archon_readout
-  readout.hardware.label: Archon R
-
-  vacuum_gauge: @common.vacuum_gauge
-  vacuum_gauge.label: Vacuum Gauge R
-
-  cryocooler: @common.cryocooler
-  cryocooler.label: Cryocooler R
-
-  dewar: {
-      class: cryostat_container
-      label: Red Optical Dewar
-      vib: @common.vib
-      qccd: {
-        class: detector_device_node
-        label: qCCD R w/heater & temp
-      }
-      (vib -> qccd).class: detector_conn
-  }
-  (readout.hardware -> dewar.vib).class: detector_conn
 }

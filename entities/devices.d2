@@ -45,10 +45,6 @@ slit_viewer: {
     label: nIR Slit Viewer
   }
   daemon: @daemons.slit_view
-  optical: {
-    class: detector_device_node
-    label: Slit View Camera
-  }
 }
 
 
@@ -171,8 +167,6 @@ focus: {
   label: ""
   hardware: @common.focus_actuator
   daemon: @daemons.focus
-  (daemon.device.driver->hardware).class: hw_sw_conn
-  (daemon.device.driver->hardware)[0].label: "HELLLLOOOOOOO"
 }
 
 cryofocus:{

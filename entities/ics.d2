@@ -9,7 +9,7 @@ software_runtime: {
   zshooter_pc.class: computer_host_container
 
   zshooter_pc: {
-    #grid-columns: 5
+    grid-columns: 5
     zfront_control: @daemons.zfront_control
     spec_focus: @daemons.focus_controller
     spec_focus.label: ZSpec Focus Controller
@@ -18,28 +18,28 @@ software_runtime: {
     vacuum_monitor: @daemons.vacuum_monitor
     fine_guiding: @daemons.fine_guiding
 
-    vis_slitcam: ${zshooter.zspec.zspec_visible.slit_viewer.daemon}
-    ir_slitcam: ${zshooter.zspec.zspec_nir.cryostat.slit_viewer.daemon}
-    zimage_filter_wheel: ${zshooter.zimage.filter_wheel.daemon}
-    zimage_focus: ${zshooter.zimage.focus.daemon}
-    zimage_u_rotator: ${zshooter.zimage.u_rotator.daemon}
-    zimage_v_rotator: ${zshooter.zimage.v_rotator.daemon}
-    zimage_z_rotator: ${zshooter.zimage.z_rotator.daemon}
+    vis_slitcam: ${zshooter.zspec.zspec_visible.slit_viewer_sw}
+    ir_slitcam: ${zshooter.zspec.zspec_nir.cryostat.slit_viewer_sw}
+    zimage_filter_wheel: ${zshooter.zimage.filter_wheel_sw}
+    zimage_focus: ${zshooter.zimage.focus_sw}
+    zimage_u_rotator: ${zshooter.zimage.u_rotator_sw}
+    zimage_v_rotator: ${zshooter.zimage.v_rotator_sw}
+    zimage_z_rotator: ${zshooter.zimage.z_rotator_sw}
     zimage_u_rotator.label: "u Rotator (`ZIRotatorDaemon`)"
     zimage_v_rotator.label: "v Rotator (`ZIRotatorDaemon`)"
     zimage_z_rotator.label: "z Rotator (`ZIRotatorDaemon`)"
-    vis_rotator: ${zshooter.zspec.zspec_visible.rotator.daemon}
-    vis_adc: ${zshooter.zspec.zspec_visible.adc.daemon}
-    vis_nod: ${zshooter.zspec.zspec_visible.nod.daemon}
-    vis_slit: ${zshooter.zspec.zspec_visible.slit.daemon}
-    zspec_focus_b: ${zshooter.zspec.zspec_visible.dcs_b.focus.daemon}
-    zspec_focus_g: ${zshooter.zspec.zspec_visible.dcs_g.focus.daemon}
-    zspec_focus_r: ${zshooter.zspec.zspec_visible.dcs_r.focus.daemon}
+    vis_rotator: ${zshooter.zspec.zspec_visible.rotator_sw}
+    vis_adc: ${zshooter.zspec.zspec_visible.adc_sw}
+    vis_nodder: ${zshooter.zspec.zspec_visible.nodder_sw}
+    vis_slit: ${zshooter.zspec.zspec_visible.slit_sw}
+    zspec_focus_b: ${zshooter.zspec.zspec_visible.dcs_b.focus_sw}
+    zspec_focus_g: ${zshooter.zspec.zspec_visible.dcs_g.focus_sw}
+    zspec_focus_r: ${zshooter.zspec.zspec_visible.dcs_r.focus_sw}
     zspec_focus_ir: "Run @ Cooldown"
-    ir_rotator: ${zshooter.zspec.zspec_nir.cryostat.rotator.daemon}
-    ir_adc: ${zshooter.zspec.zspec_nir.cryostat.adc.daemon}
-    ir_nodder: ${zshooter.zspec.zspec_nir.cryostat.nodder.daemon}
-    ir_slit: ${zshooter.zspec.zspec_nir.cryostat.slit.daemon}
+    ir_rotator: ${zshooter.zspec.zspec_nir.cryostat.rotator_sw}
+    ir_adc: ${zshooter.zspec.zspec_nir.cryostat.adc_sw}
+    ir_nodder: ${zshooter.zspec.zspec_nir.cryostat.nodder_sw}
+    ir_slit: ${zshooter.zspec.zspec_nir.cryostat.slit_sw}
     shutter_monitor
     glycol_monitor
     temp_log
@@ -56,7 +56,7 @@ software_runtime: {
       class: command_conn
       label: command
     }
-    fine_guiding -> vis_nod: {
+    fine_guiding -> vis_nodder: {
       class: command_conn
       label: command
     }
@@ -94,18 +94,24 @@ software_runtime: {
     class: computer_host_container
     label: ZSpec Readout PC
     notebook_server: @common.jupyter_notebook_server
-    readout_opt_b: @zspec.zspec.zspec_visible.dcs_b.readout.daemon
-    readout_opt_g: @zspec.zspec.zspec_visible.dcs_g.readout.daemon
-    readout_opt_r: @zspec.zspec.zspec_visible.dcs_r.readout.daemon
-    readout_ir_yj: @zspec.zspec.zspec_nir.readout_yj.daemon
-    readout_ir_h: @zspec.zspec.zspec_nir.readout_h.daemon
-    readout_ir_k: @zspec.zspec.zspec_nir.readout_k.daemon
-    readout_opt_b.label: "Archon B (qCCDDaemon)"
-    readout_opt_g.label: "Archon G (qCCDDaemon)"
-    readout_opt_r.label: "Archon R (qCCDDaemon)"
-    readout_ir_yj.label: "Archon YJ (APDDaemon)"
-    readout_ir_h.label: "Archon H (APDDaemon)"
-    readout_ir_k.label: "Archon K (APDDaemon)"
+    readout_opt_b: ${zshooter.zspec.zspec_visible.dcs_b.readout_sw}
+    readout_opt_g: ${zshooter.zspec.zspec_visible.dcs_g.readout_sw}
+    readout_opt_r: ${zshooter.zspec.zspec_visible.dcs_r.readout_sw}
+    readout_ir_yj: ${zshooter.zspec.zspec_nir.readout_yj_sw}
+    readout_ir_h: ${zshooter.zspec.zspec_nir.readout_h_sw}
+    readout_ir_k: ${zshooter.zspec.zspec_nir.readout_k_sw}
+    #readout_opt_b: @zspec.zspec.zspec_visible.dcs_b.readout_sw
+    #readout_opt_g: @zspec.zspec.zspec_visible.dcs_g.readout_sw
+    #readout_opt_r: @zspec.zspec.zspec_visible.dcs_r.readout_sw
+    #readout_ir_yj: @zspec.zspec.zspec_nir.readout_yj_sw
+    #readout_ir_h: @zspec.zspec.zspec_nir.readout_h_sw
+    #readout_ir_k: @zspec.zspec.zspec_nir.readout_k_sw
+    #readout_opt_b.label: "Archon B (qCCDDaemon)"
+    #readout_opt_g.label: "Archon G (qCCDDaemon)"
+    #readout_opt_r.label: "Archon R (qCCDDaemon)"
+    #readout_ir_yj.label: "Archon YJ (APDDaemon)"
+    #readout_ir_h.label: "Archon H (APDDaemon)"
+    #readout_ir_k.label: "Archon K (APDDaemon)"
   }
 
   observer_gui: @daemons.observer_gui
