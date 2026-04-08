@@ -2,58 +2,58 @@ zfront: {
   hardware: {
     class: subinstrument_container
     label: ZFront
-    zfront_dc_distribution: @common.ac_to_dc_block
-    zfront_data_hub: @common.network_switch_block
+    dc_disttribution: @common.ac_to_dc_block
+    data_hub: @common.network_switch_block
 
-    zfront_instrument_selector: {
+    inst_selector: {
       class: [motion_device_node; serial_device]
       label: Instrument Selector
     }
-    zfront_zim_zcal_selector: {
+    zim_zcal_selector: {
       class: [motion_device_node; serial_device]
       label: "ZSpec / ZImage Selector"
     }
-    zfront_embedded_controller: {
+    selector_controller: {
       class: [controller_device_node; ethernet_device]
       label: ZFront Embedded Controller
     }
-    (zfront_dc_distribution->zfront_data_hub).class: dc_conn
-    (zfront_dc_distribution->zcal.zcal_embedded_controller).class: dc_conn
-    (zfront_dc_distribution->zfront_embedded_controller).class: dc_conn
-    (zfront_embedded_controller->zfront_instrument_selector).class: motor_control_conn
-    (zfront_embedded_controller->zfront_zim_zcal_selector).class: motor_control_conn
+    (dc_disttribution->data_hub).class: dc_conn
+    (dc_disttribution->zcal.cal_controller).class: dc_conn
+    (dc_disttribution->selector_controller).class: dc_conn
+    (selector_controller->inst_selector).class: motor_control_conn
+    (selector_controller->zim_zcal_selector).class: motor_control_conn
 
-    (zfront_data_hub->zfront_embedded_controller).class: network_conn
-    (zfront_data_hub->zcal.zcal_embedded_controller).class: network_conn
+    (data_hub->selector_controller).class: network_conn
+    (data_hub->zcal.cal_controller).class: network_conn
 
     zcal: {
       class: subinstrument_container
       label: ZCal
-      zcal_cathode_lamps: {
+      cathode_lamps: {
         class: [device_node]
         label: Cathode Lamps
       }
-      zcal_led_lamps: {
+      led_lamps: {
         class: [device_node]
         label: LED Lamps
       }
-      zcal_quartz_lamps: {
+      quartz_lamps: {
         class: [device_node]
         label: Quartz Lamps
       }
-      zcal_embedded_controller: {
+      cal_controller: {
         class: [controller_device_node; ethernet_device]
         label: ZCal Embedded Controller
       }
-      zcal_high_voltage_supply: {
+      high_voltage_supply: {
         class: [device_node]
         label: High Voltage Supply
       }
-      (zcal_embedded_controller -> zcal_quartz_lamps).class: custom_conn
-      (zcal_embedded_controller -> zcal_led_lamps).class: custom_conn
-      (zcal_embedded_controller -> zcal_high_voltage_supply).class: custom_conn
-      (zcal_high_voltage_supply -> zcal_cathode_lamps).class: dc_conn
-      (zcal_high_voltage_supply -> zcal_cathode_lamps)[*].label: "HV DC"
+      (cal_controller -> quartz_lamps).class: custom_conn
+      (cal_controller -> led_lamps).class: custom_conn
+      (cal_controller -> high_voltage_supply).class: custom_conn
+      (high_voltage_supply -> cathode_lamps).class: dc_conn
+      (high_voltage_supply -> cathode_lamps)[*].label: "HV DC"
 
     }
   }

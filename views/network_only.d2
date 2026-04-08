@@ -1,0 +1,34 @@
+direction: right
+Network Diagram
+...@../common/styles
+...@../common/legend
+...@../entities/zshooter.hardware_system
+
+# Full enough for system review, but suppress overwhelming 1-Wire fanout.
+templates: suspend
+
+***: suspend
+(*** -> ***)[*]: suspend
+
+# Keep structural context visible.
+***: unsuspend {
+  &class: room_container
+}
+***: unsuspend {
+  &class: instrument_container
+}
+***: unsuspend {
+  &class: subinstrument_container
+}
+***: unsuspend {
+  &class: enclosure_container
+}
+
+# Show only network edges and their connected endpoints.
+(** -> **)[*]: unsuspend {
+  &class: network_conn
+}
+
+***: unsuspend {
+  &connected: true
+}

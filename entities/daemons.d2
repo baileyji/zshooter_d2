@@ -1,5 +1,41 @@
+vars: {
+  daemon_template: {
+    #grid-rows: 3
+    class: daemon_card_container
+    label: "Daemon Template"
+    config: {
+      class: config_section_block
+      label: Config
+    }
+    device: {
+      class: device_section_container
+      label: Device Drivers
+    }
+    status: {
+      class: status_section_block
+      label: Status
+    }
+    events: {
+      class: event_section_block
+      label: Alerts/Pub
+    }
+    ops: {
+      class: ops_section_block
+      label: Commands
+    }
+    eng: {
+      class: eng_section_block
+      label: Eng. Cmds
+    }
+    object_model: suspend {
+      class: object_model_container
+      label: Object Model
+    }
+  }
+}
+
 focus_controller: {
-  ...@../common/styles.templates.daemon
+  ...${daemon_template}
   label: "Focus Controller (FocusController)"
   device: suspend
   eng: suspend
@@ -24,7 +60,7 @@ focus_controller: {
 }
 
 focus: {
-  ...@../common/styles.templates.daemon
+  ...${daemon_template}
   label: "Focus Drive (FocusDriveDaemon)"
   device: {
     driver: {
@@ -54,7 +90,7 @@ focus: {
 }
 
 vacuum_monitor: {
-  ...@../common/styles.templates.daemon
+  ...${daemon_template}
   label: "Vacuum Monitor (VacuumMonitorDaemon)"
   eng: suspend
   config: {
@@ -73,7 +109,7 @@ vacuum_monitor: {
 }
 
 fine_guiding: {
-  ...@../common/styles.templates.daemon
+  ...${daemon_template}
   device: suspend
   eng: suspend
   label: "Fine Guiding (FineGuidingDaemon)"
@@ -95,7 +131,7 @@ fine_guiding: {
 }
 
 zfront_control: {
-  ...@../common/styles.templates.daemon
+  ...${daemon_template}
   label: "ZFront Control (ZFrontControlDaemon)"
   eng: suspend
   device: {
@@ -127,7 +163,7 @@ zfront_control: {
 }
 
 observer_gui: {
-  ...@../common/styles.templates.daemon
+  ...${daemon_template}
   device: suspend
   eng: suspend
   label: Observer GUI
@@ -148,7 +184,7 @@ observer_gui: {
 }
 
 rotator: {
-    ...@../common/styles.templates.daemon
+    ...${daemon_template}
     label: "Rotator (FieldRotatorDaemon)"
     device: {
       driver: {
@@ -177,7 +213,7 @@ rotator: {
 }
 
 adc: {
-  ...@../common/styles.templates.daemon
+  ...${daemon_template}
   label: "ADC (ADCCorrectorDaemon)"
   device: {
     driver: {
@@ -206,7 +242,7 @@ adc: {
 }
 
 nodder: {
-  ...@../common/styles.templates.daemon
+  ...${daemon_template}
   label: "Nodder (NodderDaemon)"
   device: {
     driver: {
@@ -233,7 +269,7 @@ nodder: {
 }
 
 filter_wheel: {
-  ...@../common/styles.templates.daemon
+  ...${daemon_template}
   label: "Filter Wheel (FilterWheelDaemon)"
   device: {
     driver: {
@@ -265,7 +301,7 @@ filter_wheel: {
 }
 
 slit_selector: {
-  ...@../common/styles.templates.daemon
+  ...${daemon_template}
   label: "Optical Slit (SlitDaemon)"
   device: {
     driver: {
@@ -292,7 +328,7 @@ slit_selector: {
 }
 
 slit_view: {
-  ...@../common/styles.templates.daemon
+  ...${daemon_template}
   label: "nIR Slit Viewer (SlitcamDaemon)"
   device: {
     driver: {
@@ -317,7 +353,7 @@ slit_view: {
 }
 
 motor_controller: {
-  ...@../common/styles.templates.daemon
+  ...${daemon_template}
   label: "Generic Motor Bus/Controller ()"
   device: {
     driver: {
@@ -342,7 +378,7 @@ motor_controller: {
 
 
 quest2readout: {
-   ...@../common/styles.templates.daemon
+   ...${daemon_template}
    label: "Quest2 Readout (ImagerReadoutDaemon)"
    device: {
      driver: {
@@ -375,7 +411,7 @@ quest2readout: {
 
 
 archonreadout: {
-  ...@../common/styles.templates.daemon
+  ...${daemon_template}
   label: "Archon Readout (ReadoutDaemon)"
   device: {
     driver: {
@@ -426,5 +462,31 @@ archonreadout: {
   eng: {
     "set_engineering(param: str, value: Any)"
     "get_engineering(param: str)"
+  }
+}
+
+temp_monitor: {
+  ...${daemon_template}
+  #driver: suspend
+  eng: suspend
+  label: "Temp Monitor (`TempMonitorDaemon`)"
+  device: {
+    driver: {
+      class: [object_block]
+      label: OneWireHubDevice
+    }
+  }
+  config: {
+    "main.yaml": zspec.opt_temp_monitor
+    "logger.yaml": present
+  }
+  status: {
+    "sensor_state": SensorState
+  }
+  events: {
+    "range_alert": Event
+  }
+  ops: {
+    "get_temperature(...)"
   }
 }

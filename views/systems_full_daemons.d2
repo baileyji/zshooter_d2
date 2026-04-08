@@ -2,34 +2,35 @@ direction: down
 ...@../common/styles
 ...@../entities/zshooter.hardware_system
 
+templates: suspend
 
-(k1_rnas.zshooter.zspec.zspec_control_box.zspec_ubuntu.vis_slitcam.device.driver-> k1_rnas.zshooter.zspec.zspec_visible.zspec_vis_slit_viewer.hardware).class: driver_conn
-(k1_rnas.zshooter.zspec.zspec_control_box.zspec_ubuntu.ir_slitcam.device.driver-> k1_rnas.zshooter.zspec.zspec_nir.zspec_ir_cryostat.ir_slit_viewer.hardware).class: driver_conn
-(k1_rnas.zshooter.zspec.zspec_control_box.zspec_ubuntu.zimage_filter_wheel.device.driver-> k1_rnas.zshooter.zimage.zimage_filter_wheel.hardware).class: driver_conn
-(k1_rnas.zshooter.zspec.zspec_control_box.zspec_ubuntu.zimage_focus.device.driver-> k1_rnas.zshooter.zimage.zimage_focus.hardware).class: driver_conn
-(k1_rnas.zshooter.zspec.zspec_control_box.zspec_ubuntu.zimage_u_rotator.device.driver-> k1_rnas.zshooter.zimage.zimage_u_rotator.hardware).class: driver_conn
-(k1_rnas.zshooter.zspec.zspec_control_box.zspec_ubuntu.zimage_v_rotator.device.driver-> k1_rnas.zshooter.zimage.zimage_v_rotator.hardware).class: driver_conn
-(k1_rnas.zshooter.zspec.zspec_control_box.zspec_ubuntu.zimage_z_rotator.device.driver-> k1_rnas.zshooter.zimage.zimage_z_rotator.hardware).class: driver_conn
-(k1_rnas.zshooter.zspec.zspec_control_box.zspec_ubuntu.vis_rotator.device.driver-> k1_rnas.zshooter.zspec.zspec_visible.vis_rotator.hardware).class: driver_conn
-(k1_rnas.zshooter.zspec.zspec_control_box.zspec_ubuntu.vis_adc.device.driver-> k1_rnas.zshooter.zspec.zspec_visible.vis_adc.hardware).class: driver_conn
-(k1_rnas.zshooter.zspec.zspec_control_box.zspec_ubuntu.vis_nod.device.driver-> k1_rnas.zshooter.zspec.zspec_visible.vis_nod.hardware).class: driver_conn
-(k1_rnas.zshooter.zspec.zspec_control_box.zspec_ubuntu.vis_slit.device.driver-> k1_rnas.zshooter.zspec.zspec_visible.vis_slit.hardware).class: driver_conn
+(k1_rnas.zshooter.zspec.zspec_control_box.zspec_ubuntu.vis_slitcam.device.driver-> k1_rnas.zshooter.zspec.zspec_visible.slit_viewer.hardware).class: driver_conn
+(k1_rnas.zshooter.zspec.zspec_control_box.zspec_ubuntu.ir_slitcam.device.driver-> k1_rnas.zshooter.zspec.zspec_nir.cryostat.slit_viewer.hardware).class: driver_conn
+(k1_rnas.zshooter.zspec.zspec_control_box.zspec_ubuntu.zimage_filter_wheel.device.driver-> k1_rnas.zshooter.zimage.filter_wheel.hardware).class: driver_conn
+(k1_rnas.zshooter.zspec.zspec_control_box.zspec_ubuntu.zimage_focus.device.driver-> k1_rnas.zshooter.zimage.focus.hardware).class: driver_conn
+(k1_rnas.zshooter.zspec.zspec_control_box.zspec_ubuntu.zimage_u_rotator.device.driver-> k1_rnas.zshooter.zimage.u_rotator.hardware).class: driver_conn
+(k1_rnas.zshooter.zspec.zspec_control_box.zspec_ubuntu.zimage_v_rotator.device.driver-> k1_rnas.zshooter.zimage.v_rotator.hardware).class: driver_conn
+(k1_rnas.zshooter.zspec.zspec_control_box.zspec_ubuntu.zimage_z_rotator.device.driver-> k1_rnas.zshooter.zimage.z_rotator.hardware).class: driver_conn
+(k1_rnas.zshooter.zspec.zspec_control_box.zspec_ubuntu.vis_rotator.device.driver-> k1_rnas.zshooter.zspec.zspec_visiblerotator.hardware).class: driver_conn
+(k1_rnas.zshooter.zspec.zspec_control_box.zspec_ubuntu.vis_adc.device.driver-> k1_rnas.zshooter.zspec.zspec_visibleadc.hardware).class: driver_conn
+(k1_rnas.zshooter.zspec.zspec_control_box.zspec_ubuntu.vis_nod.device.driver-> k1_rnas.zshooter.zspec.zspec_visiblenod.hardware).class: driver_conn
+(k1_rnas.zshooter.zspec.zspec_control_box.zspec_ubuntu.vis_slit.device.driver-> k1_rnas.zshooter.zspec.zspec_visibleslit.hardware).class: driver_conn
 (k1_rnas.zshooter.zspec.zspec_control_box.zspec_ubuntu.zspec_focus_b.device.driver-> k1_rnas.zshooter.zspec.zspec_visible.dcs_b.focus.hardware).class: driver_conn
 (k1_rnas.zshooter.zspec.zspec_control_box.zspec_ubuntu.zspec_focus_g.device.driver-> k1_rnas.zshooter.zspec.zspec_visible.dcs_g.focus.hardware).class: driver_conn
 (k1_rnas.zshooter.zspec.zspec_control_box.zspec_ubuntu.zspec_focus_r.device.driver-> k1_rnas.zshooter.zspec.zspec_visible.dcs_r.focus.hardware).class: driver_conn
-(k1_rnas.zshooter.zspec.zspec_control_box.zspec_ubuntu.ir_rotator.device.driver-> k1_rnas.zshooter.zspec.zspec_nir.zspec_ir_cryostat.ir_rotator.hardware).class: driver_conn
-(k1_rnas.zshooter.zspec.zspec_control_box.zspec_ubuntu.ir_adc.device.driver-> k1_rnas.zshooter.zspec.zspec_nir.zspec_ir_cryostat.ir_adc.hardware).class: driver_conn
-(k1_rnas.zshooter.zspec.zspec_control_box.zspec_ubuntu.ir_nodder.device.driver-> k1_rnas.zshooter.zspec.zspec_nir.zspec_ir_cryostat.ir_nodder.hardware).class: driver_conn
-(k1_rnas.zshooter.zspec.zspec_control_box.zspec_ubuntu.ir_slit.device.driver-> k1_rnas.zshooter.zspec.zspec_nir.zspec_ir_cryostat.ir_slit.hardware).class: driver_conn
-(k1_rnas.zshooter.zspec.zspec_control_box.zspec_ubuntu.zfront_control.device.sel_driver-> k1_rnas.zshooter.zfront.zfront_embedded_controller).class: driver_conn
-(k1_rnas.zshooter.zspec.zspec_control_box.zspec_ubuntu.zfront_control.device.cal_driver-> k1_rnas.zshooter.zfront.zcal.zcal_embedded_controller).class: driver_conn
-(k1_rnas.zshooter.zspec.zspec_control_box.zspec_ubuntu.glycol_monitor.device.driver-> k1_rnas.zshooter.zshooter_glycol_manifold).class: driver_conn
-(k1_rnas.zshooter.zspec.zspec_control_box.zspec_ubuntu.temp_log.device.driver-> k1_rnas.zshooter.zspec.zspec_visible.temp_monitor.hardware.temp_hub).class: driver_conn
-(k1_rnas.zshooter.zspec.zspec_control_box.zspec_ubuntu.temp_log.device.driver-> k1_rnas.zshooter.zimage.zimage_temp_monitor.hardware.temp_hub).class: driver_conn
+(k1_rnas.zshooter.zspec.zspec_control_box.zspec_ubuntu.ir_rotator.device.driver-> k1_rnas.zshooter.zspec.zspec_nir.cryostat.rotator.hardware).class: driver_conn
+(k1_rnas.zshooter.zspec.zspec_control_box.zspec_ubuntu.ir_adc.device.driver-> k1_rnas.zshooter.zspec.zspec_nir.cryostat.adc.hardware).class: driver_conn
+(k1_rnas.zshooter.zspec.zspec_control_box.zspec_ubuntu.ir_nodder.device.driver-> k1_rnas.zshooter.zspec.zspec_nir.cryostat.nodder.hardware).class: driver_conn
+(k1_rnas.zshooter.zspec.zspec_control_box.zspec_ubuntu.ir_slit.device.driver-> k1_rnas.zshooter.zspec.zspec_nir.cryostat.slit.hardware).class: driver_conn
+(k1_rnas.zshooter.zspec.zspec_control_box.zspec_ubuntu.zfront_control.device.sel_driver-> k1_rnas.zshooter.zfront.selector_controller).class: driver_conn
+(k1_rnas.zshooter.zspec.zspec_control_box.zspec_ubuntu.zfront_control.device.cal_driver-> k1_rnas.zshooter.zfront.zcal.cal_controller).class: driver_conn
+(k1_rnas.zshooter.zspec.zspec_control_box.zspec_ubuntu.glycol_monitor.device.driver-> k1_rnas.zshooter.glycol_manifold).class: driver_conn
+(k1_rnas.zshooter.zspec.zspec_control_box.zspec_ubuntu.temp_log.device.driver-> k1_rnas.zshooter.zspec.zspec_visible.temp_monitor.temp_hub.hardware).class: driver_conn
+(k1_rnas.zshooter.zspec.zspec_control_box.zspec_ubuntu.temp_log.device.driver-> k1_rnas.zshooter.zimage.temp_monitor.temp_hub.hardware).class: driver_conn
 (k1_rnas.zshooter.zspec.zspec_control_box.zspec_ubuntu.temp_log.device.ir_driver-> k1_rnas.zshooter.zspec.zspec_nir.temp_controller_hw).class: driver_conn
 (k1_rnas.zshooter.zspec.zspec_control_box.zspec_ubuntu.vacuum_monitor-> k1_rnas.zshooter.zspec.zspec_visible.dcs_*.vacuum_gauge).class: driver_conn
 (k1_rnas.zshooter.zspec.zspec_control_box.zspec_ubuntu.vacuum_monitor-> k1_rnas.zshooter.zspec.zspec_nir.vacuum_gauge).class: driver_conn
-(k1_rnas.zshooter.zspec.zspec_control_box.zspec_ubuntu.shutter_monitor-> k1_rnas.zshooter.zspec.zspec_nir.zspec_ir_cryostat.ir_cryoshutter.hardware).class: driver_conn
+(k1_rnas.zshooter.zspec.zspec_control_box.zspec_ubuntu.shutter_monitor-> k1_rnas.zshooter.zspec.zspec_nir.cryostat.cryoshutter.hardware).class: driver_conn
 (k1_rnas.zshooter.zspec.zspec_control_box.zspec_ubuntu.shutter_monitor-> k1_rnas.zshooter.zspec.zspec_visible.shutter.hardware).class: driver_conn
 
 k1_server_room.zimage_readout_computer: {
@@ -47,9 +48,9 @@ k1_server_room.zspec_readout_computer: {
   readout_opt_b: @zspec.zspec.hardware.zspec_visible.dcs_b.readout.daemon
   readout_opt_g: @zspec.zspec.hardware.zspec_visible.dcs_g.readout.daemon
   readout_opt_r: @zspec.zspec.hardware.zspec_visible.dcs_r.readout.daemon
-  readout_ir_yj: @zspec.zspec.hardware.zspec_nir.zspec_ir_readout_yj.daemon
-  readout_ir_h: @zspec.zspec.hardware.zspec_nir.zspec_ir_readout_h.daemon
-  readout_ir_k: @zspec.zspec.hardware.zspec_nir.zspec_ir_readout_k.daemon
+  readout_ir_yj: @zspec.zspec.hardware.zspec_nir.readout_yj.daemon
+  readout_ir_h: @zspec.zspec.hardware.zspec_nir.readout_h.daemon
+  readout_ir_k: @zspec.zspec.hardware.zspec_nir.readout_k.daemon
   readout_opt_b.label: "Archon B (qCCDDaemon)"
   readout_opt_g.label: "Archon G (qCCDDaemon)"
   readout_opt_r.label: "Archon R (qCCDDaemon)"
@@ -67,28 +68,28 @@ k1_rnas.zshooter.zspec.zspec_control_box.zspec_ubuntu: {
     vacuum_monitor: @daemons.vacuum_monitor
     fine_guiding: @daemons.fine_guiding
 
-    vis_slitcam: @zspec.zspec.hardware.zspec_visible.zspec_vis_slit_viewer.daemon
-    ir_slitcam: @zspec.zspec.hardware.zspec_nir.zspec_ir_cryostat.ir_slit_viewer.daemon
-    zimage_filter_wheel: @zimage.zimage.hardware.zimage_filter_wheel.daemon
-    zimage_focus: @zimage.zimage.hardware.zimage_focus.daemon
-    zimage_u_rotator: @zimage.zimage.hardware.zimage_u_rotator.daemon
-    zimage_v_rotator: @zimage.zimage.hardware.zimage_v_rotator.daemon
-    zimage_z_rotator: @zimage.zimage.hardware.zimage_z_rotator.daemon
+    vis_slitcam: @zspec.zspec.hardware.zspec_visible.slit_viewer.daemon
+    ir_slitcam: @zspec.zspec.hardware.zspec_nir.cryostat.slit_viewer.daemon
+    zimage_filter_wheel: @zimage.zimage.hardware.filter_wheel.daemon
+    zimage_focus: @zimage.zimage.hardware.focus.daemon
+    zimage_u_rotator: @zimage.zimage.hardware.u_rotator.daemon
+    zimage_v_rotator: @zimage.zimage.hardware.v_rotator.daemon
+    zimage_z_rotator: @zimage.zimage.hardware.z_rotator.daemon
     zimage_u_rotator.label: "u Rotator (`ZIRotatorDaemon`)"
     zimage_v_rotator.label: "v Rotator (`ZIRotatorDaemon`)"
     zimage_z_rotator.label: "z Rotator (`ZIRotatorDaemon`)"
-    vis_rotator: @zspec.zspec.hardware.zspec_visible.vis_rotator.daemon
-    vis_adc: @zspec.zspec.hardware.zspec_visible.vis_adc.daemon
-    vis_nod: @zspec.zspec.hardware.zspec_visible.vis_nod.daemon
-    vis_slit: @zspec.zspec.hardware.zspec_visible.vis_slit.daemon
+    vis_rotator: @zspec.zspec.hardware.zspec_visiblerotator.daemon
+    vis_adc: @zspec.zspec.hardware.zspec_visibleadc.daemon
+    vis_nod: @zspec.zspec.hardware.zspec_visiblenod.daemon
+    vis_slit: @zspec.zspec.hardware.zspec_visibleslit.daemon
     zspec_focus_b: @zspec.zspec.hardware.zspec_visible.dcs_b.focus.daemon
     zspec_focus_g: @zspec.zspec.hardware.zspec_visible.dcs_g.focus.daemon
     zspec_focus_r: @zspec.zspec.hardware.zspec_visible.dcs_r.focus.daemon
     zspec_focus_ir: "Run @ Cooldown"
-    ir_rotator: @zspec.zspec.hardware.zspec_nir.zspec_ir_cryostat.ir_rotator.daemon
-    ir_adc: @zspec.zspec.hardware.zspec_nir.zspec_ir_cryostat.ir_adc.daemon
-    ir_nodder: @zspec.zspec.hardware.zspec_nir.zspec_ir_cryostat.ir_nodder.daemon
-    ir_slit: @zspec.zspec.hardware.zspec_nir.zspec_ir_cryostat.ir_slit.daemon
+    ir_rotator: @zspec.zspec.hardware.zspec_nir.cryostat.rotator.daemon
+    ir_adc: @zspec.zspec.hardware.zspec_nir.cryostat.adc.daemon
+    ir_nodder: @zspec.zspec.hardware.zspec_nir.cryostat.nodder.daemon
+    ir_slit: @zspec.zspec.hardware.zspec_nir.cryostat.slit.daemon
     shutter_monitor
     glycol_monitor
     temp_log

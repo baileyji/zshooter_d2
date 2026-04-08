@@ -16,28 +16,28 @@ software_runtime: {
     vacuum_monitor: @daemons.vacuum_monitor
     fine_guiding: @daemons.fine_guiding
 
-    vis_slitcam: @zspec.zspec.hardware.zspec_visible.zspec_vis_slit_viewer.daemon
-    ir_slitcam: @zspec.zspec.hardware.zspec_nir.zspec_ir_cryostat.ir_slit_viewer.daemon
-    zimage_filter_wheel: @zimage.zimage.hardware.zimage_filter_wheel.daemon
-    zimage_focus: @zimage.zimage.hardware.zimage_focus.daemon
-    zimage_u_rotator: @zimage.zimage.hardware.zimage_u_rotator.daemon
-    zimage_v_rotator: @zimage.zimage.hardware.zimage_v_rotator.daemon
-    zimage_z_rotator: @zimage.zimage.hardware.zimage_z_rotator.daemon
+    vis_slitcam: @zspec.zspec.hardware.zspec_visible.slit_viewer.daemon
+    ir_slitcam: @zspec.zspec.hardware.zspec_nir.cryostat.slit_viewer.daemon
+    zimage_filter_wheel: @zimage.zimage.hardware.filter_wheel.daemon
+    zimage_focus: @zimage.zimage.hardware.focus.daemon
+    zimage_u_rotator: @zimage.zimage.hardware.u_rotator.daemon
+    zimage_v_rotator: @zimage.zimage.hardware.v_rotator.daemon
+    zimage_z_rotator: @zimage.zimage.hardware.z_rotator.daemon
     zimage_u_rotator.label: "u Rotator (`ZIRotatorDaemon`)"
     zimage_v_rotator.label: "v Rotator (`ZIRotatorDaemon`)"
     zimage_z_rotator.label: "z Rotator (`ZIRotatorDaemon`)"
-    vis_rotator: @zspec.zspec.hardware.zspec_visible.vis_rotator.daemon
-    vis_adc: @zspec.zspec.hardware.zspec_visible.vis_adc.daemon
-    vis_nod: @zspec.zspec.hardware.zspec_visible.vis_nod.daemon
-    vis_slit: @zspec.zspec.hardware.zspec_visible.vis_slit.daemon
+    vis_rotator: @zspec.zspec.hardware.zspec_visible.rotator.daemon
+    vis_adc: @zspec.zspec.hardware.zspec_visible.adc.daemon
+    vis_nod: @zspec.zspec.hardware.zspec_visible.nod.daemon
+    vis_slit: @zspec.zspec.hardware.zspec_visible.slit.daemon
     zspec_focus_b: @zspec.zspec.hardware.zspec_visible.dcs_b.focus.daemon
     zspec_focus_g: @zspec.zspec.hardware.zspec_visible.dcs_g.focus.daemon
     zspec_focus_r: @zspec.zspec.hardware.zspec_visible.dcs_r.focus.daemon
     zspec_focus_ir: "Run @ Cooldown"
-    ir_rotator: @zspec.zspec.hardware.zspec_nir.zspec_ir_cryostat.ir_rotator.daemon
-    ir_adc: @zspec.zspec.hardware.zspec_nir.zspec_ir_cryostat.ir_adc.daemon
-    ir_nodder: @zspec.zspec.hardware.zspec_nir.zspec_ir_cryostat.ir_nodder.daemon
-    ir_slit: @zspec.zspec.hardware.zspec_nir.zspec_ir_cryostat.ir_slit.daemon
+    ir_rotator: @zspec.zspec.hardware.zspec_nir.cryostat.rotator.daemon
+    ir_adc: @zspec.zspec.hardware.zspec_nir.cryostat.adc.daemon
+    ir_nodder: @zspec.zspec.hardware.zspec_nir.cryostat.nodder.daemon
+    ir_slit: @zspec.zspec.hardware.zspec_nir.cryostat.slit.daemon
     shutter_monitor
     glycol_monitor
     temp_log
@@ -95,9 +95,9 @@ software_runtime: {
     readout_opt_b: @zspec.zspec.hardware.zspec_visible.dcs_b.readout.daemon
     readout_opt_g: @zspec.zspec.hardware.zspec_visible.dcs_g.readout.daemon
     readout_opt_r: @zspec.zspec.hardware.zspec_visible.dcs_r.readout.daemon
-    readout_ir_yj: @zspec.zspec.hardware.zspec_nir.zspec_ir_readout_yj.daemon
-    readout_ir_h: @zspec.zspec.hardware.zspec_nir.zspec_ir_readout_h.daemon
-    readout_ir_k: @zspec.zspec.hardware.zspec_nir.zspec_ir_readout_k.daemon
+    readout_ir_yj: @zspec.zspec.hardware.zspec_nir.readout_yj.daemon
+    readout_ir_h: @zspec.zspec.hardware.zspec_nir.readout_h.daemon
+    readout_ir_k: @zspec.zspec.hardware.zspec_nir.readout_k.daemon
     readout_opt_b.label: "Archon B (qCCDDaemon)"
     readout_opt_g.label: "Archon G (qCCDDaemon)"
     readout_opt_r.label: "Archon R (qCCDDaemon)"

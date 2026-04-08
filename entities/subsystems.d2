@@ -1,4 +1,24 @@
 
+temp_monitor_module: {
+    class: entity_wrapper
+    label: ""
+    temp_hub.class: entity_wrapper
+    temp_hub.hardware: @common.onewire_hub_block
+    temp_hub.hardware.label: Temp Monitoring Hub
+    temp_hub.daemon: @daemons.temp_monitor
+
+    temp_sensor_1: @common.onewire_temp_sensor_block
+    temp_sensor_1.label: Temp Sensor 1
+    temp_sensor_2: @common.onewire_temp_sensor_block
+    temp_sensor_2.label: Temp Sensor ...
+    temp_sensor_3: @common.onewire_temp_sensor_block
+    temp_sensor_3.label: Temp Sensor N
+
+    (temp_hub.hardware->temp_sensor_*).class: sensor_fanout_conn
+
+}
+
+
 dcs_b: {
     class: entity_wrapper
     label: Blue Detector System (TODO inherit?)

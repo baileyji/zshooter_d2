@@ -1,11 +1,22 @@
+
 lvl1: {
+    vars: {
+    persontemplate: @explore2.templates.persontemplate
+    
+    }
     lvl2a: {
+        bob: {
+            ...${persontemplate}
+        }
         bob.label: 'Bob'
         bob.hardware.label: 'Bob HW'
         bob.optic.label: 'Bob Optic'
         bob.optic.class: optic
         bob.daemon.class: daemon
 
+        tom: {
+            ...${persontemplate}
+        }
         tom.label: 'Tom'
         tom.hardware.label: 'Tom HW'
         tom.optic.label: 'Tom Optic'

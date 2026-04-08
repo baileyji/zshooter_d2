@@ -7,56 +7,6 @@ motor_controller: {
   daemon: @daemons.motor_controller
 }
 
-
-temp_monitor_module: {
-  class: entity_wrapper
-  label: ""
-  (daemon.device.driver->hardware.temp_hub).class: hw_sw_conn
-  hardware: {
-    class: entity_wrapper
-
-    temp_hub: @common.onewire_hub_block
-    temp_hub.label: Temp Monitoring Hub
-
-    temp_sensor_1: @common.onewire_temp_sensor_block
-    temp_sensor_1.label: Temp Sensor 1
-    temp_sensor_2: @common.onewire_temp_sensor_block
-    temp_sensor_2.label: Temp Sensor ...
-    temp_sensor_3: @common.onewire_temp_sensor_block
-    temp_sensor_3.label: Temp Sensor N
-
-    temp_hub->temp_sensor_*:{
-      class: sensor_fanout_conn
-    }
-  }
-  daemon: {
-    ...@../common/styles.templates.daemon
-    #driver: suspend
-    eng: suspend
-    label: "Temp Monitor (`TempMonitorDaemon`)"
-    device: {
-      class: device_section_container
-      driver: {
-        class: [object_block]
-        label: OneWireHubDevice
-      }
-    }
-    config: {
-      "main.yaml": zspec.opt_temp_monitor
-      "logger.yaml": present
-    }
-    status: {
-      "sensor_state": SensorState
-    }
-    events: {
-      "range_alert": Event
-    }
-    ops: {
-      "get_temperature(...)"
-    }
-  }
-}
-
 opt_rotator: {
   class: entity_wrapper
   label: ""
@@ -65,7 +15,7 @@ opt_rotator: {
     label: Optical Rotator
   }
   daemon: @daemons.rotator
-  daemon.label: "Vis-${base_label}"
+  daemon.label: "Vis Rotator"
   optical: {
     class: optical_node
     label: Optical Rotator Optics
