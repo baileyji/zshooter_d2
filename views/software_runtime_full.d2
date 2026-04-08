@@ -1,17 +1,12 @@
-# Suggested render:
-#   d2 --layout elk views/software_runtime_full.d2 software_runtime_full.svg
-
 direction: right
 ...@../common/styles
 software_runtime: @../entities/ics.software_runtime
 drp_runtime: @../entities/drp.drp_runtime
 instrument_telemetry_db: @../entities/common.instrument_telemetry_db
-hardware_system: @../entities/zshooter.hardware_system
+hardware_system: @../entities/zshooter_hardware.hardware_system
 ...@../models/software_commands
 ...@../models/software_publishes
 ...@../models/device_driver_links
-
-templates: suspend
 
 hardware_system: {
   (**->**)[*]: suspend

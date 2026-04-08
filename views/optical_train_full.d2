@@ -1,3 +1,29 @@
 direction: right
 ...@../common/styles
-optical_system: @../entities/zshooter.optical_system
+optical_system: @../entities/zshooter_optical.optical_system
+
+***: suspend
+(***->***)[*]: suspend
+
+
+***: unsuspend {
+  &class: room_container
+}
+***: unsuspend {
+  &class: instrument_container
+}
+***: unsuspend {
+  &class: subinstrument_container
+}
+***: unsuspend {
+  &class: enclosure_container
+}
+
+***: unsuspend {
+    &class: optical_node
+}
+
+
+(***->***)[*]: unsuspend {
+    &class: optical_conn
+}

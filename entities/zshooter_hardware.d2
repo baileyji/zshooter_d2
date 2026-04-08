@@ -1,0 +1,118 @@
+hardware_system: {
+  class: rectangle #instrument_container
+  label: Hardware System
+
+  k1_rnas: {
+    class: room_container
+    label: K1 Right Nasmyth
+
+    facility_air: @external.facility_air
+    facility_glycol: @external.facility_glycol
+    facility_ac: @external.facility_ac
+    facility_1000base_t: @external.facility_1000base_t
+
+    zshooter: {
+      class: instrument_container
+      label: ZShooter
+
+      glycol_manifold: @common.glycol_manifold_block
+      glycol_manifold.label: ZShooter Glycol Manifold
+
+      air_manifold: @common.air_manifold_block
+      air_manifold.label: ZShooter Air Manifold
+
+      zfront: @zfront.zfront
+      zimage: @zimage.zimage
+      zspec: @zspec.zspec
+
+      (glycol_manifold -> zspec.zspec_nir.coldhead).class: glycol_conn
+      (glycol_manifold -> zspec.zspec_nir.*readout*.hardware).class: glycol_conn
+      (glycol_manifold -> zspec.zspec_visible.dcs_*.readout.hardware).class: glycol_conn
+      (glycol_manifold -> zspec.zspec_visible.dcs_*.cryocooler).class: glycol_conn
+      (glycol_manifold -> zspec.zspec_visible.slit_viewer.hardware).class: glycol_conn
+      (glycol_manifold -> zimage.glycol_submanifold).class: glycol_conn
+
+      (zspec.zspec_control_box.zspec_data_hub -> zimage.ebox.data_hub).class: data_conn
+
+      (air_manifold -> zspec.zspec_visible).class: air_conn
+      (air_manifold -> zfront).class: air_conn
+      (air_manifold -> zimage).class: air_conn
+    }
+
+    (facility_ac-> zshooter.zfront.dc_disttribution).class: ac_conn
+    (facility_ac-> zshooter.zimage.ebox.ac_distribution).class: ac_conn
+    (facility_ac-> zshooter.zspec.zspec_control_box.zspec_ac_distribution).class: ac_conn
+
+    (facility_1000base_t -> zshooter.zfront.data_hub).class: network_conn
+    (facility_1000base_t -> zshooter.zspec.zspec_control_box.zspec_network_switch).class: network_conn
+    (facility_1000base_t -> zshooter.zimage.ebox.ubuntu).class: [network_conn; optional_conn]
+
+    (facility_glycol -> zshooter.zimage.glycol_submanifold).class: [glycol_conn; optional_conn]
+    (facility_glycol -> zshooter.glycol_manifold).class: glycol_conn
+    (facility_air -> zshooter.air_manifold).class: air_conn
+    (facility_air -> zshooter.zimage).class: [air_conn; optional_conn]
+
+  }
+
+
+
+  k1_server_room: {
+    class: room_container
+    label: K1 Server Room
+
+    facility_ac: @external.facility_ac
+    facility_ethernet: @external.facility_ethernet
+    network_switch: @common.network_switch_block
+    managed_ups: {
+      class: [device_node; power_device; req_software]
+      label: Managed UPS
+      #TODO: pyNUT daemon missing or defined elsewhere
+    }
+    zimage_readout_computer: {
+      class: [computer_device_node; ethernet_device]
+      label: ZImage Readout Computer
+    }
+    zspec_readout_computer: {
+      class: [computer_device_node; ethernet_device]
+      label: ZSpec Readout Computer
+    }
+    zshooter_reduction_computer: {
+      class: [computer_device_node; ethernet_device]
+      label: ZShooter Reduction Computer
+    }
+
+    (managed_ups -> *_computer).class: ac_conn
+    (facility_ac -> managed_ups -> network_switch).class: ac_conn
+    (facility_ethernet -> network_switch -> managed_ups).class: network_conn
+    (network_switch -> *_computer).class: network_conn
+  }
+
+  k1_mechanical_room: {
+    class: room_container
+    label: K1 Mechanical Room
+
+    facility_ethernet: @external.facility_ethernet
+    facility_glycol: @external.facility_glycol
+    facility_ac: @external.facility_ac
+    nir_cryo_compressor: {
+      class: device_node
+      label: ZSpec IR Cryo Compressor
+    }
+    zspec_cryo_monitor: {
+      class: [controller_device_node; ethernet_device]
+      label: ZSpec Cryo Monitor
+    }
+    (facility_ac -> zspec_cryo_monitor).class: ac_conn
+    (facility_glycol -> nir_cryo_compressor).class: glycol_conn
+    (facility_ethernet -> zspec_cryo_monitor).class: network_conn
+    (zspec_cryo_monitor -> nir_cryo_compressor).class: custom_conn
+  }
+
+  (k1_rnas.zshooter.zimage.*_detector -> k1_server_room.zimage_readout_computer).class: coaxpress_conn
+
+  (k1_mechanical_room.nir_cryo_compressor -> k1_rnas.zshooter.zspec.zspec_nir.coldhead).class: helium_conn
+  k1_mechanical_room.nir_cryo_compressor -> k1_rnas.zshooter.zspec.zspec_nir.coldhead: {
+    class: motor_control_conn
+    label: "Vane Motor"
+  }
+}

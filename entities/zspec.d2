@@ -1,5 +1,4 @@
 zspec: {
-
   class: subinstrument_container
   zspec_visible: {
     class: subinstrument_container
@@ -31,6 +30,8 @@ zspec: {
     adc: @devices.opt_adc
     nod: @devices.opt_nodder
     slit: @devices.opt_slit
+
+    (rotator.optical -> adc.optical -> nod.optical -> slit.optical -> slit_viewer.optical).class: optical_conn
 
     dcs_b: @subsystems.dcs_b
     dcs_g: @subsystems.dcs_g
@@ -129,6 +130,8 @@ zspec: {
       slit_viewer.hardware.class: nIR Slit Viewer
       slit_viewer.daemon.label: "IR Slit Camera Daemon"
 
+      (rotator.optical -> adc.optical -> nodder.optical -> slit.optical -> slit_viewer.optical).class: optical_conn
+
       focus_yj: @devices.cryofocus
       focus_yj.hardware.label: Focus YJ
       focus_h: @devices.cryofocus
@@ -179,6 +182,8 @@ zspec: {
       }
 
     }
+
+
   }
 
   zspec_control_box: {
