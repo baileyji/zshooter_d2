@@ -7,163 +7,121 @@ optical_system: {
   left_inst: @external.left_instrument
   right_inst: @external.right_instrument
 
+  zfront: @zfront.zfront
+
   zs: {
     class: instrument_container
     label: ZShooter
 
-    zss_zsi_sel: @zfront.zfront.zim_zcal_selector
 
 
-    zss_path: {
-      class: subinstrument_container
-      label: ZSpec Path
-
-      zspec: @zspec.zspec
+      zspec_visible: @zspec.zspec.zspec_visible
+      cryostat: @zspec.zspec.zspec_nir.cryostat
 
       zss_dichroic: {
         class: optical_node
         label: ZSpec Dichroic
       }
-
-      #vis_rotator: @zspec.zspec.zspec_visible.rotator.optical
-      #vis_adc: @zspec.zspec.zspec_visible.adc.optical
-      #vis_nod: @zspec.zspec.zspec_visible.nod.optical
-      #vis_slit: @zspec.zspec.zspec_visible.slit.optical
-      #vis_slit_view: @zspec.zspec.zspec_visible.slit_viewer.optical
-      vis_spec: {
+      zspec_visible.coll_echelle_xdisp: {
         class: optical_node
         label: Visible Spectrograph
       }
-      vis_cam_b: {
+      zspec_visible.camera_b: {
         class: optical_node
         label: Visible Camera B
       }
-      vis_cam_g: {
+      zspec_visible.camera_g: {
         class: optical_node
         label: Visible Camera G
       }
-      vis_cam_r: {
+      zspec_visible.camera_r: {
         class: optical_node
         label: Visible Camera R
       }
-      #detector_b: @zspec.zspec.zspec_visible.dcs_b.dewar.qccd
-      #detector_g: @zspec.zspec.zspec_visible.dcs_g.dewar.qccd
-      #detector_r: @zspec.zspec.zspec_visible.dcs_r.dewar.qccd
-      #vis_rotator -> vis_adc -> vis_nod -> vis_slit -> vis_spec -> vis_cam_*
-      #vis_slit -> vis_slit_view
-      #vis_cam_b -> detector_b
-      #vis_cam_g -> detector_g
-      #vis_cam_r -> detector_r
-      #(*->*)[*]: {
-      #  class: optical_conn
-      #}
-      (zspec.zspec_visible.slit.optical-> vis_spec -> vis_cam_*).class: optical_conn
-      (vis_cam_b -> zspec.zspec_visible.dcs_b.dewar.qccd).class: optical_conn
-      (vis_cam_g -> zspec.zspec_visible.dcs_g.dewar.qccd).class: optical_conn
-      (vis_cam_r -> zspec.zspec_visible.dcs_r.dewar.qccd).class: optical_conn
 
-      zs_nir: {
-        class: subinstrument_container
-        label: nIR Cryostat
+      (zspec_visible.slit.optical-> zspec_visible.coll_echelle_xdisp -> zspec_visible.camera_*).class: optical_conn
+      (zspec_visible.camera_b -> zspec_visible.dcs_b.dewar.qccd).class: optical_conn
+      (zspec_visible.camera_g -> zspec_visible.dcs_g.dewar.qccd).class: optical_conn
+      (zspec_visible.camera_r -> zspec_visible.dcs_r.dewar.qccd).class: optical_conn
 
-        #nir_rotator: @zspec.zspec.zspec_nir.cryostat.rotator.optical
-        #nir_adc: @zspec.zspec.zspec_nir.cryostat.adc.optical
-        #nir_nod: @zspec.zspec.zspec_nir.cryostat.nodder.optical
-        #nir_slit: @zspec.zspec.zspec_nir.cryostat.slit.optical
-        #nir_slit_view: @zspec.zspec.zspec_nir.cryostat.slit_viewer.optical
-        nir_spec: {
-          class: optical_node
-          label: nIR Spectrograph
-        }
-        nir_cam_yj: {
-          class: optical_node
-          label: nIR Camera YJ
-        }
-        nir_cam_h: {
-          class: optical_node
-          label: nIR Camera H
-        }
-        nir_cam_k: {
-          class: optical_node
-          label: nIR Camera K
-        }
-        #detector_yj: @zspec.zspec.zspec_nir.cryostat.apd_yj
-        #detector_h: @zspec.zspec.zspec_nir.cryostat.apd_h
-        #detector_k: @zspec.zspec.zspec_nir.cryostat.apd_k
-        #nir_rotator -> nir_adc -> nir_nod -> nir_slit -> nir_spec -> nir_cam_*
-        #nir_slit -> nir_slit_view
-        #nir_cam_yj -> detector_yj
-        #nir_cam_h -> detector_h
-        #nir_cam_k -> detector_k
-        #(*->*)[*]: {
-        #  class: optical_conn
-        #}
-        (_.zspec.zspec_nir.cryostat.slit.optical-> nir_spec -> nir_cam_*).class: optical_conn
-        (nir_cam_yj -> _.zspec.zspec_nir.cryostat.apd_yj).class: optical_conn
-        (nir_cam_h -> _.zspec.zspec_nir.cryostat.apd_yj).class: optical_conn
-        (nir_cam_k -> _.zspec.zspec_nir.cryostat.apd_yj).class: optical_conn
 
+      cryostat.nir_spec: {
+        class: optical_node
+        label: nIR Spectrograph
+      }
+      cryostat.camera_yj: {
+        class: optical_node
+        label: nIR Camera YJ
+      }
+      cryostat.camera_h: {
+        class: optical_node
+        label: nIR Camera H
+      }
+      cryostat.camera_k: {
+        class: optical_node
+        label: nIR Camera K
+      }
+      (cryostat.slit.optical-> cryostat.nir_spec -> cryostat.camera_*).class: optical_conn
+      (cryostat.camera_yj -> cryostat.apd_yj).class: optical_conn
+      (cryostat.camera_h -> cryostat.apd_h).class: optical_conn
+      (cryostat.camera_k -> cryostat.apd_k).class: optical_conn
+
+      (zss_dichroic -> zspec_visible.rotator.optical).class: optical_conn
+      (zss_dichroic -> cryostat.rotator.optical).class: optical_conn
+
+
+      zimage: @zimage.zimage
+
+      zimage.zsi_dichroic_u: {
+        class: optical_node
+        label: ZImage u Longpass
+      }
+      zimage.zsi_dichroic_z: {
+        class: optical_node
+        label: ZImage z Longpass
       }
 
-      (zss_dichroic -> zspec.zspec_visible.rotator).class: optical_conn
-      (zss_dichroic -> zspec.zspec_nir.cryostat.rotator).class: optical_conn
-    }
+      zimage.zsi_z_fold: {
+        class: optical_node
+        label: ZImage z Fold
+      }
 
-    zsi_path: {
-        class: subinstrument_container
-        label: ZImage
 
-        zsi_filter_wheel: @devices.filter_wheel.optical
+      zimage.zsi_u_cam: {
+        class: optical_node
+        label: u Camera
+      }
+      zimage.zsi_v_cam: {
+        class: optical_node
+        label: v Camera
+      }
+      zimage.zsi_z_cam: {
+        class: optical_node
+        label: z Camera
+      }
+      #vars: {
+      #  bob: {
+      #    ...@zimage.zimage.filter_wheel}
+      #}
+      #zimage.filter_wheel: ${bob.optical}
+      (zimage.zsi_dichroic_u -> zimage.zsi_u_cam -> zimage.u_detector).class: optical_conn
+      (zimage.zsi_dichroic_u -> zimage.zsi_dichroic_z -> zimage.filter_wheel.optical -> zimage.zsi_v_cam).class: optical_conn
 
-        zsi_dichroic_u: {
-          class: optical_node
-          label: ZImage u Longpass
-        }
-        zsi_dichroic_z: {
-          class: optical_node
-          label: ZImage z Longpass
-        }
+      (zimage.zsi_v_cam-> zimage.v_detector).class: optical_conn
+      (zimage.zsi_dichroic_z->zimage.zsi_z_fold->zimage.zsi_z_cam-> zimage.z_detector).class: optical_conn
 
-        zsi_u_cam: {
-          class: optical_node
-          label: u Camera
-        }
-        zsi_v_cam: {
-          class: optical_node
-          label: v Camera
-        }
-        zsi_z_cam: {
-          class: optical_node
-          label: z Camera
-        }
-
-        u_detector: @common.quest2_detector
-        v_detector: @common.quest2_detector
-        z_detector: @common.quest2_detector
-        u_detector.label: 'u Orca-Quest2'
-        v_detector.label: 'v Orca-Quest2'
-        z_detector.label: 'z Orca-Quest2'
-
-        (zsi_dichroic_u->zsi_u_cam-> u_detector).class: optical_conn
-        (zsi_dichroic_u -> zsi_dichroic_z -> zsi_filter_wheel ->zsi_v_cam).class: optical_conn
-
-        (zsi_v_cam-> v_detector).class: optical_conn
-        (zsi_dichroic_z->zsi_z_cam-> z_detector).class: optical_conn
-
-    }
-    zss_zsi_sel -> zss_path.zss_dichroic: {
-      class: optical_conn
-      label: ZSpec passthrough
-    }
-    (zss_zsi_sel->zsi_path.zsi_dichroic_u).class: optical_conn
   }
 
-  (tel -> inst_sel -> zs.zss_zsi_sel).class: optical_conn
-  inst_sel -> left_inst: {
+  (tel -> zfront.inst_selector).class: optical_conn
+  (zfront.zim_zspec_selector -> zs.zss_dichroic).class: optical_conn
+  (zfront.zim_zspec_selector -> zs.zimage.zsi_dichroic_u).class: optical_conn
+
+  zfront.inst_selector -> left_inst: {
     class: optical_conn
     label: to Left
   }
-  inst_sel -> right_inst: {
+  
+  zfront.inst_selector -> right_inst: {
     class: optical_conn
     label: to Right
   }

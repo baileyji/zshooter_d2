@@ -8,7 +8,7 @@ zfront: {
     class: [motion_device_node; serial_device]
     label: Instrument Selector
   }
-  zim_zcal_selector: {
+  zim_zspec_selector: {
     class: [motion_device_node; serial_device]
     label: "ZSpec / ZImage Selector"
   }
@@ -20,7 +20,7 @@ zfront: {
   (dc_disttribution->zcal.cal_controller).class: dc_conn
   (dc_disttribution->selector_controller).class: dc_conn
   (selector_controller->inst_selector).class: motor_control_conn
-  (selector_controller->zim_zcal_selector).class: motor_control_conn
+  (selector_controller->zim_zspec_selector).class: motor_control_conn
 
   (data_hub->selector_controller).class: network_conn
   (data_hub->zcal.cal_controller).class: network_conn
@@ -55,4 +55,7 @@ zfront: {
     (high_voltage_supply -> cathode_lamps)[*].label: "HV DC"
 
   }
+
+  (inst_selector -> zim_zspec_selector).class: optical_conn
+  (zcal -> zim_zspec_selector).class: optical_conn
 }
