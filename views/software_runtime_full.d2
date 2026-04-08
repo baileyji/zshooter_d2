@@ -1,64 +1,50 @@
-direction: right
+#direction: right
 ...@../common/styles
-software_runtime: @../entities/ics.software_runtime
-drp_runtime: @../entities/drp.drp_runtime
-instrument_telemetry_db: @../entities/common.instrument_telemetry_db
-hardware_system: @../entities/zshooter_hardware.hardware_system
-...@../models/software_commands
+...@../entities/ics.software_runtime
+wmko_telemetry_db: @../entities/common.instrument_telemetry_db
+
 ...@../models/software_publishes
 ...@../models/device_driver_links
 
-hardware_system: {
-  (**->**)[*]: suspend
-  **: suspend {
-    &leaf: true
-  }
-  **: unsuspend {
-  &class: room_container
-  }
-  **: unsuspend {
-    &class: instrument_container
-  }
-  **: unsuspend {
-    &class: subinstrument_container
-  }
-  **: unsuspend {
-    &class: ebox_enclosure_container
-  }
 
-  **: suspend {
-    &class: daemon_card_container
-  }
-  **: unsuspend {
-    &class: req_software
-  }
-  **: unsuspend {
-    &class: controller_device_node
-  }
-  **: {
-    dcs_*.dewar: suspend
-  }
-    **: {
-    dcs_*.dewar: suspend
-  }
+***: suspend
+(***->***)[*]: suspend
+
+***: unsuspend{
+  &class: computer_host_container
+}
+***: unsuspend {
+  &class: room_container
+}
+***: unsuspend {
+  &class: instrument_container
+}
+***: unsuspend {
+  &class: subinstrument_container
+}
+***: unsuspend {
+  &class: ebox_enclosure_container
 }
 
-# In the big runtime view, hide deeper object-model internals and engineering sections.
-#***: suspend {
-#  &class: object_model_container
-#}
-#***: suspend {
-#  &class: eng_section_block
-#}
-#***: suspend {
-#  &class: ops_section_block
-#}
-#***: suspend {
-#  &class: event_section_block
-#}
-#***: suspend {
-#  &class: status_section_block
-#}
-#***: suspend {
-#  &class: config_section_block
-#}
+***: unsuspend {
+  &class: controller_device_node
+}
+
+(***->***)[*]: unsuspend {
+  &class: publish_conn
+}
+(***->***)[*]: unsuspend {
+  &class: command_conn
+}
+(***->***)[*]: unsuspend {
+  &class: driver_conn
+}
+
+***: {
+  &class: computer_host_container
+  **: unsuspend
+}
+
+***: unsuspend {
+  &class: req_software
+}

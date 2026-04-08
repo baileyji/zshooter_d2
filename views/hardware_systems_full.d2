@@ -3,7 +3,6 @@ direction: right
 ...@../common/legend
 ...@../entities/zshooter_hardware.hardware_system
 
-# Full enough for system review, but suppress overwhelming 1-Wire fanout.
 
 **: {
   &class: entity_wrapper
@@ -30,6 +29,9 @@ direction: right
 **: suspend {
   &class: cryo_temp_sensor
 }
+
+# Full enough for system review, but suppress overwhelming 1-Wire fanout.
+
 (** -> **)[*]: suspend {
   &class: sensor_fanout_conn
 }

@@ -1,67 +1,67 @@
-software_runtime.zimage_readout_pc.readout_u -> drp_runtime.drp_pc.raw_archive_writer: {
+zshooter_sys.k1_server_room.zimage_readout_computer.readout_u -> zshooter_sys.k1_server_room.zshooter_reduction_computer.raw_archive_writer: {
   class: publish_conn
   label: ~raw_frame
 }
-software_runtime.zimage_readout_pc.readout_v -> drp_runtime.drp_pc.raw_archive_writer: {
+zshooter_sys.k1_server_room.zimage_readout_computer.readout_v -> zshooter_sys.k1_server_room.zshooter_reduction_computer.raw_archive_writer: {
   class: publish_conn
   label: ~raw_frame
 }
-software_runtime.zimage_readout_pc.readout_z -> drp_runtime.drp_pc.raw_archive_writer: {
+zshooter_sys.k1_server_room.zimage_readout_computer.readout_z -> zshooter_sys.k1_server_room.zshooter_reduction_computer.raw_archive_writer: {
   class: publish_conn
   label: ~raw_frame
 }
-software_runtime.zspec_readout_pc.readout_opt_b -> drp_runtime.drp_pc.raw_archive_writer: {
+zshooter_sys.k1_server_room.zspec_readout_computer.readout_opt_b -> zshooter_sys.k1_server_room.zshooter_reduction_computer.raw_archive_writer: {
   class: publish_conn
   label: ~raw_frame
 }
-software_runtime.zspec_readout_pc.readout_opt_g -> drp_runtime.drp_pc.raw_archive_writer: {
+zshooter_sys.k1_server_room.zspec_readout_computer.readout_opt_g -> zshooter_sys.k1_server_room.zshooter_reduction_computer.raw_archive_writer: {
   class: publish_conn
   label: ~raw_frame
 }
-software_runtime.zspec_readout_pc.readout_opt_r -> drp_runtime.drp_pc.raw_archive_writer: {
+zshooter_sys.k1_server_room.zspec_readout_computer.readout_opt_r -> zshooter_sys.k1_server_room.zshooter_reduction_computer.raw_archive_writer: {
   class: publish_conn
   label: ~raw_frame
 }
-software_runtime.zspec_readout_pc.readout_ir_yj -> drp_runtime.drp_pc.raw_archive_writer: {
+zshooter_sys.k1_server_room.zspec_readout_computer.readout_ir_yj -> zshooter_sys.k1_server_room.zshooter_reduction_computer.raw_archive_writer: {
   class: publish_conn
   label: ~raw_frame
 }
-software_runtime.zspec_readout_pc.readout_ir_h -> drp_runtime.drp_pc.raw_archive_writer: {
+zshooter_sys.k1_server_room.zspec_readout_computer.readout_ir_h -> zshooter_sys.k1_server_room.zshooter_reduction_computer.raw_archive_writer: {
   class: publish_conn
   label: ~raw_frame
 }
-software_runtime.zspec_readout_pc.readout_ir_k -> drp_runtime.drp_pc.raw_archive_writer: {
-  class: publish_conn
-  label: ~raw_frame
-}
-
-software_runtime.zimage_readout_pc.readout_u -> software_runtime.observer_gui: {
-  class: publish_conn
-  label: ~raw_frame
-}
-software_runtime.zspec_readout_pc.readout_opt_b -> software_runtime.observer_gui: {
+zshooter_sys.k1_server_room.zspec_readout_computer.readout_ir_k -> zshooter_sys.k1_server_room.zshooter_reduction_computer.raw_archive_writer: {
   class: publish_conn
   label: ~raw_frame
 }
 
-software_runtime.zimage_readout_pc.readout_u -> drp_runtime.drp_pc.prelim_reducer: {
+zshooter_sys.k1_server_room.zimage_readout_computer.readout_u -> observer_gui: {
   class: publish_conn
   label: ~raw_frame
 }
-software_runtime.zspec_readout_pc.readout_opt_b -> drp_runtime.drp_pc.prelim_reducer: {
+zshooter_sys.k1_server_room.zspec_readout_computer.readout_opt_b -> observer_gui: {
   class: publish_conn
   label: ~raw_frame
 }
 
-drp_runtime.drp_pc.prelim_reducer -> software_runtime.observer_gui: {
+zshooter_sys.k1_server_room.zimage_readout_computer.readout_u -> zshooter_sys.k1_server_room.zshooter_reduction_computer.prelim_reducer: {
+  class: publish_conn
+  label: ~raw_frame
+}
+zshooter_sys.k1_server_room.zspec_readout_computer.readout_opt_b -> zshooter_sys.k1_server_room.zshooter_reduction_computer.prelim_reducer: {
+  class: publish_conn
+  label: ~raw_frame
+}
+
+zshooter_sys.k1_server_room.zshooter_reduction_computer.prelim_reducer -> observer_gui: {
   class: publish_conn
   label: ~prelim_products
 }
-software_runtime.zshooter_pc.vis_slitcam -> software_runtime.zshooter_pc.fine_guiding: {
+zshooter_sys.k1_rnas.zshooter.zspec.zspec_control_box.zspec_ubuntu.vis_slitcam -> zshooter_sys.k1_rnas.zshooter.zspec.zspec_control_box.zspec_ubuntu.fine_guiding: {
   class: publish_conn
   label: ~slitcam_stream
 }
-software_runtime.zshooter_pc.ir_slitcam -> software_runtime.zshooter_pc.fine_guiding: {
+zshooter_sys.k1_rnas.zshooter.zspec.zspec_control_box.zspec_ubuntu.ir_slitcam -> zshooter_sys.k1_rnas.zshooter.zspec.zspec_control_box.zspec_ubuntu.fine_guiding: {
   class: publish_conn
   label: ~slitcam_stream
 }

@@ -2,32 +2,33 @@ software_runtime: {
   class: instrument_container
   label: Software Runtime
 
+  zshooter_sys: {...@zshooter_hardware.hardware_system}
+
   vars: {
     zshooter: @zshooter_hardware.hardware_system.k1_rnas.zshooter
   }
-  zshooter_pc: @zspec.zspec.zspec_control_box.zspec_ubuntu
-  zshooter_pc.class: computer_host_container
 
-  zshooter_pc: {
-    grid-columns: 5
+  zshooter_sys.k1_rnas.zshooter.zspec.zspec_control_box.zspec_ubuntu: {
+
+    class: computer_host_container
+
+    zshooter_db: @../entities/common.instrument_telemetry_db
+    zshooter_db.label: ZShooter Logging Database Peer
+
     zfront_control: @daemons.zfront_control
+
     spec_focus: @daemons.focus_controller
     spec_focus.label: ZSpec Focus Controller
+
     image_focus: @daemons.focus_controller
     image_focus.label: ZImage Focus Controller
+
     vacuum_monitor: @daemons.vacuum_monitor
     fine_guiding: @daemons.fine_guiding
 
     vis_slitcam: ${zshooter.zspec.zspec_visible.slit_viewer_sw}
     ir_slitcam: ${zshooter.zspec.zspec_nir.cryostat.slit_viewer_sw}
-    zimage_filter_wheel: ${zshooter.zimage.filter_wheel_sw}
-    zimage_focus: ${zshooter.zimage.focus_sw}
-    zimage_u_rotator: ${zshooter.zimage.u_rotator_sw}
-    zimage_v_rotator: ${zshooter.zimage.v_rotator_sw}
-    zimage_z_rotator: ${zshooter.zimage.z_rotator_sw}
-    zimage_u_rotator.label: "u Rotator (`ZIRotatorDaemon`)"
-    zimage_v_rotator.label: "v Rotator (`ZIRotatorDaemon`)"
-    zimage_z_rotator.label: "z Rotator (`ZIRotatorDaemon`)"
+
     vis_rotator: ${zshooter.zspec.zspec_visible.rotator_sw}
     vis_adc: ${zshooter.zspec.zspec_visible.adc_sw}
     vis_nodder: ${zshooter.zspec.zspec_visible.nodder_sw}
@@ -40,6 +41,16 @@ software_runtime: {
     ir_adc: ${zshooter.zspec.zspec_nir.cryostat.adc_sw}
     ir_nodder: ${zshooter.zspec.zspec_nir.cryostat.nodder_sw}
     ir_slit: ${zshooter.zspec.zspec_nir.cryostat.slit_sw}
+
+    zimage_filter_wheel: ${zshooter.zimage.filter_wheel_sw}
+    zimage_focus: ${zshooter.zimage.focus_sw}
+    zimage_u_rotator: ${zshooter.zimage.u_rotator_sw}
+    zimage_v_rotator: ${zshooter.zimage.v_rotator_sw}
+    zimage_z_rotator: ${zshooter.zimage.z_rotator_sw}
+    zimage_u_rotator.label: "u Rotator (`ZIRotatorDaemon`)"
+    zimage_v_rotator.label: "v Rotator (`ZIRotatorDaemon`)"
+    zimage_z_rotator.label: "z Rotator (`ZIRotatorDaemon`)"
+
     shutter_monitor
     glycol_monitor
     temp_log
@@ -78,10 +89,12 @@ software_runtime: {
     }
   }
 
-  zimage_readout_pc: {
+  zshooter_sys.k1_server_room.zimage_readout_computer: {
     class: computer_host_container
     label: ZImage Readout PC
     notebook_server: @common.jupyter_notebook_server
+    zshooter_db: @../entities/common.instrument_telemetry_db
+    zshooter_db.label: ZShooter Logging Database Peer
     readout_u: @devices.orca_readout.daemon
     readout_u.label: 'u Readout'
     readout_v: @devices.orca_readout.daemon
@@ -90,29 +103,36 @@ software_runtime: {
     readout_z.label: 'z Readout'
   }
 
-  zspec_readout_pc: {
+  zshooter_sys.k1_server_room.zspec_readout_computer: {
     class: computer_host_container
     label: ZSpec Readout PC
     notebook_server: @common.jupyter_notebook_server
+    zshooter_db: @../entities/common.instrument_telemetry_db
+    zshooter_db.label: ZShooter Logging Database Peer
     readout_opt_b: ${zshooter.zspec.zspec_visible.dcs_b.readout_sw}
     readout_opt_g: ${zshooter.zspec.zspec_visible.dcs_g.readout_sw}
     readout_opt_r: ${zshooter.zspec.zspec_visible.dcs_r.readout_sw}
     readout_ir_yj: ${zshooter.zspec.zspec_nir.readout_yj_sw}
     readout_ir_h: ${zshooter.zspec.zspec_nir.readout_h_sw}
     readout_ir_k: ${zshooter.zspec.zspec_nir.readout_k_sw}
-    #readout_opt_b: @zspec.zspec.zspec_visible.dcs_b.readout_sw
-    #readout_opt_g: @zspec.zspec.zspec_visible.dcs_g.readout_sw
-    #readout_opt_r: @zspec.zspec.zspec_visible.dcs_r.readout_sw
-    #readout_ir_yj: @zspec.zspec.zspec_nir.readout_yj_sw
-    #readout_ir_h: @zspec.zspec.zspec_nir.readout_h_sw
-    #readout_ir_k: @zspec.zspec.zspec_nir.readout_k_sw
-    #readout_opt_b.label: "Archon B (qCCDDaemon)"
-    #readout_opt_g.label: "Archon G (qCCDDaemon)"
-    #readout_opt_r.label: "Archon R (qCCDDaemon)"
-    #readout_ir_yj.label: "Archon YJ (APDDaemon)"
-    #readout_ir_h.label: "Archon H (APDDaemon)"
-    #readout_ir_k.label: "Archon K (APDDaemon)"
+  }
+
+  zshooter_sys.k1_server_room.zshooter_reduction_computer: {
+    ...@../entities/drp.drp_runtime
+    zshooter_db: @../entities/common.instrument_telemetry_db
+    zshooter_db.label: ZShooter Logging Database Peer
   }
 
   observer_gui: @daemons.observer_gui
+
+  (observer_gui -> zshooter_sys.k1_server_room.zimage_readout_computer.readout_u).class: command_conn
+  (observer_gui -> zshooter_sys.k1_server_room.zimage_readout_computer.readout_v).class: command_conn
+  (observer_gui -> zshooter_sys.k1_server_room.zimage_readout_computer.readout_z).class: command_conn
+  (observer_gui -> zshooter_sys.k1_server_room.zspec_readout_computer.readout_opt_b).class: command_conn
+  (observer_gui -> zshooter_sys.k1_server_room.zspec_readout_computer.readout_opt_g).class: command_conn
+  (observer_gui -> zshooter_sys.k1_server_room.zspec_readout_computer.readout_opt_r).class: command_conn
+  (observer_gui -> zshooter_sys.k1_server_room.zspec_readout_computer.readout_ir_yj).class: command_conn
+  (observer_gui -> zshooter_sys.k1_server_room.zspec_readout_computer.readout_ir_h).class: command_conn
+  (observer_gui -> zshooter_sys.k1_server_room.zspec_readout_computer.readout_ir_k).class: command_conn
+
 }

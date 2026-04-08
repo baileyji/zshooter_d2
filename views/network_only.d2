@@ -1,10 +1,8 @@
-direction: right
+#direction: right
 Network Diagram
 ...@../common/styles
 ...@../common/legend
-...@../entities/zshooter.hardware_system
-
-# Full enough for system review, but suppress overwhelming 1-Wire fanout.
+...@../entities/zshooter_hardware.hardware_system
 
 ***: suspend
 (*** -> ***)[*]: suspend
@@ -24,10 +22,15 @@ Network Diagram
 }
 
 # Show only network edges and their connected endpoints.
-#(** -> **)[*]: unsuspend {
-#  &class: network_conn
+(*** -> ***)[*]: unsuspend {
+  &class: network_conn
+}
+
+#***: unsuspend {
+#  &connected: true
 #}
 
 ***: unsuspend {
-  &connected: true
+  &class: ethernet_device
 }
+
