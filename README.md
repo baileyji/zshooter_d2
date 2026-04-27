@@ -7,6 +7,7 @@ This package is organized around canonical grouped entity files under `entities/
 - `models/` contains only relationships.
 - `views/` are pure projections built from imports plus filtering.
 - `common/` contains styles and shared legend material.
+- `svg/` rendered SVGs.
 
 ## Canonical edit locations
 - Top-level instrument and room composition: `entities/zshooter.d2`
