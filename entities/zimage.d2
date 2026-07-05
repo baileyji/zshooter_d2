@@ -12,16 +12,16 @@ zimage: {
     motor_control_sw: @devices.motor_controller.daemon
 
     ubuntu: {
-      class: [computer_device_node; ethernet_device; optional_node]
+      class: [computer_device_node; ethernet_device; usb_device]
       label: ZImage Ubuntu
     }
     (ac_distribution->dc_bus).class: ac_conn
-    (ac_distribution->ubuntu).class: [ac_conn; optional_conn]
+    (ac_distribution->ubuntu).class: [ac_conn]
 
     (dc_bus->data_hub).class: dc_conn
     (dc_bus->motor_control_hw).class: dc_conn
 
-    (ubuntu->data_hub).class: [data_conn; optional_conn]
+    (ubuntu->data_hub).class: [usb_conn]
     (data_hub->motor_control_hw).class: data_conn
   }
 
@@ -57,8 +57,8 @@ zimage: {
   v_detector.label: 'v Orca-Quest2'
   z_detector.label: 'z Orca-Quest2'
 
-  (ebox.data_hub->glycol_submanifold).class: data_conn
-  (ebox.data_hub->temp_monitor_hub_hw).class: data_conn
+  (ebox.data_hub->glycol_submanifold).class: usb_conn
+  (ebox.data_hub->temp_monitor_hub_hw).class: usb_conn
 
   (ebox.motor_control_hw->filter_wheel_hw).class: motor_control_conn
   (ebox.motor_control_hw->focus_hw).class: motor_control_conn
@@ -66,9 +66,9 @@ zimage: {
   (ebox.motor_control_hw->v_rotator_hw).class: motor_control_conn
   (ebox.motor_control_hw->z_rotator_hw).class: motor_control_conn
 
-  (ebox.data_hub->u_detector).class: data_conn
-  (ebox.data_hub->v_detector).class: data_conn
-  (ebox.data_hub->z_detector).class: data_conn
+#   (ebox.data_hub->u_detector).class: usb_conn
+#   (ebox.data_hub->v_detector).class: usb_conn
+#   (ebox.data_hub->z_detector).class: usb_conn
 
   (glycol_submanifold->u_detector).class: glycol_conn
   (glycol_submanifold->v_detector).class: glycol_conn

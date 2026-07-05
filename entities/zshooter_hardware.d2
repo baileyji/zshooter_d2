@@ -29,7 +29,7 @@ hardware_system: {
       (glycol_manifold -> zspec.zspec_visible.slit_viewer_hw).class: glycol_conn
       (glycol_manifold -> zimage.glycol_submanifold).class: glycol_conn
 
-      (zspec.zspec_control_box.zspec_data_hub -> zimage.ebox.data_hub).class: data_conn
+#       (zspec.zspec_control_box.zspec_data_hub -> zimage.ebox.data_hub).class: data_conn
 
       (air_manifold -> zspec.zspec_visible).class: air_conn
       (air_manifold -> zfront).class: air_conn
@@ -42,12 +42,12 @@ hardware_system: {
 
     (facility_1000base_t -> zshooter.zfront.data_hub).class: network_conn
     (facility_1000base_t -> zshooter.zspec.zspec_control_box.zspec_network_switch).class: network_conn
-    (facility_1000base_t -> zshooter.zimage.ebox.ubuntu).class: [network_conn; optional_conn]
+    (facility_1000base_t -> zshooter.zimage.ebox.ubuntu).class: [network_conn]
 
-    (facility_glycol -> zshooter.zimage.glycol_submanifold).class: [glycol_conn; optional_conn]
+    (facility_glycol -> zshooter.zimage.glycol_submanifold).class: [glycol_conn]
     (facility_glycol -> zshooter.glycol_manifold).class: glycol_conn
     (facility_air -> zshooter.air_manifold).class: air_conn
-    (facility_air -> zshooter.zimage).class: [air_conn; optional_conn]
+#     (facility_air -> zshooter.zimage).class: [air_conn; optional_conn]
 
   }
 

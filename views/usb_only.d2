@@ -1,0 +1,55 @@
+# direction: right
+Network Diagram
+...@../common/styles
+...@../common/legend
+...@../entities/zshooter_hardware.hardware_system
+
+***: suspend
+(*** -> ***)[*]: suspend
+
+# Keep structural context visible.
+***: unsuspend {
+  &class: room_container
+}
+
+k1_server_room: suspend
+k1_mechanical_room: suspend
+
+
+# ***: unsuspend {
+#   &class: instrument_container
+# }
+# ***: unsuspend {
+#   &class: subinstrument_container
+# }
+# ***: unsuspend {
+#   &class: ebox_enclosure_container
+# }
+
+# Show only network edges and their connected endpoints.
+(*** -> ***)[*]: unsuspend {
+  &class: usb_conn
+}
+
+# (*** -> ***)[*]: unsuspend {
+#   &class: data_connf
+# }
+
+# ***: unsuspend {
+#  &connected: true
+# }
+
+
+***: unsuspend {
+  &class: usb_device
+}
+
+***: unsuspend {
+  &class: room_container
+}
+***: unsuspend {
+  &class: instrument_container
+}
+***: unsuspend {
+  &class: ebox_enclosure_container
+}

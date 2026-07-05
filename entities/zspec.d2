@@ -78,7 +78,7 @@ zspec: {
     (motor_controller_hw -> dcs_*.focus_hw).class: motor_control_conn
 
     (dcs_*.readout_hw->shutter_hw).class: data_conn
-    (shutter_hw->data_hub).class: data_conn
+    (shutter_hw->data_hub).class: usb_conn
 
     (dc_distribution -> shutter_hw).class: dc_conn
     (dc_distribution -> slit_viewer_hw).class: dc_conn
@@ -89,9 +89,9 @@ zspec: {
 
     (data_hub -> slit_viewer_hw).class: network_conn
 
-    (data_hub -> temp_monitor_hub_hw).class: data_conn
-    (data_hub -> dcs_*.cryocooler).class: data_conn
-    (data_hub -> dcs_*.vacuum_gauge).class: data_conn
+    (data_hub -> temp_monitor_hub_hw).class: usb_conn
+    (data_hub -> dcs_*.cryocooler).class: usb_conn
+    (data_hub -> dcs_*.vacuum_gauge).class: usb_conn
     (data_hub -> motor_controller_hw).class: data_conn
   }
 
@@ -135,13 +135,17 @@ zspec: {
     readout_k_sw.label: K Archon
 
     (readout_*_hw->cryostat.detector_vib).class: detector_con
-    (data_hub->cryostat.support_vib).class: data_conn
-    (data_hub->temp_controller_hw).class: data_conn
-    (data_hub->vacuum_gauge).class: data_conn
+
+    (data_hub->cryostat.support_vib).class: usb_conn
+    (data_hub->cryostat.support_vib).class: network_conn
+    (data_hub->temp_controller_hw).class: network_conn
+    (data_hub->vacuum_gauge).class: usb_conn
+
     (dc_distribution->vacuum_gauge).class: dc_conn
     (dc_distribution->data_hub).class: dc_conn
     (dc_distribution->motor_controller_hw).class: dc_conn
     (dc_distribution->temp_controller_hw).class: dc_conn
+
     (data_hub->motor_controller_hw).class: data_conn
     (temp_controller_hw->cryostat.support_vib).class: custom_conn
     (motor_controller_hw->cryostat.support_vib).class: motor_control_conn
@@ -203,7 +207,7 @@ zspec: {
       (support_vib -> nodder_hw).class: motor_control_conn
       (support_vib -> slit_hw).class: motor_control_conn
       (support_vib -> focus*_hw).class: motor_control_conn
-      (support_vib -> slit_viewer_hw).class: detector_conn
+      (support_vib -> slit_viewer_hw).class: network_conn
 
       heaters: {
         class: device_node
@@ -252,7 +256,7 @@ zspec: {
     zspec_network_switch: @common.network_switch_block
     zspec_data_hub: @common.data_hub_block
     zspec_ubuntu: {
-      class: [computer_device_node; ethernet_device]
+      class: [computer_device_node; ethernet_device; usb_device]
       label: ZSpec Ubuntu
     }
     zspec_heat_exchanger: {
@@ -282,16 +286,18 @@ zspec: {
       class: network_conn
     }
     zspec_ubuntu -> zspec_data_hub -> zspec_supporting_electronics: {
-      class: data_conn
+      class: usb_conn
     }
   }
-  (zspec_control_box.zspec_network_switch -> zspec_nir.readout*_hw).class: network_conn
-  (zspec_control_box.zspec_network_switch -> zspec_visible.dcs_*.readout_hw).class: network_conn
+  (zspec_nir.data_hub -> zspec_nir.readout*_hw).class: network_conn
+  (zspec_visible.data_hub -> zspec_visible.dcs_*.readout_hw).class: network_conn
   (zspec_control_box.zspec_ac_distribution -> zspec_nir.readout*_hw).class: ac_conn
   (zspec_control_box.zspec_ac_distribution -> zspec_visible.dcs_*.readout_hw).class: ac_conn
   (zspec_control_box.zspec_dc_bus -> zspec_visible.dc_distribution).class: dc_conn
   (zspec_control_box.zspec_dc_bus -> zspec_nir.dc_distribution).class: dc_conn
 
-  (zspec_control_box.zspec_data_hub -> zspec_nir.data_hub).class: data_conn
-  (zspec_control_box.zspec_data_hub -> zspec_visible.data_hub).class: data_conn
+  (zspec_control_box.zspec_data_hub -> zspec_nir.data_hub).class: usb_conn
+  (zspec_control_box.zspec_data_hub -> zspec_visible.data_hub).class: usb_conn
+  (zspec_control_box.zspec_network_switch -> zspec_nir.data_hub).class: network_conn
+  (zspec_control_box.zspec_network_switch -> zspec_visible.data_hub).class: network_conn
 }

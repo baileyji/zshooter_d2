@@ -1,0 +1,43 @@
+direction: down
+...@../common/styles
+...@../common/legend
+...@../entities/zshooter_hardware.hardware_system
+
+**: {
+  &class: entity_wrapper
+  optical: suspend
+  daemon: suspend
+}
+***: suspend {
+  &class: daemon_card_container
+}
+***: suspend {
+  &class: optical_node
+}
+(*** -> ***)[*]: suspend {
+  &class: optical_conn
+}
+**: {
+  &class: computer_device_node
+  daemons: suspend
+}
+
+k1_server_room: suspend
+k1_mechanical_room: suspend
+
+**: suspend {
+  &class: onewire_temp_sensor
+}
+**: suspend {
+  &class: cryo_temp_sensor
+}
+
+# Full enough for system review, but suppress overwhelming 1-Wire fanout.
+
+(** -> **)[*]: suspend {
+  &class: sensor_fanout_conn
+}
+
+(** -> **)[*]: suspend {
+  &class: coaxpress_conn
+}
