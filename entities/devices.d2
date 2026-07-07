@@ -12,13 +12,13 @@ opt_rotator: {
   label: ""
   hardware: {
     class: [motion_device_node; serial_device; req_software]
-    label: Optical Rotator
+    label: VIS Rotator
   }
   daemon: @daemons.rotator
   daemon.label: "Vis Rotator"
   optical: {
     class: optical_node
-    label: Optical Rotator Optics
+    label: VIS Rotator Optics
   }
 }
 
@@ -27,13 +27,13 @@ opt_adc: {
     label: ""
     hardware: {
       class: [motion_device_node; serial_device; req_software]
-      label: Optical ADC
+      label: VIS ADC
     }
     daemon: @daemons.adc
     daemon.label: "Vis ADC Daemon"
     optical: {
       class: optical_node
-      label: Optical ADC Optics
+      label: VIS ADC Optics
     }
   }
 
@@ -124,12 +124,12 @@ opt_nodder: {
   label: ""
   hardware: {
     class: [motion_device_node; serial_device; req_software]
-    label: Optical Nodder
+    label: VIS Nodder
   }
   daemon: @daemons.nodder
   optical: {
     class: optical_node
-    label: Optical Nod Optics
+    label: VIS Nod Optics
   }
 }
 
@@ -138,12 +138,12 @@ opt_slit: {
   label: ""
   hardware: {
     class: [motion_device_node; serial_device; req_software]
-    label: Optical Slit Selector
+    label: VIS Slit Selector
   }
   daemon: @daemons.slit_selector
   optical: {
     class: optical_node
-    label: Optical Slit Aperture
+    label: VIS Slit Aperture
   }
 }
 
