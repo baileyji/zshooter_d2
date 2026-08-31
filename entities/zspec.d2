@@ -6,19 +6,72 @@ zspec: {
     class: subinstrument_container
     label: ZSpec Visible
 
-    motor_controller_hw: @devices.motor_controller.hardware
-    motor_controller_sw: @devices.motor_controller.daemon
 
-    data_hub: @common.data_hub_block
-    data_hub.label: "VISible Data Hub (Eth/USB)"
+    ebox: {
+      class: ebox_enclosure_container
+      label: ZSpec VIS EBox
 
-    dc_distribution: @common.dc_distribution_block
-    dc_distribution.label: Optical DC Distribution
+      ac_distribution: @common.ac_distribution_block
+      dc_bus: @common.ac_to_dc_block
+      network_switch: @common.network_switch_block
+      data_hub: @common.data_hub_block
+
+      motor_controller_hw: @devices.motor_controller.hardware
+      motor_controller_sw: @devices.motor_controller.daemon
+
+      data_hub: @common.data_hub_block
+      data_hub.label: "VISible Data Hub (Eth/USB)"
+
+      dc_distribution: @common.dc_distribution_block
+      dc_distribution.label: Optical DC Distribution
+
+      (dc_distribution -> data_hub).class: dc_conn
+      (dc_distribution -> motor_controller_hw).class: dc_conn
+      (data_hub -> motor_controller_hw).class: data_conn
+
+      (dc_bus -> dc_distribution).class: dc_conn
+
+      ubuntu: {
+        class: [computer_device_node; ethernet_device; usb_device]
+        label: ZSpec VIS rPI
+      }
+      heat_exchanger: {
+        class: device_node
+        label: Heat Exchanger
+      }
+      supporting_electronics: {
+        class: device_node
+        label: Supporting Electronics
+      }
+
+      ac_distribution -> dc_bus
+      ac_distribution -> ubuntu
+
+      dc_bus -> data_hub
+      dc_bus -> supporting_electronics
+      dc_bus -> network_switch
+      #zspec_ac_distribution -> zspec_network_switch
+
+      (ac_distribution -> *)[*] : {
+        class: ac_conn
+      }
+      (dc_bus -> *)[*] : {
+        class: dc_conn
+      }
+      ubuntu <- network_switch -> supporting_electronics: {
+        class: network_conn
+      }
+      ubuntu -> data_hub -> supporting_electronics: {
+        class: usb_conn
+      }
+    }
+
+
 
     slit_viewer_hw: @devices.slit_viewer.hardware
     slit_viewer_sw: @devices.slit_viewer.daemon
-    slit_viewer_hw.label: Visible Slit Viewer
-    slit_viewer_sw.label: "Visible Slit Camera Daemon"
+    slit_viewer_hw.label: VIS Slit Viewer
+    slit_viewer_sw.label: Visible Slit Camera Daemon
 
     ...@subsystems.temp_monitor_module
 
@@ -71,28 +124,38 @@ zspec: {
     dcs_r.cryocooler.label: Cryocooler R
     dcs_r.dewar.detector.label: qCCD R w/heater & temp
 
-    (motor_controller_hw -> rotator_hw).class: motor_control_conn
-    (motor_controller_hw -> adc_hw).class: motor_control_conn
-    (motor_controller_hw -> nodder_hw).class: motor_control_conn
-    (motor_controller_hw -> slit_hw).class: motor_control_conn
-    (motor_controller_hw -> dcs_*.focus_hw).class: motor_control_conn
+    glycol_manifold: @common.glycol_manifold_block
+    glycol_manifold.label: VIS Glycol Manifold
+    (glycol_manifold -> dcs_*.cryocooler).class: glycol_conn
+    (glycol_manifold -> dcs_*.readout_hw).class: glycol_conn
+    (glycol_manifold -> ebox.heat_exchanger).class: glycol_conn
+    (glycol_manifold -> slit_viewer_hw).class: glycol_conn
+
+    (ebox.ac_distribution -> dcs_*.readout_hw).class: ac_conn
+
+    (ebox.motor_controller_hw -> rotator_hw).class: motor_control_conn
+    (ebox.motor_controller_hw -> adc_hw).class: motor_control_conn
+    (ebox.motor_controller_hw -> nodder_hw).class: motor_control_conn
+    (ebox.motor_controller_hw -> slit_hw).class: motor_control_conn
+    (ebox.motor_controller_hw -> dcs_*.focus_hw).class: motor_control_conn
 
     (dcs_*.readout_hw->shutter_hw).class: data_conn
-    (shutter_hw->data_hub).class: usb_conn
+    (shutter_hw->ebox.data_hub).class: usb_conn
 
-    (dc_distribution -> shutter_hw).class: dc_conn
-    (dc_distribution -> slit_viewer_hw).class: dc_conn
-    (dc_distribution -> data_hub).class: dc_conn
-    (dc_distribution -> motor_controller_hw).class: dc_conn
-    (dc_distribution -> dcs_*.cryocooler).class: dc_conn
-    (dc_distribution -> dcs_*.vacuum_gauge).class: dc_conn
+    (ebox.dc_distribution -> shutter_hw).class: dc_conn
+    (ebox.dc_distribution -> slit_viewer_hw).class: dc_conn
 
-    (data_hub -> slit_viewer_hw).class: network_conn
+    (ebox.dc_distribution -> dcs_*.cryocooler).class: dc_conn
+    (ebox.dc_distribution -> dcs_*.vacuum_gauge).class: dc_conn
 
-    (data_hub -> temp_monitor_hub_hw).class: usb_conn
-    (data_hub -> dcs_*.cryocooler).class: usb_conn
-    (data_hub -> dcs_*.vacuum_gauge).class: usb_conn
-    (data_hub -> motor_controller_hw).class: data_conn
+    (ebox.data_hub -> slit_viewer_hw).class: network_conn
+
+    (ebox.data_hub -> temp_monitor_hub_hw).class: usb_conn
+    (ebox.data_hub -> dcs_*.cryocooler).class: usb_conn
+    (ebox.data_hub -> dcs_*.vacuum_gauge).class: usb_conn
+
+    (ebox.data_hub -> readout*_hw).class: network_conn
+    (ebox.ac_distribution -> readout*_hw).class: ac_conn
   }
 
 
@@ -100,12 +163,73 @@ zspec: {
     class: subinstrument_container
     label: ZSpec nIR
 
-    motor_controller_hw: @devices.motor_controller.hardware
-    motor_controller_sw: @devices.motor_controller.daemon
+    ebox: {
+        class: ebox_enclosure_container
+        label: ZSpec NIR Control Box
 
-    temp_controller_hw: {
-      class: [controller_device_node; ethernet_device]
-      label: nIR Temp Controller
+        motor_controller_hw: @devices.motor_controller.hardware
+        motor_controller_sw: @devices.motor_controller.daemon
+
+        temp_controller_hw: {
+          class: [controller_device_node; ethernet_device]
+          label: nIR Temp Controller
+        }
+
+        data_hub: @common.data_hub_block
+        data_hub.label: "nIR Data Hub (Eth/USB)"
+
+        dc_distribution: @common.dc_distribution_block
+        dc_distribution.label: nIR DC Distribution
+
+        ac_distribution: @common.ac_distribution_block
+        dc_bus: @common.ac_to_dc_block
+        network_switch: @common.network_switch_block
+        data_hub: @common.data_hub_block
+
+        (dc_bus -> dc_distribution).class: dc_conn
+
+        (data_hub->temp_controller_hw).class: network_conn
+        (dc_distribution->data_hub).class: dc_conn
+        (dc_distribution->motor_controller_hw).class: dc_conn
+        (dc_distribution->temp_controller_hw).class: dc_conn
+
+        (data_hub->motor_controller_hw).class: data_conn
+
+        ubuntu: {
+          class: [computer_device_node; ethernet_device; usb_device]
+          label: NIR rPi
+        }
+        heat_exchanger: {
+          class: device_node
+          label: Heat Exchanger
+        }
+        supporting_electronics: {
+          class: device_node
+          label: Supporting Electronics
+        }
+
+        ac_distribution -> dc_bus
+        ac_distribution -> ubuntu
+
+        dc_bus -> data_hub
+        dc_bus -> supporting_electronics
+        dc_bus -> network_switch
+        #zspec_ac_distribution -> zspec_network_switch
+
+        (ac_distribution -> *)[*] : {
+          class: ac_conn
+        }
+        (dc_bus -> *)[*] : {
+          class: dc_conn
+        }
+        ubuntu <- network_switch -> supporting_electronics: {
+          class: network_conn
+        }
+        ubuntu -> data_hub -> supporting_electronics: {
+          class: usb_conn
+        }
+
+
     }
 
     coldhead: {
@@ -113,13 +237,7 @@ zspec: {
       label: Coldhead
     }
     vacuum_gauge: @common.vacuum_gauge
-    vacuum_gauge.label: nIR Vacuum GaugVe
-
-    data_hub: @common.data_hub_block
-    data_hub.label: "nIR Data Hub (Eth/USB)"
-
-    dc_distribution: @common.dc_distribution_block
-    dc_distribution.label: nIR DC Distribution
+    vacuum_gauge.label: nIR Vacuum Gauge
 
     readout_yj_hw: @devices.archon_readout.hardware
     readout_yj_sw: @devices.archon_readout.daemon
@@ -136,21 +254,23 @@ zspec: {
 
     (readout_*_hw->cryostat.detector_vib).class: detector_con
 
-    (data_hub->cryostat.support_vib).class: usb_conn
-    (data_hub->cryostat.support_vib).class: network_conn
-    (data_hub->temp_controller_hw).class: network_conn
-    (data_hub->vacuum_gauge).class: usb_conn
+    (ebox.data_hub->cryostat.support_vib).class: usb_conn
+    (ebox.data_hub->cryostat.support_vib).class: network_conn
+    (ebox.data_hub->vacuum_gauge).class: usb_conn
 
-    (dc_distribution->vacuum_gauge).class: dc_conn
-    (dc_distribution->data_hub).class: dc_conn
-    (dc_distribution->motor_controller_hw).class: dc_conn
-    (dc_distribution->temp_controller_hw).class: dc_conn
+    (ebox.temp_controller_hw->cryostat.support_vib).class: custom_conn
+    (ebox.motor_controller_hw->cryostat.support_vib).class: motor_control_conn
 
-    (data_hub->motor_controller_hw).class: data_conn
-    (temp_controller_hw->cryostat.support_vib).class: custom_conn
-    (motor_controller_hw->cryostat.support_vib).class: motor_control_conn
+    (ebox.dc_distribution->vacuum_gauge).class: dc_conn
+
     shutter_sw: Shutter
     shutter_sw.class: optical_node
+
+    glycol_manifold: @common.glycol_manifold_block
+    glycol_manifold.label: NIR Glycol Manifold
+    (glycol_manifold -> coldhead).class: glycol_conn
+    (glycol_manifold -> readout*_hw).class: glycol_conn
+    (glycol_manifold -> ebox.heat_exchanger).class: glycol_conn
 
     cryostat: {
       class: cryostat_container
@@ -244,60 +364,12 @@ zspec: {
 
     }
 
+#   (zspec_visible.data_hub -> zspec_visible.dcs_*.readout_hw).class: network_conn
 
   }
 
-  zspec_control_box: {
-    class: ebox_enclosure_container
-    label: ZSpec Control Box
-
-    zspec_ac_distribution: @common.ac_distribution_block
-    zspec_dc_bus: @common.ac_to_dc_block
-    zspec_network_switch: @common.network_switch_block
-    zspec_data_hub: @common.data_hub_block
-    zspec_ubuntu: {
-      class: [computer_device_node; ethernet_device; usb_device]
-      label: ZSpec Ubuntu
-    }
-    zspec_heat_exchanger: {
-      class: device_node
-      label: Heat Exchanger
-    }
-    zspec_supporting_electronics: {
-      class: device_node
-      label: Supporting Electronics
-    }
-
-    zspec_ac_distribution -> zspec_dc_bus
-    zspec_ac_distribution -> zspec_ubuntu
-
-    zspec_dc_bus -> zspec_data_hub
-    zspec_dc_bus -> zspec_supporting_electronics
-    zspec_dc_bus -> zspec_network_switch
-    #zspec_ac_distribution -> zspec_network_switch
-
-    (zspec_ac_distribution -> *)[*] : {
-      class: ac_conn
-    }
-    (zspec_dc_bus -> *)[*] : {
-      class: dc_conn
-    }
-    zspec_ubuntu <- zspec_network_switch -> zspec_supporting_electronics: {
-      class: network_conn
-    }
-    zspec_ubuntu -> zspec_data_hub -> zspec_supporting_electronics: {
-      class: usb_conn
-    }
-  }
-  (zspec_nir.data_hub -> zspec_nir.readout*_hw).class: network_conn
-  (zspec_visible.data_hub -> zspec_visible.dcs_*.readout_hw).class: network_conn
-  (zspec_control_box.zspec_ac_distribution -> zspec_nir.readout*_hw).class: ac_conn
-  (zspec_control_box.zspec_ac_distribution -> zspec_visible.dcs_*.readout_hw).class: ac_conn
-  (zspec_control_box.zspec_dc_bus -> zspec_visible.dc_distribution).class: dc_conn
-  (zspec_control_box.zspec_dc_bus -> zspec_nir.dc_distribution).class: dc_conn
-
-  (zspec_control_box.zspec_data_hub -> zspec_nir.data_hub).class: usb_conn
-  (zspec_control_box.zspec_data_hub -> zspec_visible.data_hub).class: usb_conn
-  (zspec_control_box.zspec_network_switch -> zspec_nir.data_hub).class: network_conn
-  (zspec_control_box.zspec_network_switch -> zspec_visible.data_hub).class: network_conn
+#   (zspec_control_box.zspec_data_hub -> zspec_nir.data_hub).class: usb_conn
+#   (zspec_control_box.zspec_data_hub -> zspec_visible.data_hub).class: usb_conn
+#   (zspec_control_box.zspec_network_switch -> zspec_nir.data_hub).class: network_conn
+#   (zspec_control_box.zspec_network_switch -> zspec_visible.data_hub).class: network_conn
 }
