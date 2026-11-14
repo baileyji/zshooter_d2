@@ -1,0 +1,91 @@
+direction: right
+...@../common/styles
+vis: {
+  label: "VIS entrance shutter"
+  class: module
+  link: "../../controls/harnesses/zspec-vis.html#shutter-triggers"
+  B: {label: "B Archon"; class: [controller; placeholder]; link: "../../controls/harnesses/zspec-vis.html#shutter-triggers"}
+  B -> readout.B: {class: trigger; label: "B"}
+  G: {label: "G Archon"; class: [controller; placeholder]; link: "../../controls/harnesses/zspec-vis.html#shutter-triggers"}
+  G -> readout.G: {class: trigger; label: "G"}
+  R: {label: "R Archon"; class: [controller; placeholder]; link: "../../controls/harnesses/zspec-vis.html#shutter-triggers"}
+  R -> readout.R: {class: trigger; label: "R"}
+  readout: {
+    label: "Readout panel"
+    class: panel
+    link: "../../controls/harnesses/zspec-vis.html#shutter-triggers"
+    B: "Trigger"
+    G: "Trigger"
+    R: "Trigger"
+  }
+  logic: {label: "Hardware OR"; class: controller; link: "../../controls/harnesses/zspec-vis.html#shutter-triggers"}
+  controller: {label: "Shutter controller"; class: controller; link: "../../controls/harnesses/zspec-vis.html#shutter-triggers"}
+  readout.B -> logic: {class: trigger; label: "B"}
+  readout.G -> logic: {class: trigger; label: "G"}
+  readout.R -> logic: {class: trigger; label: "R"}
+  logic -> controller: {class: trigger}
+  motion: {
+    label: "Mechanism panel"
+    class: panel
+    link: "../../controls/harnesses/zspec-vis.html"
+    SHUTTER: "Actuator / position"
+  }
+  controller -- motion.SHUTTER: {class: motion}
+  shutter: {label: "VIS entrance shutter"; class: actuator; link: "../../controls/operations/zspec.html"}
+  motion.SHUTTER -- shutter: {class: motion}
+}
+nir: {
+  label: "NIR cold shutter"
+  class: module
+  link: "../../controls/harnesses/zspec-nir.html#shutter-triggers"
+  YJ: {label: "YJ Archon"; class: [controller; placeholder]; link: "../../controls/harnesses/zspec-nir.html#shutter-triggers"}
+  YJ -> readout.YJ: {class: trigger; label: "YJ"}
+  H: {label: "H Archon"; class: [controller; placeholder]; link: "../../controls/harnesses/zspec-nir.html#shutter-triggers"}
+  H -> readout.H: {class: trigger; label: "H"}
+  K: {label: "K Archon"; class: [controller; placeholder]; link: "../../controls/harnesses/zspec-nir.html#shutter-triggers"}
+  K -> readout.K: {class: trigger; label: "K"}
+  readout: {
+    label: "Readout panel"
+    class: panel
+    link: "../../controls/harnesses/zspec-nir.html#shutter-triggers"
+    YJ: "Trigger"
+    H: "Trigger"
+    K: "Trigger"
+  }
+  logic: {label: "Hardware OR"; class: controller; link: "../../controls/harnesses/zspec-nir.html#shutter-triggers"}
+  controller: {label: "Shutter controller"; class: controller; link: "../../controls/harnesses/zspec-nir.html#shutter-triggers"}
+  readout.YJ -> logic: {class: trigger; label: "YJ"}
+  readout.H -> logic: {class: trigger; label: "H"}
+  readout.K -> logic: {class: trigger; label: "K"}
+  logic -> controller: {class: trigger}
+  motion: {
+    label: "Mechanism panel"
+    class: panel
+    link: "../../controls/harnesses/zspec-nir.html"
+    SHUTTER: "Actuator / position"
+  }
+  controller -- motion.SHUTTER: {class: motion}
+  vib: {
+    label: "Support / motion VIB"
+    class: panel
+    link: "../../controls/harnesses/zspec-nir.html#support-motion-vib"
+    SHUTTER: "Actuator / position"
+  }
+  motion.SHUTTER -- vib.SHUTTER: {class: motion}
+  shutter: {label: "NIR cold shutter"; class: actuator; link: "../../controls/operations/zspec.html"}
+  vib.SHUTTER -- shutter: {class: motion}
+}
+
+title: {label: "Shared shutters · hardware trigger paths"; class: title; link: "../../controls/harnesses/diagram-guide.html"}
+title.near: top-center
+vars: {
+  d2-legend: {
+    a0.style.opacity: 0
+    b0.style.opacity: 0
+    a0 -> b0: "Hardware trigger" {class: trigger; label: "Hardware trigger"}
+    a1.style.opacity: 0
+    b1.style.opacity: 0
+    a1 -- b1: "Motor / position" {class: motion; label: "Motor / position"}
+    selection: "Baseline selection" {class: [device; placeholder]}
+  }
+}

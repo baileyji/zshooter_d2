@@ -1,0 +1,28 @@
+vacuum: {
+  label: "Vacuum station"
+  class: module
+  link: "../../controls/harnesses/vacuum.html"
+  facility_panel: {
+    label: "Pump service panel"
+    class: panel
+    link: "../../controls/harnesses/vacuum.html"
+    AC: "Power"
+    GLYCOL: "Supply / return"
+  }
+  pump: {label: "Roughing / turbo pump"; class: device; link: "../../controls/harnesses/vacuum.html"}
+  manifold: {
+    label: "Vacuum manifold"
+    class: panel
+    link: "../../controls/harnesses/vacuum.html"
+    B: "Vessel branch"
+    G: "Vessel branch"
+    R: "Vessel branch"
+    NIR: "Vessel branch"
+  }
+  facility_panel.AC -- pump: {class: power}
+  facility_panel.GLYCOL -- pump: {class: glycol}
+  pump -- manifold.B: {class: vacuum}
+  pump -- manifold.G: {class: vacuum}
+  pump -- manifold.R: {class: vacuum}
+  pump -- manifold.NIR: {class: vacuum}
+}

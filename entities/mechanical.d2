@@ -1,0 +1,29 @@
+mechanical: {
+  label: "Mechanical room"
+  class: room
+  link: "../../controls/harnesses/zspec-nir.html#coldhead-and-compressor-connections"
+  facility_panel: {
+    label: "Mechanical-room facility panel"
+    class: panel
+    link: "../../controls/harnesses/power.html"
+    AC: "Power"
+    NET: "Ethernet"
+    GLYCOL: "Supply / return"
+  }
+  instrument_panel: {
+    label: "NIR compressor panel"
+    class: panel
+    link: "../../controls/harnesses/zspec-nir.html#coldhead-and-compressor-connections"
+    HE: "Helium pair"
+    VANE: "Vane-motor cable"
+  }
+  compressor: {label: "NIR compressor"; class: device; link: "../../controls/harnesses/zspec-nir.html#coldhead-and-compressor-connections"}
+  cryo_monitor: {label: "Cryo monitor"; class: controller; link: "../../controls/operations/environmental-services.html"}
+  facility_panel.AC -- compressor: {class: power}
+  facility_panel.AC -- cryo_monitor: {class: power}
+  facility_panel.NET -- cryo_monitor: {class: ethernet}
+  facility_panel.GLYCOL -- compressor: {class: glycol}
+  cryo_monitor -- compressor: {class: sense; label: "Control / status"}
+  compressor -- instrument_panel.HE: {class: helium}
+  compressor -- instrument_panel.VANE: {class: sense; label: "Vane motor"}
+}

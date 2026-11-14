@@ -1,0 +1,116 @@
+{
+  "zfront_full": {
+    "title": "ZFront · panels and shared services",
+    "layout": "elk",
+    "category": "Connections",
+    "order": 13
+  },
+  "zimager_full": {
+    "title": "ZImager · panel connections",
+    "layout": "elk",
+    "category": "Connections",
+    "order": 14
+  },
+  "zspec_vis": {
+    "title": "ZSpec VIS · panel connections",
+    "layout": "elk",
+    "category": "Connections",
+    "order": 15
+  },
+  "zspec_nir": {
+    "title": "ZSpec NIR · panel connections",
+    "layout": "elk",
+    "category": "Connections",
+    "order": 16
+  },
+  "hardware_systems_full": {
+    "title": "ZShooter · complete panel connections",
+    "layout": "elk",
+    "category": "Connections",
+    "order": 12
+  },
+  "rnas_systems_full": {
+    "title": "RNAS · panel connections",
+    "layout": "elk",
+    "category": "Connections",
+    "order": 18
+  },
+  "zspec_full": {
+    "title": "ZSpec · VIS / NIR panel connections",
+    "layout": "elk",
+    "category": "Connections",
+    "order": 17
+  },
+  "hardware_overview": {
+    "title": "ZShooter · explore the instrument",
+    "layout": "elk",
+    "category": "Concepts",
+    "order": 0
+  },
+  "optical_train_full": {
+    "title": "Optical routing · focus and warm / cold boundaries",
+    "layout": "elk",
+    "category": "Concepts",
+    "order": 1
+  },
+  "network_only": {
+    "title": "Control and readout network",
+    "layout": "elk",
+    "category": "Concepts",
+    "order": 2
+  },
+  "glycol_only": {
+    "title": "Glycol · independent service branches",
+    "layout": "elk",
+    "category": "Concepts",
+    "order": 8
+  },
+  "vacuum_protection": {
+    "title": "Vacuum · local protection and isolation",
+    "layout": "elk",
+    "category": "Concepts",
+    "order": 7
+  },
+  "shutter_triggers": {
+    "title": "Shared shutters · hardware trigger paths",
+    "layout": "elk",
+    "category": "Concepts",
+    "order": 6
+  },
+  "imager_readout": {
+    "title": "Imager readout · one path per detector",
+    "layout": "elk",
+    "category": "Concepts",
+    "order": 4
+  },
+  "nir_feedthroughs": {
+    "title": "NIR · warm / cold connections",
+    "layout": "elk",
+    "category": "Concepts",
+    "order": 5
+  },
+  "nir_support_cabinet": {
+    "title": "NIR · off-instrument support",
+    "layout": "elk",
+    "category": "Concepts",
+    "order": 10
+  },
+  "software_runtime_full": {
+    "title": "Software · host roles and data paths",
+    "layout": "elk",
+    "category": "Concepts",
+    "order": 9
+  },
+  "usb_only": {
+    "title": "Local USB connections",
+    "layout": "elk",
+    "category": "Concepts",
+    "order": 11
+  },
+  "module_isolation": {
+    "title": "Removal boundaries · retain the remaining instrument",
+    "layout": "elk",
+    "category": "Concepts",
+    "order": 3
+  }
+}

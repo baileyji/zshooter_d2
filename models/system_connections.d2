@@ -1,0 +1,30 @@
+rnas.panel.AC -- zfront.ebox.facility_panel.AC: {class: power; label: "120 VAC"}
+rnas.panel.NET -- zfront.ebox.facility_panel.NET: {class: ethernet; label: "10G fiber"}
+rnas.panel.AIR -- zfront.air_manifold: {class: air}
+rnas.panel.GLYCOL -- zfront.glycol_manifold: {class: glycol}
+zfront.ebox.imager_panel.AC -- zimage.ebox.input_panel.AC: {class: power}
+zfront.ebox.imager_panel.NET -- zimage.ebox.input_panel.NET: {class: ethernet; label: "100 Mb/s copper"}
+zfront.air_manifold -- zimage.service_panel.AIR: {class: air}
+zfront.ebox.vis_panel.AC -- zspec_vis.ebox.input_panel.AC: {class: power}
+zfront.ebox.vis_panel.NET -- zspec_vis.ebox.input_panel.NET: {class: ethernet; label: "10G fiber"}
+zfront.air_manifold -- zspec_vis.service_panel.AIR: {class: air}
+zfront.glycol_manifold -- zimage.service_panel.GLYCOL: {class: glycol}
+zfront.glycol_manifold -- zspec_vis.service_panel.GLYCOL: {class: glycol}
+zfront.glycol_manifold -- zspec_nir.service_panel.GLYCOL: {class: glycol}
+zspec_vis.ebox.nir_panel.DC -- zspec_nir.ebox.input_panel.DC: {class: dc}
+zspec_vis.ebox.nir_panel.NET -- zspec_nir.ebox.input_panel.NET: {class: ethernet}
+zimage.cxp_transport.U -- server.readout_panel.U: {class: cxp; label: "U optical transport"}
+zimage.cxp_transport.V -- server.readout_panel.V: {class: cxp; label: "V optical transport"}
+zimage.cxp_transport.Z -- server.readout_panel.Z: {class: cxp; label: "Z optical transport"}
+mechanical.instrument_panel.HE -- zspec_nir.coldhead_panel.HE: {class: helium}
+mechanical.instrument_panel.VANE -- zspec_nir.coldhead_panel.VANE: {class: sense; label: "Vane motor"}
+vacuum.manifold.B -- zspec_vis.valve_b: {class: vacuum}
+vacuum.manifold.G -- zspec_vis.valve_g: {class: vacuum}
+vacuum.manifold.R -- zspec_vis.valve_r: {class: vacuum}
+vacuum.manifold.NIR -- zspec_nir.gate_valve: {class: vacuum}
+zfront.ebox.pump_panel.AC -- vacuum.facility_panel.AC: {class: power}
+zfront.glycol_manifold -- vacuum.facility_panel.GLYCOL: {class: glycol}
+facility_network: {label: "Keck instrument network"; class: computer; link: "../../controls/harnesses/networking.html"}
+facility_network -- rnas.panel.NET: {class: ethernet}
+facility_network -- server.facility_panel.NET: {class: ethernet}
+facility_network -- mechanical.facility_panel.NET: {class: ethernet}

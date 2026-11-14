@@ -1,0 +1,30 @@
+direction: right
+...@../common/styles
+zfront: @../models/concepts.zfront
+zimage: @../models/concepts.zimage
+vis: @../models/concepts.vis
+nir: @../models/concepts.nir
+services: {label: "ZFront monitored service manifolds"; class: manifold; link: "../../controls/harnesses/glycol.html"}
+zfront -> services: {class: control; label: "Monitoring stays with ZFront"}
+zfront -- zimage: {class: power; label: "AC + control disconnect"}
+zfront -- vis: {class: power; label: "AC + control disconnect"}
+vis -- nir: {class: dc; label: "DC + control disconnect"}
+services -- zimage: {class: glycol; label: "Isolated branch"}
+services -- vis: {class: glycol; label: "Isolated branch"}
+services -- nir: {class: glycol; label: "Isolated branch"}
+
+title: {label: "Removal boundaries · retain the remaining instrument"; class: title; link: "../../controls/harnesses/diagram-guide.html"}
+title.near: top-center
+vars: {
+  d2-legend: {
+    a0.style.opacity: 0
+    b0.style.opacity: 0
+    a0 -- b0: "Power" {class: power; label: "Power"}
+    a1.style.opacity: 0
+    b1.style.opacity: 0
+    a1 -- b1: "DC" {class: dc; label: "DC"}
+    a2.style.opacity: 0
+    b2.style.opacity: 0
+    a2 -- b2: "Glycol pair" {class: glycol; label: "Glycol pair"}
+  }
+}

@@ -1,35 +1,46 @@
-# direction: right
-Network Diagram
+direction: right
 ...@../common/styles
-...@../common/legend
-...@../entities/zshooter_hardware.hardware_system
+facility: {label: "Keck instrument network"; class: computer; link: "../../controls/harnesses/networking.html"}
+zfront: {label: "ZFront switch"; class: computer; link: "../../controls/harnesses/networking.html"}
+zimage: {label: "ZImager switch"; class: computer; link: "../../controls/harnesses/networking.html"}
+vis: {label: "VIS switch"; class: computer; link: "../../controls/harnesses/networking.html"}
+nir: {label: "NIR switch"; class: computer; link: "../../controls/harnesses/networking.html"}
+server: {label: "Server switch"; class: computer; link: "../../controls/harnesses/networking.html"}
+facility -- zfront: {class: ethernet; label: "10G fiber"}
+facility -- server: {class: ethernet; label: ""}
+zfront -- zimage: {class: ethernet; label: "100 Mb/s copper"}
+zfront -- vis: {class: ethernet; label: "10G fiber"}
+vis -- nir: {class: ethernet; label: ""}
+zimage_master: {label: "ZImager Beckhoff master"; class: controller; link: "../../controls/operations/computer-management.html"}
+zimage_drives: {label: "ZImager motion drives"; class: controller; link: "../../controls/operations/zimager.html"}
+zimage -- zimage_master: {class: ethernet; label: ""}
+zimage_master -- zimage_drives: {class: ethercat; label: ""}
+vis_master: {label: "VIS Beckhoff master"; class: controller; link: "../../controls/operations/computer-management.html"}
+vis_drives: {label: "VIS motion drives"; class: controller; link: "../../controls/operations/zspec.html"}
+vis -- vis_master: {class: ethernet; label: ""}
+vis_master -- vis_drives: {class: ethercat; label: ""}
+nir_master: {label: "NIR Beckhoff master"; class: controller; link: "../../controls/operations/computer-management.html"}
+nir_drives: {label: "NIR motion drives"; class: controller; link: "../../controls/operations/zspec.html"}
+nir -- nir_master: {class: ethernet; label: ""}
+nir_master -- nir_drives: {class: ethercat; label: ""}
+vis_archons: {label: "B / G / R Archons"; class: controller; link: "../../controls/harnesses/networking.html"}
+vis -- vis_archons: {class: ethernet; label: ""}
+nir_archons: {label: "YJ / H / K Archons"; class: controller; link: "../../controls/harnesses/networking.html"}
+nir -- nir_archons: {class: ethernet; label: ""}
+hosts: {label: "Readout hosts / DRP / NAS"; class: controller; link: "../../controls/harnesses/networking.html"}
+server -- hosts: {class: ethernet; label: ""}
+zfront_io: {label: "Lamp / valve / selector control"; class: controller; link: "../../controls/harnesses/networking.html"}
+zfront -- zfront_io: {class: ethernet; label: ""}
 
-***: suspend
-(*** -> ***)[*]: suspend
-
-# Keep structural context visible.
-***: unsuspend {
-  &class: room_container
-}
-***: unsuspend {
-  &class: instrument_container
-}
-***: unsuspend {
-  &class: subinstrument_container
-}
-***: unsuspend {
-  &class: ebox_enclosure_container
-}
-
-# Show only network edges and their connected endpoints.
-(*** -> ***)[*]: unsuspend {
-  &class: network_conn
-}
-
-# ***: unsuspend {
-#  &connected: true
-# }
-
-***: unsuspend {
-  &class: ethernet_device
+title: {label: "Control and readout network"; class: title; link: "../../controls/harnesses/diagram-guide.html"}
+title.near: top-center
+vars: {
+  d2-legend: {
+    a0.style.opacity: 0
+    b0.style.opacity: 0
+    a0 -- b0: "Ethernet" {class: ethernet; label: "Ethernet"}
+    a1.style.opacity: 0
+    b1.style.opacity: 0
+    a1 -- b1: "EtherCAT" {class: ethercat; label: "EtherCAT"}
+  }
 }

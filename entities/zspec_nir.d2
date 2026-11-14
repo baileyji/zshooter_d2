@@ -1,0 +1,281 @@
+zspec_nir: {
+  label: "ZSpec NIR"
+  class: module
+  link: "../../controls/harnesses/zspec-nir.html"
+  ebox: {
+    label: "NIR EBox"
+    class: ebox
+    link: "../../controls/harnesses/zspec-nir.html"
+    input_panel: {
+      label: "Service input panel"
+      class: panel
+      link: "../../controls/harnesses/zspec-nir.html"
+      DC: "Power"
+      NET: "Control / readout"
+    }
+    motion_panel: {
+      label: "Mechanism panel"
+      class: panel
+      link: "../../controls/harnesses/zspec-nir.html"
+      PUPIL: "Cold-pupil rotator"
+      ADC_A: "ADC prism A"
+      ADC_B: "ADC prism B"
+      ROTATOR: "Field rotator"
+      STEER_X: "X steering"
+      STEER_Y: "Y steering"
+      SLIT: "Slit selector"
+      FOCUS_YJ: "YJ focus"
+      FOCUS_H: "H focus"
+      FOCUS_K: "K focus"
+    }
+    aux_panel: {
+      label: "Auxiliary panel"
+      class: panel
+      link: "../../controls/harnesses/zspec-nir.html"
+      TEMP: "Enclosure probes"
+      CAM_POWER: "Slit viewer DC"
+      CAM_DATA: "Slit viewer data"
+      GAUGES: "Vacuum readout"
+      GAUGE_DC: "Gauge power"
+      VALVE_DC: "Gate-valve power"
+    }
+    cooling_panel: {
+      label: "Cooling panel"
+      class: panel
+      link: "../../controls/harnesses/zspec-nir.html#glycol-connections"
+      GLYCOL: "Supply / return"
+    }
+    power_bus: {label: "DC distribution"; class: utility; link: "../../controls/harnesses/zspec-nir.html"}
+    dc: {label: "DC conditioning"; class: utility; link: "../../controls/harnesses/zspec-nir.html"}
+    network_switch: {label: "Local switch"; class: computer; link: "../../controls/harnesses/zspec-nir.html"}
+    computer: {label: "Module host"; class: computer; link: "../../controls/operations/computer-management.html"}
+    master: {label: "Beckhoff master"; class: controller; link: "../../controls/harnesses/zspec-nir.html"}
+    motion_drives: {label: "Motion drives"; class: controller; link: "../../controls/harnesses/zspec-nir.html"}
+    temperature_hub: {label: "1-Wire hub"; class: controller; link: "../../controls/harnesses/zspec-nir.html"}
+    heat_exchanger: {label: "EBox heat exchanger"; class: device; link: "../../controls/harnesses/zspec-nir.html"}
+    input_panel.DC -- power_bus: {class: dc}
+    power_bus -- dc: {class: dc}
+    input_panel.NET -- network_switch: {class: ethernet}
+    dc -- computer: {class: dc}
+    dc -- master: {class: dc}
+    dc -- network_switch: {class: dc}
+    dc -- motion_drives: {class: dc}
+    network_switch -- computer: {class: ethernet}
+    network_switch -- master: {class: ethernet}
+    master -- motion_drives: {class: ethercat}
+    computer -- temperature_hub: {class: usb}
+    temperature_hub -- aux_panel.TEMP: {class: sense; label: "1-Wire"}
+    motion_drives -- motion_panel.PUPIL: {class: motion}
+    motion_drives -- motion_panel.ADC_A: {class: motion}
+    motion_drives -- motion_panel.ADC_B: {class: motion}
+    motion_drives -- motion_panel.ROTATOR: {class: motion}
+    motion_drives -- motion_panel.STEER_X: {class: motion}
+    motion_drives -- motion_panel.STEER_Y: {class: motion}
+    motion_drives -- motion_panel.SLIT: {class: motion}
+    motion_drives -- motion_panel.FOCUS_YJ: {class: motion}
+    motion_drives -- motion_panel.FOCUS_H: {class: motion}
+    motion_drives -- motion_panel.FOCUS_K: {class: motion}
+    cooling_panel.GLYCOL -- heat_exchanger: {class: glycol}
+    readout_panel: {
+      label: "Readout panel"
+      class: panel
+      link: "../../controls/harnesses/zspec-nir.html"
+      YJ_POWER: "Archon DC"
+      YJ_NET: "Archon network"
+      YJ_TRIG: "Shutter trigger"
+      H_POWER: "Archon DC"
+      H_NET: "Archon network"
+      H_TRIG: "Shutter trigger"
+      K_POWER: "Archon DC"
+      K_NET: "Archon network"
+      K_TRIG: "Shutter trigger"
+    }
+    shutter_or: {label: "Shutter hardware OR"; class: controller; link: "../../controls/harnesses/zspec-nir.html#shutter-triggers"}
+    shutter_controller: {label: "Shutter controller"; class: controller; link: "../../controls/harnesses/zspec-nir.html#shutter-triggers"}
+    dc -- readout_panel.YJ_POWER: {class: dc}
+    network_switch -- readout_panel.YJ_NET: {class: ethernet}
+    readout_panel.YJ_TRIG -> shutter_or: {class: trigger; label: "YJ"}
+    dc -- readout_panel.H_POWER: {class: dc}
+    network_switch -- readout_panel.H_NET: {class: ethernet}
+    readout_panel.H_TRIG -> shutter_or: {class: trigger; label: "H"}
+    dc -- readout_panel.K_POWER: {class: dc}
+    network_switch -- readout_panel.K_NET: {class: ethernet}
+    readout_panel.K_TRIG -> shutter_or: {class: trigger; label: "K"}
+    shutter_or -> shutter_controller: {class: trigger}
+    dc -- shutter_or: {class: dc}
+    dc -- shutter_controller: {class: dc}
+    master -- shutter_controller: {class: ethercat}
+    shutter_controller -- motion_panel.SHUTTER: {class: motion}
+    dc -- aux_panel.CAM_POWER: {class: dc}
+    network_switch -- aux_panel.CAM_DATA: {class: ethernet}
+    gauge_interface: {label: "Gauge interface"; class: controller; link: "../../controls/harnesses/zspec-nir.html"}
+    computer -- gauge_interface: {class: usb}
+    gauge_interface -- aux_panel.GAUGES: {class: serial}
+    dc -- aux_panel.GAUGE_DC: {class: dc}
+    dc -- aux_panel.VALVE_DC: {class: dc}
+    motion_panel.SHUTTER: "Cold shutter"
+    temp_controller: {label: "NIR temperature controller"; class: controller; link: "../../controls/harnesses/zspec-nir.html#support-motion-vib"}
+    network_switch -- temp_controller: {class: ethernet}
+    dc -- temp_controller: {class: dc}
+    thermal_panel: {
+      label: "Thermal control panel"
+      class: panel
+      link: "../../controls/harnesses/zspec-nir.html#support-motion-vib"
+      SENSE: "Temperature sensors"
+      HEAT: "Heaters"
+      YJ_THERM: "Detector sense / heater"
+      H_THERM: "Detector sense / heater"
+      K_THERM: "Detector sense / heater"
+    }
+    temp_controller -- thermal_panel.SENSE: {class: sense; label: "Temperature"}
+    temp_controller -- thermal_panel.HEAT: {class: dc; label: "Heaters"}
+    temp_controller -- thermal_panel.YJ_THERM: {class: sense; label: "Sense / heater"}
+    temp_controller -- thermal_panel.H_THERM: {class: sense; label: "Sense / heater"}
+    temp_controller -- thermal_panel.K_THERM: {class: sense; label: "Sense / heater"}
+  }
+  service_panel: {
+    label: "Fluid service panel"
+    class: panel
+    link: "../../controls/harnesses/zspec-nir.html"
+    GLYCOL: "Supply / return"
+  }
+  glycol_manifold: {label: "NIR glycol manifold"; class: manifold; link: "../../controls/harnesses/zspec-nir.html#glycol-connections"}
+  service_panel.GLYCOL -- glycol_manifold: {class: glycol}
+  glycol_manifold -- ebox.cooling_panel.GLYCOL: {class: glycol}
+  slit_viewer: {label: "CRED2 slit viewer"; class: camera; link: "../../controls/harnesses/zspec-nir.html#slit-viewer-connections"}
+  ebox.aux_panel.CAM_POWER -- slit_viewer: {class: dc}
+  ebox.aux_panel.CAM_DATA -- slit_viewer: {class: ethernet}
+  glycol_manifold -- slit_viewer: {class: glycol}
+  enclosure_probes: {label: "Enclosure probes"; class: device; link: "../../controls/harnesses/zspec-nir.html"}
+  ebox.aux_panel.TEMP -- enclosure_probes: {class: sense; label: "1-Wire"}
+  cryostat: {
+    label: "NIR cryostat"
+    class: cryostat
+    link: "../../controls/harnesses/zspec-nir.html"
+    support_vib: {
+      label: "Support / motion VIB"
+      class: panel
+      link: "../../controls/harnesses/zspec-nir.html#support-motion-vib"
+      PUPIL: "Cold-pupil rotator"
+      ADC_A: "ADC prism A"
+      ADC_B: "ADC prism B"
+      ROTATOR: "Field rotator"
+      STEER_X: "X steering"
+      STEER_Y: "Y steering"
+      SLIT: "Slit selector"
+      FOCUS_YJ: "YJ focus"
+      FOCUS_H: "H focus"
+      FOCUS_K: "K focus"
+      SHUTTER: "Cold shutter"
+      SENSE: "Temperature sensors"
+      HEAT: "Heaters"
+    }
+    detector_vib: {
+      label: "Detector VIB"
+      class: panel
+      link: "../../controls/harnesses/zspec-nir.html#detector-vib"
+      YJ: "Detector harness"
+      H: "Detector harness"
+      K: "Detector harness"
+      YJ_THERM: "Detector thermal circuits"
+      H_THERM: "Detector thermal circuits"
+      K_THERM: "Detector thermal circuits"
+    }
+    service_ports: {
+      label: "Cryostat ports"
+      class: panel
+      link: "../../controls/harnesses/zspec-nir.html"
+      VAC: "Vacuum"
+      COLD: "Coldhead interface"
+      VIEW: "Slit-view optical port"
+    }
+    pupil_rotator: {label: "Cold-pupil rotator"; class: actuator; link: "../../controls/operations/zspec.html"}
+    support_vib.PUPIL -- pupil_rotator: {class: motion}
+    adc_a: {label: "ADC prism A"; class: actuator; link: "../../controls/operations/zspec.html"}
+    support_vib.ADC_A -- adc_a: {class: motion}
+    adc_b: {label: "ADC prism B"; class: actuator; link: "../../controls/operations/zspec.html"}
+    support_vib.ADC_B -- adc_b: {class: motion}
+    rotator: {label: "Field rotator"; class: actuator; link: "../../controls/operations/zspec.html"}
+    support_vib.ROTATOR -- rotator: {class: motion}
+    steer_x: {label: "X steering"; class: actuator; link: "../../controls/operations/zspec.html"}
+    support_vib.STEER_X -- steer_x: {class: motion}
+    steer_y: {label: "Y steering"; class: actuator; link: "../../controls/operations/zspec.html"}
+    support_vib.STEER_Y -- steer_y: {class: motion}
+    slit: {label: "Slit selector"; class: actuator; link: "../../controls/operations/zspec.html"}
+    support_vib.SLIT -- slit: {class: motion}
+    focus_yj: {label: "YJ focus"; class: actuator; link: "../../controls/operations/zspec.html"}
+    support_vib.FOCUS_YJ -- focus_yj: {class: motion}
+    focus_h: {label: "H focus"; class: actuator; link: "../../controls/operations/zspec.html"}
+    support_vib.FOCUS_H -- focus_h: {class: motion}
+    focus_k: {label: "K focus"; class: actuator; link: "../../controls/operations/zspec.html"}
+    support_vib.FOCUS_K -- focus_k: {class: motion}
+    shutter: {label: "Cold shutter"; class: actuator; link: "../../controls/operations/zspec.html"}
+    support_vib.SHUTTER -- shutter: {class: motion}
+    thermal_sensors: {label: "Thermal sensors"; class: device; link: "../../controls/harnesses/zspec-nir.html"}
+    heaters: {label: "Heaters"; class: device; link: "../../controls/harnesses/zspec-nir.html"}
+    support_vib.SENSE -- thermal_sensors: {class: sense; label: "Temperature"}
+    support_vib.HEAT -- heaters: {class: dc}
+    detector_yj: {label: "YJ LmAPD"; class: camera; link: "../../controls/operations/zspec.html"}
+    detector_vib.YJ -- detector_yj: {class: detector}
+    detector_vib.YJ_THERM -- detector_yj: {class: sense; label: "Temperature / heater"}
+    detector_h: {label: "H LmAPD"; class: camera; link: "../../controls/operations/zspec.html"}
+    detector_vib.H -- detector_h: {class: detector}
+    detector_vib.H_THERM -- detector_h: {class: sense; label: "Temperature / heater"}
+    detector_k: {label: "K LmAPD"; class: camera; link: "../../controls/operations/zspec.html"}
+    detector_vib.K -- detector_k: {class: detector}
+    detector_vib.K_THERM -- detector_k: {class: sense; label: "Temperature / heater"}
+  }
+  ebox.motion_panel.PUPIL -- cryostat.support_vib.PUPIL: {class: motion}
+  ebox.motion_panel.ADC_A -- cryostat.support_vib.ADC_A: {class: motion}
+  ebox.motion_panel.ADC_B -- cryostat.support_vib.ADC_B: {class: motion}
+  ebox.motion_panel.ROTATOR -- cryostat.support_vib.ROTATOR: {class: motion}
+  ebox.motion_panel.STEER_X -- cryostat.support_vib.STEER_X: {class: motion}
+  ebox.motion_panel.STEER_Y -- cryostat.support_vib.STEER_Y: {class: motion}
+  ebox.motion_panel.SLIT -- cryostat.support_vib.SLIT: {class: motion}
+  ebox.motion_panel.FOCUS_YJ -- cryostat.support_vib.FOCUS_YJ: {class: motion}
+  ebox.motion_panel.FOCUS_H -- cryostat.support_vib.FOCUS_H: {class: motion}
+  ebox.motion_panel.FOCUS_K -- cryostat.support_vib.FOCUS_K: {class: motion}
+  ebox.motion_panel.SHUTTER -- cryostat.support_vib.SHUTTER: {class: motion}
+  ebox.thermal_panel.SENSE -- cryostat.support_vib.SENSE: {class: sense; label: "Temperature"}
+  ebox.thermal_panel.HEAT -- cryostat.support_vib.HEAT: {class: dc}
+  cryostat.service_ports.VIEW -> slit_viewer: {class: optical}
+  archon_yj: {label: "YJ Archon"; class: [controller; placeholder]; link: "../../controls/harnesses/zspec-nir.html#detector-vib"; tooltip: "One Archon per detector: ledger baseline."}
+  ebox.readout_panel.YJ_POWER -- archon_yj: {class: dc}
+  ebox.readout_panel.YJ_NET -- archon_yj: {class: ethernet}
+  archon_yj -> ebox.readout_panel.YJ_TRIG: {class: trigger; label: "YJ"}
+  archon_yj -- cryostat.detector_vib.YJ: {class: detector}
+  glycol_manifold -- archon_yj: {class: glycol}
+  ebox.thermal_panel.YJ_THERM -- cryostat.detector_vib.YJ_THERM: {class: sense; label: "Sense / heater"}
+  archon_h: {label: "H Archon"; class: [controller; placeholder]; link: "../../controls/harnesses/zspec-nir.html#detector-vib"; tooltip: "One Archon per detector: ledger baseline."}
+  ebox.readout_panel.H_POWER -- archon_h: {class: dc}
+  ebox.readout_panel.H_NET -- archon_h: {class: ethernet}
+  archon_h -> ebox.readout_panel.H_TRIG: {class: trigger; label: "H"}
+  archon_h -- cryostat.detector_vib.H: {class: detector}
+  glycol_manifold -- archon_h: {class: glycol}
+  ebox.thermal_panel.H_THERM -- cryostat.detector_vib.H_THERM: {class: sense; label: "Sense / heater"}
+  archon_k: {label: "K Archon"; class: [controller; placeholder]; link: "../../controls/harnesses/zspec-nir.html#detector-vib"; tooltip: "One Archon per detector: ledger baseline."}
+  ebox.readout_panel.K_POWER -- archon_k: {class: dc}
+  ebox.readout_panel.K_NET -- archon_k: {class: ethernet}
+  archon_k -> ebox.readout_panel.K_TRIG: {class: trigger; label: "K"}
+  archon_k -- cryostat.detector_vib.K: {class: detector}
+  glycol_manifold -- archon_k: {class: glycol}
+  ebox.thermal_panel.K_THERM -- cryostat.detector_vib.K_THERM: {class: sense; label: "Sense / heater"}
+  coldhead: {label: "NIR coldhead"; class: [device; placeholder]; link: "../../controls/harnesses/zspec-nir.html#coldhead-and-compressor-connections"}
+  coldhead_panel: {
+    label: "Coldhead service panel"
+    class: panel
+    link: "../../controls/harnesses/zspec-nir.html#coldhead-and-compressor-connections"
+    HE: "Helium pair"
+    VANE: "Vane-motor cable"
+  }
+  coldhead_panel.HE -- coldhead: {class: helium}
+  coldhead_panel.VANE -- coldhead: {class: sense; label: "Vane motor"}
+  coldhead -- cryostat.service_ports.COLD: {class: thermal; label: "Cold finger"}
+  vacuum_gauge: {label: "NIR vacuum gauge"; class: device; link: "../../controls/harnesses/vacuum.html"}
+  gate_valve: {label: "NIR automatic gate valve"; class: controller; link: "../../controls/harnesses/vacuum.html"}
+  ebox.aux_panel.GAUGES -- vacuum_gauge: {class: serial}
+  ebox.aux_panel.GAUGE_DC -- vacuum_gauge: {class: dc}
+  ebox.aux_panel.VALVE_DC -- gate_valve: {class: dc}
+  vacuum_gauge -- cryostat.service_ports.VAC: {class: vacuum}
+  gate_valve -- cryostat.service_ports.VAC: {class: vacuum}
+}

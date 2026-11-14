@@ -1,0 +1,47 @@
+direction: right
+...@../common/styles
+support_cabinet: {
+  label: "NIR support cabinet"
+  class: ebox
+  link: "../../controls/harnesses/zspec-nir.html"
+  dc: {label: "DC supply"; class: utility; link: "../../controls/harnesses/zspec-nir.html"}
+  network: {label: "Bench network"; class: computer; link: "../../controls/harnesses/zspec-nir.html"}
+  cooling: {label: "Cooling connections"; class: manifold; link: "../../controls/harnesses/zspec-nir.html"}
+  panel: {
+    label: "Cabinet service panel"
+    class: panel
+    link: "../../controls/harnesses/zspec-nir.html"
+    DC: "Power"
+    NET: "Control / readout"
+    GLYCOL: "Supply / return"
+  }
+  dc -- panel.DC: {class: dc}
+  network -- panel.NET: {class: ethernet}
+  cooling -- panel.GLYCOL: {class: glycol}
+}
+nir: {
+  label: "NIR off instrument"
+  class: module
+  link: "../../controls/harnesses/zspec-nir.html"
+  input_panel: @../entities/zspec_nir.zspec_nir.ebox.input_panel
+  service_panel: @../entities/zspec_nir.zspec_nir.service_panel
+}
+support_cabinet.panel.DC -- nir.input_panel.DC: {class: dc}
+support_cabinet.panel.NET -- nir.input_panel.NET: {class: ethernet}
+support_cabinet.panel.GLYCOL -- nir.service_panel.GLYCOL: {class: glycol}
+
+title: {label: "NIR · off-instrument support"; class: title; link: "../../controls/harnesses/diagram-guide.html"}
+title.near: top-center
+vars: {
+  d2-legend: {
+    a0.style.opacity: 0
+    b0.style.opacity: 0
+    a0 -- b0: "DC" {class: dc; label: "DC"}
+    a1.style.opacity: 0
+    b1.style.opacity: 0
+    a1 -- b1: "Ethernet" {class: ethernet; label: "Ethernet"}
+    a2.style.opacity: 0
+    b2.style.opacity: 0
+    a2 -- b2: "Glycol pair" {class: glycol; label: "Glycol pair"}
+  }
+}

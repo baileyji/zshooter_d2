@@ -1,0 +1,85 @@
+direction: right
+...@../common/styles
+motion: {label: "Motion drives + shutter controller"; class: controller; link: "../../controls/harnesses/zspec-nir.html"}
+thermal: {label: "Temperature controller"; class: controller; link: "../../controls/harnesses/zspec-nir.html"}
+ebox: {
+  label: "NIR EBox panels"
+  class: panel
+  link: "../../controls/harnesses/zspec-nir.html"
+  MOTION: "Motor / position"
+  THERM: "Sense / heaters"
+  DET: "Detector sense / heaters"
+}
+motion -- ebox.MOTION: {class: motion; label: ""}
+thermal -- ebox.THERM: {class: sense; label: "Sense / heaters"}
+thermal -- ebox.DET: {class: sense; label: "Detector thermal circuits"}
+cryostat: {
+  label: "NIR cryostat"
+  class: cryostat
+  link: "../../controls/harnesses/zspec-nir.html"
+  support: {
+    label: "Support / motion VIB"
+    class: panel
+    link: "../../controls/harnesses/zspec-nir.html#support-motion-vib"
+    MOTION: "Mechanisms"
+    THERM: "Thermal control"
+  }
+  mechanisms: {label: "Pupil / ADC / field rotation\nSteering / slit / focus / shutter"; class: actuator; link: "../../controls/operations/zspec.html"}
+  thermal: {label: "Sensors and heaters"; class: device; link: "../../controls/harnesses/zspec-nir.html"}
+  support.MOTION -- mechanisms: {class: motion; label: ""}
+  support.THERM -- thermal: {class: sense; label: ""}
+  detector: {
+    label: "Detector VIB"
+    class: panel
+    link: "../../controls/harnesses/zspec-nir.html#detector-vib"
+    YJ: "Detector harness"
+    H: "Detector harness"
+    K: "Detector harness"
+    YJ_THERM: "Sense / heater"
+    H_THERM: "Sense / heater"
+    K_THERM: "Sense / heater"
+  }
+  YJ: {label: "YJ LmAPD"; class: camera; link: "../../controls/operations/zspec.html"}
+  detector.YJ -- YJ: {class: detector}
+  detector.YJ_THERM -- YJ: {class: sense; label: "Sense / heater"}
+  H: {label: "H LmAPD"; class: camera; link: "../../controls/operations/zspec.html"}
+  detector.H -- H: {class: detector}
+  detector.H_THERM -- H: {class: sense; label: "Sense / heater"}
+  K: {label: "K LmAPD"; class: camera; link: "../../controls/operations/zspec.html"}
+  detector.K -- K: {class: detector}
+  detector.K_THERM -- K: {class: sense; label: "Sense / heater"}
+  port: {label: "Baffled port\nCold shortpass filter"; class: device; link: "../../controls/harnesses/zspec-nir.html"}
+}
+ebox.MOTION -- cryostat.support.MOTION: {class: motion; label: ""}
+ebox.THERM -- cryostat.support.THERM: {class: sense; label: ""}
+archon_YJ: {label: "YJ Archon"; class: [controller; placeholder]; link: "../../controls/harnesses/zspec-nir.html#detector-vib"}
+archon_YJ -- cryostat.detector.YJ: {class: detector}
+ebox.DET -- cryostat.detector.YJ_THERM: {class: sense; label: ""}
+archon_H: {label: "H Archon"; class: [controller; placeholder]; link: "../../controls/harnesses/zspec-nir.html#detector-vib"}
+archon_H -- cryostat.detector.H: {class: detector}
+ebox.DET -- cryostat.detector.H_THERM: {class: sense; label: ""}
+archon_K: {label: "K Archon"; class: [controller; placeholder]; link: "../../controls/harnesses/zspec-nir.html#detector-vib"}
+archon_K -- cryostat.detector.K: {class: detector}
+ebox.DET -- cryostat.detector.K_THERM: {class: sense; label: ""}
+cred2: {label: "CRED2\nOutside vacuum"; class: camera; link: "../../controls/harnesses/zspec-nir.html#slit-viewer-connections"}
+cryostat.port -> cred2: {class: optical}
+
+title: {label: "NIR · warm / cold connections"; class: title; link: "../../controls/harnesses/diagram-guide.html"}
+title.near: top-center
+vars: {
+  d2-legend: {
+    a0.style.opacity: 0
+    b0.style.opacity: 0
+    a0 -- b0: "Motor / position" {class: motion; label: "Motor / position"}
+    a1.style.opacity: 0
+    b1.style.opacity: 0
+    a1 -- b1: "Sensor / I/O" {class: sense; label: "Sensor / I/O"}
+    a2.style.opacity: 0
+    b2.style.opacity: 0
+    a2 -- b2: "Detector harness" {class: detector; label: "Detector harness"}
+    a3.style.opacity: 0
+    b3.style.opacity: 0
+    a3 -> b3: "Optical path" {class: optical; label: "Optical path"}
+    selection: "Baseline selection" {class: [device; placeholder]}
+  }
+}

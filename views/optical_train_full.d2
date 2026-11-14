@@ -1,31 +1,12 @@
-direction: right
+direction: down
 ...@../common/styles
-...@../entities/zshooter_optical.optical_system
-
-***: suspend
-(***->***)[*]: suspend
-
-
-***: unsuspend {
-  &class: room_container
-}
-***: unsuspend {
-  &class: instrument_container
-}
-***: unsuspend {
-  &class: subinstrument_container
-}
-
-***: {
-  &class: entity_wrapper
-  style.stroke-width: 0
-  label:""
-}
-***: unsuspend {
-    &class: optical_node
-}
-
-
-(***->***)[*]: unsuspend {
-    &class: optical_conn
+...@../entities/zshooter_optical
+title: {label: "Optical routing · focus and warm / cold boundaries"; class: title; link: "../../controls/harnesses/diagram-guide.html"}
+title.near: top-center
+vars: {
+  d2-legend: {
+    a0.style.opacity: 0
+    b0.style.opacity: 0
+    a0 -> b0: "Optical path" {class: optical; label: "Optical path"}
+  }
 }

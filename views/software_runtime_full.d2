@@ -1,50 +1,15 @@
-#direction: right
+direction: right
 ...@../common/styles
-...@../entities/ics.software_runtime
-wmko_telemetry_db: @../entities/common.instrument_telemetry_db
-
-...@../models/software_publishes
-...@../models/device_driver_links
-
-
-***: suspend
-(***->***)[*]: suspend
-
-***: unsuspend{
-  &class: computer_host_container
-}
-***: unsuspend {
-  &class: room_container
-}
-***: unsuspend {
-  &class: instrument_container
-}
-***: unsuspend {
-  &class: subinstrument_container
-}
-***: unsuspend {
-  &class: ebox_enclosure_container
-}
-
-***: unsuspend {
-  &class: controller_device_node
-}
-
-(***->***)[*]: unsuspend {
-  &class: publish_conn
-}
-(***->***)[*]: unsuspend {
-  &class: command_conn
-}
-(***->***)[*]: unsuspend {
-  &class: driver_conn
-}
-
-***: {
-  &class: computer_host_container
-  **: unsuspend
-}
-
-***: unsuspend {
-  &class: req_software
+...@../entities/ics
+title: {label: "Software · host roles and data paths"; class: title; link: "../../controls/harnesses/diagram-guide.html"}
+title.near: top-center
+vars: {
+  d2-legend: {
+    a0.style.opacity: 0
+    b0.style.opacity: 0
+    a0 -> b0: "Control / state" {class: control; label: "Control / state"}
+    a1.style.opacity: 0
+    b1.style.opacity: 0
+    a1 -> b1: "Frames / data" {class: data; label: "Frames / data"}
+  }
 }

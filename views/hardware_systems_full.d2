@@ -1,38 +1,35 @@
-direction: right
+direction: down
 ...@../common/styles
-...@../common/legend
 ...@../entities/zshooter_hardware.hardware_system
-
-
-**: {
-  &class: entity_wrapper
-  optical: suspend
-  daemon: suspend
+title: {label: "ZShooter · complete panel connections"; class: title; link: "../../controls/harnesses/diagram-guide.html"}
+title.near: top-center
+vars: {
+  d2-legend: {
+    a0.style.opacity: 0
+    b0.style.opacity: 0
+    a0 -- b0: "Power" {class: power; label: "Power"}
+    a1.style.opacity: 0
+    b1.style.opacity: 0
+    a1 -- b1: "Ethernet" {class: ethernet; label: "Ethernet"}
+    a2.style.opacity: 0
+    b2.style.opacity: 0
+    a2 -- b2: "EtherCAT" {class: ethercat; label: "EtherCAT"}
+    a3.style.opacity: 0
+    b3.style.opacity: 0
+    a3 -- b3: "Motor / position" {class: motion; label: "Motor / position"}
+    a4.style.opacity: 0
+    b4.style.opacity: 0
+    a4 -- b4: "Detector harness" {class: detector; label: "Detector harness"}
+    a5.style.opacity: 0
+    b5.style.opacity: 0
+    a5 -- b5: "Glycol pair" {class: glycol; label: "Glycol pair"}
+    a6.style.opacity: 0
+    b6.style.opacity: 0
+    a6 -- b6: "Air" {class: air; label: "Air"}
+    a7.style.opacity: 0
+    b7.style.opacity: 0
+    a7 -- b7: "Vacuum" {class: vacuum; label: "Vacuum"}
+    selection: "Baseline selection" {class: [device; placeholder]}
+    option: "Optional component" {class: [device; optional]}
+  }
 }
-***: suspend {
-  &class: daemon_card_container
-}
-***: suspend {
-  &class: optical_node
-}
-(*** -> ***)[*]: suspend {
-  &class: optical_conn
-}
-**: {
-  &class: computer_device_node
-  daemons: suspend
-}
-
-**: suspend {
-  &class: onewire_temp_sensor
-}
-**: suspend {
-  &class: cryo_temp_sensor
-}
-
-# Full enough for system review, but suppress overwhelming 1-Wire fanout.
-
-(** -> **)[*]: suspend {
-  &class: sensor_fanout_conn
-}
-

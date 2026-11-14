@@ -1,55 +1,31 @@
-# direction: right
-Network Diagram
+direction: right
 ...@../common/styles
-...@../common/legend
-...@../entities/zshooter_hardware.hardware_system
+zimage: {label: "ZImager host"; class: computer; link: "../../controls/operations/computer-management.html"}
+zimage_0: {label: "V filter"; class: controller; link: "../../controls/harnesses/zimager.html"}
+zimage -- zimage_0: {class: usb}
+zimage_1: {label: "1-Wire hub"; class: controller; link: "../../controls/harnesses/zimager.html"}
+zimage -- zimage_1: {class: usb}
+vis: {label: "VIS host"; class: computer; link: "../../controls/operations/computer-management.html"}
+vis_0: {label: "Slit viewer"; class: controller; link: "../../controls/harnesses/zspec-vis.html"}
+vis -- vis_0: {class: usb}
+vis_1: {label: "1-Wire hub"; class: controller; link: "../../controls/harnesses/zspec-vis.html"}
+vis -- vis_1: {class: usb}
+vis_2: {label: "Gauge interface"; class: controller; link: "../../controls/harnesses/zspec-vis.html"}
+vis -- vis_2: {class: usb}
+vis_3: {label: "Cryotel controllers"; class: controller; link: "../../controls/harnesses/zspec-vis.html"}
+vis -- vis_3: {class: usb}
+nir: {label: "NIR host"; class: computer; link: "../../controls/operations/computer-management.html"}
+nir_0: {label: "1-Wire hub"; class: controller; link: "../../controls/harnesses/zspec-nir.html"}
+nir -- nir_0: {class: usb}
+nir_1: {label: "Gauge interface"; class: controller; link: "../../controls/harnesses/zspec-nir.html"}
+nir -- nir_1: {class: usb}
 
-***: suspend
-(*** -> ***)[*]: suspend
-
-# Keep structural context visible.
-***: unsuspend {
-  &class: room_container
-}
-
-k1_server_room: suspend
-k1_mechanical_room: suspend
-
-
-# ***: unsuspend {
-#   &class: instrument_container
-# }
-# ***: unsuspend {
-#   &class: subinstrument_container
-# }
-# ***: unsuspend {
-#   &class: ebox_enclosure_container
-# }
-
-# Show only network edges and their connected endpoints.
-(*** -> ***)[*]: unsuspend {
-  &class: usb_conn
-}
-
-# (*** -> ***)[*]: unsuspend {
-#   &class: data_connf
-# }
-
-# ***: unsuspend {
-#  &connected: true
-# }
-
-
-***: unsuspend {
-  &class: usb_device
-}
-
-***: unsuspend {
-  &class: room_container
-}
-***: unsuspend {
-  &class: instrument_container
-}
-***: unsuspend {
-  &class: ebox_enclosure_container
+title: {label: "Local USB connections"; class: title; link: "../../controls/harnesses/diagram-guide.html"}
+title.near: top-center
+vars: {
+  d2-legend: {
+    a0.style.opacity: 0
+    b0.style.opacity: 0
+    a0 -- b0: "USB" {class: usb; label: "USB"}
+  }
 }
