@@ -15,6 +15,7 @@ zimager: {
     link: "../../controls/harnesses/zimager.html"
     power_bus: {...@../equipment.ac_distribution; link: "../../controls/harnesses/zimager.html"}
     dc: {...@../equipment.dc_supply; link: "../../controls/harnesses/zimager.html"}
+    dc_distribution: {...@../equipment.dc_distribution; link: "../../controls/harnesses/power.html"}
     dc_ups: {...@../equipment.dc_ups; link: "../../controls/harnesses/power.html"}
     network_switch: {...@../equipment.ethernet_switch; link: "../../controls/harnesses/zimager.html"}
     computer: {...@../equipment.module_computer; link: "../../controls/operations/computer-management.html"}
@@ -23,11 +24,12 @@ zimager: {
     heat_exchanger: {...@../equipment.heat_exchanger; link: "../../controls/harnesses/zimager.html"}
     panels.input_panel.AC -- power_bus: {class: power}
     power_bus -- dc: {class: power}
-    dc -- dc_ups: {class: dc}
+    dc -- dc_distribution: {class: dc}
+    dc_ups -- dc_distribution: {class: dc}
     panels.input_panel.NET -- network_switch: {class: ethernet}
-    dc_ups -- computer: {class: dc}
-    dc_ups -- master: {class: dc}
-    dc_ups -- network_switch: {class: dc}
+    dc_distribution -- computer: {class: dc}
+    dc_distribution -- master: {class: dc}
+    dc_distribution -- network_switch: {class: dc}
     network_switch -- computer: {class: ethernet}
     network_switch -- master: {class: ethernet}
     computer -- temperature_hub: {class: usb}
@@ -97,54 +99,54 @@ zimager: {
   ebox.panels.motion_panel.TEMP -- enclosure.enclosure_probes: {class: sense; label: "1-Wire"}
   glycol_manifold -- ebox.panels.cooling_panel.GLYCOL: {class: glycol}
   ebox.drive_adc_a: {label: "ADC prism A drive"; class: controller; link: "../../controls/operations/zimager.html"}
-  ebox.dc_ups -- ebox.drive_adc_a: {class: dc}
+  ebox.dc_distribution -- ebox.drive_adc_a: {class: dc}
   ebox.master -- ebox.drive_adc_a: {class: ethercat}
   ebox.drive_adc_a -- ebox.panels.motion_panel.ADC_A: {class: motion}
   ebox.panels.motion_panel.ADC_A -- enclosure.adc_a: {class: motion}
   ebox.drive_adc_b: {label: "ADC prism B drive"; class: controller; link: "../../controls/operations/zimager.html"}
-  ebox.dc_ups -- ebox.drive_adc_b: {class: dc}
+  ebox.dc_distribution -- ebox.drive_adc_b: {class: dc}
   ebox.master -- ebox.drive_adc_b: {class: ethercat}
   ebox.drive_adc_b -- ebox.panels.motion_panel.ADC_B: {class: motion}
   ebox.panels.motion_panel.ADC_B -- enclosure.adc_b: {class: motion}
   ebox.drive_rot_u: {label: "U detector rotator drive"; class: controller; link: "../../controls/operations/zimager.html"}
-  ebox.dc_ups -- ebox.drive_rot_u: {class: dc}
+  ebox.dc_distribution -- ebox.drive_rot_u: {class: dc}
   ebox.master -- ebox.drive_rot_u: {class: ethercat}
   ebox.drive_rot_u -- ebox.panels.motion_panel.ROT_U: {class: motion}
   ebox.panels.motion_panel.ROT_U -- enclosure.u_rotator: {class: motion}
   ebox.drive_rot_v: {label: "V detector rotator drive"; class: controller; link: "../../controls/operations/zimager.html"}
-  ebox.dc_ups -- ebox.drive_rot_v: {class: dc}
+  ebox.dc_distribution -- ebox.drive_rot_v: {class: dc}
   ebox.master -- ebox.drive_rot_v: {class: ethercat}
   ebox.drive_rot_v -- ebox.panels.motion_panel.ROT_V: {class: motion}
   ebox.panels.motion_panel.ROT_V -- enclosure.v_rotator: {class: motion}
   ebox.drive_rot_z: {label: "Z detector rotator drive"; class: controller; link: "../../controls/operations/zimager.html"}
-  ebox.dc_ups -- ebox.drive_rot_z: {class: dc}
+  ebox.dc_distribution -- ebox.drive_rot_z: {class: dc}
   ebox.master -- ebox.drive_rot_z: {class: ethercat}
   ebox.drive_rot_z -- ebox.panels.motion_panel.ROT_Z: {class: motion}
   ebox.panels.motion_panel.ROT_Z -- enclosure.z_rotator: {class: motion}
   ebox.drive_focus: {label: "Common focus drive"; class: controller; link: "../../controls/operations/zimager.html"}
-  ebox.dc_ups -- ebox.drive_focus: {class: dc}
+  ebox.dc_distribution -- ebox.drive_focus: {class: dc}
   ebox.master -- ebox.drive_focus: {class: ethercat}
   ebox.drive_focus -- ebox.panels.motion_panel.FOCUS: {class: motion}
   ebox.panels.motion_panel.FOCUS -- enclosure.focus: {class: motion}
   enclosure.detector_u: {label: "U ORCA-Quest 2"; class: camera; link: "../../controls/operations/zimager.html#detector-acquisition"}
-  ebox.dc_ups -- ebox.transmitters.u: {class: dc}
-  ebox.dc_ups -- ebox.panels.motion_panel.U_DC: {class: dc; label: "12 VDC"}
+  ebox.dc_distribution -- ebox.transmitters.u: {class: dc}
+  ebox.dc_distribution -- ebox.panels.motion_panel.U_DC: {class: dc; label: "12 VDC"}
   ebox.panels.motion_panel.U_DC -- enclosure.detector_u: {class: dc; label: "12 VDC"}
   enclosure.detector_u -- ebox.panels.motion_panel.U_CXP: {class: cxp}
   ebox.panels.motion_panel.U_CXP -- ebox.transmitters.u: {class: cxp}
   ebox.transmitters.u -- ebox.panels.fiber_panel.U: {class: cxp_fiber}
   glycol_manifold -- enclosure.detector_u: {class: glycol}
   enclosure.detector_v: {label: "V ORCA-Quest 2"; class: camera; link: "../../controls/operations/zimager.html#detector-acquisition"}
-  ebox.dc_ups -- ebox.transmitters.v: {class: dc}
-  ebox.dc_ups -- ebox.panels.motion_panel.V_DC: {class: dc; label: "12 VDC"}
+  ebox.dc_distribution -- ebox.transmitters.v: {class: dc}
+  ebox.dc_distribution -- ebox.panels.motion_panel.V_DC: {class: dc; label: "12 VDC"}
   ebox.panels.motion_panel.V_DC -- enclosure.detector_v: {class: dc; label: "12 VDC"}
   enclosure.detector_v -- ebox.panels.motion_panel.V_CXP: {class: cxp}
   ebox.panels.motion_panel.V_CXP -- ebox.transmitters.v: {class: cxp}
   ebox.transmitters.v -- ebox.panels.fiber_panel.V: {class: cxp_fiber}
   glycol_manifold -- enclosure.detector_v: {class: glycol}
   enclosure.detector_z: {label: "Z ORCA-Quest 2"; class: camera; link: "../../controls/operations/zimager.html#detector-acquisition"}
-  ebox.dc_ups -- ebox.transmitters.z: {class: dc}
-  ebox.dc_ups -- ebox.panels.motion_panel.Z_DC: {class: dc; label: "12 VDC"}
+  ebox.dc_distribution -- ebox.transmitters.z: {class: dc}
+  ebox.dc_distribution -- ebox.panels.motion_panel.Z_DC: {class: dc; label: "12 VDC"}
   ebox.panels.motion_panel.Z_DC -- enclosure.detector_z: {class: dc; label: "12 VDC"}
   enclosure.detector_z -- ebox.panels.motion_panel.Z_CXP: {class: cxp}
   ebox.panels.motion_panel.Z_CXP -- ebox.transmitters.z: {class: cxp}

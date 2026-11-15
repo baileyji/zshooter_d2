@@ -201,6 +201,7 @@ zspec_nir: {
     panels.detector_vib.K -- detector_k: {class: detector}
     panels.detector_vib.K_THERM -- detector_k: {class: sense; label: "Temperature / heater"}
     gate_valve: {label: "NIR automatic gate valve"; class: controller; tooltip: "Part of the cryostat assembly; mounted outside vacuum."; link: "../../controls/harnesses/vacuum.html"}
+    vacuum_gauge: {label: "NIR vacuum gauge"; class: device; tooltip: "Mounted on the cryostat, outside vacuum."; link: "../../controls/harnesses/vacuum.html"}
     panels: {
       class: panel_group
       support_vib: {
@@ -277,10 +278,9 @@ zspec_nir: {
   archon_k -- cryostat.panels.detector_vib.K_THERM: {class: sense; label: "Sense / heater"}
   coldhead: {label: "NIR coldhead"; class: device; link: "../../controls/harnesses/zspec-nir.html#coldhead-and-compressor-connections"}
   coldhead -- cryostat.panels.service_ports.COLD: {class: thermal; label: "Cold finger"}
-  vacuum_gauge: {label: "NIR vacuum gauge"; class: device; link: "../../controls/harnesses/vacuum.html"}
-  ebox.panels.aux_panel.GAUGES -- vacuum_gauge: {class: [usb; usb_serial]}
-  ebox.panels.aux_panel.GAUGE_DC -- vacuum_gauge: {class: dc}
+  ebox.panels.aux_panel.GAUGES -- cryostat.vacuum_gauge: {class: [usb; usb_serial]}
+  ebox.panels.aux_panel.GAUGE_DC -- cryostat.vacuum_gauge: {class: dc}
   ebox.panels.aux_panel.VALVE_DC -- cryostat.gate_valve: {class: dc}
-  vacuum_gauge -- cryostat.panels.service_ports.VAC: {class: vacuum}
+  cryostat.vacuum_gauge -- cryostat.panels.service_ports.VAC: {class: vacuum}
   cryostat.gate_valve -- cryostat.panels.service_ports.VAC: {class: vacuum}
 }

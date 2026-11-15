@@ -8,6 +8,7 @@ zfront: {
     link: "../../controls/harnesses/zfront.html"
     ac: {...@../equipment.ac_distribution; link: "../../controls/operations/zfront-zcal.html"}
     dc: {...@../equipment.dc_supply; link: "../../controls/operations/zfront-zcal.html"}
+    dc_distribution: {...@../equipment.dc_distribution; link: "../../controls/harnesses/power.html"}
     dc_ups: {...@../equipment.dc_ups; link: "../../controls/harnesses/power.html"}
     network_switch: {label: "Managed switch"; class: computer; link: "../../controls/operations/zfront-zcal.html"}
     computer: {label: "ZFront host"; class: computer; link: "../../controls/operations/zfront-zcal.html"}
@@ -15,7 +16,8 @@ zfront: {
     neighbor_controller: {label: "Neighbor controller"; class: controller; link: "../../controls/operations/zfront-zcal.html"}
     io: {label: "Valve / service I/O"; class: controller; link: "../../controls/operations/zfront-zcal.html"}
     heat_exchanger: {...@../equipment.heat_exchanger; link: "../../controls/operations/zfront-zcal.html"}
-    dc -- dc_ups: {class: dc}
+    dc -- dc_distribution: {class: dc}
+    dc_ups -- dc_distribution: {class: dc}
     ac -- dc: {class: power}
     ac -- panels.imager_panel.AC: {class: power}
     ac -- panels.vis_panel.AC: {class: power}
@@ -23,15 +25,15 @@ zfront: {
     panels.facility_panel.AC -- ac: {class: power}
     panels.facility_panel.NET -- network_switch: {class: ethernet}
     network_switch -- computer: {class: ethernet}
-    dc_ups -- computer: {class: dc}
+    dc_distribution -- computer: {class: dc}
     network_switch -- lamp_controller: {class: ethernet}
-    dc_ups -- lamp_controller: {class: dc}
+    dc_distribution -- lamp_controller: {class: dc}
     network_switch -- neighbor_controller: {class: ethernet}
-    dc_ups -- neighbor_controller: {class: dc}
+    dc_distribution -- neighbor_controller: {class: dc}
     network_switch -- io: {class: ethernet}
-    dc_ups -- io: {class: dc}
-    dc_ups -- network_switch: {class: dc}
-    dc_ups -- panels.field_panel.MANIFOLDS: {class: dc}
+    dc_distribution -- io: {class: dc}
+    dc_distribution -- network_switch: {class: dc}
+    dc_distribution -- panels.field_panel.MANIFOLDS: {class: dc}
     network_switch -- panels.imager_panel.NET: {class: ethernet}
     network_switch -- panels.vis_panel.NET: {class: ethernet}
     lamp_controller -- panels.field_panel.LAMP: {class: power; label: "Lamp supplies"}

@@ -11,8 +11,8 @@ rnas: {
     zfront.glycol_manifold -- zimager.glycol_manifold: {class: glycol}
     zfront.ebox.panels.vis_panel.AC -- zspec_vis.ebox.panels.input_panel.AC: {class: power}
     zfront.ebox.panels.vis_panel.NET -- zspec_vis.ebox.panels.input_panel.NET: {class: ethernet; label: "10G fiber"}
-    zfront.air_manifold -- zspec_vis.service_panel.AIR: {class: air}
-    zfront.glycol_manifold -- zspec_vis.service_panel.GLYCOL: {class: glycol}
+    zfront.air_manifold -- zspec_vis.air_dryer: {class: air}
+    zfront.glycol_manifold -- zspec_vis.glycol_manifold: {class: glycol}
     zfront.glycol_manifold -- zspec_nir.glycol_manifold: {class: glycol}
     zspec_vis.ebox.panels.nir_panel.DC -- zspec_nir.ebox.panels.input_panel.DC: {class: dc}
     zspec_vis.ebox.panels.nir_panel.NET -- zspec_nir.ebox.panels.input_panel.NET: {class: ethernet}

@@ -1,7 +1,9 @@
 telescope: {label: "Keck I telescope"; class: device; link: "../../optical_design.html"}
-neighbors: {label: "Neighboring instruments"; class: device; link: "../../controls/operations/zfront-zcal.html"}
+left_neighbor: {label: "Left Neighbor"; class: device; link: "../../controls/operations/zfront-zcal.html"}
+right_neighbor: {label: "Right Neighbor"; class: device; link: "../../controls/operations/zfront-zcal.html"}
 telescope -> rnas.zshooter.zfront.inst_selector: {class: optical}
-rnas.zshooter.zfront.inst_selector -> neighbors: {class: optical}
+rnas.zshooter.zfront.inst_selector -> left_neighbor: {class: optical}
+rnas.zshooter.zfront.inst_selector -> right_neighbor: {class: optical}
 rnas.zshooter: {
   zfront: {
     inst_selector -> zim_zspec_selector: {class: optical}
@@ -9,10 +11,10 @@ rnas.zshooter: {
     point_selector -> cal_inserter: {class: optical}
     cal_inserter -> zim_zspec_selector: {class: optical}
   }
-  zfront.zim_zspec_selector -> zimager.enclosure.adc_a: {class: optical}
+  zfront.zim_zspec_selector -> zimager.enclosure.focus: {class: optical}
   zimager.enclosure: {
     dichroics: {label: "Channel dichroics"; class: device; link: "../../zimager_optical.html"}
-    adc_a -> adc_b -> dichroics: {class: optical}
+    focus -> adc_a -> adc_b -> dichroics: {class: optical}
     dichroics -> detector_u: {class: optical}
     dichroics -> filter -> detector_v: {class: optical}
     dichroics -> detector_z: {class: optical}
