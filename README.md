@@ -47,6 +47,8 @@ Names follow `<scope>_<subject>`: `zspec_nir_connections`, `zspec_nir_feedthroug
 
 Keep **all declarations and appearance changes before the visibility filters**. In D2 0.9, restoring an edge also restores its endpoints and ancestors. `--`, `->` and `<->` are distinct selectors. Endpoint filters such as `&src` match exact IDs; use path globs in the edge selector for a whole assembly.
 
+Connection maps and the power view leave generic cable-type captions in the legend. The inverse `!&label: *` filters clear inherited captions while preserving explicit voltages, speeds and functional labels. To label a particular cable, set `label` on its edge in the model. Keep these presentation filters before the visibility filters; the wildcard is deliberately unquoted.
+
 Visible containers identify physical assemblies. `panel_group` is an invisible layout group for adjacent panels or converters. It has no equipment identity. Avoid grids around connected devices: they can route external lines through other grid items.
 
 Incoming service panels sit outside the hidden group of outgoing panels in each EBox. Grouping both ends together creates a layout cycle through the power supplies and distribution, even though the electrical path is linear. The ZImager fiber panel is separate from the mechanism-panel group for the same reason: readout then flows through the mechanism panel, transmitters and fiber panel in order.

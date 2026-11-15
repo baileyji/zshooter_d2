@@ -71,6 +71,57 @@ class ModelViews(unittest.TestCase):
                 self.assertNotIn('V filter', labels, view)
 
 
+    def test_dense_labels_preserve_devices_wiring_and_explicit_captions(self):
+        def snapshot(output):
+            objects, edges = {}, {}
+            for group in ET.parse(output).getroot().iter(NS + 'g'):
+                tokens = group.get('class', '').split()
+                if not tokens:
+                    continue
+                try:
+                    key = base64.b64decode(tokens[0], validate=True).decode()
+                except (ValueError, UnicodeDecodeError):
+                    continue
+                if not key.startswith(('rnas', 'server', 'mechanical', 'facility_network')):
+                    continue
+                labels = tuple(''.join(t.itertext()) for t in group.iter(NS + 'text'))
+                if any('connection' in p.get('class', '').split()
+                       for p in group.findall(NS + 'path')):
+                    edges[key] = (tuple(tokens[1:]), labels)
+                else:
+                    objects[key] = labels
+            return objects, edges
+
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp) / 'arch'
+            shutil.copytree(ROOT, root, ignore=shutil.ignore_patterns('.git', 'svg', '__pycache__'))
+            compact = Path(temp) / 'compact.svg'
+            labels, _ = render(root, 'zimager_connections', compact)
+            compact_objects, compact_edges = snapshot(compact)
+            view = root / 'views/zimager_connections.d2'
+            view.write_text(view.read_text().replace('(** -- **)[*]: {!&label: *; label: ""}\n', '')
+                            .replace('(** -> **)[*]: {!&label: *; label: ""}\n', ''))
+            original = Path(temp) / 'original.svg'
+            render(root, 'zimager_connections', original)
+            original_objects, original_edges = snapshot(original)
+            self.assertEqual(compact_objects, original_objects)
+            self.assertEqual(compact_edges.keys(), original_edges.keys())
+            self.assertGreater(len(compact_edges), 50)
+            generic = {'AC', 'DC', 'Ethernet', 'EtherCAT', 'USB', 'Motor / position',
+                       'CXP ×4', 'CXP fiber', 'Air', 'Glycol S/R', 'I/O'}
+            cleared = 0
+            for key, (classes, before) in original_edges.items():
+                after_classes, after = compact_edges[key]
+                self.assertEqual(classes, after_classes, key)
+                if after != before:
+                    self.assertEqual(after, (), key)
+                    self.assertTrue(set(before).issubset(generic), (key, before))
+                    cleared += 1
+            self.assertGreater(cleared, 30)
+            for caption in ['100 Mb/s copper', '24 VDC', '12 VDC', '1-Wire']:
+                self.assertTrue(any(caption in texts for _, texts in compact_edges.values()), caption)
+            self.assertIn('Motor / position', labels)  # Native legend remains labeled.
+
     def test_power_sources_reach_every_distribution_through_supplies(self):
         with tempfile.TemporaryDirectory() as temp:
             output = Path(temp) / 'power.svg'
