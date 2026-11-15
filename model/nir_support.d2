@@ -25,13 +25,10 @@ zspec_nir: {
   ebox: {
     label: @zspec_nir.zspec_nir.ebox.label
     class: ebox
-    panels: {
-      class: panel_group
-      input_panel: @zspec_nir.zspec_nir.ebox.panels.input_panel
-    }
+    input_panel: @zspec_nir.zspec_nir.ebox.input_panel
   }
   glycol_manifold: @zspec_nir.zspec_nir.glycol_manifold
 }
-support_cabinet.panel.DC -- zspec_nir.ebox.panels.input_panel.DC: {class: dc}
-support_cabinet.panel.NET -- zspec_nir.ebox.panels.input_panel.NET: {class: ethernet}
+support_cabinet.panel.DC -- zspec_nir.ebox.input_panel.DC: {class: dc}
+support_cabinet.panel.NET -- zspec_nir.ebox.input_panel.NET: {class: ethernet}
 support_cabinet.panel.GLYCOL -- zspec_nir.glycol_manifold: {class: glycol}

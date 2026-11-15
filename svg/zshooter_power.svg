@@ -1,0 +1,650 @@
+<?xml version="1.0" encoding="utf-8"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" data-d2-version="v0.9.0" preserveAspectRatio="xMinYMin meet" viewBox="0 0 5740 1405"><svg class="d2-2606907635 d2-svg" width="5740" height="1405" viewBox="-89 -162 5740 1405"><rect x="-89" y="-162" width="5740" height="1405" rx="0" fill="#FFFFFF" class=" fill-N7" stroke-width="0" /><style type="text/css"><![CDATA[
+.d2-2606907635 .text {
+	font-family: "d2-2606907635-font-regular";
+}
+@font-face {
+	font-family: d2-2606907635-font-regular;
+	src: url("data:application/font-woff;base64,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");
+}
+.appendix-icon {
+	filter: drop-shadow(0px 0px 32px rgba(31, 36, 58, 0.1));
+}
+.d2-2606907635 .text-bold {
+	font-family: "d2-2606907635-font-bold";
+}
+@font-face {
+	font-family: d2-2606907635-font-bold;
+	src: url("data:application/font-woff;base64,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");
+}]]></style><style type="text/css"><![CDATA[.shape {
+  shape-rendering: geometricPrecision;
+  stroke-linejoin: round;
+}
+.connection {
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.blend {
+  mix-blend-mode: multiply;
+  opacity: 0.5;
+}
+
+		.d2-2606907635 .fill-N1{fill:#0A0F25;}
+		.d2-2606907635 .fill-N2{fill:#676C7E;}
+		.d2-2606907635 .fill-N7{fill:#FFFFFF;}
+		.d2-2606907635 .fill-B2{fill:#0D32B2;}
+		.d2-2606907635 .fill-AA2{fill:#4A6FF3;}
+		.d2-2606907635 .stroke-B2{stroke:#0D32B2;}.appendix text.text{fill:#0A0F25}.md{--color-fg-default:#0A0F25;--color-fg-muted:#676C7E;--color-fg-subtle:#9499AB;--color-canvas-default:#FFFFFF;--color-canvas-subtle:#EEF1F8;--color-border-default:#0D32B2;--color-border-muted:#0D32B2;--color-neutral-muted:#EEF1F8;--color-accent-fg:#0D32B2;--color-accent-emphasis:#0D32B2;--color-attention-subtle:#676C7E;--color-danger-fg:red;}.light-code{display: block}.dark-code{display: none}]]></style><a href="../../controls/harnesses/zfront.html" xlink:href="../../controls/harnesses/zfront.html"><g class="cm5hcw== room"><g class="shape" ><rect x="12" y="12" width="5386" height="1130" stroke="#718096" fill="#f8f9fa" style="stroke-width:2;" /></g><text x="2705" y="39" fill="#0A0F25" class="text fill-N1" style="text-anchor:middle;font-size:22px">RNAS</text></g></a><a href="../../controls/harnesses/power.html" xlink:href="../../controls/harnesses/power.html"><g class="dGl0bGU= title"><g class="shape" ></g><text x="2705" y="-16" fill="#23425a" class="text-bold" style="text-anchor:middle;font-size:28px">Instrument Power</text></g></a><a href="../../controls/harnesses/zfront.html#rnas-to-zfront-ebox" xlink:href="../../controls/harnesses/zfront.html#rnas-to-zfront-ebox"><g class="cm5hcy5wYW5lbA== panel"><g class="shape" ><rect x="405" y="414" width="228" height="66" stroke="#c9d9e8" fill="#f0f5f9" class="shape" style="stroke-width:2;" /><rect x="405" y="414" width="228" height="33" fill="#c9d9e8" class="class_header" /><text x="415" y="437.5" fill="#19324d" class="text" style="text-anchor:start;font-size:22px">RNAS facility panel</text><text x="415" y="468" fill="#0D32B2" class="text fill-B2" style="text-anchor:start;font-size:18px">AC</text><text x="455" y="468" fill="#676C7E" class="text fill-N2" style="text-anchor:start;font-size:18px">120 VAC / facility UPS</text><text x="623" y="468" fill="#4A6FF3" class="text fill-AA2" style="text-anchor:end;font-size:18px" /><line x1="405" x2="633" y1="480" y2="480" stroke="#c9d9e8" style="stroke-width:2" /></g></g></a><a href="../../architecture.html" xlink:href="../../architecture.html"><g class="cm5hcy56c2hvb3Rlcg== module"><g class="shape" ><rect x="740" y="62" width="4608" height="1030" stroke="#355877" fill="#f5f8fc" style="stroke-width:2;" /></g><text x="3044" y="91" fill="#0A0F25" class="text-bold fill-N1" style="text-anchor:middle;font-size:24px">ZShooter</text></g></a><a href="../../controls/harnesses/power.html" xlink:href="../../controls/harnesses/power.html"><g class="cm5hcy5hY19mZWVk utility"><g class="shape" ><rect x="62" y="428" width="241" height="71" stroke="#687582" fill="#f0f2f4" style="stroke-width:2;" /></g><text x="182.5" y="470.5" fill="#0A0F25" class="text fill-N1" style="text-anchor:middle;font-size:20px">Facility UPS AC</text><title>120 VAC facility feed to the RNAS panel.</title></g></a><a href="../../controls/harnesses/zfront.html" xlink:href="../../controls/harnesses/zfront.html"><g class="cm5hcy56c2hvb3Rlci56ZnJvbnQ= module"><g class="shape" ><rect x="795" y="127" width="1605" height="589" stroke="#355877" fill="#f5f8fc" style="stroke-width:2;" /></g><text x="1597.5" y="156" fill="#0A0F25" class="text-bold fill-N1" style="text-anchor:middle;font-size:24px">ZFront</text></g></a><a href="../../controls/harnesses/zspec-vis.html" xlink:href="../../controls/harnesses/zspec-vis.html"><g class="cm5hcy56c2hvb3Rlci56c3BlY192aXM= module"><g class="shape" ><rect x="2484" y="494" width="1701" height="548" stroke="#355877" fill="#f5f8fc" style="stroke-width:2;" /></g><text x="3334.5" y="523" fill="#0A0F25" class="text-bold fill-N1" style="text-anchor:middle;font-size:24px">ZSpec VIS</text></g></a><a href="../../controls/harnesses/zspec-nir.html" xlink:href="../../controls/harnesses/zspec-nir.html"><g class="cm5hcy56c2hvb3Rlci56c3BlY19uaXI= module"><g class="shape" ><rect x="4264" y="726" width="1034" height="295" stroke="#355877" fill="#f5f8fc" style="stroke-width:2;" /></g><text x="4781" y="755" fill="#0A0F25" class="text-bold fill-N1" style="text-anchor:middle;font-size:24px">ZSpec NIR</text></g></a><a href="../../controls/harnesses/zimager.html" xlink:href="../../controls/harnesses/zimager.html"><g class="cm5hcy56c2hvb3Rlci56aW1hZ2Vy module"><g class="shape" ><rect x="2484" y="112" width="1618" height="362" stroke="#355877" fill="#f5f8fc" style="stroke-width:2;" /></g><text x="3293" y="141" fill="#0A0F25" class="text-bold fill-N1" style="text-anchor:middle;font-size:24px">ZImager</text></g></a><a href="../../controls/harnesses/zfront.html" xlink:href="../../controls/harnesses/zfront.html"><g class="cm5hcy56c2hvb3Rlci56ZnJvbnQuZWJveA== ebox"><g class="shape" ><rect x="850" y="177" width="1495" height="489" stroke="#a66a28" fill="#fff8ef" style="stroke-width:2;" /></g><text x="1597.5" y="202" fill="#0A0F25" class="text fill-N1" style="text-anchor:middle;font-size:20px">ZFront EBox</text></g></a><a href="../../controls/harnesses/zspec-vis.html" xlink:href="../../controls/harnesses/zspec-vis.html"><g class="cm5hcy56c2hvb3Rlci56c3BlY192aXMuZWJveA== ebox"><g class="shape" ><rect x="2539" y="544" width="1591" height="448" stroke="#a66a28" fill="#fff8ef" style="stroke-width:2;" /></g><text x="3334.5" y="569" fill="#0A0F25" class="text fill-N1" style="text-anchor:middle;font-size:20px">VIS EBox</text></g></a><a href="../../controls/harnesses/zspec-nir.html" xlink:href="../../controls/harnesses/zspec-nir.html"><g class="cm5hcy56c2hvb3Rlci56c3BlY19uaXIuZWJveA== ebox"><g class="shape" ><rect x="4319" y="776" width="929" height="195" stroke="#a66a28" fill="#fff8ef" style="stroke-width:2;" /></g><text x="4783.5" y="801" fill="#0A0F25" class="text fill-N1" style="text-anchor:middle;font-size:20px">NIR EBox</text></g></a><a href="../../controls/harnesses/zimager.html" xlink:href="../../controls/harnesses/zimager.html"><g class="cm5hcy56c2hvb3Rlci56aW1hZ2VyLmVib3g= ebox"><g class="shape" ><rect x="2539" y="162" width="1513" height="262" stroke="#a66a28" fill="#fff8ef" style="stroke-width:2;" /></g><text x="3295.5" y="187" fill="#0A0F25" class="text fill-N1" style="text-anchor:middle;font-size:20px">ZImager EBox</text></g></a><a href="../../controls/operations/zfront-zcal.html" xlink:href="../../controls/operations/zfront-zcal.html"><g class="cm5hcy56c2hvb3Rlci56ZnJvbnQuZWJveC5hYw== utility"><g class="shape" ><rect x="1125" y="403" width="179" height="120" stroke="#687582" fill="#f0f2f4" style="stroke-width:2;" /></g><text x="1214.5" y="470" fill="#0A0F25" class="text fill-N1" style="text-anchor:middle;font-size:20px">AC distribution</text></g></a><a href="../../controls/harnesses/zspec-nir.html" xlink:href="../../controls/harnesses/zspec-nir.html"><g class="cm5hcy56c2hvb3Rlci56c3BlY19uaXIuZWJveC5wb3dlcl9idXM= controller"><g class="shape" ><rect x="4651" y="830" width="254" height="91" rx="5" stroke="#7857a0" fill="#eee8fa" style="stroke-width:2;" /></g><text x="4778" y="872.5" fill="#0A0F25" class="text fill-N1" style="text-anchor:middle;font-size:20px"><tspan x="4778" dy="0">Phoenix Contact</tspan><tspan x="4778" dy="23">DC distribution</tspan></text><title>Smart DC distribution with monitored, switchable outputs.</title></g></a><a href="../../controls/harnesses/zspec-vis.html" xlink:href="../../controls/harnesses/zspec-vis.html"><g class="cm5hcy56c2hvb3Rlci56c3BlY192aXMuZWJveC5wb3dlcl9idXM= utility"><g class="shape" ><rect x="2871" y="685" width="179" height="71" stroke="#687582" fill="#f0f2f4" style="stroke-width:2;" /></g><text x="2960.5" y="727.5" fill="#0A0F25" class="text fill-N1" style="text-anchor:middle;font-size:20px">AC distribution</text></g></a><a href="../../controls/operations/zfront-zcal.html" xlink:href="../../controls/operations/zfront-zcal.html"><g class="cm5hcy56c2hvb3Rlci56ZnJvbnQuZWJveC5kYw== utility"><g class="shape" ><rect x="1395" y="273" width="242" height="71" stroke="#687582" fill="#f0f2f4" style="stroke-width:2;" /></g><text x="1516" y="315.5" fill="#0A0F25" class="text fill-N1" style="text-anchor:middle;font-size:20px">AC/DC supplies</text><title>Convert the incoming AC feed to the DC rails used by local distribution.</title></g></a><a href="../../controls/harnesses/zspec-vis.html" xlink:href="../../controls/harnesses/zspec-vis.html"><g class="cm5hcy56c2hvb3Rlci56c3BlY192aXMuZWJveC5kYw== utility"><g class="shape" ><rect x="3119" y="685" width="242" height="71" stroke="#687582" fill="#f0f2f4" style="stroke-width:2;" /></g><text x="3240" y="727.5" fill="#0A0F25" class="text fill-N1" style="text-anchor:middle;font-size:20px">AC/DC supplies</text><title>Convert the incoming AC feed to the DC rails used by local distribution.</title></g></a><a href="../../controls/harnesses/zimager.html" xlink:href="../../controls/harnesses/zimager.html"><g class="cm5hcy56c2hvb3Rlci56aW1hZ2VyLmVib3gucG93ZXJfYnVz utility"><g class="shape" ><rect x="2871" y="257" width="179" height="71" stroke="#687582" fill="#f0f2f4" style="stroke-width:2;" /></g><text x="2960.5" y="299.5" fill="#0A0F25" class="text fill-N1" style="text-anchor:middle;font-size:20px">AC distribution</text></g></a><a href="../../controls/harnesses/power.html" xlink:href="../../controls/harnesses/power.html"><g class="cm5hcy56c2hvb3Rlci56ZnJvbnQuZWJveC5kY19kaXN0cmlidXRpb24= controller"><g class="shape" ><rect x="1723" y="263" width="254" height="91" rx="5" stroke="#7857a0" fill="#eee8fa" style="stroke-width:2;" /></g><text x="1850" y="305.5" fill="#0A0F25" class="text fill-N1" style="text-anchor:middle;font-size:20px"><tspan x="1850" dy="0">Phoenix Contact</tspan><tspan x="1850" dy="23">DC distribution</tspan></text><title>Smart DC distribution with monitored, switchable outputs.</title></g></a><a href="../../controls/harnesses/power.html" xlink:href="../../controls/harnesses/power.html"><g class="cm5hcy56c2hvb3Rlci56c3BlY192aXMuZWJveC5kY19kaXN0cmlidXRpb24= controller"><g class="shape" ><rect x="3430" y="660" width="254" height="120" rx="5" stroke="#7857a0" fill="#eee8fa" style="stroke-width:2;" /></g><text x="3557" y="717" fill="#0A0F25" class="text fill-N1" style="text-anchor:middle;font-size:20px"><tspan x="3557" dy="0">Phoenix Contact</tspan><tspan x="3557" dy="23">DC distribution</tspan></text><title>Smart DC distribution with monitored, switchable outputs.</title></g></a><a href="../../controls/operations/computer-management.html" xlink:href="../../controls/operations/computer-management.html"><g class="cm5hcy56c2hvb3Rlci56c3BlY19uaXIuZWJveC5jb21wdXRlcg== computer"><g class="shape" ><rect x="4974" y="840" width="224" height="71" rx="6" stroke="#23659a" fill="#e6f1fd" style="stroke-width:2;" /></g><text x="5086" y="882.5" fill="#0A0F25" class="text fill-N1" style="text-anchor:middle;font-size:20px">rPi/Similar (Ubuntu)</text></g></a><a href="../../controls/harnesses/zimager.html" xlink:href="../../controls/harnesses/zimager.html"><g class="cm5hcy56c2hvb3Rlci56aW1hZ2VyLmVib3guZGM= utility"><g class="shape" ><rect x="3119" y="257" width="242" height="71" stroke="#687582" fill="#f0f2f4" style="stroke-width:2;" /></g><text x="3240" y="299.5" fill="#0A0F25" class="text fill-N1" style="text-anchor:middle;font-size:20px">AC/DC supplies</text><title>Convert the incoming AC feed to the DC rails used by local distribution.</title></g></a><a href="../../controls/harnesses/power.html" xlink:href="../../controls/harnesses/power.html"><g class="cm5hcy56c2hvb3Rlci56ZnJvbnQuZWJveC5kY191cHM= utility optional"><g class="shape" ><rect x="2051" y="318" width="244" height="71" stroke="#687582" fill="#f0f2f4" style="stroke-width:2;stroke-dasharray:10.000000,9.865639;" /></g><text x="2173" y="360.5" fill="#0A0F25" class="text fill-N1" style="text-anchor:middle;font-size:20px">DC UPS module</text><title>Charging and backup connection to DC distribution. Fit where local battery support is needed.</title></g></a><a href="../../controls/harnesses/power.html" xlink:href="../../controls/harnesses/power.html"><g class="cm5hcy56c2hvb3Rlci56c3BlY192aXMuZWJveC5kY191cHM= utility optional"><g class="shape" ><rect x="3763" y="685" width="244" height="71" stroke="#687582" fill="#f0f2f4" style="stroke-width:2;stroke-dasharray:10.000000,9.865639;" /></g><text x="3885" y="727.5" fill="#0A0F25" class="text fill-N1" style="text-anchor:middle;font-size:20px">DC UPS module</text><title>Charging and backup connection to DC distribution. Fit where local battery support is needed.</title></g></a><a href="../../controls/harnesses/power.html" xlink:href="../../controls/harnesses/power.html"><g class="cm5hcy56c2hvb3Rlci56aW1hZ2VyLmVib3guZGNfZGlzdHJpYnV0aW9u controller"><g class="shape" ><rect x="3430" y="247" width="254" height="91" rx="5" stroke="#7857a0" fill="#eee8fa" style="stroke-width:2;" /></g><text x="3557" y="289.5" fill="#0A0F25" class="text fill-N1" style="text-anchor:middle;font-size:20px"><tspan x="3557" dy="0">Phoenix Contact</tspan><tspan x="3557" dy="23">DC distribution</tspan></text><title>Smart DC distribution with monitored, switchable outputs.</title></g></a><a href="../../controls/harnesses/power.html" xlink:href="../../controls/harnesses/power.html"><g class="cm5hcy56c2hvb3Rlci56aW1hZ2VyLmVib3guZGNfdXBz utility optional"><g class="shape" ><rect x="3758" y="212" width="244" height="71" stroke="#687582" fill="#f0f2f4" style="stroke-width:2;stroke-dasharray:10.000000,9.865639;" /></g><text x="3880" y="254.5" fill="#0A0F25" class="text fill-N1" style="text-anchor:middle;font-size:20px">DC UPS module</text><title>Charging and backup connection to DC distribution. Fit where local battery support is needed.</title></g></a><a href="../../controls/operations/computer-management.html" xlink:href="../../controls/operations/computer-management.html"><g class="cm5hcy56c2hvb3Rlci56c3BlY192aXMuZWJveC5jb21wdXRlcg== computer"><g class="shape" ><rect x="3763" y="594" width="224" height="71" rx="6" stroke="#23659a" fill="#e6f1fd" style="stroke-width:2;" /></g><text x="3875" y="636.5" fill="#0A0F25" class="text fill-N1" style="text-anchor:middle;font-size:20px">rPi/Similar (Ubuntu)</text></g></a><a href="../../controls/operations/zfront-zcal.html" xlink:href="../../controls/operations/zfront-zcal.html"><g class="cm5hcy56c2hvb3Rlci56ZnJvbnQuZWJveC5jb21wdXRlcg== computer"><g class="shape" ><rect x="2051" y="227" width="148" height="71" rx="6" stroke="#23659a" fill="#e6f1fd" style="stroke-width:2;" /></g><text x="2125" y="269.5" fill="#0A0F25" class="text fill-N1" style="text-anchor:middle;font-size:20px">ZFront host</text></g></a><a href="../../controls/harnesses/zspec-nir.html" xlink:href="../../controls/harnesses/zspec-nir.html"><g class="cm5hcy56c2hvb3Rlci56c3BlY19uaXIuZWJveC5pbnB1dF9wYW5lbA== panel"><g class="shape" ><rect x="4369" y="826" width="213" height="66" stroke="#c9d9e8" fill="#f0f5f9" class="shape" style="stroke-width:2;" /><rect x="4369" y="826" width="213" height="33" fill="#c9d9e8" class="class_header" /><text x="4379" y="849.5" fill="#19324d" class="text" style="text-anchor:start;font-size:22px">Service input panel</text><text x="4379" y="880" fill="#0D32B2" class="text fill-B2" style="text-anchor:start;font-size:18px">DC</text><text x="4420" y="880" fill="#676C7E" class="text fill-N2" style="text-anchor:start;font-size:18px">Power</text><text x="4572" y="880" fill="#4A6FF3" class="text fill-AA2" style="text-anchor:end;font-size:18px" /><line x1="4369" x2="4582" y1="892" y2="892" stroke="#c9d9e8" style="stroke-width:2" /></g></g></a><a href="../../controls/operations/computer-management.html" xlink:href="../../controls/operations/computer-management.html"><g class="cm5hcy56c2hvb3Rlci56aW1hZ2VyLmVib3guY29tcHV0ZXI= computer"><g class="shape" ><rect x="3758" y="303" width="224" height="71" rx="6" stroke="#23659a" fill="#e6f1fd" style="stroke-width:2;" /></g><text x="3870" y="345.5" fill="#0A0F25" class="text fill-N1" style="text-anchor:middle;font-size:20px">rPi/Similar (Ubuntu)</text></g></a><a href="../../controls/harnesses/zspec-vis.html" xlink:href="../../controls/harnesses/zspec-vis.html"><g class="cm5hcy56c2hvb3Rlci56c3BlY192aXMuZWJveC5pbnB1dF9wYW5lbA== panel"><g class="shape" ><rect x="2589" y="671" width="213" height="66" stroke="#c9d9e8" fill="#f0f5f9" class="shape" style="stroke-width:2;" /><rect x="2589" y="671" width="213" height="33" fill="#c9d9e8" class="class_header" /><text x="2599" y="694.5" fill="#19324d" class="text" style="text-anchor:start;font-size:22px">Service input panel</text><text x="2599" y="725" fill="#0D32B2" class="text fill-B2" style="text-anchor:start;font-size:18px">AC</text><text x="2639" y="725" fill="#676C7E" class="text fill-N2" style="text-anchor:start;font-size:18px">Power</text><text x="2792" y="725" fill="#4A6FF3" class="text fill-AA2" style="text-anchor:end;font-size:18px" /><line x1="2589" x2="2802" y1="737" y2="737" stroke="#c9d9e8" style="stroke-width:2" /></g></g></a><a href="../../controls/harnesses/zimager.html" xlink:href="../../controls/harnesses/zimager.html"><g class="cm5hcy56c2hvb3Rlci56aW1hZ2VyLmVib3guaW5wdXRfcGFuZWw= panel"><g class="shape" ><rect x="2589" y="243" width="213" height="66" stroke="#c9d9e8" fill="#f0f5f9" class="shape" style="stroke-width:2;" /><rect x="2589" y="243" width="213" height="33" fill="#c9d9e8" class="class_header" /><text x="2599" y="266.5" fill="#19324d" class="text" style="text-anchor:start;font-size:22px">Service input panel</text><text x="2599" y="297" fill="#0D32B2" class="text fill-B2" style="text-anchor:start;font-size:18px">AC</text><text x="2639" y="297" fill="#676C7E" class="text fill-N2" style="text-anchor:start;font-size:18px">Power</text><text x="2792" y="297" fill="#4A6FF3" class="text fill-AA2" style="text-anchor:end;font-size:18px" /><line x1="2589" x2="2802" y1="309" y2="309" stroke="#c9d9e8" style="stroke-width:2" /></g></g></a><g class="cm5hcy56c2hvb3Rlci56ZnJvbnQuZWJveC5wYW5lbHM= panel_group"><g class="shape" ><rect x="1383" y="364" width="266" height="252" stroke="transparent" fill="transparent" style="stroke-width:0;" /></g></g><a href="../../controls/harnesses/zfront.html#rnas-to-zfront-ebox" xlink:href="../../controls/harnesses/zfront.html#rnas-to-zfront-ebox"><g class="cm5hcy56c2hvb3Rlci56ZnJvbnQuZWJveC5mYWNpbGl0eV9wYW5lbA== panel"><g class="shape" ><rect x="900" y="414" width="156" height="66" stroke="#c9d9e8" fill="#f0f5f9" class="shape" style="stroke-width:2;" /><rect x="900" y="414" width="156" height="33" fill="#c9d9e8" class="class_header" /><text x="910" y="437.5" fill="#19324d" class="text" style="text-anchor:start;font-size:22px">Facility panel</text><text x="910" y="468" fill="#0D32B2" class="text fill-B2" style="text-anchor:start;font-size:18px">AC</text><text x="950" y="468" fill="#676C7E" class="text fill-N2" style="text-anchor:start;font-size:18px">120 VAC</text><text x="1046" y="468" fill="#4A6FF3" class="text fill-AA2" style="text-anchor:end;font-size:18px" /><line x1="900" x2="1056" y1="480" y2="480" stroke="#c9d9e8" style="stroke-width:2" /></g></g></a><g class="cm5hcy56c2hvb3Rlci56c3BlY192aXMuZWJveC5wYW5lbHM= panel_group"><g class="shape" ><rect x="3763" y="776" width="312" height="166" stroke="transparent" fill="transparent" style="stroke-width:0;" /></g></g><a href="../../controls/harnesses/zfront.html#zfront-ebox-to-zimager" xlink:href="../../controls/harnesses/zfront.html#zfront-ebox-to-zimager"><g class="cm5hcy56c2hvb3Rlci56ZnJvbnQuZWJveC5wYW5lbHMuaW1hZ2VyX3BhbmVs panel"><g class="shape" ><rect x="1433" y="414" width="166" height="66" stroke="#c9d9e8" fill="#f0f5f9" class="shape" style="stroke-width:2;" /><rect x="1433" y="414" width="166" height="33" fill="#c9d9e8" class="class_header" /><text x="1443" y="437.5" fill="#19324d" class="text" style="text-anchor:start;font-size:22px">ZImager panel</text><text x="1443" y="468" fill="#0D32B2" class="text fill-B2" style="text-anchor:start;font-size:18px">AC</text><text x="1483" y="468" fill="#676C7E" class="text fill-N2" style="text-anchor:start;font-size:18px">Power</text><text x="1589" y="468" fill="#4A6FF3" class="text fill-AA2" style="text-anchor:end;font-size:18px" /><line x1="1433" x2="1599" y1="480" y2="480" stroke="#c9d9e8" style="stroke-width:2" /></g></g></a><a href="../../controls/harnesses/zfront.html#zfront-ebox-to-zspec-vis-ebox" xlink:href="../../controls/harnesses/zfront.html#zfront-ebox-to-zspec-vis-ebox"><g class="cm5hcy56c2hvb3Rlci56ZnJvbnQuZWJveC5wYW5lbHMudmlzX3BhbmVs panel"><g class="shape" ><rect x="1444" y="500" width="143" height="66" stroke="#c9d9e8" fill="#f0f5f9" class="shape" style="stroke-width:2;" /><rect x="1444" y="500" width="143" height="33" fill="#c9d9e8" class="class_header" /><text x="1454" y="523.5" fill="#19324d" class="text" style="text-anchor:start;font-size:22px">ZSpec panel</text><text x="1454" y="554" fill="#0D32B2" class="text fill-B2" style="text-anchor:start;font-size:18px">AC</text><text x="1494" y="554" fill="#676C7E" class="text fill-N2" style="text-anchor:start;font-size:18px">Power</text><text x="1577" y="554" fill="#4A6FF3" class="text fill-AA2" style="text-anchor:end;font-size:18px" /><line x1="1444" x2="1587" y1="566" y2="566" stroke="#c9d9e8" style="stroke-width:2" /></g></g></a><a href="../../controls/harnesses/zspec-vis.html#vis-ebox-to-nir-ebox" xlink:href="../../controls/harnesses/zspec-vis.html#vis-ebox-to-nir-ebox"><g class="cm5hcy56c2hvb3Rlci56c3BlY192aXMuZWJveC5wYW5lbHMubmlyX3BhbmVs panel"><g class="shape" ><rect x="3813" y="826" width="212" height="66" stroke="#c9d9e8" fill="#f0f5f9" class="shape" style="stroke-width:2;" /><rect x="3813" y="826" width="212" height="33" fill="#c9d9e8" class="class_header" /><text x="3823" y="849.5" fill="#19324d" class="text" style="text-anchor:start;font-size:22px">NIR Interface Panel</text><text x="3823" y="880" fill="#0D32B2" class="text fill-B2" style="text-anchor:start;font-size:18px">DC</text><text x="3864" y="880" fill="#676C7E" class="text fill-N2" style="text-anchor:start;font-size:18px">Power</text><text x="4015" y="880" fill="#4A6FF3" class="text fill-AA2" style="text-anchor:end;font-size:18px" /><line x1="3813" x2="4025" y1="892" y2="892" stroke="#c9d9e8" style="stroke-width:2" /></g></g></a><g class="cm5hcy4ocGFuZWwgLS0genNob290ZXIuemZyb250LmVib3guZmFjaWxpdHlfcGFuZWwpWzBd power power_feed"><path d="M 635 463.75 L 898 463.75" stroke="#374151" fill="none" class="connection" style="stroke-width:2;" mask="url(#d2-2606907635)" /><text x="767" y="469" fill="#35465a" class="text" style="text-anchor:middle;font-size:16px">120 VAC</text></g><g class="cm5hcy56c2hvb3Rlci4oemZyb250LmVib3gucGFuZWxzLmltYWdlcl9wYW5lbCAtLSB6aW1hZ2VyLmVib3guaW5wdXRfcGFuZWwpWzBd power power_feed"><path d="M 1601 463.75 L 2410 463.75 S 2420 463.75 2420 453.75 L 2420 303 S 2420 293 2430 293 L 2587 293" stroke="#374151" fill="none" class="connection" style="stroke-width:2;" mask="url(#d2-2606907635)" /><text x="2179.5" y="469" fill="#35465a" class="text" style="text-anchor:middle;font-size:16px">AC</text></g><g class="cm5hcy4oYWNfZmVlZCAtLSBwYW5lbClbMF0= power power_feed"><path d="M 305 463.75 L 403 463.75" stroke="#374151" fill="none" class="connection" style="stroke-width:2;" mask="url(#d2-2606907635)" /><text x="354" y="469" fill="#35465a" class="text" style="text-anchor:middle;font-size:16px">120 VAC</text></g><g class="cm5hcy56c2hvb3Rlci4oemZyb250LmVib3gucGFuZWxzLnZpc19wYW5lbCAtLSB6c3BlY192aXMuZWJveC5pbnB1dF9wYW5lbClbMF0= power power_feed"><path d="M 1589 549.75 L 2410 549.75 S 2420 549.75 2420 559.75 L 2420 710.5 S 2420 720.5 2430 720.5 L 2587 720.5" stroke="#374151" fill="none" class="connection" style="stroke-width:2;" mask="url(#d2-2606907635)" /><text x="2173.5" y="555" fill="#35465a" class="text" style="text-anchor:middle;font-size:16px">AC</text></g><g class="cm5hcy56c2hvb3Rlci56c3BlY19uaXIuZWJveC4oaW5wdXRfcGFuZWwgLS0gcG93ZXJfYnVzKVswXQ== dc power_feed"><path d="M 4584 875.5 L 4649 875.5" stroke="#66717f" fill="none" class="connection" style="stroke-width:2;stroke-dasharray:6.000000,5.919384;" mask="url(#d2-2606907635)" /><text x="4616.5" y="881" fill="#35465a" class="text" style="text-anchor:middle;font-size:16px">DC</text></g><g class="cm5hcy56c2hvb3Rlci56c3BlY19uaXIuZWJveC4ocG93ZXJfYnVzIC0tIGNvbXB1dGVyKVswXQ== dc power_feed"><path d="M 4907 875.5 L 4972 875.5" stroke="#66717f" fill="none" class="connection" style="stroke-width:2;stroke-dasharray:6.000000,5.919384;" mask="url(#d2-2606907635)" /><text x="4939.5" y="881" fill="#35465a" class="text" style="text-anchor:middle;font-size:16px">DC</text></g><g class="cm5hcy56c2hvb3Rlci56c3BlY192aXMuZWJveC4oaW5wdXRfcGFuZWwgLS0gcG93ZXJfYnVzKVswXQ== power power_feed"><path d="M 2804 720.5 L 2869 720.5" stroke="#374151" fill="none" class="connection" style="stroke-width:2;" mask="url(#d2-2606907635)" /><text x="2836.5" y="726" fill="#35465a" class="text" style="text-anchor:middle;font-size:16px">AC</text></g><g class="cm5hcy56c2hvb3Rlci56c3BlY192aXMuZWJveC4ocG93ZXJfYnVzIC0tIGRjKVswXQ== power power_feed"><path d="M 3052 720.5 L 3117 720.5" stroke="#374151" fill="none" class="connection" style="stroke-width:2;" mask="url(#d2-2606907635)" /><text x="3084.5" y="726" fill="#35465a" class="text" style="text-anchor:middle;font-size:16px">AC</text></g><g class="cm5hcy56c2hvb3Rlci4oenNwZWNfdmlzLmVib3gucGFuZWxzLm5pcl9wYW5lbCAtLSB6c3BlY19uaXIuZWJveC5pbnB1dF9wYW5lbClbMF0= dc power_feed"><path d="M 4027 875.5 L 4367 875.5" stroke="#66717f" fill="none" class="connection" style="stroke-width:2;stroke-dasharray:6.000000,5.919384;" mask="url(#d2-2606907635)" /><text x="4197.5" y="881" fill="#35465a" class="text" style="text-anchor:middle;font-size:16px">DC</text></g><g class="cm5hcy56c2hvb3Rlci56c3BlY192aXMuZWJveC4oZGMgLS0gZGNfZGlzdHJpYnV0aW9uKVswXQ== dc power_feed"><path d="M 3363 720.5 L 3428 720.5" stroke="#66717f" fill="none" class="connection" style="stroke-width:2;stroke-dasharray:6.000000,5.919384;" mask="url(#d2-2606907635)" /><text x="3395.5" y="726" fill="#35465a" class="text" style="text-anchor:middle;font-size:16px">DC</text></g><g class="cm5hcy56c2hvb3Rlci56aW1hZ2VyLmVib3guKGlucHV0X3BhbmVsIC0tIHBvd2VyX2J1cylbMF0= power power_feed"><path d="M 2804 293 L 2869 293" stroke="#374151" fill="none" class="connection" style="stroke-width:2;" mask="url(#d2-2606907635)" /><text x="2836.5" y="299" fill="#35465a" class="text" style="text-anchor:middle;font-size:16px">AC</text></g><g class="cm5hcy56c2hvb3Rlci56ZnJvbnQuZWJveC4oZGMgLS0gZGNfZGlzdHJpYnV0aW9uKVswXQ== dc power_feed"><path d="M 1639 308.75 L 1721 308.75" stroke="#66717f" fill="none" class="connection" style="stroke-width:2;stroke-dasharray:6.000000,5.919384;" mask="url(#d2-2606907635)" /><text x="1680.5" y="314" fill="#35465a" class="text" style="text-anchor:middle;font-size:16px">DC</text></g><g class="cm5hcy56c2hvb3Rlci56c3BlY192aXMuZWJveC4oZGNfZGlzdHJpYnV0aW9uIC0tIGRjX3VwcylbMF0= dc power_feed"><path d="M 3686 720.5 L 3761 720.5" stroke="#66717f" fill="none" class="connection" style="stroke-width:2;stroke-dasharray:6.000000,5.919384;" mask="url(#d2-2606907635)" /><text x="3723.5" y="726" fill="#35465a" class="text" style="text-anchor:middle;font-size:16px">DC</text></g><g class="cm5hcy56c2hvb3Rlci56aW1hZ2VyLmVib3guKHBvd2VyX2J1cyAtLSBkYylbMF0= power power_feed"><path d="M 3052 293 L 3117 293" stroke="#374151" fill="none" class="connection" style="stroke-width:2;" mask="url(#d2-2606907635)" /><text x="3084.5" y="299" fill="#35465a" class="text" style="text-anchor:middle;font-size:16px">AC</text></g><g class="cm5hcy56c2hvb3Rlci56ZnJvbnQuZWJveC4oZGNfZGlzdHJpYnV0aW9uIC0tIGRjX3VwcylbMF0= dc power_feed"><path d="M 1979 323.915985 L 1982 323.915985 S 1992 323.915985 1992 333.915985 L 1992 344.25 S 1992 354.25 2002 354.25 L 2049 354.25" stroke="#66717f" fill="none" class="connection" style="stroke-width:2;stroke-dasharray:6.000000,5.919384;" mask="url(#d2-2606907635)" /><text x="1998.5" y="360" fill="#35465a" class="text" style="text-anchor:middle;font-size:16px">DC</text></g><g class="cm5hcy56c2hvb3Rlci56aW1hZ2VyLmVib3guKGRjIC0tIGRjX2Rpc3RyaWJ1dGlvbilbMF0= dc power_feed"><path d="M 3363 293 L 3428 293" stroke="#66717f" fill="none" class="connection" style="stroke-width:2;stroke-dasharray:6.000000,5.919384;" mask="url(#d2-2606907635)" /><text x="3395.5" y="299" fill="#35465a" class="text" style="text-anchor:middle;font-size:16px">DC</text></g><g class="cm5hcy56c2hvb3Rlci56ZnJvbnQuZWJveC4oYWMgLS0gZGMpWzBd power power_feed"><path d="M 1306 433.75 L 1309 433.75 S 1319 433.75 1319 423.75 L 1319 318.75 S 1319 308.75 1329 308.75 L 1393 308.75" stroke="#374151" fill="none" class="connection" style="stroke-width:2;" mask="url(#d2-2606907635)" /><text x="1319.5" y="346" fill="#35465a" class="text" style="text-anchor:middle;font-size:16px">AC</text></g><g class="cm5hcy56c2hvb3Rlci56c3BlY192aXMuZWJveC4oZGNfZGlzdHJpYnV0aW9uIC0tIGNvbXB1dGVyKVswXQ== dc power_feed"><path d="M 3686 690.5 L 3689 690.5 S 3699 690.5 3699 680.5 L 3699 639.5 S 3699 629.5 3709 629.5 L 3761 629.5" stroke="#66717f" fill="none" class="connection" style="stroke-width:2;stroke-dasharray:6.000000,5.919384;" mask="url(#d2-2606907635)" /><text x="3699.5" y="641" fill="#35465a" class="text" style="text-anchor:middle;font-size:16px">DC</text></g><g class="cm5hcy56c2hvb3Rlci56aW1hZ2VyLmVib3guKGRjX2Rpc3RyaWJ1dGlvbiAtLSBkY191cHMpWzBd dc power_feed"><path d="M 3686 277.833008 L 3689 277.833008 S 3699 277.833008 3699 267.833008 L 3699 257.5 S 3699 247.5 3709 247.5 L 3756 247.5" stroke="#66717f" fill="none" class="connection" style="stroke-width:2;stroke-dasharray:6.000000,5.919384;" mask="url(#d2-2606907635)" /><text x="3705.5" y="253" fill="#35465a" class="text" style="text-anchor:middle;font-size:16px">DC</text></g><g class="cm5hcy56c2hvb3Rlci56ZnJvbnQuZWJveC4oYWMgLS0gcGFuZWxzLmltYWdlcl9wYW5lbClbMF0= power power_feed"><path d="M 1306 463.75 L 1431 463.75" stroke="#374151" fill="none" class="connection" style="stroke-width:2;" mask="url(#d2-2606907635)" /><text x="1368.5" y="469" fill="#35465a" class="text" style="text-anchor:middle;font-size:16px">AC</text></g><g class="cm5hcy56c2hvb3Rlci56ZnJvbnQuZWJveC4oYWMgLS0gcGFuZWxzLnZpc19wYW5lbClbMF0= power power_feed"><path d="M 1306 493.75 L 1309 493.75 S 1319 493.75 1319 503.75 L 1319 539.75 S 1319 549.75 1329 549.75 L 1443 549.75" stroke="#374151" fill="none" class="connection" style="stroke-width:2;" mask="url(#d2-2606907635)" /><text x="1346.5" y="555" fill="#35465a" class="text" style="text-anchor:middle;font-size:16px">AC</text></g><g class="cm5hcy56c2hvb3Rlci56aW1hZ2VyLmVib3guKGRjX2Rpc3RyaWJ1dGlvbiAtLSBjb21wdXRlcilbMF0= dc power_feed"><path d="M 3686 308.165985 L 3689 308.165985 S 3699 308.165985 3699 318.165985 L 3699 328.5 S 3699 338.5 3709 338.5 L 3756 338.5" stroke="#66717f" fill="none" class="connection" style="stroke-width:2;stroke-dasharray:6.000000,5.919384;" mask="url(#d2-2606907635)" /><text x="3705.5" y="344" fill="#35465a" class="text" style="text-anchor:middle;font-size:16px">DC</text></g><g class="cm5hcy56c2hvb3Rlci56ZnJvbnQuZWJveC4oZmFjaWxpdHlfcGFuZWwgLS0gYWMpWzBd power power_feed"><path d="M 1058 463.75 L 1123 463.75" stroke="#374151" fill="none" class="connection" style="stroke-width:2;" mask="url(#d2-2606907635)" /><text x="1090.5" y="469" fill="#35465a" class="text" style="text-anchor:middle;font-size:16px">AC</text></g><g class="cm5hcy56c2hvb3Rlci56ZnJvbnQuZWJveC4oZGNfZGlzdHJpYnV0aW9uIC0tIGNvbXB1dGVyKVswXQ== dc power_feed"><path d="M 1979 293.583008 L 1982 293.583008 S 1992 293.583008 1992 283.583008 L 1992 273.25 S 1992 263.25 2002 263.25 L 2049 263.25" stroke="#66717f" fill="none" class="connection" style="stroke-width:2;stroke-dasharray:6.000000,5.919384;" mask="url(#d2-2606907635)" /><text x="1998.5" y="269" fill="#35465a" class="text" style="text-anchor:middle;font-size:16px">DC</text></g><g class="cm5hcy56c2hvb3Rlci56c3BlY192aXMuZWJveC4oZGNfZGlzdHJpYnV0aW9uIC0tIHBhbmVscy5uaXJfcGFuZWwpWzBd dc power_feed"><path d="M 3686 750.5 L 3689 750.5 S 3699 750.5 3699 760.5 L 3699 865.5 S 3699 875.5 3709 875.5 L 3811 875.5" stroke="#66717f" fill="none" class="connection" style="stroke-width:2;stroke-dasharray:6.000000,5.919384;" mask="url(#d2-2606907635)" /><text x="3699.5" y="868" fill="#35465a" class="text" style="text-anchor:middle;font-size:16px">DC</text></g><g transform="translate(5382 -4)" class="appendix-icon"><svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_3440_35088111-d2-2606907635-OJXGC4Y)">
+<path d="M16 31.1109C24.3456 31.1109 31.1111 24.3454 31.1111 15.9998C31.1111 7.65415 24.3456 0.888672 16 0.888672C7.65436 0.888672 0.888885 7.65415 0.888885 15.9998C0.888885 24.3454 7.65436 31.1109 16 31.1109Z" fill="white" stroke="#DEE1EB"/>
+<path d="M14.3909 16.7965C14.7364 17.2584 15.1772 17.6406 15.6834 17.9171C16.1896 18.1938 16.7494 18.3582 17.3248 18.3993C17.9001 18.4405 18.4777 18.3575 19.0181 18.1559C19.5586 17.9543 20.0492 17.6389 20.4571 17.2309L22.8708 14.8173C23.6036 14.0586 24.0089 13.0425 23.9998 11.9877C23.9906 10.933 23.5676 9.92404 22.8217 9.17821C22.0759 8.43237 21.067 8.00931 20.0123 8.00015C18.9575 7.99098 17.9413 8.39644 17.1827 9.1292L15.7988 10.505" stroke="#2E3346" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M17.609 15.1874C17.2635 14.7255 16.8227 14.3433 16.3165 14.0667C15.8103 13.7902 15.2505 13.6257 14.6752 13.5845C14.0998 13.5433 13.5223 13.6263 12.9819 13.8279C12.4414 14.0295 11.9506 14.345 11.5428 14.753L9.1292 17.1666C8.39644 17.9252 7.99098 18.9414 8.00015 19.9962C8.00931 21.0509 8.43237 22.0598 9.17821 22.8056C9.92405 23.5515 10.933 23.9745 11.9877 23.9837C13.0425 23.9928 14.0586 23.5875 14.8173 22.8547L16.193 21.4788" stroke="#2E3346" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<defs>
+<clipPath id="clip0_3440_35088111-d2-2606907635-OJXGC4Y">
+<rect width="32" height="32" fill="white"/>
+</clipPath>
+</defs>
+</svg>
+</g><g transform="translate(2801 -60)" class="appendix-icon"><svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_3440_35088111-d2-2606907635-ORUXI3DF)">
+<path d="M16 31.1109C24.3456 31.1109 31.1111 24.3454 31.1111 15.9998C31.1111 7.65415 24.3456 0.888672 16 0.888672C7.65436 0.888672 0.888885 7.65415 0.888885 15.9998C0.888885 24.3454 7.65436 31.1109 16 31.1109Z" fill="white" stroke="#DEE1EB"/>
+<path d="M14.3909 16.7965C14.7364 17.2584 15.1772 17.6406 15.6834 17.9171C16.1896 18.1938 16.7494 18.3582 17.3248 18.3993C17.9001 18.4405 18.4777 18.3575 19.0181 18.1559C19.5586 17.9543 20.0492 17.6389 20.4571 17.2309L22.8708 14.8173C23.6036 14.0586 24.0089 13.0425 23.9998 11.9877C23.9906 10.933 23.5676 9.92404 22.8217 9.17821C22.0759 8.43237 21.067 8.00931 20.0123 8.00015C18.9575 7.99098 17.9413 8.39644 17.1827 9.1292L15.7988 10.505" stroke="#2E3346" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M17.609 15.1874C17.2635 14.7255 16.8227 14.3433 16.3165 14.0667C15.8103 13.7902 15.2505 13.6257 14.6752 13.5845C14.0998 13.5433 13.5223 13.6263 12.9819 13.8279C12.4414 14.0295 11.9506 14.345 11.5428 14.753L9.1292 17.1666C8.39644 17.9252 7.99098 18.9414 8.00015 19.9962C8.00931 21.0509 8.43237 22.0598 9.17821 22.8056C9.92405 23.5515 10.933 23.9745 11.9877 23.9837C13.0425 23.9928 14.0586 23.5875 14.8173 22.8547L16.193 21.4788" stroke="#2E3346" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<defs>
+<clipPath id="clip0_3440_35088111-d2-2606907635-ORUXI3DF">
+<rect width="32" height="32" fill="white"/>
+</clipPath>
+</defs>
+</svg>
+</g><g transform="translate(617 398)" class="appendix-icon"><svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_3440_35088111-d2-2606907635-OJXGC4ZOOBQW4ZLM)">
+<path d="M16 31.1109C24.3456 31.1109 31.1111 24.3454 31.1111 15.9998C31.1111 7.65415 24.3456 0.888672 16 0.888672C7.65436 0.888672 0.888885 7.65415 0.888885 15.9998C0.888885 24.3454 7.65436 31.1109 16 31.1109Z" fill="white" stroke="#DEE1EB"/>
+<path d="M14.3909 16.7965C14.7364 17.2584 15.1772 17.6406 15.6834 17.9171C16.1896 18.1938 16.7494 18.3582 17.3248 18.3993C17.9001 18.4405 18.4777 18.3575 19.0181 18.1559C19.5586 17.9543 20.0492 17.6389 20.4571 17.2309L22.8708 14.8173C23.6036 14.0586 24.0089 13.0425 23.9998 11.9877C23.9906 10.933 23.5676 9.92404 22.8217 9.17821C22.0759 8.43237 21.067 8.00931 20.0123 8.00015C18.9575 7.99098 17.9413 8.39644 17.1827 9.1292L15.7988 10.505" stroke="#2E3346" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M17.609 15.1874C17.2635 14.7255 16.8227 14.3433 16.3165 14.0667C15.8103 13.7902 15.2505 13.6257 14.6752 13.5845C14.0998 13.5433 13.5223 13.6263 12.9819 13.8279C12.4414 14.0295 11.9506 14.345 11.5428 14.753L9.1292 17.1666C8.39644 17.9252 7.99098 18.9414 8.00015 19.9962C8.00931 21.0509 8.43237 22.0598 9.17821 22.8056C9.92405 23.5515 10.933 23.9745 11.9877 23.9837C13.0425 23.9928 14.0586 23.5875 14.8173 22.8547L16.193 21.4788" stroke="#2E3346" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<defs>
+<clipPath id="clip0_3440_35088111-d2-2606907635-OJXGC4ZOOBQW4ZLM">
+<rect width="32" height="32" fill="white"/>
+</clipPath>
+</defs>
+</svg>
+</g><g transform="translate(5332 46)" class="appendix-icon"><svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_3440_35088111-d2-2606907635-OJXGC4ZOPJZWQ33PORSXE)">
+<path d="M16 31.1109C24.3456 31.1109 31.1111 24.3454 31.1111 15.9998C31.1111 7.65415 24.3456 0.888672 16 0.888672C7.65436 0.888672 0.888885 7.65415 0.888885 15.9998C0.888885 24.3454 7.65436 31.1109 16 31.1109Z" fill="white" stroke="#DEE1EB"/>
+<path d="M14.3909 16.7965C14.7364 17.2584 15.1772 17.6406 15.6834 17.9171C16.1896 18.1938 16.7494 18.3582 17.3248 18.3993C17.9001 18.4405 18.4777 18.3575 19.0181 18.1559C19.5586 17.9543 20.0492 17.6389 20.4571 17.2309L22.8708 14.8173C23.6036 14.0586 24.0089 13.0425 23.9998 11.9877C23.9906 10.933 23.5676 9.92404 22.8217 9.17821C22.0759 8.43237 21.067 8.00931 20.0123 8.00015C18.9575 7.99098 17.9413 8.39644 17.1827 9.1292L15.7988 10.505" stroke="#2E3346" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M17.609 15.1874C17.2635 14.7255 16.8227 14.3433 16.3165 14.0667C15.8103 13.7902 15.2505 13.6257 14.6752 13.5845C14.0998 13.5433 13.5223 13.6263 12.9819 13.8279C12.4414 14.0295 11.9506 14.345 11.5428 14.753L9.1292 17.1666C8.39644 17.9252 7.99098 18.9414 8.00015 19.9962C8.00931 21.0509 8.43237 22.0598 9.17821 22.8056C9.92405 23.5515 10.933 23.9745 11.9877 23.9837C13.0425 23.9928 14.0586 23.5875 14.8173 22.8547L16.193 21.4788" stroke="#2E3346" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<defs>
+<clipPath id="clip0_3440_35088111-d2-2606907635-OJXGC4ZOPJZWQ33PORSXE">
+<rect width="32" height="32" fill="white"/>
+</clipPath>
+</defs>
+</svg>
+</g><g transform="translate(287 412)" class="appendix-icon"><title>120 VAC facility feed to the RNAS panel.</title><svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_3427_35082111-d2-2606907635-OJXGC4ZOMFRV6ZTFMVSA)">
+<path d="M16 31.1109C24.3456 31.1109 31.1111 24.3454 31.1111 15.9998C31.1111 7.65415 24.3456 0.888672 16 0.888672C7.65436 0.888672 0.888885 7.65415 0.888885 15.9998C0.888885 24.3454 7.65436 31.1109 16 31.1109Z" fill="white" stroke="#DEE1EB"/>
+<path d="M16 26C21.5228 26 26 21.5228 26 16C26 10.4772 21.5228 6 16 6C10.4772 6 6 10.4772 6 16C6 21.5228 10.4772 26 16 26Z" stroke="#2E3346" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M16 19.998V15.998" stroke="#2E3346" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M16 12H16.0098" stroke="#2E3346" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<defs>
+<clipPath id="clip0_3427_35082111-d2-2606907635-OJXGC4ZOMFRV6ZTFMVSA">
+<rect width="32" height="32" fill="white"/>
+</clipPath>
+</defs>
+</svg>
+</g><g transform="translate(255 412)" class="appendix-icon"><svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_3440_35088111-d2-2606907635-OJXGC4ZOMFRV6ZTFMVSA)">
+<path d="M16 31.1109C24.3456 31.1109 31.1111 24.3454 31.1111 15.9998C31.1111 7.65415 24.3456 0.888672 16 0.888672C7.65436 0.888672 0.888885 7.65415 0.888885 15.9998C0.888885 24.3454 7.65436 31.1109 16 31.1109Z" fill="white" stroke="#DEE1EB"/>
+<path d="M14.3909 16.7965C14.7364 17.2584 15.1772 17.6406 15.6834 17.9171C16.1896 18.1938 16.7494 18.3582 17.3248 18.3993C17.9001 18.4405 18.4777 18.3575 19.0181 18.1559C19.5586 17.9543 20.0492 17.6389 20.4571 17.2309L22.8708 14.8173C23.6036 14.0586 24.0089 13.0425 23.9998 11.9877C23.9906 10.933 23.5676 9.92404 22.8217 9.17821C22.0759 8.43237 21.067 8.00931 20.0123 8.00015C18.9575 7.99098 17.9413 8.39644 17.1827 9.1292L15.7988 10.505" stroke="#2E3346" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M17.609 15.1874C17.2635 14.7255 16.8227 14.3433 16.3165 14.0667C15.8103 13.7902 15.2505 13.6257 14.6752 13.5845C14.0998 13.5433 13.5223 13.6263 12.9819 13.8279C12.4414 14.0295 11.9506 14.345 11.5428 14.753L9.1292 17.1666C8.39644 17.9252 7.99098 18.9414 8.00015 19.9962C8.00931 21.0509 8.43237 22.0598 9.17821 22.8056C9.92405 23.5515 10.933 23.9745 11.9877 23.9837C13.0425 23.9928 14.0586 23.5875 14.8173 22.8547L16.193 21.4788" stroke="#2E3346" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<defs>
+<clipPath id="clip0_3440_35088111-d2-2606907635-OJXGC4ZOMFRV6ZTFMVSA">
+<rect width="32" height="32" fill="white"/>
+</clipPath>
+</defs>
+</svg>
+</g><g transform="translate(2384 111)" class="appendix-icon"><svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_3440_35088111-d2-2606907635-OJXGC4ZOPJZWQ33PORSXELT2MZZG63TU)">
+<path d="M16 31.1109C24.3456 31.1109 31.1111 24.3454 31.1111 15.9998C31.1111 7.65415 24.3456 0.888672 16 0.888672C7.65436 0.888672 0.888885 7.65415 0.888885 15.9998C0.888885 24.3454 7.65436 31.1109 16 31.1109Z" fill="white" stroke="#DEE1EB"/>
+<path d="M14.3909 16.7965C14.7364 17.2584 15.1772 17.6406 15.6834 17.9171C16.1896 18.1938 16.7494 18.3582 17.3248 18.3993C17.9001 18.4405 18.4777 18.3575 19.0181 18.1559C19.5586 17.9543 20.0492 17.6389 20.4571 17.2309L22.8708 14.8173C23.6036 14.0586 24.0089 13.0425 23.9998 11.9877C23.9906 10.933 23.5676 9.92404 22.8217 9.17821C22.0759 8.43237 21.067 8.00931 20.0123 8.00015C18.9575 7.99098 17.9413 8.39644 17.1827 9.1292L15.7988 10.505" stroke="#2E3346" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M17.609 15.1874C17.2635 14.7255 16.8227 14.3433 16.3165 14.0667C15.8103 13.7902 15.2505 13.6257 14.6752 13.5845C14.0998 13.5433 13.5223 13.6263 12.9819 13.8279C12.4414 14.0295 11.9506 14.345 11.5428 14.753L9.1292 17.1666C8.39644 17.9252 7.99098 18.9414 8.00015 19.9962C8.00931 21.0509 8.43237 22.0598 9.17821 22.8056C9.92405 23.5515 10.933 23.9745 11.9877 23.9837C13.0425 23.9928 14.0586 23.5875 14.8173 22.8547L16.193 21.4788" stroke="#2E3346" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<defs>
+<clipPath id="clip0_3440_35088111-d2-2606907635-OJXGC4ZOPJZWQ33PORSXELT2MZZG63TU">
+<rect width="32" height="32" fill="white"/>
+</clipPath>
+</defs>
+</svg>
+</g><g transform="translate(4169 478)" class="appendix-icon"><svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_3440_35088111-d2-2606907635-OJXGC4ZOPJZWQ33PORSXELT2ONYGKY27OZUXG)">
+<path d="M16 31.1109C24.3456 31.1109 31.1111 24.3454 31.1111 15.9998C31.1111 7.65415 24.3456 0.888672 16 0.888672C7.65436 0.888672 0.888885 7.65415 0.888885 15.9998C0.888885 24.3454 7.65436 31.1109 16 31.1109Z" fill="white" stroke="#DEE1EB"/>
+<path d="M14.3909 16.7965C14.7364 17.2584 15.1772 17.6406 15.6834 17.9171C16.1896 18.1938 16.7494 18.3582 17.3248 18.3993C17.9001 18.4405 18.4777 18.3575 19.0181 18.1559C19.5586 17.9543 20.0492 17.6389 20.4571 17.2309L22.8708 14.8173C23.6036 14.0586 24.0089 13.0425 23.9998 11.9877C23.9906 10.933 23.5676 9.92404 22.8217 9.17821C22.0759 8.43237 21.067 8.00931 20.0123 8.00015C18.9575 7.99098 17.9413 8.39644 17.1827 9.1292L15.7988 10.505" stroke="#2E3346" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M17.609 15.1874C17.2635 14.7255 16.8227 14.3433 16.3165 14.0667C15.8103 13.7902 15.2505 13.6257 14.6752 13.5845C14.0998 13.5433 13.5223 13.6263 12.9819 13.8279C12.4414 14.0295 11.9506 14.345 11.5428 14.753L9.1292 17.1666C8.39644 17.9252 7.99098 18.9414 8.00015 19.9962C8.00931 21.0509 8.43237 22.0598 9.17821 22.8056C9.92405 23.5515 10.933 23.9745 11.9877 23.9837C13.0425 23.9928 14.0586 23.5875 14.8173 22.8547L16.193 21.4788" stroke="#2E3346" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<defs>
+<clipPath id="clip0_3440_35088111-d2-2606907635-OJXGC4ZOPJZWQ33PORSXELT2ONYGKY27OZUXG">
+<rect width="32" height="32" fill="white"/>
+</clipPath>
+</defs>
+</svg>
+</g><g transform="translate(5282 710)" class="appendix-icon"><svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_3440_35088111-d2-2606907635-OJXGC4ZOPJZWQ33PORSXELT2ONYGKY27NZUXE)">
+<path d="M16 31.1109C24.3456 31.1109 31.1111 24.3454 31.1111 15.9998C31.1111 7.65415 24.3456 0.888672 16 0.888672C7.65436 0.888672 0.888885 7.65415 0.888885 15.9998C0.888885 24.3454 7.65436 31.1109 16 31.1109Z" fill="white" stroke="#DEE1EB"/>
+<path d="M14.3909 16.7965C14.7364 17.2584 15.1772 17.6406 15.6834 17.9171C16.1896 18.1938 16.7494 18.3582 17.3248 18.3993C17.9001 18.4405 18.4777 18.3575 19.0181 18.1559C19.5586 17.9543 20.0492 17.6389 20.4571 17.2309L22.8708 14.8173C23.6036 14.0586 24.0089 13.0425 23.9998 11.9877C23.9906 10.933 23.5676 9.92404 22.8217 9.17821C22.0759 8.43237 21.067 8.00931 20.0123 8.00015C18.9575 7.99098 17.9413 8.39644 17.1827 9.1292L15.7988 10.505" stroke="#2E3346" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M17.609 15.1874C17.2635 14.7255 16.8227 14.3433 16.3165 14.0667C15.8103 13.7902 15.2505 13.6257 14.6752 13.5845C14.0998 13.5433 13.5223 13.6263 12.9819 13.8279C12.4414 14.0295 11.9506 14.345 11.5428 14.753L9.1292 17.1666C8.39644 17.9252 7.99098 18.9414 8.00015 19.9962C8.00931 21.0509 8.43237 22.0598 9.17821 22.8056C9.92405 23.5515 10.933 23.9745 11.9877 23.9837C13.0425 23.9928 14.0586 23.5875 14.8173 22.8547L16.193 21.4788" stroke="#2E3346" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<defs>
+<clipPath id="clip0_3440_35088111-d2-2606907635-OJXGC4ZOPJZWQ33PORSXELT2ONYGKY27NZUXE">
+<rect width="32" height="32" fill="white"/>
+</clipPath>
+</defs>
+</svg>
+</g><g transform="translate(4086 96)" class="appendix-icon"><svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_3440_35088111-d2-2606907635-OJXGC4ZOPJZWQ33PORSXELT2NFWWCZ3FOI)">
+<path d="M16 31.1109C24.3456 31.1109 31.1111 24.3454 31.1111 15.9998C31.1111 7.65415 24.3456 0.888672 16 0.888672C7.65436 0.888672 0.888885 7.65415 0.888885 15.9998C0.888885 24.3454 7.65436 31.1109 16 31.1109Z" fill="white" stroke="#DEE1EB"/>
+<path d="M14.3909 16.7965C14.7364 17.2584 15.1772 17.6406 15.6834 17.9171C16.1896 18.1938 16.7494 18.3582 17.3248 18.3993C17.9001 18.4405 18.4777 18.3575 19.0181 18.1559C19.5586 17.9543 20.0492 17.6389 20.4571 17.2309L22.8708 14.8173C23.6036 14.0586 24.0089 13.0425 23.9998 11.9877C23.9906 10.933 23.5676 9.92404 22.8217 9.17821C22.0759 8.43237 21.067 8.00931 20.0123 8.00015C18.9575 7.99098 17.9413 8.39644 17.1827 9.1292L15.7988 10.505" stroke="#2E3346" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M17.609 15.1874C17.2635 14.7255 16.8227 14.3433 16.3165 14.0667C15.8103 13.7902 15.2505 13.6257 14.6752 13.5845C14.0998 13.5433 13.5223 13.6263 12.9819 13.8279C12.4414 14.0295 11.9506 14.345 11.5428 14.753L9.1292 17.1666C8.39644 17.9252 7.99098 18.9414 8.00015 19.9962C8.00931 21.0509 8.43237 22.0598 9.17821 22.8056C9.92405 23.5515 10.933 23.9745 11.9877 23.9837C13.0425 23.9928 14.0586 23.5875 14.8173 22.8547L16.193 21.4788" stroke="#2E3346" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<defs>
+<clipPath id="clip0_3440_35088111-d2-2606907635-OJXGC4ZOPJZWQ33PORSXELT2NFWWCZ3FOI">
+<rect width="32" height="32" fill="white"/>
+</clipPath>
+</defs>
+</svg>
+</g><g transform="translate(2329 161)" class="appendix-icon"><svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_3440_35088111-d2-2606907635-OJXGC4ZOPJZWQ33PORSXELT2MZZG63TUFZSWE33Y)">
+<path d="M16 31.1109C24.3456 31.1109 31.1111 24.3454 31.1111 15.9998C31.1111 7.65415 24.3456 0.888672 16 0.888672C7.65436 0.888672 0.888885 7.65415 0.888885 15.9998C0.888885 24.3454 7.65436 31.1109 16 31.1109Z" fill="white" stroke="#DEE1EB"/>
+<path d="M14.3909 16.7965C14.7364 17.2584 15.1772 17.6406 15.6834 17.9171C16.1896 18.1938 16.7494 18.3582 17.3248 18.3993C17.9001 18.4405 18.4777 18.3575 19.0181 18.1559C19.5586 17.9543 20.0492 17.6389 20.4571 17.2309L22.8708 14.8173C23.6036 14.0586 24.0089 13.0425 23.9998 11.9877C23.9906 10.933 23.5676 9.92404 22.8217 9.17821C22.0759 8.43237 21.067 8.00931 20.0123 8.00015C18.9575 7.99098 17.9413 8.39644 17.1827 9.1292L15.7988 10.505" stroke="#2E3346" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M17.609 15.1874C17.2635 14.7255 16.8227 14.3433 16.3165 14.0667C15.8103 13.7902 15.2505 13.6257 14.6752 13.5845C14.0998 13.5433 13.5223 13.6263 12.9819 13.8279C12.4414 14.0295 11.9506 14.345 11.5428 14.753L9.1292 17.1666C8.39644 17.9252 7.99098 18.9414 8.00015 19.9962C8.00931 21.0509 8.43237 22.0598 9.17821 22.8056C9.92405 23.5515 10.933 23.9745 11.9877 23.9837C13.0425 23.9928 14.0586 23.5875 14.8173 22.8547L16.193 21.4788" stroke="#2E3346" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<defs>
+<clipPath id="clip0_3440_35088111-d2-2606907635-OJXGC4ZOPJZWQ33PORSXELT2MZZG63TUFZSWE33Y">
+<rect width="32" height="32" fill="white"/>
+</clipPath>
+</defs>
+</svg>
+</g><g transform="translate(4114 528)" class="appendix-icon"><svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_3440_35088111-d2-2606907635-OJXGC4ZOPJZWQ33PORSXELT2ONYGKY27OZUXGLTFMJXXQ)">
+<path d="M16 31.1109C24.3456 31.1109 31.1111 24.3454 31.1111 15.9998C31.1111 7.65415 24.3456 0.888672 16 0.888672C7.65436 0.888672 0.888885 7.65415 0.888885 15.9998C0.888885 24.3454 7.65436 31.1109 16 31.1109Z" fill="white" stroke="#DEE1EB"/>
+<path d="M14.3909 16.7965C14.7364 17.2584 15.1772 17.6406 15.6834 17.9171C16.1896 18.1938 16.7494 18.3582 17.3248 18.3993C17.9001 18.4405 18.4777 18.3575 19.0181 18.1559C19.5586 17.9543 20.0492 17.6389 20.4571 17.2309L22.8708 14.8173C23.6036 14.0586 24.0089 13.0425 23.9998 11.9877C23.9906 10.933 23.5676 9.92404 22.8217 9.17821C22.0759 8.43237 21.067 8.00931 20.0123 8.00015C18.9575 7.99098 17.9413 8.39644 17.1827 9.1292L15.7988 10.505" stroke="#2E3346" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M17.609 15.1874C17.2635 14.7255 16.8227 14.3433 16.3165 14.0667C15.8103 13.7902 15.2505 13.6257 14.6752 13.5845C14.0998 13.5433 13.5223 13.6263 12.9819 13.8279C12.4414 14.0295 11.9506 14.345 11.5428 14.753L9.1292 17.1666C8.39644 17.9252 7.99098 18.9414 8.00015 19.9962C8.00931 21.0509 8.43237 22.0598 9.17821 22.8056C9.92405 23.5515 10.933 23.9745 11.9877 23.9837C13.0425 23.9928 14.0586 23.5875 14.8173 22.8547L16.193 21.4788" stroke="#2E3346" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<defs>
+<clipPath id="clip0_3440_35088111-d2-2606907635-OJXGC4ZOPJZWQ33PORSXELT2ONYGKY27OZUXGLTFMJXXQ">
+<rect width="32" height="32" fill="white"/>
+</clipPath>
+</defs>
+</svg>
+</g><g transform="translate(5232 760)" class="appendix-icon"><svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_3440_35088111-d2-2606907635-OJXGC4ZOPJZWQ33PORSXELT2ONYGKY27NZUXELTFMJXXQ)">
+<path d="M16 31.1109C24.3456 31.1109 31.1111 24.3454 31.1111 15.9998C31.1111 7.65415 24.3456 0.888672 16 0.888672C7.65436 0.888672 0.888885 7.65415 0.888885 15.9998C0.888885 24.3454 7.65436 31.1109 16 31.1109Z" fill="white" stroke="#DEE1EB"/>
+<path d="M14.3909 16.7965C14.7364 17.2584 15.1772 17.6406 15.6834 17.9171C16.1896 18.1938 16.7494 18.3582 17.3248 18.3993C17.9001 18.4405 18.4777 18.3575 19.0181 18.1559C19.5586 17.9543 20.0492 17.6389 20.4571 17.2309L22.8708 14.8173C23.6036 14.0586 24.0089 13.0425 23.9998 11.9877C23.9906 10.933 23.5676 9.92404 22.8217 9.17821C22.0759 8.43237 21.067 8.00931 20.0123 8.00015C18.9575 7.99098 17.9413 8.39644 17.1827 9.1292L15.7988 10.505" stroke="#2E3346" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M17.609 15.1874C17.2635 14.7255 16.8227 14.3433 16.3165 14.0667C15.8103 13.7902 15.2505 13.6257 14.6752 13.5845C14.0998 13.5433 13.5223 13.6263 12.9819 13.8279C12.4414 14.0295 11.9506 14.345 11.5428 14.753L9.1292 17.1666C8.39644 17.9252 7.99098 18.9414 8.00015 19.9962C8.00931 21.0509 8.43237 22.0598 9.17821 22.8056C9.92405 23.5515 10.933 23.9745 11.9877 23.9837C13.0425 23.9928 14.0586 23.5875 14.8173 22.8547L16.193 21.4788" stroke="#2E3346" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<defs>
+<clipPath id="clip0_3440_35088111-d2-2606907635-OJXGC4ZOPJZWQ33PORSXELT2ONYGKY27NZUXELTFMJXXQ">
+<rect width="32" height="32" fill="white"/>
+</clipPath>
+</defs>
+</svg>
+</g><g transform="translate(4036 146)" class="appendix-icon"><svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_3440_35088111-d2-2606907635-OJXGC4ZOPJZWQ33PORSXELT2NFWWCZ3FOIXGKYTPPA)">
+<path d="M16 31.1109C24.3456 31.1109 31.1111 24.3454 31.1111 15.9998C31.1111 7.65415 24.3456 0.888672 16 0.888672C7.65436 0.888672 0.888885 7.65415 0.888885 15.9998C0.888885 24.3454 7.65436 31.1109 16 31.1109Z" fill="white" stroke="#DEE1EB"/>
+<path d="M14.3909 16.7965C14.7364 17.2584 15.1772 17.6406 15.6834 17.9171C16.1896 18.1938 16.7494 18.3582 17.3248 18.3993C17.9001 18.4405 18.4777 18.3575 19.0181 18.1559C19.5586 17.9543 20.0492 17.6389 20.4571 17.2309L22.8708 14.8173C23.6036 14.0586 24.0089 13.0425 23.9998 11.9877C23.9906 10.933 23.5676 9.92404 22.8217 9.17821C22.0759 8.43237 21.067 8.00931 20.0123 8.00015C18.9575 7.99098 17.9413 8.39644 17.1827 9.1292L15.7988 10.505" stroke="#2E3346" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M17.609 15.1874C17.2635 14.7255 16.8227 14.3433 16.3165 14.0667C15.8103 13.7902 15.2505 13.6257 14.6752 13.5845C14.0998 13.5433 13.5223 13.6263 12.9819 13.8279C12.4414 14.0295 11.9506 14.345 11.5428 14.753L9.1292 17.1666C8.39644 17.9252 7.99098 18.9414 8.00015 19.9962C8.00931 21.0509 8.43237 22.0598 9.17821 22.8056C9.92405 23.5515 10.933 23.9745 11.9877 23.9837C13.0425 23.9928 14.0586 23.5875 14.8173 22.8547L16.193 21.4788" stroke="#2E3346" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<defs>
+<clipPath id="clip0_3440_35088111-d2-2606907635-OJXGC4ZOPJZWQ33PORSXELT2NFWWCZ3FOIXGKYTPPA">
+<rect width="32" height="32" fill="white"/>
+</clipPath>
+</defs>
+</svg>
+</g><g transform="translate(1288 387)" class="appendix-icon"><svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_3440_35088111-d2-2606907635-OJXGC4ZOPJZWQ33PORSXELT2MZZG63TUFZSWE33YFZQWG)">
+<path d="M16 31.1109C24.3456 31.1109 31.1111 24.3454 31.1111 15.9998C31.1111 7.65415 24.3456 0.888672 16 0.888672C7.65436 0.888672 0.888885 7.65415 0.888885 15.9998C0.888885 24.3454 7.65436 31.1109 16 31.1109Z" fill="white" stroke="#DEE1EB"/>
+<path d="M14.3909 16.7965C14.7364 17.2584 15.1772 17.6406 15.6834 17.9171C16.1896 18.1938 16.7494 18.3582 17.3248 18.3993C17.9001 18.4405 18.4777 18.3575 19.0181 18.1559C19.5586 17.9543 20.0492 17.6389 20.4571 17.2309L22.8708 14.8173C23.6036 14.0586 24.0089 13.0425 23.9998 11.9877C23.9906 10.933 23.5676 9.92404 22.8217 9.17821C22.0759 8.43237 21.067 8.00931 20.0123 8.00015C18.9575 7.99098 17.9413 8.39644 17.1827 9.1292L15.7988 10.505" stroke="#2E3346" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M17.609 15.1874C17.2635 14.7255 16.8227 14.3433 16.3165 14.0667C15.8103 13.7902 15.2505 13.6257 14.6752 13.5845C14.0998 13.5433 13.5223 13.6263 12.9819 13.8279C12.4414 14.0295 11.9506 14.345 11.5428 14.753L9.1292 17.1666C8.39644 17.9252 7.99098 18.9414 8.00015 19.9962C8.00931 21.0509 8.43237 22.0598 9.17821 22.8056C9.92405 23.5515 10.933 23.9745 11.9877 23.9837C13.0425 23.9928 14.0586 23.5875 14.8173 22.8547L16.193 21.4788" stroke="#2E3346" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<defs>
+<clipPath id="clip0_3440_35088111-d2-2606907635-OJXGC4ZOPJZWQ33PORSXELT2MZZG63TUFZSWE33YFZQWG">
+<rect width="32" height="32" fill="white"/>
+</clipPath>
+</defs>
+</svg>
+</g><g transform="translate(4889 814)" class="appendix-icon"><title>Smart DC distribution with monitored, switchable outputs.</title><svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_3427_35082111-d2-2606907635-OJXGC4ZOPJZWQ33PORSXELT2ONYGKY27NZUXELTFMJXXQLTQN53WK4S7MJ2XG)">
+<path d="M16 31.1109C24.3456 31.1109 31.1111 24.3454 31.1111 15.9998C31.1111 7.65415 24.3456 0.888672 16 0.888672C7.65436 0.888672 0.888885 7.65415 0.888885 15.9998C0.888885 24.3454 7.65436 31.1109 16 31.1109Z" fill="white" stroke="#DEE1EB"/>
+<path d="M16 26C21.5228 26 26 21.5228 26 16C26 10.4772 21.5228 6 16 6C10.4772 6 6 10.4772 6 16C6 21.5228 10.4772 26 16 26Z" stroke="#2E3346" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M16 19.998V15.998" stroke="#2E3346" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M16 12H16.0098" stroke="#2E3346" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<defs>
+<clipPath id="clip0_3427_35082111-d2-2606907635-OJXGC4ZOPJZWQ33PORSXELT2ONYGKY27NZUXELTFMJXXQLTQN53WK4S7MJ2XG">
+<rect width="32" height="32" fill="white"/>
+</clipPath>
+</defs>
+</svg>
+</g><g transform="translate(4857 814)" class="appendix-icon"><svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_3440_35088111-d2-2606907635-OJXGC4ZOPJZWQ33PORSXELT2ONYGKY27NZUXELTFMJXXQLTQN53WK4S7MJ2XG)">
+<path d="M16 31.1109C24.3456 31.1109 31.1111 24.3454 31.1111 15.9998C31.1111 7.65415 24.3456 0.888672 16 0.888672C7.65436 0.888672 0.888885 7.65415 0.888885 15.9998C0.888885 24.3454 7.65436 31.1109 16 31.1109Z" fill="white" stroke="#DEE1EB"/>
+<path d="M14.3909 16.7965C14.7364 17.2584 15.1772 17.6406 15.6834 17.9171C16.1896 18.1938 16.7494 18.3582 17.3248 18.3993C17.9001 18.4405 18.4777 18.3575 19.0181 18.1559C19.5586 17.9543 20.0492 17.6389 20.4571 17.2309L22.8708 14.8173C23.6036 14.0586 24.0089 13.0425 23.9998 11.9877C23.9906 10.933 23.5676 9.92404 22.8217 9.17821C22.0759 8.43237 21.067 8.00931 20.0123 8.00015C18.9575 7.99098 17.9413 8.39644 17.1827 9.1292L15.7988 10.505" stroke="#2E3346" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M17.609 15.1874C17.2635 14.7255 16.8227 14.3433 16.3165 14.0667C15.8103 13.7902 15.2505 13.6257 14.6752 13.5845C14.0998 13.5433 13.5223 13.6263 12.9819 13.8279C12.4414 14.0295 11.9506 14.345 11.5428 14.753L9.1292 17.1666C8.39644 17.9252 7.99098 18.9414 8.00015 19.9962C8.00931 21.0509 8.43237 22.0598 9.17821 22.8056C9.92405 23.5515 10.933 23.9745 11.9877 23.9837C13.0425 23.9928 14.0586 23.5875 14.8173 22.8547L16.193 21.4788" stroke="#2E3346" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<defs>
+<clipPath id="clip0_3440_35088111-d2-2606907635-OJXGC4ZOPJZWQ33PORSXELT2ONYGKY27NZUXELTFMJXXQLTQN53WK4S7MJ2XG">
+<rect width="32" height="32" fill="white"/>
+</clipPath>
+</defs>
+</svg>
+</g><g transform="translate(3034 669)" class="appendix-icon"><svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_3440_35088111-d2-2606907635-OJXGC4ZOPJZWQ33PORSXELT2ONYGKY27OZUXGLTFMJXXQLTQN53WK4S7MJ2XG)">
+<path d="M16 31.1109C24.3456 31.1109 31.1111 24.3454 31.1111 15.9998C31.1111 7.65415 24.3456 0.888672 16 0.888672C7.65436 0.888672 0.888885 7.65415 0.888885 15.9998C0.888885 24.3454 7.65436 31.1109 16 31.1109Z" fill="white" stroke="#DEE1EB"/>
+<path d="M14.3909 16.7965C14.7364 17.2584 15.1772 17.6406 15.6834 17.9171C16.1896 18.1938 16.7494 18.3582 17.3248 18.3993C17.9001 18.4405 18.4777 18.3575 19.0181 18.1559C19.5586 17.9543 20.0492 17.6389 20.4571 17.2309L22.8708 14.8173C23.6036 14.0586 24.0089 13.0425 23.9998 11.9877C23.9906 10.933 23.5676 9.92404 22.8217 9.17821C22.0759 8.43237 21.067 8.00931 20.0123 8.00015C18.9575 7.99098 17.9413 8.39644 17.1827 9.1292L15.7988 10.505" stroke="#2E3346" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M17.609 15.1874C17.2635 14.7255 16.8227 14.3433 16.3165 14.0667C15.8103 13.7902 15.2505 13.6257 14.6752 13.5845C14.0998 13.5433 13.5223 13.6263 12.9819 13.8279C12.4414 14.0295 11.9506 14.345 11.5428 14.753L9.1292 17.1666C8.39644 17.9252 7.99098 18.9414 8.00015 19.9962C8.00931 21.0509 8.43237 22.0598 9.17821 22.8056C9.92405 23.5515 10.933 23.9745 11.9877 23.9837C13.0425 23.9928 14.0586 23.5875 14.8173 22.8547L16.193 21.4788" stroke="#2E3346" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<defs>
+<clipPath id="clip0_3440_35088111-d2-2606907635-OJXGC4ZOPJZWQ33PORSXELT2ONYGKY27OZUXGLTFMJXXQLTQN53WK4S7MJ2XG">
+<rect width="32" height="32" fill="white"/>
+</clipPath>
+</defs>
+</svg>
+</g><g transform="translate(1621 257)" class="appendix-icon"><title>Convert the incoming AC feed to the DC rails used by local distribution.</title><svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_3427_35082111-d2-2606907635-OJXGC4ZOPJZWQ33PORSXELT2MZZG63TUFZSWE33YFZSGG)">
+<path d="M16 31.1109C24.3456 31.1109 31.1111 24.3454 31.1111 15.9998C31.1111 7.65415 24.3456 0.888672 16 0.888672C7.65436 0.888672 0.888885 7.65415 0.888885 15.9998C0.888885 24.3454 7.65436 31.1109 16 31.1109Z" fill="white" stroke="#DEE1EB"/>
+<path d="M16 26C21.5228 26 26 21.5228 26 16C26 10.4772 21.5228 6 16 6C10.4772 6 6 10.4772 6 16C6 21.5228 10.4772 26 16 26Z" stroke="#2E3346" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M16 19.998V15.998" stroke="#2E3346" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M16 12H16.0098" stroke="#2E3346" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<defs>
+<clipPath id="clip0_3427_35082111-d2-2606907635-OJXGC4ZOPJZWQ33PORSXELT2MZZG63TUFZSWE33YFZSGG">
+<rect width="32" height="32" fill="white"/>
+</clipPath>
+</defs>
+</svg>
+</g><g transform="translate(1589 257)" class="appendix-icon"><svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_3440_35088111-d2-2606907635-OJXGC4ZOPJZWQ33PORSXELT2MZZG63TUFZSWE33YFZSGG)">
+<path d="M16 31.1109C24.3456 31.1109 31.1111 24.3454 31.1111 15.9998C31.1111 7.65415 24.3456 0.888672 16 0.888672C7.65436 0.888672 0.888885 7.65415 0.888885 15.9998C0.888885 24.3454 7.65436 31.1109 16 31.1109Z" fill="white" stroke="#DEE1EB"/>
+<path d="M14.3909 16.7965C14.7364 17.2584 15.1772 17.6406 15.6834 17.9171C16.1896 18.1938 16.7494 18.3582 17.3248 18.3993C17.9001 18.4405 18.4777 18.3575 19.0181 18.1559C19.5586 17.9543 20.0492 17.6389 20.4571 17.2309L22.8708 14.8173C23.6036 14.0586 24.0089 13.0425 23.9998 11.9877C23.9906 10.933 23.5676 9.92404 22.8217 9.17821C22.0759 8.43237 21.067 8.00931 20.0123 8.00015C18.9575 7.99098 17.9413 8.39644 17.1827 9.1292L15.7988 10.505" stroke="#2E3346" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M17.609 15.1874C17.2635 14.7255 16.8227 14.3433 16.3165 14.0667C15.8103 13.7902 15.2505 13.6257 14.6752 13.5845C14.0998 13.5433 13.5223 13.6263 12.9819 13.8279C12.4414 14.0295 11.9506 14.345 11.5428 14.753L9.1292 17.1666C8.39644 17.9252 7.99098 18.9414 8.00015 19.9962C8.00931 21.0509 8.43237 22.0598 9.17821 22.8056C9.92405 23.5515 10.933 23.9745 11.9877 23.9837C13.0425 23.9928 14.0586 23.5875 14.8173 22.8547L16.193 21.4788" stroke="#2E3346" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<defs>
+<clipPath id="clip0_3440_35088111-d2-2606907635-OJXGC4ZOPJZWQ33PORSXELT2MZZG63TUFZSWE33YFZSGG">
+<rect width="32" height="32" fill="white"/>
+</clipPath>
+</defs>
+</svg>
+</g><g transform="translate(3345 669)" class="appendix-icon"><title>Convert the incoming AC feed to the DC rails used by local distribution.</title><svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_3427_35082111-d2-2606907635-OJXGC4ZOPJZWQ33PORSXELT2ONYGKY27OZUXGLTFMJXXQLTEMM)">
+<path d="M16 31.1109C24.3456 31.1109 31.1111 24.3454 31.1111 15.9998C31.1111 7.65415 24.3456 0.888672 16 0.888672C7.65436 0.888672 0.888885 7.65415 0.888885 15.9998C0.888885 24.3454 7.65436 31.1109 16 31.1109Z" fill="white" stroke="#DEE1EB"/>
+<path d="M16 26C21.5228 26 26 21.5228 26 16C26 10.4772 21.5228 6 16 6C10.4772 6 6 10.4772 6 16C6 21.5228 10.4772 26 16 26Z" stroke="#2E3346" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M16 19.998V15.998" stroke="#2E3346" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M16 12H16.0098" stroke="#2E3346" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<defs>
+<clipPath id="clip0_3427_35082111-d2-2606907635-OJXGC4ZOPJZWQ33PORSXELT2ONYGKY27OZUXGLTFMJXXQLTEMM">
+<rect width="32" height="32" fill="white"/>
+</clipPath>
+</defs>
+</svg>
+</g><g transform="translate(3313 669)" class="appendix-icon"><svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_3440_35088111-d2-2606907635-OJXGC4ZOPJZWQ33PORSXELT2ONYGKY27OZUXGLTFMJXXQLTEMM)">
+<path d="M16 31.1109C24.3456 31.1109 31.1111 24.3454 31.1111 15.9998C31.1111 7.65415 24.3456 0.888672 16 0.888672C7.65436 0.888672 0.888885 7.65415 0.888885 15.9998C0.888885 24.3454 7.65436 31.1109 16 31.1109Z" fill="white" stroke="#DEE1EB"/>
+<path d="M14.3909 16.7965C14.7364 17.2584 15.1772 17.6406 15.6834 17.9171C16.1896 18.1938 16.7494 18.3582 17.3248 18.3993C17.9001 18.4405 18.4777 18.3575 19.0181 18.1559C19.5586 17.9543 20.0492 17.6389 20.4571 17.2309L22.8708 14.8173C23.6036 14.0586 24.0089 13.0425 23.9998 11.9877C23.9906 10.933 23.5676 9.92404 22.8217 9.17821C22.0759 8.43237 21.067 8.00931 20.0123 8.00015C18.9575 7.99098 17.9413 8.39644 17.1827 9.1292L15.7988 10.505" stroke="#2E3346" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M17.609 15.1874C17.2635 14.7255 16.8227 14.3433 16.3165 14.0667C15.8103 13.7902 15.2505 13.6257 14.6752 13.5845C14.0998 13.5433 13.5223 13.6263 12.9819 13.8279C12.4414 14.0295 11.9506 14.345 11.5428 14.753L9.1292 17.1666C8.39644 17.9252 7.99098 18.9414 8.00015 19.9962C8.00931 21.0509 8.43237 22.0598 9.17821 22.8056C9.92405 23.5515 10.933 23.9745 11.9877 23.9837C13.0425 23.9928 14.0586 23.5875 14.8173 22.8547L16.193 21.4788" stroke="#2E3346" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<defs>
+<clipPath id="clip0_3440_35088111-d2-2606907635-OJXGC4ZOPJZWQ33PORSXELT2ONYGKY27OZUXGLTFMJXXQLTEMM">
+<rect width="32" height="32" fill="white"/>
+</clipPath>
+</defs>
+</svg>
+</g><g transform="translate(3034 241)" class="appendix-icon"><svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_3440_35088111-d2-2606907635-OJXGC4ZOPJZWQ33PORSXELT2NFWWCZ3FOIXGKYTPPAXHA33XMVZF6YTVOM)">
+<path d="M16 31.1109C24.3456 31.1109 31.1111 24.3454 31.1111 15.9998C31.1111 7.65415 24.3456 0.888672 16 0.888672C7.65436 0.888672 0.888885 7.65415 0.888885 15.9998C0.888885 24.3454 7.65436 31.1109 16 31.1109Z" fill="white" stroke="#DEE1EB"/>
+<path d="M14.3909 16.7965C14.7364 17.2584 15.1772 17.6406 15.6834 17.9171C16.1896 18.1938 16.7494 18.3582 17.3248 18.3993C17.9001 18.4405 18.4777 18.3575 19.0181 18.1559C19.5586 17.9543 20.0492 17.6389 20.4571 17.2309L22.8708 14.8173C23.6036 14.0586 24.0089 13.0425 23.9998 11.9877C23.9906 10.933 23.5676 9.92404 22.8217 9.17821C22.0759 8.43237 21.067 8.00931 20.0123 8.00015C18.9575 7.99098 17.9413 8.39644 17.1827 9.1292L15.7988 10.505" stroke="#2E3346" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M17.609 15.1874C17.2635 14.7255 16.8227 14.3433 16.3165 14.0667C15.8103 13.7902 15.2505 13.6257 14.6752 13.5845C14.0998 13.5433 13.5223 13.6263 12.9819 13.8279C12.4414 14.0295 11.9506 14.345 11.5428 14.753L9.1292 17.1666C8.39644 17.9252 7.99098 18.9414 8.00015 19.9962C8.00931 21.0509 8.43237 22.0598 9.17821 22.8056C9.92405 23.5515 10.933 23.9745 11.9877 23.9837C13.0425 23.9928 14.0586 23.5875 14.8173 22.8547L16.193 21.4788" stroke="#2E3346" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<defs>
+<clipPath id="clip0_3440_35088111-d2-2606907635-OJXGC4ZOPJZWQ33PORSXELT2NFWWCZ3FOIXGKYTPPAXHA33XMVZF6YTVOM">
+<rect width="32" height="32" fill="white"/>
+</clipPath>
+</defs>
+</svg>
+</g><g transform="translate(1961 247)" class="appendix-icon"><title>Smart DC distribution with monitored, switchable outputs.</title><svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_3427_35082111-d2-2606907635-OJXGC4ZOPJZWQ33PORSXELT2MZZG63TUFZSWE33YFZSGGX3ENFZXI4TJMJ2XI2LPNY)">
+<path d="M16 31.1109C24.3456 31.1109 31.1111 24.3454 31.1111 15.9998C31.1111 7.65415 24.3456 0.888672 16 0.888672C7.65436 0.888672 0.888885 7.65415 0.888885 15.9998C0.888885 24.3454 7.65436 31.1109 16 31.1109Z" fill="white" stroke="#DEE1EB"/>
+<path d="M16 26C21.5228 26 26 21.5228 26 16C26 10.4772 21.5228 6 16 6C10.4772 6 6 10.4772 6 16C6 21.5228 10.4772 26 16 26Z" stroke="#2E3346" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M16 19.998V15.998" stroke="#2E3346" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M16 12H16.0098" stroke="#2E3346" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<defs>
+<clipPath id="clip0_3427_35082111-d2-2606907635-OJXGC4ZOPJZWQ33PORSXELT2MZZG63TUFZSWE33YFZSGGX3ENFZXI4TJMJ2XI2LPNY">
+<rect width="32" height="32" fill="white"/>
+</clipPath>
+</defs>
+</svg>
+</g><g transform="translate(1929 247)" class="appendix-icon"><svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_3440_35088111-d2-2606907635-OJXGC4ZOPJZWQ33PORSXELT2MZZG63TUFZSWE33YFZSGGX3ENFZXI4TJMJ2XI2LPNY)">
+<path d="M16 31.1109C24.3456 31.1109 31.1111 24.3454 31.1111 15.9998C31.1111 7.65415 24.3456 0.888672 16 0.888672C7.65436 0.888672 0.888885 7.65415 0.888885 15.9998C0.888885 24.3454 7.65436 31.1109 16 31.1109Z" fill="white" stroke="#DEE1EB"/>
+<path d="M14.3909 16.7965C14.7364 17.2584 15.1772 17.6406 15.6834 17.9171C16.1896 18.1938 16.7494 18.3582 17.3248 18.3993C17.9001 18.4405 18.4777 18.3575 19.0181 18.1559C19.5586 17.9543 20.0492 17.6389 20.4571 17.2309L22.8708 14.8173C23.6036 14.0586 24.0089 13.0425 23.9998 11.9877C23.9906 10.933 23.5676 9.92404 22.8217 9.17821C22.0759 8.43237 21.067 8.00931 20.0123 8.00015C18.9575 7.99098 17.9413 8.39644 17.1827 9.1292L15.7988 10.505" stroke="#2E3346" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M17.609 15.1874C17.2635 14.7255 16.8227 14.3433 16.3165 14.0667C15.8103 13.7902 15.2505 13.6257 14.6752 13.5845C14.0998 13.5433 13.5223 13.6263 12.9819 13.8279C12.4414 14.0295 11.9506 14.345 11.5428 14.753L9.1292 17.1666C8.39644 17.9252 7.99098 18.9414 8.00015 19.9962C8.00931 21.0509 8.43237 22.0598 9.17821 22.8056C9.92405 23.5515 10.933 23.9745 11.9877 23.9837C13.0425 23.9928 14.0586 23.5875 14.8173 22.8547L16.193 21.4788" stroke="#2E3346" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<defs>
+<clipPath id="clip0_3440_35088111-d2-2606907635-OJXGC4ZOPJZWQ33PORSXELT2MZZG63TUFZSWE33YFZSGGX3ENFZXI4TJMJ2XI2LPNY">
+<rect width="32" height="32" fill="white"/>
+</clipPath>
+</defs>
+</svg>
+</g><g transform="translate(3668 644)" class="appendix-icon"><title>Smart DC distribution with monitored, switchable outputs.</title><svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_3427_35082111-d2-2606907635-OJXGC4ZOPJZWQ33PORSXELT2ONYGKY27OZUXGLTFMJXXQLTEMNPWI2LTORZGSYTVORUW63Q)">
+<path d="M16 31.1109C24.3456 31.1109 31.1111 24.3454 31.1111 15.9998C31.1111 7.65415 24.3456 0.888672 16 0.888672C7.65436 0.888672 0.888885 7.65415 0.888885 15.9998C0.888885 24.3454 7.65436 31.1109 16 31.1109Z" fill="white" stroke="#DEE1EB"/>
+<path d="M16 26C21.5228 26 26 21.5228 26 16C26 10.4772 21.5228 6 16 6C10.4772 6 6 10.4772 6 16C6 21.5228 10.4772 26 16 26Z" stroke="#2E3346" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M16 19.998V15.998" stroke="#2E3346" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M16 12H16.0098" stroke="#2E3346" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<defs>
+<clipPath id="clip0_3427_35082111-d2-2606907635-OJXGC4ZOPJZWQ33PORSXELT2ONYGKY27OZUXGLTFMJXXQLTEMNPWI2LTORZGSYTVORUW63Q">
+<rect width="32" height="32" fill="white"/>
+</clipPath>
+</defs>
+</svg>
+</g><g transform="translate(3636 644)" class="appendix-icon"><svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_3440_35088111-d2-2606907635-OJXGC4ZOPJZWQ33PORSXELT2ONYGKY27OZUXGLTFMJXXQLTEMNPWI2LTORZGSYTVORUW63Q)">
+<path d="M16 31.1109C24.3456 31.1109 31.1111 24.3454 31.1111 15.9998C31.1111 7.65415 24.3456 0.888672 16 0.888672C7.65436 0.888672 0.888885 7.65415 0.888885 15.9998C0.888885 24.3454 7.65436 31.1109 16 31.1109Z" fill="white" stroke="#DEE1EB"/>
+<path d="M14.3909 16.7965C14.7364 17.2584 15.1772 17.6406 15.6834 17.9171C16.1896 18.1938 16.7494 18.3582 17.3248 18.3993C17.9001 18.4405 18.4777 18.3575 19.0181 18.1559C19.5586 17.9543 20.0492 17.6389 20.4571 17.2309L22.8708 14.8173C23.6036 14.0586 24.0089 13.0425 23.9998 11.9877C23.9906 10.933 23.5676 9.92404 22.8217 9.17821C22.0759 8.43237 21.067 8.00931 20.0123 8.00015C18.9575 7.99098 17.9413 8.39644 17.1827 9.1292L15.7988 10.505" stroke="#2E3346" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M17.609 15.1874C17.2635 14.7255 16.8227 14.3433 16.3165 14.0667C15.8103 13.7902 15.2505 13.6257 14.6752 13.5845C14.0998 13.5433 13.5223 13.6263 12.9819 13.8279C12.4414 14.0295 11.9506 14.345 11.5428 14.753L9.1292 17.1666C8.39644 17.9252 7.99098 18.9414 8.00015 19.9962C8.00931 21.0509 8.43237 22.0598 9.17821 22.8056C9.92405 23.5515 10.933 23.9745 11.9877 23.9837C13.0425 23.9928 14.0586 23.5875 14.8173 22.8547L16.193 21.4788" stroke="#2E3346" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<defs>
+<clipPath id="clip0_3440_35088111-d2-2606907635-OJXGC4ZOPJZWQ33PORSXELT2ONYGKY27OZUXGLTFMJXXQLTEMNPWI2LTORZGSYTVORUW63Q">
+<rect width="32" height="32" fill="white"/>
+</clipPath>
+</defs>
+</svg>
+</g><g transform="translate(5182 824)" class="appendix-icon"><svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_3440_35088111-d2-2606907635-OJXGC4ZOPJZWQ33PORSXELT2ONYGKY27NZUXELTFMJXXQLTDN5WXA5LUMVZA)">
+<path d="M16 31.1109C24.3456 31.1109 31.1111 24.3454 31.1111 15.9998C31.1111 7.65415 24.3456 0.888672 16 0.888672C7.65436 0.888672 0.888885 7.65415 0.888885 15.9998C0.888885 24.3454 7.65436 31.1109 16 31.1109Z" fill="white" stroke="#DEE1EB"/>
+<path d="M14.3909 16.7965C14.7364 17.2584 15.1772 17.6406 15.6834 17.9171C16.1896 18.1938 16.7494 18.3582 17.3248 18.3993C17.9001 18.4405 18.4777 18.3575 19.0181 18.1559C19.5586 17.9543 20.0492 17.6389 20.4571 17.2309L22.8708 14.8173C23.6036 14.0586 24.0089 13.0425 23.9998 11.9877C23.9906 10.933 23.5676 9.92404 22.8217 9.17821C22.0759 8.43237 21.067 8.00931 20.0123 8.00015C18.9575 7.99098 17.9413 8.39644 17.1827 9.1292L15.7988 10.505" stroke="#2E3346" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M17.609 15.1874C17.2635 14.7255 16.8227 14.3433 16.3165 14.0667C15.8103 13.7902 15.2505 13.6257 14.6752 13.5845C14.0998 13.5433 13.5223 13.6263 12.9819 13.8279C12.4414 14.0295 11.9506 14.345 11.5428 14.753L9.1292 17.1666C8.39644 17.9252 7.99098 18.9414 8.00015 19.9962C8.00931 21.0509 8.43237 22.0598 9.17821 22.8056C9.92405 23.5515 10.933 23.9745 11.9877 23.9837C13.0425 23.9928 14.0586 23.5875 14.8173 22.8547L16.193 21.4788" stroke="#2E3346" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<defs>
+<clipPath id="clip0_3440_35088111-d2-2606907635-OJXGC4ZOPJZWQ33PORSXELT2ONYGKY27NZUXELTFMJXXQLTDN5WXA5LUMVZA">
+<rect width="32" height="32" fill="white"/>
+</clipPath>
+</defs>
+</svg>
+</g><g transform="translate(3345 241)" class="appendix-icon"><title>Convert the incoming AC feed to the DC rails used by local distribution.</title><svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_3427_35082111-d2-2606907635-OJXGC4ZOPJZWQ33PORSXELT2NFWWCZ3FOIXGKYTPPAXGIYY)">
+<path d="M16 31.1109C24.3456 31.1109 31.1111 24.3454 31.1111 15.9998C31.1111 7.65415 24.3456 0.888672 16 0.888672C7.65436 0.888672 0.888885 7.65415 0.888885 15.9998C0.888885 24.3454 7.65436 31.1109 16 31.1109Z" fill="white" stroke="#DEE1EB"/>
+<path d="M16 26C21.5228 26 26 21.5228 26 16C26 10.4772 21.5228 6 16 6C10.4772 6 6 10.4772 6 16C6 21.5228 10.4772 26 16 26Z" stroke="#2E3346" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M16 19.998V15.998" stroke="#2E3346" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M16 12H16.0098" stroke="#2E3346" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<defs>
+<clipPath id="clip0_3427_35082111-d2-2606907635-OJXGC4ZOPJZWQ33PORSXELT2NFWWCZ3FOIXGKYTPPAXGIYY">
+<rect width="32" height="32" fill="white"/>
+</clipPath>
+</defs>
+</svg>
+</g><g transform="translate(3313 241)" class="appendix-icon"><svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_3440_35088111-d2-2606907635-OJXGC4ZOPJZWQ33PORSXELT2NFWWCZ3FOIXGKYTPPAXGIYY)">
+<path d="M16 31.1109C24.3456 31.1109 31.1111 24.3454 31.1111 15.9998C31.1111 7.65415 24.3456 0.888672 16 0.888672C7.65436 0.888672 0.888885 7.65415 0.888885 15.9998C0.888885 24.3454 7.65436 31.1109 16 31.1109Z" fill="white" stroke="#DEE1EB"/>
+<path d="M14.3909 16.7965C14.7364 17.2584 15.1772 17.6406 15.6834 17.9171C16.1896 18.1938 16.7494 18.3582 17.3248 18.3993C17.9001 18.4405 18.4777 18.3575 19.0181 18.1559C19.5586 17.9543 20.0492 17.6389 20.4571 17.2309L22.8708 14.8173C23.6036 14.0586 24.0089 13.0425 23.9998 11.9877C23.9906 10.933 23.5676 9.92404 22.8217 9.17821C22.0759 8.43237 21.067 8.00931 20.0123 8.00015C18.9575 7.99098 17.9413 8.39644 17.1827 9.1292L15.7988 10.505" stroke="#2E3346" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M17.609 15.1874C17.2635 14.7255 16.8227 14.3433 16.3165 14.0667C15.8103 13.7902 15.2505 13.6257 14.6752 13.5845C14.0998 13.5433 13.5223 13.6263 12.9819 13.8279C12.4414 14.0295 11.9506 14.345 11.5428 14.753L9.1292 17.1666C8.39644 17.9252 7.99098 18.9414 8.00015 19.9962C8.00931 21.0509 8.43237 22.0598 9.17821 22.8056C9.92405 23.5515 10.933 23.9745 11.9877 23.9837C13.0425 23.9928 14.0586 23.5875 14.8173 22.8547L16.193 21.4788" stroke="#2E3346" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<defs>
+<clipPath id="clip0_3440_35088111-d2-2606907635-OJXGC4ZOPJZWQ33PORSXELT2NFWWCZ3FOIXGKYTPPAXGIYY">
+<rect width="32" height="32" fill="white"/>
+</clipPath>
+</defs>
+</svg>
+</g><g transform="translate(2279 302)" class="appendix-icon"><title>Charging and backup connection to DC distribution. Fit where local battery support is needed.</title><svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_3427_35082111-d2-2606907635-OJXGC4ZOPJZWQ33PORSXELT2MZZG63TUFZSWE33YFZSGGX3VOBZQ)">
+<path d="M16 31.1109C24.3456 31.1109 31.1111 24.3454 31.1111 15.9998C31.1111 7.65415 24.3456 0.888672 16 0.888672C7.65436 0.888672 0.888885 7.65415 0.888885 15.9998C0.888885 24.3454 7.65436 31.1109 16 31.1109Z" fill="white" stroke="#DEE1EB"/>
+<path d="M16 26C21.5228 26 26 21.5228 26 16C26 10.4772 21.5228 6 16 6C10.4772 6 6 10.4772 6 16C6 21.5228 10.4772 26 16 26Z" stroke="#2E3346" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M16 19.998V15.998" stroke="#2E3346" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M16 12H16.0098" stroke="#2E3346" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<defs>
+<clipPath id="clip0_3427_35082111-d2-2606907635-OJXGC4ZOPJZWQ33PORSXELT2MZZG63TUFZSWE33YFZSGGX3VOBZQ">
+<rect width="32" height="32" fill="white"/>
+</clipPath>
+</defs>
+</svg>
+</g><g transform="translate(2247 302)" class="appendix-icon"><svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_3440_35088111-d2-2606907635-OJXGC4ZOPJZWQ33PORSXELT2MZZG63TUFZSWE33YFZSGGX3VOBZQ)">
+<path d="M16 31.1109C24.3456 31.1109 31.1111 24.3454 31.1111 15.9998C31.1111 7.65415 24.3456 0.888672 16 0.888672C7.65436 0.888672 0.888885 7.65415 0.888885 15.9998C0.888885 24.3454 7.65436 31.1109 16 31.1109Z" fill="white" stroke="#DEE1EB"/>
+<path d="M14.3909 16.7965C14.7364 17.2584 15.1772 17.6406 15.6834 17.9171C16.1896 18.1938 16.7494 18.3582 17.3248 18.3993C17.9001 18.4405 18.4777 18.3575 19.0181 18.1559C19.5586 17.9543 20.0492 17.6389 20.4571 17.2309L22.8708 14.8173C23.6036 14.0586 24.0089 13.0425 23.9998 11.9877C23.9906 10.933 23.5676 9.92404 22.8217 9.17821C22.0759 8.43237 21.067 8.00931 20.0123 8.00015C18.9575 7.99098 17.9413 8.39644 17.1827 9.1292L15.7988 10.505" stroke="#2E3346" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M17.609 15.1874C17.2635 14.7255 16.8227 14.3433 16.3165 14.0667C15.8103 13.7902 15.2505 13.6257 14.6752 13.5845C14.0998 13.5433 13.5223 13.6263 12.9819 13.8279C12.4414 14.0295 11.9506 14.345 11.5428 14.753L9.1292 17.1666C8.39644 17.9252 7.99098 18.9414 8.00015 19.9962C8.00931 21.0509 8.43237 22.0598 9.17821 22.8056C9.92405 23.5515 10.933 23.9745 11.9877 23.9837C13.0425 23.9928 14.0586 23.5875 14.8173 22.8547L16.193 21.4788" stroke="#2E3346" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<defs>
+<clipPath id="clip0_3440_35088111-d2-2606907635-OJXGC4ZOPJZWQ33PORSXELT2MZZG63TUFZSWE33YFZSGGX3VOBZQ">
+<rect width="32" height="32" fill="white"/>
+</clipPath>
+</defs>
+</svg>
+</g><g transform="translate(3991 669)" class="appendix-icon"><title>Charging and backup connection to DC distribution. Fit where local battery support is needed.</title><svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_3427_35082111-d2-2606907635-OJXGC4ZOPJZWQ33PORSXELT2ONYGKY27OZUXGLTFMJXXQLTEMNPXK4DT)">
+<path d="M16 31.1109C24.3456 31.1109 31.1111 24.3454 31.1111 15.9998C31.1111 7.65415 24.3456 0.888672 16 0.888672C7.65436 0.888672 0.888885 7.65415 0.888885 15.9998C0.888885 24.3454 7.65436 31.1109 16 31.1109Z" fill="white" stroke="#DEE1EB"/>
+<path d="M16 26C21.5228 26 26 21.5228 26 16C26 10.4772 21.5228 6 16 6C10.4772 6 6 10.4772 6 16C6 21.5228 10.4772 26 16 26Z" stroke="#2E3346" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M16 19.998V15.998" stroke="#2E3346" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M16 12H16.0098" stroke="#2E3346" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<defs>
+<clipPath id="clip0_3427_35082111-d2-2606907635-OJXGC4ZOPJZWQ33PORSXELT2ONYGKY27OZUXGLTFMJXXQLTEMNPXK4DT">
+<rect width="32" height="32" fill="white"/>
+</clipPath>
+</defs>
+</svg>
+</g><g transform="translate(3959 669)" class="appendix-icon"><svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_3440_35088111-d2-2606907635-OJXGC4ZOPJZWQ33PORSXELT2ONYGKY27OZUXGLTFMJXXQLTEMNPXK4DT)">
+<path d="M16 31.1109C24.3456 31.1109 31.1111 24.3454 31.1111 15.9998C31.1111 7.65415 24.3456 0.888672 16 0.888672C7.65436 0.888672 0.888885 7.65415 0.888885 15.9998C0.888885 24.3454 7.65436 31.1109 16 31.1109Z" fill="white" stroke="#DEE1EB"/>
+<path d="M14.3909 16.7965C14.7364 17.2584 15.1772 17.6406 15.6834 17.9171C16.1896 18.1938 16.7494 18.3582 17.3248 18.3993C17.9001 18.4405 18.4777 18.3575 19.0181 18.1559C19.5586 17.9543 20.0492 17.6389 20.4571 17.2309L22.8708 14.8173C23.6036 14.0586 24.0089 13.0425 23.9998 11.9877C23.9906 10.933 23.5676 9.92404 22.8217 9.17821C22.0759 8.43237 21.067 8.00931 20.0123 8.00015C18.9575 7.99098 17.9413 8.39644 17.1827 9.1292L15.7988 10.505" stroke="#2E3346" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M17.609 15.1874C17.2635 14.7255 16.8227 14.3433 16.3165 14.0667C15.8103 13.7902 15.2505 13.6257 14.6752 13.5845C14.0998 13.5433 13.5223 13.6263 12.9819 13.8279C12.4414 14.0295 11.9506 14.345 11.5428 14.753L9.1292 17.1666C8.39644 17.9252 7.99098 18.9414 8.00015 19.9962C8.00931 21.0509 8.43237 22.0598 9.17821 22.8056C9.92405 23.5515 10.933 23.9745 11.9877 23.9837C13.0425 23.9928 14.0586 23.5875 14.8173 22.8547L16.193 21.4788" stroke="#2E3346" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<defs>
+<clipPath id="clip0_3440_35088111-d2-2606907635-OJXGC4ZOPJZWQ33PORSXELT2ONYGKY27OZUXGLTFMJXXQLTEMNPXK4DT">
+<rect width="32" height="32" fill="white"/>
+</clipPath>
+</defs>
+</svg>
+</g><g transform="translate(3668 231)" class="appendix-icon"><title>Smart DC distribution with monitored, switchable outputs.</title><svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_3427_35082111-d2-2606907635-OJXGC4ZOPJZWQ33PORSXELT2NFWWCZ3FOIXGKYTPPAXGIY27MRUXG5DSNFRHK5DJN5XA)">
+<path d="M16 31.1109C24.3456 31.1109 31.1111 24.3454 31.1111 15.9998C31.1111 7.65415 24.3456 0.888672 16 0.888672C7.65436 0.888672 0.888885 7.65415 0.888885 15.9998C0.888885 24.3454 7.65436 31.1109 16 31.1109Z" fill="white" stroke="#DEE1EB"/>
+<path d="M16 26C21.5228 26 26 21.5228 26 16C26 10.4772 21.5228 6 16 6C10.4772 6 6 10.4772 6 16C6 21.5228 10.4772 26 16 26Z" stroke="#2E3346" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M16 19.998V15.998" stroke="#2E3346" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M16 12H16.0098" stroke="#2E3346" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<defs>
+<clipPath id="clip0_3427_35082111-d2-2606907635-OJXGC4ZOPJZWQ33PORSXELT2NFWWCZ3FOIXGKYTPPAXGIY27MRUXG5DSNFRHK5DJN5XA">
+<rect width="32" height="32" fill="white"/>
+</clipPath>
+</defs>
+</svg>
+</g><g transform="translate(3636 231)" class="appendix-icon"><svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_3440_35088111-d2-2606907635-OJXGC4ZOPJZWQ33PORSXELT2NFWWCZ3FOIXGKYTPPAXGIY27MRUXG5DSNFRHK5DJN5XA)">
+<path d="M16 31.1109C24.3456 31.1109 31.1111 24.3454 31.1111 15.9998C31.1111 7.65415 24.3456 0.888672 16 0.888672C7.65436 0.888672 0.888885 7.65415 0.888885 15.9998C0.888885 24.3454 7.65436 31.1109 16 31.1109Z" fill="white" stroke="#DEE1EB"/>
+<path d="M14.3909 16.7965C14.7364 17.2584 15.1772 17.6406 15.6834 17.9171C16.1896 18.1938 16.7494 18.3582 17.3248 18.3993C17.9001 18.4405 18.4777 18.3575 19.0181 18.1559C19.5586 17.9543 20.0492 17.6389 20.4571 17.2309L22.8708 14.8173C23.6036 14.0586 24.0089 13.0425 23.9998 11.9877C23.9906 10.933 23.5676 9.92404 22.8217 9.17821C22.0759 8.43237 21.067 8.00931 20.0123 8.00015C18.9575 7.99098 17.9413 8.39644 17.1827 9.1292L15.7988 10.505" stroke="#2E3346" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M17.609 15.1874C17.2635 14.7255 16.8227 14.3433 16.3165 14.0667C15.8103 13.7902 15.2505 13.6257 14.6752 13.5845C14.0998 13.5433 13.5223 13.6263 12.9819 13.8279C12.4414 14.0295 11.9506 14.345 11.5428 14.753L9.1292 17.1666C8.39644 17.9252 7.99098 18.9414 8.00015 19.9962C8.00931 21.0509 8.43237 22.0598 9.17821 22.8056C9.92405 23.5515 10.933 23.9745 11.9877 23.9837C13.0425 23.9928 14.0586 23.5875 14.8173 22.8547L16.193 21.4788" stroke="#2E3346" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<defs>
+<clipPath id="clip0_3440_35088111-d2-2606907635-OJXGC4ZOPJZWQ33PORSXELT2NFWWCZ3FOIXGKYTPPAXGIY27MRUXG5DSNFRHK5DJN5XA">
+<rect width="32" height="32" fill="white"/>
+</clipPath>
+</defs>
+</svg>
+</g><g transform="translate(3986 196)" class="appendix-icon"><title>Charging and backup connection to DC distribution. Fit where local battery support is needed.</title><svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_3427_35082111-d2-2606907635-OJXGC4ZOPJZWQ33PORSXELT2NFWWCZ3FOIXGKYTPPAXGIY27OVYHG)">
+<path d="M16 31.1109C24.3456 31.1109 31.1111 24.3454 31.1111 15.9998C31.1111 7.65415 24.3456 0.888672 16 0.888672C7.65436 0.888672 0.888885 7.65415 0.888885 15.9998C0.888885 24.3454 7.65436 31.1109 16 31.1109Z" fill="white" stroke="#DEE1EB"/>
+<path d="M16 26C21.5228 26 26 21.5228 26 16C26 10.4772 21.5228 6 16 6C10.4772 6 6 10.4772 6 16C6 21.5228 10.4772 26 16 26Z" stroke="#2E3346" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M16 19.998V15.998" stroke="#2E3346" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M16 12H16.0098" stroke="#2E3346" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<defs>
+<clipPath id="clip0_3427_35082111-d2-2606907635-OJXGC4ZOPJZWQ33PORSXELT2NFWWCZ3FOIXGKYTPPAXGIY27OVYHG">
+<rect width="32" height="32" fill="white"/>
+</clipPath>
+</defs>
+</svg>
+</g><g transform="translate(3954 196)" class="appendix-icon"><svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_3440_35088111-d2-2606907635-OJXGC4ZOPJZWQ33PORSXELT2NFWWCZ3FOIXGKYTPPAXGIY27OVYHG)">
+<path d="M16 31.1109C24.3456 31.1109 31.1111 24.3454 31.1111 15.9998C31.1111 7.65415 24.3456 0.888672 16 0.888672C7.65436 0.888672 0.888885 7.65415 0.888885 15.9998C0.888885 24.3454 7.65436 31.1109 16 31.1109Z" fill="white" stroke="#DEE1EB"/>
+<path d="M14.3909 16.7965C14.7364 17.2584 15.1772 17.6406 15.6834 17.9171C16.1896 18.1938 16.7494 18.3582 17.3248 18.3993C17.9001 18.4405 18.4777 18.3575 19.0181 18.1559C19.5586 17.9543 20.0492 17.6389 20.4571 17.2309L22.8708 14.8173C23.6036 14.0586 24.0089 13.0425 23.9998 11.9877C23.9906 10.933 23.5676 9.92404 22.8217 9.17821C22.0759 8.43237 21.067 8.00931 20.0123 8.00015C18.9575 7.99098 17.9413 8.39644 17.1827 9.1292L15.7988 10.505" stroke="#2E3346" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M17.609 15.1874C17.2635 14.7255 16.8227 14.3433 16.3165 14.0667C15.8103 13.7902 15.2505 13.6257 14.6752 13.5845C14.0998 13.5433 13.5223 13.6263 12.9819 13.8279C12.4414 14.0295 11.9506 14.345 11.5428 14.753L9.1292 17.1666C8.39644 17.9252 7.99098 18.9414 8.00015 19.9962C8.00931 21.0509 8.43237 22.0598 9.17821 22.8056C9.92405 23.5515 10.933 23.9745 11.9877 23.9837C13.0425 23.9928 14.0586 23.5875 14.8173 22.8547L16.193 21.4788" stroke="#2E3346" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<defs>
+<clipPath id="clip0_3440_35088111-d2-2606907635-OJXGC4ZOPJZWQ33PORSXELT2NFWWCZ3FOIXGKYTPPAXGIY27OVYHG">
+<rect width="32" height="32" fill="white"/>
+</clipPath>
+</defs>
+</svg>
+</g><g transform="translate(3971 578)" class="appendix-icon"><svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_3440_35088111-d2-2606907635-OJXGC4ZOPJZWQ33PORSXELT2ONYGKY27OZUXGLTFMJXXQLTDN5WXA5LUMVZA)">
+<path d="M16 31.1109C24.3456 31.1109 31.1111 24.3454 31.1111 15.9998C31.1111 7.65415 24.3456 0.888672 16 0.888672C7.65436 0.888672 0.888885 7.65415 0.888885 15.9998C0.888885 24.3454 7.65436 31.1109 16 31.1109Z" fill="white" stroke="#DEE1EB"/>
+<path d="M14.3909 16.7965C14.7364 17.2584 15.1772 17.6406 15.6834 17.9171C16.1896 18.1938 16.7494 18.3582 17.3248 18.3993C17.9001 18.4405 18.4777 18.3575 19.0181 18.1559C19.5586 17.9543 20.0492 17.6389 20.4571 17.2309L22.8708 14.8173C23.6036 14.0586 24.0089 13.0425 23.9998 11.9877C23.9906 10.933 23.5676 9.92404 22.8217 9.17821C22.0759 8.43237 21.067 8.00931 20.0123 8.00015C18.9575 7.99098 17.9413 8.39644 17.1827 9.1292L15.7988 10.505" stroke="#2E3346" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M17.609 15.1874C17.2635 14.7255 16.8227 14.3433 16.3165 14.0667C15.8103 13.7902 15.2505 13.6257 14.6752 13.5845C14.0998 13.5433 13.5223 13.6263 12.9819 13.8279C12.4414 14.0295 11.9506 14.345 11.5428 14.753L9.1292 17.1666C8.39644 17.9252 7.99098 18.9414 8.00015 19.9962C8.00931 21.0509 8.43237 22.0598 9.17821 22.8056C9.92405 23.5515 10.933 23.9745 11.9877 23.9837C13.0425 23.9928 14.0586 23.5875 14.8173 22.8547L16.193 21.4788" stroke="#2E3346" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<defs>
+<clipPath id="clip0_3440_35088111-d2-2606907635-OJXGC4ZOPJZWQ33PORSXELT2ONYGKY27OZUXGLTFMJXXQLTDN5WXA5LUMVZA">
+<rect width="32" height="32" fill="white"/>
+</clipPath>
+</defs>
+</svg>
+</g><g transform="translate(2183 211)" class="appendix-icon"><svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_3440_35088111-d2-2606907635-OJXGC4ZOPJZWQ33PORSXELT2MZZG63TUFZSWE33YFZRW63LQOV2GK4Q)">
+<path d="M16 31.1109C24.3456 31.1109 31.1111 24.3454 31.1111 15.9998C31.1111 7.65415 24.3456 0.888672 16 0.888672C7.65436 0.888672 0.888885 7.65415 0.888885 15.9998C0.888885 24.3454 7.65436 31.1109 16 31.1109Z" fill="white" stroke="#DEE1EB"/>
+<path d="M14.3909 16.7965C14.7364 17.2584 15.1772 17.6406 15.6834 17.9171C16.1896 18.1938 16.7494 18.3582 17.3248 18.3993C17.9001 18.4405 18.4777 18.3575 19.0181 18.1559C19.5586 17.9543 20.0492 17.6389 20.4571 17.2309L22.8708 14.8173C23.6036 14.0586 24.0089 13.0425 23.9998 11.9877C23.9906 10.933 23.5676 9.92404 22.8217 9.17821C22.0759 8.43237 21.067 8.00931 20.0123 8.00015C18.9575 7.99098 17.9413 8.39644 17.1827 9.1292L15.7988 10.505" stroke="#2E3346" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M17.609 15.1874C17.2635 14.7255 16.8227 14.3433 16.3165 14.0667C15.8103 13.7902 15.2505 13.6257 14.6752 13.5845C14.0998 13.5433 13.5223 13.6263 12.9819 13.8279C12.4414 14.0295 11.9506 14.345 11.5428 14.753L9.1292 17.1666C8.39644 17.9252 7.99098 18.9414 8.00015 19.9962C8.00931 21.0509 8.43237 22.0598 9.17821 22.8056C9.92405 23.5515 10.933 23.9745 11.9877 23.9837C13.0425 23.9928 14.0586 23.5875 14.8173 22.8547L16.193 21.4788" stroke="#2E3346" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<defs>
+<clipPath id="clip0_3440_35088111-d2-2606907635-OJXGC4ZOPJZWQ33PORSXELT2MZZG63TUFZSWE33YFZRW63LQOV2GK4Q">
+<rect width="32" height="32" fill="white"/>
+</clipPath>
+</defs>
+</svg>
+</g><g transform="translate(4566 810)" class="appendix-icon"><svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_3440_35088111-d2-2606907635-OJXGC4ZOPJZWQ33PORSXELT2ONYGKY27NZUXELTFMJXXQLTJNZYHK5C7OBQW4ZLM)">
+<path d="M16 31.1109C24.3456 31.1109 31.1111 24.3454 31.1111 15.9998C31.1111 7.65415 24.3456 0.888672 16 0.888672C7.65436 0.888672 0.888885 7.65415 0.888885 15.9998C0.888885 24.3454 7.65436 31.1109 16 31.1109Z" fill="white" stroke="#DEE1EB"/>
+<path d="M14.3909 16.7965C14.7364 17.2584 15.1772 17.6406 15.6834 17.9171C16.1896 18.1938 16.7494 18.3582 17.3248 18.3993C17.9001 18.4405 18.4777 18.3575 19.0181 18.1559C19.5586 17.9543 20.0492 17.6389 20.4571 17.2309L22.8708 14.8173C23.6036 14.0586 24.0089 13.0425 23.9998 11.9877C23.9906 10.933 23.5676 9.92404 22.8217 9.17821C22.0759 8.43237 21.067 8.00931 20.0123 8.00015C18.9575 7.99098 17.9413 8.39644 17.1827 9.1292L15.7988 10.505" stroke="#2E3346" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M17.609 15.1874C17.2635 14.7255 16.8227 14.3433 16.3165 14.0667C15.8103 13.7902 15.2505 13.6257 14.6752 13.5845C14.0998 13.5433 13.5223 13.6263 12.9819 13.8279C12.4414 14.0295 11.9506 14.345 11.5428 14.753L9.1292 17.1666C8.39644 17.9252 7.99098 18.9414 8.00015 19.9962C8.00931 21.0509 8.43237 22.0598 9.17821 22.8056C9.92405 23.5515 10.933 23.9745 11.9877 23.9837C13.0425 23.9928 14.0586 23.5875 14.8173 22.8547L16.193 21.4788" stroke="#2E3346" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<defs>
+<clipPath id="clip0_3440_35088111-d2-2606907635-OJXGC4ZOPJZWQ33PORSXELT2ONYGKY27NZUXELTFMJXXQLTJNZYHK5C7OBQW4ZLM">
+<rect width="32" height="32" fill="white"/>
+</clipPath>
+</defs>
+</svg>
+</g><g transform="translate(3966 287)" class="appendix-icon"><svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_3440_35088111-d2-2606907635-OJXGC4ZOPJZWQ33PORSXELT2NFWWCZ3FOIXGKYTPPAXGG33NOB2XIZLS)">
+<path d="M16 31.1109C24.3456 31.1109 31.1111 24.3454 31.1111 15.9998C31.1111 7.65415 24.3456 0.888672 16 0.888672C7.65436 0.888672 0.888885 7.65415 0.888885 15.9998C0.888885 24.3454 7.65436 31.1109 16 31.1109Z" fill="white" stroke="#DEE1EB"/>
+<path d="M14.3909 16.7965C14.7364 17.2584 15.1772 17.6406 15.6834 17.9171C16.1896 18.1938 16.7494 18.3582 17.3248 18.3993C17.9001 18.4405 18.4777 18.3575 19.0181 18.1559C19.5586 17.9543 20.0492 17.6389 20.4571 17.2309L22.8708 14.8173C23.6036 14.0586 24.0089 13.0425 23.9998 11.9877C23.9906 10.933 23.5676 9.92404 22.8217 9.17821C22.0759 8.43237 21.067 8.00931 20.0123 8.00015C18.9575 7.99098 17.9413 8.39644 17.1827 9.1292L15.7988 10.505" stroke="#2E3346" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M17.609 15.1874C17.2635 14.7255 16.8227 14.3433 16.3165 14.0667C15.8103 13.7902 15.2505 13.6257 14.6752 13.5845C14.0998 13.5433 13.5223 13.6263 12.9819 13.8279C12.4414 14.0295 11.9506 14.345 11.5428 14.753L9.1292 17.1666C8.39644 17.9252 7.99098 18.9414 8.00015 19.9962C8.00931 21.0509 8.43237 22.0598 9.17821 22.8056C9.92405 23.5515 10.933 23.9745 11.9877 23.9837C13.0425 23.9928 14.0586 23.5875 14.8173 22.8547L16.193 21.4788" stroke="#2E3346" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<defs>
+<clipPath id="clip0_3440_35088111-d2-2606907635-OJXGC4ZOPJZWQ33PORSXELT2NFWWCZ3FOIXGKYTPPAXGG33NOB2XIZLS">
+<rect width="32" height="32" fill="white"/>
+</clipPath>
+</defs>
+</svg>
+</g><g transform="translate(2786 655)" class="appendix-icon"><svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_3440_35088111-d2-2606907635-OJXGC4ZOPJZWQ33PORSXELT2ONYGKY27OZUXGLTFMJXXQLTJNZYHK5C7OBQW4ZLM)">
+<path d="M16 31.1109C24.3456 31.1109 31.1111 24.3454 31.1111 15.9998C31.1111 7.65415 24.3456 0.888672 16 0.888672C7.65436 0.888672 0.888885 7.65415 0.888885 15.9998C0.888885 24.3454 7.65436 31.1109 16 31.1109Z" fill="white" stroke="#DEE1EB"/>
+<path d="M14.3909 16.7965C14.7364 17.2584 15.1772 17.6406 15.6834 17.9171C16.1896 18.1938 16.7494 18.3582 17.3248 18.3993C17.9001 18.4405 18.4777 18.3575 19.0181 18.1559C19.5586 17.9543 20.0492 17.6389 20.4571 17.2309L22.8708 14.8173C23.6036 14.0586 24.0089 13.0425 23.9998 11.9877C23.9906 10.933 23.5676 9.92404 22.8217 9.17821C22.0759 8.43237 21.067 8.00931 20.0123 8.00015C18.9575 7.99098 17.9413 8.39644 17.1827 9.1292L15.7988 10.505" stroke="#2E3346" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M17.609 15.1874C17.2635 14.7255 16.8227 14.3433 16.3165 14.0667C15.8103 13.7902 15.2505 13.6257 14.6752 13.5845C14.0998 13.5433 13.5223 13.6263 12.9819 13.8279C12.4414 14.0295 11.9506 14.345 11.5428 14.753L9.1292 17.1666C8.39644 17.9252 7.99098 18.9414 8.00015 19.9962C8.00931 21.0509 8.43237 22.0598 9.17821 22.8056C9.92405 23.5515 10.933 23.9745 11.9877 23.9837C13.0425 23.9928 14.0586 23.5875 14.8173 22.8547L16.193 21.4788" stroke="#2E3346" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<defs>
+<clipPath id="clip0_3440_35088111-d2-2606907635-OJXGC4ZOPJZWQ33PORSXELT2ONYGKY27OZUXGLTFMJXXQLTJNZYHK5C7OBQW4ZLM">
+<rect width="32" height="32" fill="white"/>
+</clipPath>
+</defs>
+</svg>
+</g><g transform="translate(2786 227)" class="appendix-icon"><svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_3440_35088111-d2-2606907635-OJXGC4ZOPJZWQ33PORSXELT2NFWWCZ3FOIXGKYTPPAXGS3TQOV2F64DBNZSWY)">
+<path d="M16 31.1109C24.3456 31.1109 31.1111 24.3454 31.1111 15.9998C31.1111 7.65415 24.3456 0.888672 16 0.888672C7.65436 0.888672 0.888885 7.65415 0.888885 15.9998C0.888885 24.3454 7.65436 31.1109 16 31.1109Z" fill="white" stroke="#DEE1EB"/>
+<path d="M14.3909 16.7965C14.7364 17.2584 15.1772 17.6406 15.6834 17.9171C16.1896 18.1938 16.7494 18.3582 17.3248 18.3993C17.9001 18.4405 18.4777 18.3575 19.0181 18.1559C19.5586 17.9543 20.0492 17.6389 20.4571 17.2309L22.8708 14.8173C23.6036 14.0586 24.0089 13.0425 23.9998 11.9877C23.9906 10.933 23.5676 9.92404 22.8217 9.17821C22.0759 8.43237 21.067 8.00931 20.0123 8.00015C18.9575 7.99098 17.9413 8.39644 17.1827 9.1292L15.7988 10.505" stroke="#2E3346" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M17.609 15.1874C17.2635 14.7255 16.8227 14.3433 16.3165 14.0667C15.8103 13.7902 15.2505 13.6257 14.6752 13.5845C14.0998 13.5433 13.5223 13.6263 12.9819 13.8279C12.4414 14.0295 11.9506 14.345 11.5428 14.753L9.1292 17.1666C8.39644 17.9252 7.99098 18.9414 8.00015 19.9962C8.00931 21.0509 8.43237 22.0598 9.17821 22.8056C9.92405 23.5515 10.933 23.9745 11.9877 23.9837C13.0425 23.9928 14.0586 23.5875 14.8173 22.8547L16.193 21.4788" stroke="#2E3346" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<defs>
+<clipPath id="clip0_3440_35088111-d2-2606907635-OJXGC4ZOPJZWQ33PORSXELT2NFWWCZ3FOIXGKYTPPAXGS3TQOV2F64DBNZSWY">
+<rect width="32" height="32" fill="white"/>
+</clipPath>
+</defs>
+</svg>
+</g><g transform="translate(1040 398)" class="appendix-icon"><svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_3440_35088111-d2-2606907635-OJXGC4ZOPJZWQ33PORSXELT2MZZG63TUFZSWE33YFZTGCY3JNRUXI6K7OBQW4ZLM)">
+<path d="M16 31.1109C24.3456 31.1109 31.1111 24.3454 31.1111 15.9998C31.1111 7.65415 24.3456 0.888672 16 0.888672C7.65436 0.888672 0.888885 7.65415 0.888885 15.9998C0.888885 24.3454 7.65436 31.1109 16 31.1109Z" fill="white" stroke="#DEE1EB"/>
+<path d="M14.3909 16.7965C14.7364 17.2584 15.1772 17.6406 15.6834 17.9171C16.1896 18.1938 16.7494 18.3582 17.3248 18.3993C17.9001 18.4405 18.4777 18.3575 19.0181 18.1559C19.5586 17.9543 20.0492 17.6389 20.4571 17.2309L22.8708 14.8173C23.6036 14.0586 24.0089 13.0425 23.9998 11.9877C23.9906 10.933 23.5676 9.92404 22.8217 9.17821C22.0759 8.43237 21.067 8.00931 20.0123 8.00015C18.9575 7.99098 17.9413 8.39644 17.1827 9.1292L15.7988 10.505" stroke="#2E3346" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M17.609 15.1874C17.2635 14.7255 16.8227 14.3433 16.3165 14.0667C15.8103 13.7902 15.2505 13.6257 14.6752 13.5845C14.0998 13.5433 13.5223 13.6263 12.9819 13.8279C12.4414 14.0295 11.9506 14.345 11.5428 14.753L9.1292 17.1666C8.39644 17.9252 7.99098 18.9414 8.00015 19.9962C8.00931 21.0509 8.43237 22.0598 9.17821 22.8056C9.92405 23.5515 10.933 23.9745 11.9877 23.9837C13.0425 23.9928 14.0586 23.5875 14.8173 22.8547L16.193 21.4788" stroke="#2E3346" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<defs>
+<clipPath id="clip0_3440_35088111-d2-2606907635-OJXGC4ZOPJZWQ33PORSXELT2MZZG63TUFZSWE33YFZTGCY3JNRUXI6K7OBQW4ZLM">
+<rect width="32" height="32" fill="white"/>
+</clipPath>
+</defs>
+</svg>
+</g><g transform="translate(1583 398)" class="appendix-icon"><svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_3440_35088111-d2-2606907635-OJXGC4ZOPJZWQ33PORSXELT2MZZG63TUFZSWE33YFZYGC3TFNRZS42LNMFTWK4S7OBQW4ZLM)">
+<path d="M16 31.1109C24.3456 31.1109 31.1111 24.3454 31.1111 15.9998C31.1111 7.65415 24.3456 0.888672 16 0.888672C7.65436 0.888672 0.888885 7.65415 0.888885 15.9998C0.888885 24.3454 7.65436 31.1109 16 31.1109Z" fill="white" stroke="#DEE1EB"/>
+<path d="M14.3909 16.7965C14.7364 17.2584 15.1772 17.6406 15.6834 17.9171C16.1896 18.1938 16.7494 18.3582 17.3248 18.3993C17.9001 18.4405 18.4777 18.3575 19.0181 18.1559C19.5586 17.9543 20.0492 17.6389 20.4571 17.2309L22.8708 14.8173C23.6036 14.0586 24.0089 13.0425 23.9998 11.9877C23.9906 10.933 23.5676 9.92404 22.8217 9.17821C22.0759 8.43237 21.067 8.00931 20.0123 8.00015C18.9575 7.99098 17.9413 8.39644 17.1827 9.1292L15.7988 10.505" stroke="#2E3346" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M17.609 15.1874C17.2635 14.7255 16.8227 14.3433 16.3165 14.0667C15.8103 13.7902 15.2505 13.6257 14.6752 13.5845C14.0998 13.5433 13.5223 13.6263 12.9819 13.8279C12.4414 14.0295 11.9506 14.345 11.5428 14.753L9.1292 17.1666C8.39644 17.9252 7.99098 18.9414 8.00015 19.9962C8.00931 21.0509 8.43237 22.0598 9.17821 22.8056C9.92405 23.5515 10.933 23.9745 11.9877 23.9837C13.0425 23.9928 14.0586 23.5875 14.8173 22.8547L16.193 21.4788" stroke="#2E3346" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<defs>
+<clipPath id="clip0_3440_35088111-d2-2606907635-OJXGC4ZOPJZWQ33PORSXELT2MZZG63TUFZSWE33YFZYGC3TFNRZS42LNMFTWK4S7OBQW4ZLM">
+<rect width="32" height="32" fill="white"/>
+</clipPath>
+</defs>
+</svg>
+</g><g transform="translate(1571 484)" class="appendix-icon"><svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_3440_35088111-d2-2606907635-OJXGC4ZOPJZWQ33PORSXELT2MZZG63TUFZSWE33YFZYGC3TFNRZS45TJONPXAYLOMVWA)">
+<path d="M16 31.1109C24.3456 31.1109 31.1111 24.3454 31.1111 15.9998C31.1111 7.65415 24.3456 0.888672 16 0.888672C7.65436 0.888672 0.888885 7.65415 0.888885 15.9998C0.888885 24.3454 7.65436 31.1109 16 31.1109Z" fill="white" stroke="#DEE1EB"/>
+<path d="M14.3909 16.7965C14.7364 17.2584 15.1772 17.6406 15.6834 17.9171C16.1896 18.1938 16.7494 18.3582 17.3248 18.3993C17.9001 18.4405 18.4777 18.3575 19.0181 18.1559C19.5586 17.9543 20.0492 17.6389 20.4571 17.2309L22.8708 14.8173C23.6036 14.0586 24.0089 13.0425 23.9998 11.9877C23.9906 10.933 23.5676 9.92404 22.8217 9.17821C22.0759 8.43237 21.067 8.00931 20.0123 8.00015C18.9575 7.99098 17.9413 8.39644 17.1827 9.1292L15.7988 10.505" stroke="#2E3346" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M17.609 15.1874C17.2635 14.7255 16.8227 14.3433 16.3165 14.0667C15.8103 13.7902 15.2505 13.6257 14.6752 13.5845C14.0998 13.5433 13.5223 13.6263 12.9819 13.8279C12.4414 14.0295 11.9506 14.345 11.5428 14.753L9.1292 17.1666C8.39644 17.9252 7.99098 18.9414 8.00015 19.9962C8.00931 21.0509 8.43237 22.0598 9.17821 22.8056C9.92405 23.5515 10.933 23.9745 11.9877 23.9837C13.0425 23.9928 14.0586 23.5875 14.8173 22.8547L16.193 21.4788" stroke="#2E3346" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<defs>
+<clipPath id="clip0_3440_35088111-d2-2606907635-OJXGC4ZOPJZWQ33PORSXELT2MZZG63TUFZSWE33YFZYGC3TFNRZS45TJONPXAYLOMVWA">
+<rect width="32" height="32" fill="white"/>
+</clipPath>
+</defs>
+</svg>
+</g><g transform="translate(4009 810)" class="appendix-icon"><svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_3440_35088111-d2-2606907635-OJXGC4ZOPJZWQ33PORSXELT2ONYGKY27OZUXGLTFMJXXQLTQMFXGK3DTFZXGS4S7OBQW4ZLM)">
+<path d="M16 31.1109C24.3456 31.1109 31.1111 24.3454 31.1111 15.9998C31.1111 7.65415 24.3456 0.888672 16 0.888672C7.65436 0.888672 0.888885 7.65415 0.888885 15.9998C0.888885 24.3454 7.65436 31.1109 16 31.1109Z" fill="white" stroke="#DEE1EB"/>
+<path d="M14.3909 16.7965C14.7364 17.2584 15.1772 17.6406 15.6834 17.9171C16.1896 18.1938 16.7494 18.3582 17.3248 18.3993C17.9001 18.4405 18.4777 18.3575 19.0181 18.1559C19.5586 17.9543 20.0492 17.6389 20.4571 17.2309L22.8708 14.8173C23.6036 14.0586 24.0089 13.0425 23.9998 11.9877C23.9906 10.933 23.5676 9.92404 22.8217 9.17821C22.0759 8.43237 21.067 8.00931 20.0123 8.00015C18.9575 7.99098 17.9413 8.39644 17.1827 9.1292L15.7988 10.505" stroke="#2E3346" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M17.609 15.1874C17.2635 14.7255 16.8227 14.3433 16.3165 14.0667C15.8103 13.7902 15.2505 13.6257 14.6752 13.5845C14.0998 13.5433 13.5223 13.6263 12.9819 13.8279C12.4414 14.0295 11.9506 14.345 11.5428 14.753L9.1292 17.1666C8.39644 17.9252 7.99098 18.9414 8.00015 19.9962C8.00931 21.0509 8.43237 22.0598 9.17821 22.8056C9.92405 23.5515 10.933 23.9745 11.9877 23.9837C13.0425 23.9928 14.0586 23.5875 14.8173 22.8547L16.193 21.4788" stroke="#2E3346" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<defs>
+<clipPath id="clip0_3440_35088111-d2-2606907635-OJXGC4ZOPJZWQ33PORSXELT2ONYGKY27OZUXGLTFMJXXQLTQMFXGK3DTFZXGS4S7OBQW4ZLM">
+<rect width="32" height="32" fill="white"/>
+</clipPath>
+</defs>
+</svg>
+</g><rect x="5426" y="954" width="175" height="189" rx="4" stroke="#DEE1EB" fill="#F7F7FA" style="stroke-width: 1px; filter: drop-shadow(0px 2px 3px rgba(0, 0, 0, 0.1))" /><rect x="5426" y="954" width="175" height="189" rx="4" stroke="#DEE1EB" fill="#ffffff" style="stroke-width: 1px" /><text class="text-bold" x="5446" y="988" style="font-size: 16px;">Legend</text><g transform="translate(5446, 1008) scale(0.2)"><g class="dXBz utility optional"><g class="shape" ><rect x="0" y="0" width="120" height="120" stroke="#687582" fill="#f0f2f4" style="stroke-width:2;stroke-dasharray:10.000000,9.865639;" /></g><title>Charging and backup connection to DC distribution. Fit where local battery support is needed.</title></g></g><text class="text" x="5490" y="1025" style="font-size: 14px;">DC UPS module</text><line x1="5446" x2="5581" y1="1054" y2="1054" stroke-dasharray="2,2" stroke="#DEE1EB" /><g transform="translate(5446, 1081) scale(0.5)"><g class="KGEgLS0gYilbMF0="><path d="M 1 0 L 47 0" stroke="#374151" fill="none" class="connection" style="stroke-width:2;" mask="url(#legend-3378491652)" /></g></g><text class="text" x="5490" y="1084" style="font-size: 14px;">AC</text><g transform="translate(5446, 1120) scale(0.5)"><g class="KGMgLS0gZClbMF0="><path d="M 1 0 L 47 0" stroke="#66717f" fill="none" class="connection" style="stroke-width:2;stroke-dasharray:6.000000,5.919384;" mask="url(#legend-3108768146)" /></g></g><text class="text" x="5490" y="1123" style="font-size: 14px;">DC</text><mask id="d2-2606907635" maskUnits="userSpaceOnUse" x="-89" y="-162" width="5740" height="1405">
+<rect x="-89" y="-162" width="5740" height="1405" fill="white"></rect>
+<rect x="739" y="453" width="56" height="21" fill="black"></rect>
+<rect x="2168" y="453" width="23" height="21" fill="black"></rect>
+<rect x="326" y="453" width="56" height="21" fill="black"></rect>
+<rect x="2162" y="539" width="23" height="21" fill="black"></rect>
+<rect x="4605" y="865" width="23" height="21" fill="black"></rect>
+<rect x="4928" y="865" width="23" height="21" fill="black"></rect>
+<rect x="2825" y="710" width="23" height="21" fill="black"></rect>
+<rect x="3073" y="710" width="23" height="21" fill="black"></rect>
+<rect x="4186" y="865" width="23" height="21" fill="black"></rect>
+<rect x="3384" y="710" width="23" height="21" fill="black"></rect>
+<rect x="2825" y="283" width="23" height="21" fill="black"></rect>
+<rect x="1669" y="298" width="23" height="21" fill="black"></rect>
+<rect x="3712" y="710" width="23" height="21" fill="black"></rect>
+<rect x="3073" y="283" width="23" height="21" fill="black"></rect>
+<rect x="1987" y="344" width="23" height="21" fill="black"></rect>
+<rect x="3384" y="283" width="23" height="21" fill="black"></rect>
+<rect x="1308" y="330" width="23" height="21" fill="black"></rect>
+<rect x="3688" y="625" width="23" height="21" fill="black"></rect>
+<rect x="3694" y="237" width="23" height="21" fill="black"></rect>
+<rect x="1357" y="453" width="23" height="21" fill="black"></rect>
+<rect x="1335" y="539" width="23" height="21" fill="black"></rect>
+<rect x="3694" y="328" width="23" height="21" fill="black"></rect>
+<rect x="1079" y="453" width="23" height="21" fill="black"></rect>
+<rect x="1987" y="253" width="23" height="21" fill="black"></rect>
+<rect x="3688" y="852" width="23" height="21" fill="black"></rect>
+</mask></svg></svg>

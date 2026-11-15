@@ -18,7 +18,7 @@
   "zshooter_ethernet": {
     "layout": "elk",
     "category": "Concepts",
-    "order": 2,
+    "order": 3,
     "aliases": [
       "network_only.svg"
     ]
@@ -26,7 +26,7 @@
   "zimager_readout": {
     "layout": "elk",
     "category": "Concepts",
-    "order": 3,
+    "order": 4,
     "aliases": [
       "imager_readout.svg"
     ]
@@ -34,7 +34,7 @@
   "zspec_nir_feedthroughs": {
     "layout": "elk",
     "category": "Concepts",
-    "order": 4,
+    "order": 5,
     "aliases": [
       "nir_feedthroughs.svg"
     ]
@@ -42,7 +42,7 @@
   "zspec_shutters": {
     "layout": "elk",
     "category": "Concepts",
-    "order": 5,
+    "order": 6,
     "aliases": [
       "shutter_triggers.svg"
     ]
@@ -50,7 +50,7 @@
   "zshooter_vacuum": {
     "layout": "elk",
     "category": "Concepts",
-    "order": 6,
+    "order": 7,
     "aliases": [
       "vacuum_protection.svg"
     ]
@@ -58,7 +58,7 @@
   "zshooter_glycol": {
     "layout": "elk",
     "category": "Concepts",
-    "order": 7,
+    "order": 8,
     "aliases": [
       "glycol_only.svg"
     ]
@@ -66,7 +66,7 @@
   "zshooter_software": {
     "layout": "elk",
     "category": "Concepts",
-    "order": 8,
+    "order": 9,
     "aliases": [
       "software_runtime_full.svg"
     ]
@@ -74,7 +74,7 @@
   "zspec_nir_support": {
     "layout": "elk",
     "category": "Concepts",
-    "order": 9,
+    "order": 10,
     "aliases": [
       "nir_support_cabinet.svg"
     ]
@@ -82,7 +82,7 @@
   "zshooter_usb": {
     "layout": "elk",
     "category": "Concepts",
-    "order": 10,
+    "order": 11,
     "aliases": [
       "usb_only.svg"
     ]
@@ -90,7 +90,7 @@
   "zshooter_connections": {
     "layout": "elk",
     "category": "Connections",
-    "order": 11,
+    "order": 12,
     "aliases": [
       "hardware_systems_full.svg"
     ]
@@ -98,7 +98,7 @@
   "zfront_connections": {
     "layout": "elk",
     "category": "Connections",
-    "order": 12,
+    "order": 13,
     "aliases": [
       "zfront_full.svg"
     ]
@@ -106,7 +106,7 @@
   "zimager_connections": {
     "layout": "elk",
     "category": "Connections",
-    "order": 13,
+    "order": 14,
     "aliases": [
       "zimager_full.svg"
     ]
@@ -114,7 +114,7 @@
   "zspec_vis_connections": {
     "layout": "elk",
     "category": "Connections",
-    "order": 14,
+    "order": 15,
     "aliases": [
       "zspec_vis.svg"
     ]
@@ -122,7 +122,7 @@
   "zspec_nir_connections": {
     "layout": "elk",
     "category": "Connections",
-    "order": 15,
+    "order": 16,
     "aliases": [
       "zspec_nir.svg"
     ]
@@ -130,7 +130,7 @@
   "zspec_connections": {
     "layout": "elk",
     "category": "Connections",
-    "order": 16,
+    "order": 17,
     "aliases": [
       "zspec_full.svg"
     ]
@@ -138,9 +138,14 @@
   "rnas_connections": {
     "layout": "elk",
     "category": "Connections",
-    "order": 17,
+    "order": 18,
     "aliases": [
       "rnas_systems_full.svg"
     ]
+  },
+  "zshooter_power": {
+    "layout": "elk",
+    "category": "Concepts",
+    "order": 2
   }
 }

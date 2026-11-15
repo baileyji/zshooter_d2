@@ -12,9 +12,9 @@ zspec_nir: {
     master: {...@../equipment.beckhoff_master; link: "../../controls/harnesses/zspec-nir.html"}
     temperature_hub: {...@../equipment.temperature_hub; link: "../../controls/harnesses/zspec-nir.html"}
     heat_exchanger: {...@../equipment.heat_exchanger; link: "../../controls/harnesses/zspec-nir.html"}
-    panels.input_panel.DC -- power_bus: {class: dc}
-    panels.input_panel.NET -- network_switch: {class: ethernet}
-    power_bus -- computer: {class: dc}
+    input_panel.DC -- power_bus: {class: [dc; power_feed]}
+    input_panel.NET -- network_switch: {class: ethernet}
+    power_bus -- computer: {class: [dc; power_feed]}
     power_bus -- master: {class: dc}
     power_bus -- network_switch: {class: dc}
     network_switch -- computer: {class: ethernet}
@@ -89,15 +89,16 @@ zspec_nir: {
     power_bus -- temp_controller: {class: dc}
     temp_controller -- panels.thermal_panel.SENSE: {class: sense; label: "Temperature"}
     temp_controller -- panels.thermal_panel.HEAT: {class: dc; label: "Heaters"}
+    # Separate input from outgoing panels to preserve service flow in layout.
+    input_panel: {
+      label: "Service input panel"
+      class: panel
+      link: "../../controls/harnesses/zspec-nir.html"
+      DC: "Power"
+      NET: "Control / readout"
+    }
     panels: {
       class: panel_group
-      input_panel: {
-        label: "Service input panel"
-        class: panel
-        link: "../../controls/harnesses/zspec-nir.html"
-        DC: "Power"
-        NET: "Control / readout"
-      }
       motion_panel: {
         label: "Mechanism panel"
         class: panel

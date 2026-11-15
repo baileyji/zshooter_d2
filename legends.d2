@@ -1,5 +1,19 @@
-navigation: {
-  links: {label: "Click an item for its documentation"; class: doc}
+overview: {
+  a.style.opacity: 0
+  b.style.opacity: 0
+  a -> b: {class: optical; label: "Light"}
+  c.style.opacity: 0
+  d.style.opacity: 0
+  c -> d: {class: data}
+}
+power: {
+  a.style.opacity: 0
+  b.style.opacity: 0
+  a -- b: {class: power}
+  c.style.opacity: 0
+  d.style.opacity: 0
+  c -- d: {class: dc}
+  ups: {...@equipment.dc_ups}
 }
 optical: {
   a0.style.opacity: 0

@@ -22,12 +22,12 @@ zimager: {
     master: {...@../equipment.beckhoff_master; link: "../../controls/harnesses/zimager.html"}
     temperature_hub: {...@../equipment.temperature_hub; link: "../../controls/harnesses/zimager.html"}
     heat_exchanger: {...@../equipment.heat_exchanger; link: "../../controls/harnesses/zimager.html"}
-    panels.input_panel.AC -- power_bus: {class: power}
-    power_bus -- dc: {class: power}
-    dc -- dc_distribution: {class: dc}
-    dc_ups -- dc_distribution: {class: dc}
-    panels.input_panel.NET -- network_switch: {class: ethernet}
-    dc_distribution -- computer: {class: dc}
+    input_panel.AC -- power_bus: {class: [power; power_feed]}
+    power_bus -- dc: {class: [power; power_feed]}
+    dc -- dc_distribution: {class: [dc; power_feed]}
+    dc_distribution -- dc_ups: {class: [dc; power_feed]}
+    input_panel.NET -- network_switch: {class: ethernet}
+    dc_distribution -- computer: {class: [dc; power_feed]}
     dc_distribution -- master: {class: dc}
     dc_distribution -- network_switch: {class: dc}
     network_switch -- computer: {class: ethernet}
@@ -36,15 +36,16 @@ zimager: {
     temperature_hub -- panels.motion_panel.TEMP: {class: sense; label: "1-Wire"}
     computer -- panels.motion_panel.FILTER: {class: ${filter.interface}}
     panels.cooling_panel.GLYCOL -- heat_exchanger: {class: glycol}
+    # Separate input from outgoing panels to preserve service flow in layout.
+    input_panel: {
+      label: "Service input panel"
+      class: panel
+      link: "../../controls/harnesses/zimager.html"
+      AC: "Power"
+      NET: "Ethernet"
+    }
     panels: {
       class: panel_group
-      input_panel: {
-        label: "Service input panel"
-        class: panel
-        link: "../../controls/harnesses/zimager.html"
-        AC: "Power"
-        NET: "Ethernet"
-      }
       motion_panel: {
         label: "Mechanism / detector panel"
         class: panel

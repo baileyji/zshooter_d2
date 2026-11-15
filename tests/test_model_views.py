@@ -1,5 +1,7 @@
 """Regression check for the maintainer's edit-once workflow. Requires D2 0.9.0."""
 from pathlib import Path
+import base64
+import re
 import shutil
 import subprocess
 import tempfile
@@ -20,6 +22,26 @@ def render(root, view, output):
              for e in svg.iter(NS + 'a')}
     return labels, links
 
+
+
+def rendered_connections(output):
+    """Read D2's rendered edge IDs, normalizing their common path prefix."""
+    edges = set()
+    for group in ET.parse(output).getroot().iter(NS + 'g'):
+        if not any('connection' in p.get('class', '').split()
+                   for p in group.findall(NS + 'path')):
+            continue
+        for token in group.get('class', '').split():
+            try:
+                key = base64.b64decode(token, validate=True).decode()
+            except (ValueError, UnicodeDecodeError):
+                continue
+            match = re.fullmatch(r'(?:(.*?)\.)?\((.*?) -- (.*?)\)\[\d+\]', key)
+            if match:
+                prefix, source, target = match.groups()
+                prefix = prefix + '.' if prefix else ''
+                edges.add(frozenset([prefix + source, prefix + target]))
+    return edges
 
 @unittest.skipUnless(shutil.which('d2'), 'D2 is required for render regression checks')
 class ModelViews(unittest.TestCase):
@@ -44,6 +66,54 @@ class ModelViews(unittest.TestCase):
                 self.assertIn('Filter renamed for regression check', labels, view)
                 self.assertIn('https://example.invalid/changed-documentation', links, view)
                 self.assertNotIn('V filter', labels, view)
+
+
+    def test_power_sources_reach_every_distribution_through_supplies(self):
+        with tempfile.TemporaryDirectory() as temp:
+            output = Path(temp) / 'power.svg'
+            render(ROOT, 'zshooter_power', output)
+            edges = rendered_connections(output)
+            front = 'rnas.zshooter.zfront.ebox.'
+            imager = 'rnas.zshooter.zimager.ebox.'
+            vis = 'rnas.zshooter.zspec_vis.ebox.'
+            nir = 'rnas.zshooter.zspec_nir.ebox.'
+            incoming = ['rnas.ac_feed', 'rnas.panel',
+                        front + 'facility_panel', front + 'ac']
+            vis_path = incoming + [front + 'panels.vis_panel', vis + 'input_panel',
+                                   vis + 'power_bus', vis + 'dc', vis + 'dc_distribution']
+            paths = [incoming + [front + 'dc', front + 'dc_distribution'],
+                     incoming + [front + 'panels.imager_panel', imager + 'input_panel',
+                                 imager + 'power_bus', imager + 'dc', imager + 'dc_distribution'],
+                     vis_path,
+                     vis_path + [vis + 'panels.nir_panel', nir + 'input_panel', nir + 'power_bus']]
+            for path in paths:
+                path.append(path[-1].rsplit('.', 1)[0] + '.computer')
+                for source, target in zip(path, path[1:]):
+                    self.assertIn(frozenset([source, target]), edges, (source, target))
+            for prefix in [front, imager, vis]:
+                ups = prefix + 'dc_ups'
+                incident = [edge for edge in edges if ups in edge]
+                self.assertEqual(incident, [frozenset([ups, prefix + 'dc_distribution'])])
+            self.assertFalse(any(nir + 'dc_ups' in edge for edge in edges))
+
+    def test_overview_follows_shared_names_and_links(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp) / 'arch'
+            shutil.copytree(ROOT, root, ignore=shutil.ignore_patterns('.git', 'svg', '__pycache__'))
+            front = root / 'model/zfront.d2'
+            front.write_text(front.read_text().replace('label: "ZFront"', 'label: "Front renamed for check"')
+                             .replace('link: "../../controls/harnesses/zfront.html"',
+                                      'link: "https://example.invalid/front"'))
+            server = root / 'model/server.d2'
+            server.write_text(server.read_text().replace('label: "NAS / NFS"', 'label: "Storage renamed for check"'))
+            optics = root / 'model/optical_paths.d2'
+            optics.write_text(optics.read_text().replace('label: "Left Neighbor"', 'label: "Neighbor renamed for check"'))
+            labels, links = render(root, 'zshooter_overview', Path(temp) / 'overview.svg')
+            for label in ['Front renamed for check', 'Storage renamed for check', 'Neighbor renamed for check']:
+                self.assertIn(label, labels)
+            self.assertIn('https://example.invalid/front', links)
+            for old in ['ZFront', 'NAS / NFS', 'Left Neighbor']:
+                self.assertNotIn(old, labels)
 
 
 if __name__ == '__main__':

@@ -10,12 +10,15 @@ Edit the instrument once; render the views that use it. Sources are ordinary D2.
 | Assembly hierarchy | `model/instrument.d2` |
 | Light paths and passive optics | `model/optical_paths.d2` |
 | Software deployment and information flow | `model/software.d2` |
+| Instrument-scale relationships | `model/overview.d2` |
 | Off-instrument NIR connections | `model/nir_support.d2` |
 | Visibility, direction, title | `views/<scope>_<subject>.d2` |
 | Appearance and legend examples | `styles.d2`, `legends.d2` |
 | Viewer order and grouping | `diagrams.json` |
 
-For example, `zshooter_usb.d2` selects USB edges from the instrument model. It contains no copied devices or wiring. The filter interface is set once in `model/zimager.d2`; both cable segments use it. Changing that setting to `ethernet` moves the path from the USB view into the Ethernet view. The physical connection views follow the same model. Optical and software views reuse physical labels and links.
+For example, `zshooter_usb.d2` selects USB edges from the instrument model. It contains no copied devices or wiring. The filter interface is set once in `model/zimager.d2`; both cable segments use it. Changing that setting to `ethernet` moves the path from the USB view into the Ethernet view. The physical connection views follow the same model. Optical, software and overview views reuse physical labels and links. The overview summarizes light and acquisition routes at assembly level; its relationships are in `model/overview.d2`. Cable and controller choices stay in their assembly models.
+
+`zshooter_power.d2` selects edges tagged `power_feed` in the shared model. It follows facility AC through the ZFront breakout to the AC/DC supplies and Phoenix Contact distribution, including the VIS-fed NIR branch. UPS modules connect as branches of distribution. Tag new supply-path edges when extending that drawing; the source-path check detects a broken feed.
 
 A tooltip is one property on the relevant item:
 
@@ -36,7 +39,9 @@ Names follow `<scope>_<subject>`: `zspec_nir_connections`, `zspec_nir_feedthroug
 
 Keep **all declarations and appearance changes before the visibility filters**. In D2 0.9, restoring an edge also restores its endpoints and ancestors. `--`, `->` and `<->` are distinct selectors. Endpoint filters such as `&src` match exact IDs; use path globs in the edge selector for a whole assembly.
 
-Visible containers identify physical assemblies. `panel_group` is an invisible layout group for adjacent panels or converters. It has no equipment identity. Avoid grids around connected devices: they can route external lines through other grid items. Use a grid only for the unconnected overview cards.
+Visible containers identify physical assemblies. `panel_group` is an invisible layout group for adjacent panels or converters. It has no equipment identity. Avoid grids around connected devices: they can route external lines through other grid items.
+
+Incoming service panels sit outside the hidden group of outgoing panels in each EBox. Grouping both ends together creates a layout cycle through the power supplies and distribution, even though the electrical path is linear.
 
 `optional` marks an optional item with a dashed outline. `provisional` is reserved for an explicitly provisional choice; this revision uses it nowhere. A model choice alone is not a reason to apply that style. Panel rows identify functional connections, not pin numbers.
 

@@ -16,16 +16,16 @@ zfront: {
     neighbor_controller: {label: "Neighbor controller"; class: controller; link: "../../controls/operations/zfront-zcal.html"}
     io: {label: "Valve / service I/O"; class: controller; link: "../../controls/operations/zfront-zcal.html"}
     heat_exchanger: {...@../equipment.heat_exchanger; link: "../../controls/operations/zfront-zcal.html"}
-    dc -- dc_distribution: {class: dc}
-    dc_ups -- dc_distribution: {class: dc}
-    ac -- dc: {class: power}
-    ac -- panels.imager_panel.AC: {class: power}
-    ac -- panels.vis_panel.AC: {class: power}
+    dc -- dc_distribution: {class: [dc; power_feed]}
+    dc_distribution -- dc_ups: {class: [dc; power_feed]}
+    ac -- dc: {class: [power; power_feed]}
+    ac -- panels.imager_panel.AC: {class: [power; power_feed]}
+    ac -- panels.vis_panel.AC: {class: [power; power_feed]}
     ac -- panels.pump_panel.AC: {class: power}
-    panels.facility_panel.AC -- ac: {class: power}
-    panels.facility_panel.NET -- network_switch: {class: ethernet}
+    facility_panel.AC -- ac: {class: [power; power_feed]}
+    facility_panel.NET -- network_switch: {class: ethernet}
     network_switch -- computer: {class: ethernet}
-    dc_distribution -- computer: {class: dc}
+    dc_distribution -- computer: {class: [dc; power_feed]}
     network_switch -- lamp_controller: {class: ethernet}
     dc_distribution -- lamp_controller: {class: dc}
     network_switch -- neighbor_controller: {class: ethernet}
@@ -44,15 +44,16 @@ zfront: {
     io -- panels.field_panel.POINT: {class: sense}
     io -- panels.field_panel.MANIFOLDS: {class: sense}
     panels.cooling_panel.GLYCOL -- heat_exchanger: {class: glycol}
+    # Separate input from outgoing panels to preserve service flow in layout.
+    facility_panel: {
+      label: "Facility panel"
+      class: panel
+      link: "../../controls/harnesses/zfront.html#rnas-to-zfront-ebox"
+      AC: "120 VAC"
+      NET: "10G fiber"
+    }
     panels: {
       class: panel_group
-      facility_panel: {
-        label: "Facility panel"
-        class: panel
-        link: "../../controls/harnesses/zfront.html#rnas-to-zfront-ebox"
-        AC: "120 VAC"
-        NET: "10G fiber"
-      }
       imager_panel: {
         label: "ZImager panel"
         class: panel

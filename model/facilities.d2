@@ -11,6 +11,8 @@ rnas: {
     AIR: "Dry air"
     GLYCOL: "Supply / return"
   }
+  ac_feed: {label: "Facility UPS AC"; class: utility; link: "../../controls/harnesses/power.html"; tooltip: "120 VAC facility feed to the RNAS panel."}
+  ac_feed -- panel.AC: {class: [power; power_feed]; label: "120 VAC"}
   fiber_panel: {
     label: "RNAS fiber panel"
     class: panel

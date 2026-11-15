@@ -15,12 +15,12 @@ zspec_vis: {
     master: {...@../equipment.beckhoff_master; link: "../../controls/harnesses/zspec-vis.html"}
     temperature_hub: {...@../equipment.temperature_hub; link: "../../controls/harnesses/zspec-vis.html"}
     heat_exchanger: {...@../equipment.heat_exchanger; link: "../../controls/harnesses/zspec-vis.html"}
-    panels.input_panel.AC -- power_bus: {class: power}
-    power_bus -- dc: {class: power}
-    dc -- dc_distribution: {class: dc}
-    dc_ups -- dc_distribution: {class: dc}
-    panels.input_panel.NET -- network_switch: {class: ethernet}
-    dc_distribution -- computer: {class: dc}
+    input_panel.AC -- power_bus: {class: [power; power_feed]}
+    power_bus -- dc: {class: [power; power_feed]}
+    dc -- dc_distribution: {class: [dc; power_feed]}
+    dc_distribution -- dc_ups: {class: [dc; power_feed]}
+    input_panel.NET -- network_switch: {class: ethernet}
+    dc_distribution -- computer: {class: [dc; power_feed]}
     dc_distribution -- master: {class: dc}
     dc_distribution -- network_switch: {class: dc}
     network_switch -- computer: {class: ethernet}
@@ -97,7 +97,7 @@ zspec_vis: {
     dc_distribution -- drive_slitcam: {class: dc}
     master -- drive_slitcam: {class: ethercat}
     drive_slitcam -- panels.motion_panel.SLITCAM: {class: [motion; optional]}
-    dc_distribution -- panels.nir_panel.DC: {class: dc}
+    dc_distribution -- panels.nir_panel.DC: {class: [dc; power_feed]}
     network_switch -- panels.nir_panel.NET: {class: ethernet}
     cryo_b: {label: "B Cryotel controller"; class: controller; link: "../../controls/harnesses/zspec-vis.html"}
     dc_distribution -- cryo_b: {class: dc}
@@ -111,15 +111,16 @@ zspec_vis: {
     dc_distribution -- cryo_r: {class: dc}
     computer -- cryo_r: {class: [usb; usb_serial]}
     cryo_r -- panels.cryo_panel.R: {class: sense; label: "Power + control"}
+    # Separate input from outgoing panels to preserve service flow in layout.
+    input_panel: {
+      label: "Service input panel"
+      class: panel
+      link: "../../controls/harnesses/zspec-vis.html"
+      AC: "Power"
+      NET: "Control / readout"
+    }
     panels: {
       class: panel_group
-      input_panel: {
-        label: "Service input panel"
-        class: panel
-        link: "../../controls/harnesses/zspec-vis.html"
-        AC: "Power"
-        NET: "Control / readout"
-      }
       motion_panel: {
         label: "Mechanism panel"
         class: panel
