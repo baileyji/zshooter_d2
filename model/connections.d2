@@ -1,20 +1,20 @@
 # Connections across assembly boundaries. Internal wiring stays with its assembly.
 rnas: {
-  panel.AC -- zshooter.zfront.ebox.facility_panel.AC: {class: [power; power_feed]; label: "120 VAC"}
+  panel.AC -- zshooter.zfront.ebox.facility_panel.AC: {class: power; label: "120 VAC"}
   panel.NET -- zshooter.zfront.ebox.facility_panel.NET: {class: ethernet; label: "10G fiber"}
   panel.AIR -- zshooter.zfront.air_manifold: {class: air}
   panel.GLYCOL -- zshooter.zfront.glycol_manifold: {class: glycol}
   zshooter: {
-    zfront.ebox.panels.imager_panel.AC -- zimager.ebox.input_panel.AC: {class: [power; power_feed]}
+    zfront.ebox.panels.imager_panel.AC -- zimager.ebox.input_panel.AC: {class: power}
     zfront.ebox.panels.imager_panel.NET -- zimager.ebox.input_panel.NET: {class: ethernet; label: "100 Mb/s copper"}
     zfront.air_manifold -- zimager.enclosure.air_dryer: {class: air}
     zfront.glycol_manifold -- zimager.glycol_manifold: {class: glycol}
-    zfront.ebox.panels.vis_panel.AC -- zspec_vis.ebox.input_panel.AC: {class: [power; power_feed]}
+    zfront.ebox.panels.vis_panel.AC -- zspec_vis.ebox.input_panel.AC: {class: power}
     zfront.ebox.panels.vis_panel.NET -- zspec_vis.ebox.input_panel.NET: {class: ethernet; label: "10G fiber"}
     zfront.air_manifold -- zspec_vis.air_dryer: {class: air}
     zfront.glycol_manifold -- zspec_vis.glycol_manifold: {class: glycol}
     zfront.glycol_manifold -- zspec_nir.glycol_manifold: {class: glycol}
-    zspec_vis.ebox.panels.nir_panel.DC -- zspec_nir.ebox.input_panel.DC: {class: [dc; power_feed]}
+    zspec_vis.ebox.panels.nir_panel.DC -- zspec_nir.ebox.input_panel.DC: {class: dc}
     zspec_vis.ebox.panels.nir_panel.NET -- zspec_nir.ebox.input_panel.NET: {class: ethernet}
     vacuum.manifold.B -- zspec_vis.dewar_b.gate_valve: {class: vacuum}
     vacuum.manifold.G -- zspec_vis.dewar_g.gate_valve: {class: vacuum}
@@ -23,15 +23,15 @@ rnas: {
     zfront.ebox.panels.pump_panel.AC -- vacuum.facility_panel.AC: {class: power}
     zfront.glycol_manifold -- vacuum.facility_panel.GLYCOL: {class: glycol}
   }
-  zshooter.zimager.ebox.panels.fiber_panel.U -- fiber_panel.U: {class: cxp_fiber}
-  zshooter.zimager.ebox.panels.fiber_panel.V -- fiber_panel.V: {class: cxp_fiber}
-  zshooter.zimager.ebox.panels.fiber_panel.Z -- fiber_panel.Z: {class: cxp_fiber}
+  zshooter.zimager.ebox.fiber_panel.U -- fiber_panel.U: {class: cxp_fiber}
+  zshooter.zimager.ebox.fiber_panel.V -- fiber_panel.V: {class: cxp_fiber}
+  zshooter.zimager.ebox.fiber_panel.Z -- fiber_panel.Z: {class: cxp_fiber}
 }
 rnas.fiber_panel.U -- server.facility_panel.U: {class: cxp_fiber}
 rnas.fiber_panel.V -- server.facility_panel.V: {class: cxp_fiber}
 rnas.fiber_panel.Z -- server.facility_panel.Z: {class: cxp_fiber}
 mechanical.compressor -- rnas.zshooter.zspec_nir.coldhead: {class: helium}
-mechanical.compressor -- rnas.zshooter.zspec_nir.coldhead: {class: sense; label: "Vane motor"}
+mechanical.compressor -- rnas.zshooter.zspec_nir.coldhead: {class: [sense; carries_power]; label: "Vane motor"}
 facility_network -- rnas.panel.NET: {class: ethernet}
 facility_network -- server.rack.service_panel.NET: {class: ethernet; label: "10G"}
 facility_network -- mechanical.cryo_monitor: {class: ethernet}

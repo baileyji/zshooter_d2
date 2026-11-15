@@ -22,19 +22,21 @@ zimager: {
     master: {...@../equipment.beckhoff_master; link: "../../controls/harnesses/zimager.html"}
     temperature_hub: {...@../equipment.temperature_hub; link: "../../controls/harnesses/zimager.html"}
     heat_exchanger: {...@../equipment.heat_exchanger; link: "../../controls/harnesses/zimager.html"}
-    input_panel.AC -- power_bus: {class: [power; power_feed]}
-    power_bus -- dc: {class: [power; power_feed]}
-    dc -- dc_distribution: {class: [dc; power_feed]}
-    dc_distribution -- dc_ups: {class: [dc; power_feed]}
+    input_panel.AC -- power_bus: {class: power}
+    power_bus -- dc: {class: power}
+    dc -- dc_distribution: {class: dc}
+    dc_distribution -- dc_ups: {class: dc}
     input_panel.NET -- network_switch: {class: ethernet}
-    dc_distribution -- computer: {class: [dc; power_feed]}
+    dc_distribution -- computer: {class: dc}
     dc_distribution -- master: {class: dc}
     dc_distribution -- network_switch: {class: dc}
+    network_switch -- dc_distribution: {class: ethernet}
     network_switch -- computer: {class: ethernet}
     network_switch -- master: {class: ethernet}
-    computer -- temperature_hub: {class: usb}
-    temperature_hub -- panels.motion_panel.TEMP: {class: sense; label: "1-Wire"}
+    computer -- temperature_hub: {class: [usb; carries_power]}
+    temperature_hub -- panels.motion_panel.TEMP: {class: [sense; carries_power]; label: "1-Wire"}
     computer -- panels.motion_panel.FILTER: {class: ${filter.interface}}
+    dc_distribution -- panels.motion_panel.FILTER_POWER: {class: dc; label: "24 VDC"}
     panels.cooling_panel.GLYCOL -- heat_exchanger: {class: glycol}
     # Separate input from outgoing panels to preserve service flow in layout.
     input_panel: {
@@ -43,6 +45,14 @@ zimager: {
       link: "../../controls/harnesses/zimager.html"
       AC: "Power"
       NET: "Ethernet"
+    }
+    fiber_panel: {
+      label: "CXP fiber panel"
+      class: panel
+      link: "../../controls/harnesses/zimager.html#detector-readout"
+      U: "U optical transport"
+      V: "V optical transport"
+      Z: "Z optical transport"
     }
     panels: {
       class: panel_group
@@ -57,6 +67,7 @@ zimager: {
         ROT_Z: "Z detector rotator"
         FOCUS: "Common focus"
         FILTER: ${filter.label}
+        FILTER_POWER: "Filter power"
         TEMP: "1Wire Temp Sensors"
         U_DC: "U detector power"
         V_DC: "V detector power"
@@ -64,14 +75,6 @@ zimager: {
         U_CXP: "U CoaXPress ×4"
         V_CXP: "V CoaXPress ×4"
         Z_CXP: "Z CoaXPress ×4"
-      }
-      fiber_panel: {
-        label: "CXP fiber panel"
-        class: panel
-        link: "../../controls/harnesses/zimager.html#detector-readout"
-        U: "U optical transport"
-        V: "V optical transport"
-        Z: "Z optical transport"
       }
       cooling_panel: {
         label: "Cooling panel"
@@ -97,7 +100,8 @@ zimager: {
   }
   glycol_manifold: {label: "Glycol submanifold"; class: manifold; link: "../../controls/harnesses/zimager.html#glycol-connections"}
   ebox.panels.motion_panel.FILTER -- enclosure.filter: {class: ${filter.interface}}
-  ebox.panels.motion_panel.TEMP -- enclosure.enclosure_probes: {class: sense; label: "1-Wire"}
+  ebox.panels.motion_panel.FILTER_POWER -- enclosure.filter: {class: dc; label: "24 VDC"}
+  ebox.panels.motion_panel.TEMP -- enclosure.enclosure_probes: {class: [sense; carries_power]; label: "1-Wire"}
   glycol_manifold -- ebox.panels.cooling_panel.GLYCOL: {class: glycol}
   ebox.drive_adc_a: {label: "ADC prism A drive"; class: controller; link: "../../controls/operations/zimager.html"}
   ebox.dc_distribution -- ebox.drive_adc_a: {class: dc}
@@ -135,7 +139,7 @@ zimager: {
   ebox.panels.motion_panel.U_DC -- enclosure.detector_u: {class: dc; label: "12 VDC"}
   enclosure.detector_u -- ebox.panels.motion_panel.U_CXP: {class: cxp}
   ebox.panels.motion_panel.U_CXP -- ebox.transmitters.u: {class: cxp}
-  ebox.transmitters.u -- ebox.panels.fiber_panel.U: {class: cxp_fiber}
+  ebox.transmitters.u -- ebox.fiber_panel.U: {class: cxp_fiber}
   glycol_manifold -- enclosure.detector_u: {class: glycol}
   enclosure.detector_v: {label: "V ORCA-Quest 2"; class: camera; link: "../../controls/operations/zimager.html#detector-acquisition"}
   ebox.dc_distribution -- ebox.transmitters.v: {class: dc}
@@ -143,7 +147,7 @@ zimager: {
   ebox.panels.motion_panel.V_DC -- enclosure.detector_v: {class: dc; label: "12 VDC"}
   enclosure.detector_v -- ebox.panels.motion_panel.V_CXP: {class: cxp}
   ebox.panels.motion_panel.V_CXP -- ebox.transmitters.v: {class: cxp}
-  ebox.transmitters.v -- ebox.panels.fiber_panel.V: {class: cxp_fiber}
+  ebox.transmitters.v -- ebox.fiber_panel.V: {class: cxp_fiber}
   glycol_manifold -- enclosure.detector_v: {class: glycol}
   enclosure.detector_z: {label: "Z ORCA-Quest 2"; class: camera; link: "../../controls/operations/zimager.html#detector-acquisition"}
   ebox.dc_distribution -- ebox.transmitters.z: {class: dc}
@@ -151,7 +155,7 @@ zimager: {
   ebox.panels.motion_panel.Z_DC -- enclosure.detector_z: {class: dc; label: "12 VDC"}
   enclosure.detector_z -- ebox.panels.motion_panel.Z_CXP: {class: cxp}
   ebox.panels.motion_panel.Z_CXP -- ebox.transmitters.z: {class: cxp}
-  ebox.transmitters.z -- ebox.panels.fiber_panel.Z: {class: cxp_fiber}
+  ebox.transmitters.z -- ebox.fiber_panel.Z: {class: cxp_fiber}
   glycol_manifold -- enclosure.detector_z: {class: glycol}
   ebox.transmitters: {
     class: panel_group

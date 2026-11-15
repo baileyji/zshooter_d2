@@ -18,7 +18,7 @@ Edit the instrument once; render the views that use it. Sources are ordinary D2.
 
 For example, `zshooter_usb.d2` selects USB edges from the instrument model. It contains no copied devices or wiring. The filter interface is set once in `model/zimager.d2`; both cable segments use it. Changing that setting to `ethernet` moves the path from the USB view into the Ethernet view. The physical connection views follow the same model. Optical, software and overview views reuse physical labels and links. The overview summarizes light and acquisition routes at assembly level; its relationships are in `model/overview.d2`. Cable and controller choices stay in their assembly models.
 
-`zshooter_power.d2` selects edges tagged `power_feed` in the shared model. It follows facility AC through the ZFront breakout to the AC/DC supplies and Phoenix Contact distribution, including the VIS-fed NIR branch. UPS modules connect as branches of distribution. Tag new supply-path edges when extending that drawing; the source-path check detects a broken feed.
+`zshooter_power.d2` follows supply paths through all modeled electrical loads, including the VIS-fed NIR branch. It selects AC (`power`), DC, motor and detector harnesses. Add `carries_power` to other combined power/signal paths, for example `class: [usb; carries_power]` for a bus-powered hub. UPS modules branch from DC distribution. The regression checks cover supply continuity and selection of newly added loads.
 
 A tooltip is one property on the relevant item:
 
@@ -31,7 +31,15 @@ filter: {
 }
 ```
 
-Links are relative to the published SVG folder, `docs/_static/d2_diagrams/`. Change a view's `title` in its D2 file; the website index reads it from the rendered SVG. Existing view URLs are retained as aliases in the catalog.
+Links are relative to the published SVG folder, `docs/_static/d2_diagrams/`. Remove an item's `link` property in its model to remove the link in every view. To clear an inherited link in one view, add an override after imports and before visibility filters:
+
+```d2
+rnas.zshooter.zimager.enclosure.link: null
+```
+
+This leaves the children's links and any `tooltip` intact. The parent repository's renderer makes container labels and link icons clickable while retaining background tooltips. Leaf devices keep their whole-block links. Legend headings link to the reading guide. These changes are saved in the SVG, so they work outside the viewer too.
+
+Change a view's `title` in its D2 file; the website index reads it from the rendered SVG. Existing view URLs are retained as aliases in the catalog.
 
 ## Views and layout
 
@@ -41,7 +49,7 @@ Keep **all declarations and appearance changes before the visibility filters**. 
 
 Visible containers identify physical assemblies. `panel_group` is an invisible layout group for adjacent panels or converters. It has no equipment identity. Avoid grids around connected devices: they can route external lines through other grid items.
 
-Incoming service panels sit outside the hidden group of outgoing panels in each EBox. Grouping both ends together creates a layout cycle through the power supplies and distribution, even though the electrical path is linear.
+Incoming service panels sit outside the hidden group of outgoing panels in each EBox. Grouping both ends together creates a layout cycle through the power supplies and distribution, even though the electrical path is linear. The ZImager fiber panel is separate from the mechanism-panel group for the same reason: readout then flows through the mechanism panel, transmitters and fiber panel in order.
 
 `optional` marks an optional item with a dashed outline. `provisional` is reserved for an explicitly provisional choice; this revision uses it nowhere. A model choice alone is not a reason to apply that style. Panel rows identify functional connections, not pin numbers.
 
@@ -54,7 +62,7 @@ bash tools/render_d2.sh --project arch
 python3 -m unittest discover -s zshooter-arch/tests
 ```
 
-For one view, add `--view zspec_nir_connections`. Standalone rendering works too:
+For one view, add `--view zspec_nir_connections`. Standalone D2 rendering also works, with native whole-container links; use the parent renderer for the label-only links and linked legend headings:
 
 ```bash
 d2 --layout elk --elk-nodeNodeBetweenLayers 25 --elk-edgeNodeBetweenLayers 15 \

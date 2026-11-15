@@ -1,6 +1,6 @@
 telescope: {label: "Keck I telescope"; class: device; link: "../../optical_design.html"}
-left_neighbor: {label: "Left Neighbor"; class: device; link: "../../controls/operations/zfront-zcal.html"}
-right_neighbor: {label: "Right Neighbor"; class: device; link: "../../controls/operations/zfront-zcal.html"}
+left_neighbor: {label: "Left Neighbor"; class: device}
+right_neighbor: {label: "Right Neighbor"; class: device}
 telescope -> rnas.zshooter.zfront.inst_selector: {class: optical}
 rnas.zshooter.zfront.inst_selector -> left_neighbor: {class: optical}
 rnas.zshooter.zfront.inst_selector -> right_neighbor: {class: optical}

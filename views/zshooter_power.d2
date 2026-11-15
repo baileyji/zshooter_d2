@@ -1,4 +1,4 @@
-# Supply paths are tagged on the shared model's physical connections.
+# All modeled electrical supply paths, including powered combined harnesses.
 direction: right
 ...@../styles
 ...@../model/instrument
@@ -10,5 +10,9 @@ vars: {d2-legend: @../legends.power}
 (** -- **)[*]: suspend
 (** -> **)[*]: suspend
 (** <-> **)[*]: suspend
-(** -- **)[*]: unsuspend {&class: power_feed}
+(** -- **)[*]: unsuspend {&class: power}
+(** -- **)[*]: unsuspend {&class: dc}
+(** -- **)[*]: unsuspend {&class: motion}
+(** -- **)[*]: unsuspend {&class: detector}
+(** -- **)[*]: unsuspend {&class: carries_power}
 title: unsuspend

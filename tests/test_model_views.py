@@ -24,10 +24,12 @@ def render(root, view, output):
 
 
 
-def rendered_connections(output):
+def rendered_connections(output, classes=None):
     """Read D2's rendered edge IDs, normalizing their common path prefix."""
     edges = set()
     for group in ET.parse(output).getroot().iter(NS + 'g'):
+        if classes and not classes.intersection(group.get('class', '').split()):
+            continue
         if not any('connection' in p.get('class', '').split()
                    for p in group.findall(NS + 'path')):
             continue
@@ -40,7 +42,8 @@ def rendered_connections(output):
             if match:
                 prefix, source, target = match.groups()
                 prefix = prefix + '.' if prefix else ''
-                edges.add(frozenset([prefix + source, prefix + target]))
+                if (prefix + source).split('.')[0] in {'rnas', 'server', 'mechanical', 'facility_network'}:
+                    edges.add(frozenset([prefix + source, prefix + target]))
     return edges
 
 @unittest.skipUnless(shutil.which('d2'), 'D2 is required for render regression checks')
@@ -95,6 +98,32 @@ class ModelViews(unittest.TestCase):
                 incident = [edge for edge in edges if ups in edge]
                 self.assertEqual(incident, [frozenset([ups, prefix + 'dc_distribution'])])
             self.assertFalse(any(nir + 'dc_ups' in edge for edge in edges))
+
+    def test_power_includes_all_supply_paths_and_new_loads(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp) / 'arch'
+            shutil.copytree(ROOT, root, ignore=shutil.ignore_patterns('.git', 'svg', '__pycache__'))
+            model = root / 'model/zimager.d2'
+            with model.open('a') as f:
+                f.write('\nzimager.ebox.dc_distribution -- zimager.enclosure.added_load: {class: dc}\n')
+            complete, power = Path(temp) / 'complete.svg', Path(temp) / 'power.svg'
+            render(root, 'zshooter_connections', complete)
+            render(root, 'zshooter_power', power)
+            supply_classes = {'power', 'dc', 'motion', 'detector', 'carries_power'}
+            expected = rendered_connections(complete, supply_classes)
+            self.assertGreater(len(expected), 150)
+            self.assertEqual(rendered_connections(power), expected)
+            self.assertIn(frozenset(['rnas.zshooter.zimager.ebox.dc_distribution',
+                                     'rnas.zshooter.zimager.enclosure.added_load']), expected)
+
+    def test_smart_distribution_is_on_each_local_ethernet_switch(self):
+        with tempfile.TemporaryDirectory() as temp:
+            output = Path(temp) / 'ethernet.svg'
+            render(ROOT, 'zshooter_ethernet', output)
+            edges = rendered_connections(output)
+            for assembly in ['zfront', 'zimager', 'zspec_vis']:
+                prefix = f'rnas.zshooter.{assembly}.ebox.'
+                self.assertIn(frozenset([prefix + 'network_switch', prefix + 'dc_distribution']), edges)
 
     def test_overview_follows_shared_names_and_links(self):
         with tempfile.TemporaryDirectory() as temp:

@@ -15,18 +15,19 @@ zspec_vis: {
     master: {...@../equipment.beckhoff_master; link: "../../controls/harnesses/zspec-vis.html"}
     temperature_hub: {...@../equipment.temperature_hub; link: "../../controls/harnesses/zspec-vis.html"}
     heat_exchanger: {...@../equipment.heat_exchanger; link: "../../controls/harnesses/zspec-vis.html"}
-    input_panel.AC -- power_bus: {class: [power; power_feed]}
-    power_bus -- dc: {class: [power; power_feed]}
-    dc -- dc_distribution: {class: [dc; power_feed]}
-    dc_distribution -- dc_ups: {class: [dc; power_feed]}
+    input_panel.AC -- power_bus: {class: power}
+    power_bus -- dc: {class: power}
+    dc -- dc_distribution: {class: dc}
+    dc_distribution -- dc_ups: {class: dc}
     input_panel.NET -- network_switch: {class: ethernet}
-    dc_distribution -- computer: {class: [dc; power_feed]}
+    dc_distribution -- computer: {class: dc}
     dc_distribution -- master: {class: dc}
     dc_distribution -- network_switch: {class: dc}
+    network_switch -- dc_distribution: {class: ethernet}
     network_switch -- computer: {class: ethernet}
     network_switch -- master: {class: ethernet}
-    computer -- temperature_hub: {class: usb}
-    temperature_hub -- panels.aux_panel.TEMP: {class: sense; label: "1-Wire"}
+    computer -- temperature_hub: {class: [usb; carries_power]}
+    temperature_hub -- panels.aux_panel.TEMP: {class: [sense; carries_power]; label: "1-Wire"}
     drive_preoptic: {label: "Relay Optic (VIS/NIR focus) drive"; class: controller; link: "../../controls/operations/zspec.html"}
     dc_distribution -- drive_preoptic: {class: dc}
     master -- drive_preoptic: {class: ethercat}
@@ -97,20 +98,20 @@ zspec_vis: {
     dc_distribution -- drive_slitcam: {class: dc}
     master -- drive_slitcam: {class: ethercat}
     drive_slitcam -- panels.motion_panel.SLITCAM: {class: [motion; optional]}
-    dc_distribution -- panels.nir_panel.DC: {class: [dc; power_feed]}
+    dc_distribution -- panels.nir_panel.DC: {class: dc}
     network_switch -- panels.nir_panel.NET: {class: ethernet}
     cryo_b: {label: "B Cryotel controller"; class: controller; link: "../../controls/harnesses/zspec-vis.html"}
     dc_distribution -- cryo_b: {class: dc}
     computer -- cryo_b: {class: [usb; usb_serial]}
-    cryo_b -- panels.cryo_panel.B: {class: sense; label: "Power + control"}
+    cryo_b -- panels.cryo_panel.B: {class: [sense; carries_power]; label: "Power + control"}
     cryo_g: {label: "G Cryotel controller"; class: controller; link: "../../controls/harnesses/zspec-vis.html"}
     dc_distribution -- cryo_g: {class: dc}
     computer -- cryo_g: {class: [usb; usb_serial]}
-    cryo_g -- panels.cryo_panel.G: {class: sense; label: "Power + control"}
+    cryo_g -- panels.cryo_panel.G: {class: [sense; carries_power]; label: "Power + control"}
     cryo_r: {label: "R Cryotel controller"; class: controller; link: "../../controls/harnesses/zspec-vis.html"}
     dc_distribution -- cryo_r: {class: dc}
     computer -- cryo_r: {class: [usb; usb_serial]}
-    cryo_r -- panels.cryo_panel.R: {class: sense; label: "Power + control"}
+    cryo_r -- panels.cryo_panel.R: {class: [sense; carries_power]; label: "Power + control"}
     # Separate input from outgoing panels to preserve service flow in layout.
     input_panel: {
       label: "Service input panel"
@@ -211,7 +212,7 @@ zspec_vis: {
   ebox.panels.aux_panel.CAM_POWER -- slit_viewer: {class: dc}
   ebox.panels.aux_panel.CAM_DATA -- slit_viewer: {class: usb}
   enclosure_probes: {label: "1Wire Temp Sensors"; class: device; link: "../../controls/harnesses/zspec-vis.html"}
-  ebox.panels.aux_panel.TEMP -- enclosure_probes: {class: sense; label: "1-Wire"}
+  ebox.panels.aux_panel.TEMP -- enclosure_probes: {class: [sense; carries_power]; label: "1-Wire"}
   archon_b: {...@../equipment.archon; label: "B Archon"; link: "../../controls/harnesses/zspec-vis.html#detector-harnesses-and-feedthroughs"}
   ebox.panels.readout_panel.B_POWER -- archon_b: {class: dc}
   ebox.panels.readout_panel.B_NET -- archon_b: {class: ethernet}
@@ -229,11 +230,11 @@ zspec_vis: {
       FOCUS: "Focus motor / position"
       THERM: "Detector thermal circuits"
     }
-    detector: {label: "B STA5900q"; class: camera; link: "../../controls/operations/zspec.html"}
+    detector: {label: "B STA5900q"; class: camera; link: "../../detector_technologies.html#zspec-vis-qccds"}
     focus: {label: "B detector focus"; class: actuator; link: "../../controls/operations/zspec.html"}
     vib.DET -- detector: {class: detector}
     vib.FOCUS -- focus: {class: motion}
-    vib.THERM -- detector: {class: sense; label: "Temperature / heater"}
+    vib.THERM -- detector: {class: [sense; carries_power]; label: "Temperature / heater"}
     service_ports: {
       label: "B vessel ports"
       class: panel
@@ -245,10 +246,10 @@ zspec_vis: {
     gauge: {label: "B vacuum gauge"; class: device; tooltip: "Mounted on the detector vessel, outside vacuum."; link: "../../controls/harnesses/vacuum.html"}
   }
   archon_b -- dewar_b.vib.DET: {class: detector}
-  archon_b -- dewar_b.vib.THERM: {class: sense; label: "Temperature / heater"}
+  archon_b -- dewar_b.vib.THERM: {class: [sense; carries_power]; label: "Temperature / heater"}
   ebox.panels.motion_panel.FOCUS_B -- dewar_b.vib.FOCUS: {class: motion}
   coldhead_b: {label: "B Cryotel coldhead"; class: device; link: "../../controls/harnesses/zspec-vis.html"}
-  ebox.panels.cryo_panel.B -- coldhead_b: {class: sense; label: "Power + control"}
+  ebox.panels.cryo_panel.B -- coldhead_b: {class: [sense; carries_power]; label: "Power + control"}
   glycol_manifold -- coldhead_b: {class: glycol}
   coldhead_b -- dewar_b.service_ports.COLD: {class: thermal; label: "Cold finger"}
   ebox.panels.aux_panel.GAUGE_B -- dewar_b.gauge: {class: [usb; usb_serial]}
@@ -273,11 +274,11 @@ zspec_vis: {
       FOCUS: "Focus motor / position"
       THERM: "Detector thermal circuits"
     }
-    detector: {label: "G STA5900q"; class: camera; link: "../../controls/operations/zspec.html"}
+    detector: {label: "G STA5900q"; class: camera; link: "../../detector_technologies.html#zspec-vis-qccds"}
     focus: {label: "G detector focus"; class: actuator; link: "../../controls/operations/zspec.html"}
     vib.DET -- detector: {class: detector}
     vib.FOCUS -- focus: {class: motion}
-    vib.THERM -- detector: {class: sense; label: "Temperature / heater"}
+    vib.THERM -- detector: {class: [sense; carries_power]; label: "Temperature / heater"}
     service_ports: {
       label: "G vessel ports"
       class: panel
@@ -289,10 +290,10 @@ zspec_vis: {
     gauge: {label: "G vacuum gauge"; class: device; tooltip: "Mounted on the detector vessel, outside vacuum."; link: "../../controls/harnesses/vacuum.html"}
   }
   archon_g -- dewar_g.vib.DET: {class: detector}
-  archon_g -- dewar_g.vib.THERM: {class: sense; label: "Temperature / heater"}
+  archon_g -- dewar_g.vib.THERM: {class: [sense; carries_power]; label: "Temperature / heater"}
   ebox.panels.motion_panel.FOCUS_G -- dewar_g.vib.FOCUS: {class: motion}
   coldhead_g: {label: "G Cryotel coldhead"; class: device; link: "../../controls/harnesses/zspec-vis.html"}
-  ebox.panels.cryo_panel.G -- coldhead_g: {class: sense; label: "Power + control"}
+  ebox.panels.cryo_panel.G -- coldhead_g: {class: [sense; carries_power]; label: "Power + control"}
   glycol_manifold -- coldhead_g: {class: glycol}
   coldhead_g -- dewar_g.service_ports.COLD: {class: thermal; label: "Cold finger"}
   ebox.panels.aux_panel.GAUGE_G -- dewar_g.gauge: {class: [usb; usb_serial]}
@@ -317,11 +318,11 @@ zspec_vis: {
       FOCUS: "Focus motor / position"
       THERM: "Detector thermal circuits"
     }
-    detector: {label: "R STA5900q"; class: camera; link: "../../controls/operations/zspec.html"}
+    detector: {label: "R STA5900q"; class: camera; link: "../../detector_technologies.html#zspec-vis-qccds"}
     focus: {label: "R detector focus"; class: actuator; link: "../../controls/operations/zspec.html"}
     vib.DET -- detector: {class: detector}
     vib.FOCUS -- focus: {class: motion}
-    vib.THERM -- detector: {class: sense; label: "Temperature / heater"}
+    vib.THERM -- detector: {class: [sense; carries_power]; label: "Temperature / heater"}
     service_ports: {
       label: "R vessel ports"
       class: panel
@@ -333,10 +334,10 @@ zspec_vis: {
     gauge: {label: "R vacuum gauge"; class: device; tooltip: "Mounted on the detector vessel, outside vacuum."; link: "../../controls/harnesses/vacuum.html"}
   }
   archon_r -- dewar_r.vib.DET: {class: detector}
-  archon_r -- dewar_r.vib.THERM: {class: sense; label: "Temperature / heater"}
+  archon_r -- dewar_r.vib.THERM: {class: [sense; carries_power]; label: "Temperature / heater"}
   ebox.panels.motion_panel.FOCUS_R -- dewar_r.vib.FOCUS: {class: motion}
   coldhead_r: {label: "R Cryotel coldhead"; class: device; link: "../../controls/harnesses/zspec-vis.html"}
-  ebox.panels.cryo_panel.R -- coldhead_r: {class: sense; label: "Power + control"}
+  ebox.panels.cryo_panel.R -- coldhead_r: {class: [sense; carries_power]; label: "Power + control"}
   glycol_manifold -- coldhead_r: {class: glycol}
   coldhead_r -- dewar_r.service_ports.COLD: {class: thermal; label: "Cold finger"}
   ebox.panels.aux_panel.GAUGE_R -- dewar_r.gauge: {class: [usb; usb_serial]}

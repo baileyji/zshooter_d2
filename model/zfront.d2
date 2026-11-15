@@ -11,21 +11,21 @@ zfront: {
     dc_distribution: {...@../equipment.dc_distribution; link: "../../controls/harnesses/power.html"}
     dc_ups: {...@../equipment.dc_ups; link: "../../controls/harnesses/power.html"}
     network_switch: {label: "Managed switch"; class: computer; link: "../../controls/operations/zfront-zcal.html"}
-    computer: {label: "ZFront host"; class: computer; link: "../../controls/operations/zfront-zcal.html"}
+    computer: {label: "ZFront Controller(s)/rPi"; class: computer; link: "../../controls/operations/zfront-zcal.html"}
     lamp_controller: {label: "Lamp controller"; class: controller; link: "../../controls/operations/zfront-zcal.html"}
     neighbor_controller: {label: "Neighbor controller"; class: controller; link: "../../controls/operations/zfront-zcal.html"}
     io: {label: "Valve / service I/O"; class: controller; link: "../../controls/operations/zfront-zcal.html"}
     heat_exchanger: {...@../equipment.heat_exchanger; link: "../../controls/operations/zfront-zcal.html"}
-    dc -- dc_distribution: {class: [dc; power_feed]}
-    dc_distribution -- dc_ups: {class: [dc; power_feed]}
-    ac -- dc: {class: [power; power_feed]}
-    ac -- panels.imager_panel.AC: {class: [power; power_feed]}
-    ac -- panels.vis_panel.AC: {class: [power; power_feed]}
+    dc -- dc_distribution: {class: dc}
+    dc_distribution -- dc_ups: {class: dc}
+    ac -- dc: {class: power}
+    ac -- panels.imager_panel.AC: {class: power}
+    ac -- panels.vis_panel.AC: {class: power}
     ac -- panels.pump_panel.AC: {class: power}
-    facility_panel.AC -- ac: {class: [power; power_feed]}
+    facility_panel.AC -- ac: {class: power}
     facility_panel.NET -- network_switch: {class: ethernet}
     network_switch -- computer: {class: ethernet}
-    dc_distribution -- computer: {class: [dc; power_feed]}
+    dc_distribution -- computer: {class: dc}
     network_switch -- lamp_controller: {class: ethernet}
     dc_distribution -- lamp_controller: {class: dc}
     network_switch -- neighbor_controller: {class: ethernet}
@@ -33,6 +33,7 @@ zfront: {
     network_switch -- io: {class: ethernet}
     dc_distribution -- io: {class: dc}
     dc_distribution -- network_switch: {class: dc}
+    network_switch -- dc_distribution: {class: ethernet}
     dc_distribution -- panels.field_panel.MANIFOLDS: {class: dc}
     network_switch -- panels.imager_panel.NET: {class: ethernet}
     network_switch -- panels.vis_panel.NET: {class: ethernet}
@@ -110,7 +111,7 @@ zfront: {
   ebox.panels.field_panel.CAL_INSERT -- cal_inserter: {class: sense; label: ""}
   air_manifold -- point_selector: {class: air}
   ebox.panels.field_panel.POINT -- point_selector: {class: sense; label: ""}
-  ebox.panels.field_panel.MANIFOLDS -- air_manifold: {class: sense; label: ""}
-  ebox.panels.field_panel.MANIFOLDS -- glycol_manifold: {class: sense; label: ""}
+  ebox.panels.field_panel.MANIFOLDS -- air_manifold: {class: [sense; carries_power]; label: ""}
+  ebox.panels.field_panel.MANIFOLDS -- glycol_manifold: {class: [sense; carries_power]; label: ""}
   glycol_manifold -- ebox.panels.cooling_panel.GLYCOL: {class: glycol}
 }
