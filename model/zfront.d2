@@ -1,0 +1,113 @@
+zfront: {
+  label: "ZFront"
+  class: module
+  link: "../../controls/harnesses/zfront.html"
+  ebox: {
+    label: "ZFront EBox"
+    class: ebox
+    link: "../../controls/harnesses/zfront.html"
+    ac: {...@../equipment.ac_distribution; link: "../../controls/operations/zfront-zcal.html"}
+    dc: {...@../equipment.dc_supply; link: "../../controls/operations/zfront-zcal.html"}
+    dc_ups: {...@../equipment.dc_ups; link: "../../controls/harnesses/power.html"}
+    network_switch: {label: "Managed switch"; class: computer; link: "../../controls/operations/zfront-zcal.html"}
+    computer: {label: "ZFront host"; class: computer; link: "../../controls/operations/zfront-zcal.html"}
+    lamp_controller: {label: "Lamp controller"; class: controller; link: "../../controls/operations/zfront-zcal.html"}
+    neighbor_controller: {label: "Neighbor controller"; class: controller; link: "../../controls/operations/zfront-zcal.html"}
+    io: {label: "Valve / service I/O"; class: controller; link: "../../controls/operations/zfront-zcal.html"}
+    heat_exchanger: {...@../equipment.heat_exchanger; link: "../../controls/operations/zfront-zcal.html"}
+    dc -- dc_ups: {class: dc}
+    ac -- dc: {class: power}
+    ac -- panels.imager_panel.AC: {class: power}
+    ac -- panels.vis_panel.AC: {class: power}
+    ac -- panels.pump_panel.AC: {class: power}
+    panels.facility_panel.AC -- ac: {class: power}
+    panels.facility_panel.NET -- network_switch: {class: ethernet}
+    network_switch -- computer: {class: ethernet}
+    dc_ups -- computer: {class: dc}
+    network_switch -- lamp_controller: {class: ethernet}
+    dc_ups -- lamp_controller: {class: dc}
+    network_switch -- neighbor_controller: {class: ethernet}
+    dc_ups -- neighbor_controller: {class: dc}
+    network_switch -- io: {class: ethernet}
+    dc_ups -- io: {class: dc}
+    dc_ups -- network_switch: {class: dc}
+    dc_ups -- panels.field_panel.MANIFOLDS: {class: dc}
+    network_switch -- panels.imager_panel.NET: {class: ethernet}
+    network_switch -- panels.vis_panel.NET: {class: ethernet}
+    lamp_controller -- panels.field_panel.LAMP: {class: power; label: "Lamp supplies"}
+    neighbor_controller -- panels.field_panel.NEIGHBOR: {class: motion}
+    io -- panels.field_panel.VALVES: {class: sense}
+    io -- panels.field_panel.ZI_ZS: {class: sense}
+    io -- panels.field_panel.CAL_INSERT: {class: sense}
+    io -- panels.field_panel.POINT: {class: sense}
+    io -- panels.field_panel.MANIFOLDS: {class: sense}
+    panels.cooling_panel.GLYCOL -- heat_exchanger: {class: glycol}
+    panels: {
+      class: panel_group
+      facility_panel: {
+        label: "Facility panel"
+        class: panel
+        link: "../../controls/harnesses/zfront.html#rnas-to-zfront-ebox"
+        AC: "120 VAC"
+        NET: "10G fiber"
+      }
+      imager_panel: {
+        label: "ZImager panel"
+        class: panel
+        link: "../../controls/harnesses/zfront.html#zfront-ebox-to-zimager"
+        AC: "Power"
+        NET: "Control network"
+      }
+      vis_panel: {
+        label: "ZSpec panel"
+        class: panel
+        link: "../../controls/harnesses/zfront.html#zfront-ebox-to-zspec-vis-ebox"
+        AC: "Power"
+        NET: "10G fiber"
+      }
+      pump_panel: {
+        label: "Vacuum pump panel"
+        class: panel
+        link: "../../controls/harnesses/vacuum.html"
+        AC: "Pump power"
+      }
+      field_panel: {
+        label: "Mechanism / service panel"
+        class: panel
+        link: "../../controls/harnesses/zfront.html#zfront-ebox-to-zfront-mechanisms-and-manifolds"
+        LAMP: "Lamp supplies"
+        NEIGHBOR: "Motor + position"
+        VALVES: "Valve commands"
+        ZI_ZS: "Selector position"
+        CAL_INSERT: "Inserter position"
+        POINT: "Point / diffuse position"
+        MANIFOLDS: "Power + sensing"
+      }
+      cooling_panel: {
+        label: "Cooling panel"
+        class: panel
+        link: "../../controls/harnesses/zfront.html#glycol-connections"
+        GLYCOL: "Supply / return"
+      }
+    }
+  }
+  inst_selector: {label: "Neighbor selector"; class: actuator; link: "../../controls/operations/zfront-zcal.html"}
+  zim_zspec_selector: {label: "ZImager / ZSpec selector"; class: actuator; link: "../../controls/operations/zfront-zcal.html"}
+  cal_inserter: {label: "Calibration inserter"; class: actuator; link: "../../controls/operations/zfront-zcal.html"}
+  point_selector: {label: "Point / diffuse selector"; class: actuator; link: "../../controls/operations/zfront-zcal.html"}
+  sources: {label: "Calibration sources"; class: device; link: "../../controls/operations/zfront-zcal.html"}
+  air_manifold: {label: "Air manifold + valves"; class: manifold; link: "../../controls/harnesses/zfront.html"}
+  glycol_manifold: {label: "Smart glycol manifold"; class: manifold; link: "../../controls/harnesses/zfront.html"}
+  ebox.panels.field_panel.NEIGHBOR -- inst_selector: {class: motion}
+  ebox.panels.field_panel.LAMP -- sources: {class: power; label: "Lamp supplies"}
+  ebox.panels.field_panel.VALVES -- air_manifold: {class: sense; label: ""}
+  air_manifold -- zim_zspec_selector: {class: air}
+  ebox.panels.field_panel.ZI_ZS -- zim_zspec_selector: {class: sense; label: ""}
+  air_manifold -- cal_inserter: {class: air}
+  ebox.panels.field_panel.CAL_INSERT -- cal_inserter: {class: sense; label: ""}
+  air_manifold -- point_selector: {class: air}
+  ebox.panels.field_panel.POINT -- point_selector: {class: sense; label: ""}
+  ebox.panels.field_panel.MANIFOLDS -- air_manifold: {class: sense; label: ""}
+  ebox.panels.field_panel.MANIFOLDS -- glycol_manifold: {class: sense; label: ""}
+  glycol_manifold -- ebox.panels.cooling_panel.GLYCOL: {class: glycol}
+}

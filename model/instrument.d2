@@ -1,0 +1,17 @@
+# Physical identity and wiring are defined once in these assembly files.
+# Optical paths add passive optics and light-path edges to the same identities.
+...@facilities
+rnas.zshooter: {
+  label: "ZShooter"
+  class: module
+  link: "../../architecture.html"
+  ...@zfront
+  ...@zimager
+  ...@zspec_vis
+  ...@zspec_nir
+  ...@vacuum
+}
+...@server
+...@mechanical
+...@connections
+...@optical_paths

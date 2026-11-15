@@ -1,0 +1,50 @@
+telescope: {label: "Keck I telescope"; class: device; link: "../../optical_design.html"}
+neighbors: {label: "Neighboring instruments"; class: device; link: "../../controls/operations/zfront-zcal.html"}
+telescope -> rnas.zshooter.zfront.inst_selector: {class: optical}
+rnas.zshooter.zfront.inst_selector -> neighbors: {class: optical}
+rnas.zshooter: {
+  zfront: {
+    inst_selector -> zim_zspec_selector: {class: optical}
+    sources -> point_selector: {class: optical}
+    point_selector -> cal_inserter: {class: optical}
+    cal_inserter -> zim_zspec_selector: {class: optical}
+  }
+  zfront.zim_zspec_selector -> zimager.enclosure.adc_a: {class: optical}
+  zimager.enclosure: {
+    dichroics: {label: "Channel dichroics"; class: device; link: "../../zimager_optical.html"}
+    adc_a -> adc_b -> dichroics: {class: optical}
+    dichroics -> detector_u: {class: optical}
+    dichroics -> filter -> detector_v: {class: optical}
+    dichroics -> detector_z: {class: optical}
+  }
+  splitter: {label: "VIS / NIR dichroic"; class: device; link: "../../zspec_optical.html"}
+  zfront.zim_zspec_selector -> splitter: {class: optical}
+  splitter -> zspec_vis.shutter: {class: optical}
+  zspec_vis: {
+    steering_relay: {label: "X / Y steering"; class: device; link: "../../zspec_optical.html#pre-optics-and-slit-planes"; tooltip: "The final relay doublet translates in X and Y for nodding and fine guiding."}
+    spectrograph: {label: "VIS spectrograph"; class: device; link: "../../zspec_optical.html"}
+    shutter -> preoptic_focus -> adc_a -> adc_b -> rotator -> steering_relay -> slit: {class: optical}
+    slit -> spectrograph: {class: optical}
+    spectrograph -> dewar_b.detector: {class: optical}
+    spectrograph -> dewar_g.detector: {class: optical}
+    spectrograph -> dewar_r.detector: {class: optical}
+    slit -> slit_viewer: {class: optical}
+  }
+  splitter -> zspec_nir.entrance_relay: {class: optical}
+  zspec_nir: {
+    entrance_relay: {label: "Entrance relay / window"; class: device; link: "../../zspec_optical.html#pre-optics-and-slit-planes"; tooltip: "The final element of the first NIR relay doublet is the vacuum window."}
+    entrance_relay -> cryostat.shutter: {class: optical}
+    cryostat: {
+      steering_relay: {label: "X / Y steering"; class: device; link: "../../zspec_optical.html#pre-optics-and-slit-planes"; tooltip: "The final relay doublet translates in X and Y for nodding and fine guiding."}
+      spectrograph: {label: "NIR spectrograph"; class: device; link: "../../zspec_optical.html"}
+      slit_port: {label: "Baffled optical port"; class: device; link: "../../controls/harnesses/zspec-nir.html#slit-viewer-connections"; tooltip: "A cold shortpass filter and baffle exclude warm infrared background."}
+      shutter -> pupil_rotator -> adc_a -> adc_b -> rotator -> steering_relay -> slit: {class: optical}
+      slit -> spectrograph: {class: optical}
+      spectrograph -> detector_yj: {class: optical}
+      spectrograph -> detector_h: {class: optical}
+      spectrograph -> detector_k: {class: optical}
+      slit -> slit_port: {class: optical}
+    }
+    cryostat.slit_port -> slit_viewer: {class: optical}
+  }
+}

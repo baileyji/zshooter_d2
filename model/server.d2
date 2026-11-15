@@ -1,0 +1,62 @@
+server: {
+  label: "Server room"
+  class: room
+  link: "../../controls/harnesses/server.html"
+  facility_panel: {
+    label: "Facility fiber panel"
+    class: panel
+    link: "../../controls/harnesses/server.html#readout-interfaces"
+    U: "U CXP optical transport"
+    V: "V CXP optical transport"
+    Z: "Z CXP optical transport"
+  }
+  rack: {
+    label: "ZShooter rack"
+    class: ebox
+    link: "../../controls/harnesses/server.html"
+    service_panel: {
+      label: "Rack service panel"
+      class: panel
+      link: "../../controls/harnesses/server.html"
+      AC: "Power"
+      NET: "Facility uplink"
+    }
+    ups: {label: "Managed UPS"; class: utility; link: "../../controls/operations/computer-management.html"}
+    network_switch: {label: "10G Ethernet Switch"; class: computer; link: "../../controls/harnesses/networking.html"}
+    reduction_computer: {label: "DRP computer"; class: computer; link: "../../controls/operations/computer-management.html"}
+    nas: {label: "NAS / NFS"; class: computer; link: "../../controls/operations/computer-management.html"}
+    zspec_readout_computer: {label: "ZSpec readout host"; class: computer; link: "../../controls/operations/computer-management.html"; tooltip: "1G is sufficient for 72 MB per set of six frames. A 10G interface may be fitted to share the base specification of the other hosts."}
+    zimage_readout_computer: {
+      label: "ZImager readout host"
+      class: computer
+      link: "../../controls/harnesses/server.html"
+    }
+    service_panel.AC -- ups: {class: power}
+    service_panel.NET -- network_switch: {class: ethernet; label: "10G"}
+    ups -- network_switch: {class: power}
+    network_switch -- ups: {class: ethernet}
+  }
+  rack.ups -- rack.reduction_computer: {class: power}
+  rack.network_switch -- rack.reduction_computer: {class: ethernet; label: "10G"}
+  rack.ups -- rack.nas: {class: power}
+  rack.network_switch -- rack.nas: {class: ethernet; label: "10G"}
+  rack.ups -- rack.zspec_readout_computer: {class: power}
+  rack.network_switch -- rack.zspec_readout_computer: {class: ethernet; label: "1G"}
+  rack.ups -- rack.zimage_readout_computer: {class: power}
+  rack.network_switch -- rack.zimage_readout_computer: {class: ethernet; label: "10G"}
+  rack.cxp_rx_u: {label: "U CXP optical receiver"; class: controller; link: "../../controls/harnesses/server.html#readout-interfaces"}
+  rack.zimage_readout_computer.card_u: {label: "U CXP card"; class: controller; link: "../../controls/harnesses/server.html#readout-interfaces"}
+  rack.ups -- rack.cxp_rx_u: {class: power}
+  facility_panel.U -- rack.cxp_rx_u: {class: cxp_fiber}
+  rack.cxp_rx_u -- rack.zimage_readout_computer.card_u: {class: cxp}
+  rack.cxp_rx_v: {label: "V CXP optical receiver"; class: controller; link: "../../controls/harnesses/server.html#readout-interfaces"}
+  rack.zimage_readout_computer.card_v: {label: "V CXP card"; class: controller; link: "../../controls/harnesses/server.html#readout-interfaces"}
+  rack.ups -- rack.cxp_rx_v: {class: power}
+  facility_panel.V -- rack.cxp_rx_v: {class: cxp_fiber}
+  rack.cxp_rx_v -- rack.zimage_readout_computer.card_v: {class: cxp}
+  rack.cxp_rx_z: {label: "Z CXP optical receiver"; class: controller; link: "../../controls/harnesses/server.html#readout-interfaces"}
+  rack.zimage_readout_computer.card_z: {label: "Z CXP card"; class: controller; link: "../../controls/harnesses/server.html#readout-interfaces"}
+  rack.ups -- rack.cxp_rx_z: {class: power}
+  facility_panel.Z -- rack.cxp_rx_z: {class: cxp_fiber}
+  rack.cxp_rx_z -- rack.zimage_readout_computer.card_z: {class: cxp}
+}

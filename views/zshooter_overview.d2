@@ -1,0 +1,82 @@
+# Navigation cards reuse the model's labels and links. This view has no wiring.
+direction: right
+...@../styles
+rnas: {
+  label: @../model/facilities.rnas.label
+  class: room
+  link: @../model/facilities.rnas.link
+}
+rnas.zshooter: {
+  label: @../model/instrument.rnas.zshooter.label
+  class: module
+  link: @../model/instrument.rnas.zshooter.link
+}
+rnas.zshooter.zfront: {
+  label: @../model/zfront.zfront.label
+  class: doc
+  link: @../model/zfront.zfront.link
+}
+rnas.zshooter.zimager: {
+  label: @../model/zimager.zimager.label
+  class: doc
+  link: @../model/zimager.zimager.link
+}
+rnas.zshooter.zspec_vis: {
+  label: @../model/zspec_vis.zspec_vis.label
+  class: doc
+  link: @../model/zspec_vis.zspec_vis.link
+}
+rnas.zshooter.zspec_nir: {
+  label: @../model/zspec_nir.zspec_nir.label
+  class: doc
+  link: @../model/zspec_nir.zspec_nir.link
+}
+rnas.zshooter.vacuum: {
+  label: @../model/vacuum.vacuum.label
+  class: doc
+  link: @../model/vacuum.vacuum.link
+}
+server: {
+  label: @../model/server.server.label
+  class: room
+  link: @../model/server.server.link
+}
+server.rack: {
+  label: @../model/server.server.rack.label
+  class: ebox
+  link: @../model/server.server.rack.link
+}
+server.rack.nas: {
+  label: @../model/server.server.rack.nas.label
+  class: doc
+  link: @../model/server.server.rack.nas.link
+}
+server.rack.reduction_computer: {
+  label: @../model/server.server.rack.reduction_computer.label
+  class: doc
+  link: @../model/server.server.rack.reduction_computer.link
+}
+server.rack.zimage_readout_computer: {
+  label: @../model/server.server.rack.zimage_readout_computer.label
+  class: doc
+  link: @../model/server.server.rack.zimage_readout_computer.link
+}
+server.rack.zspec_readout_computer: {
+  label: @../model/server.server.rack.zspec_readout_computer.label
+  class: doc
+  link: @../model/server.server.rack.zspec_readout_computer.link
+}
+mechanical: {
+  label: @../model/mechanical.mechanical.label
+  class: room
+  link: @../model/mechanical.mechanical.link
+}
+mechanical.compressor: {
+  label: @../model/mechanical.mechanical.compressor.label
+  class: doc
+  link: @../model/mechanical.mechanical.compressor.link
+}
+rnas.zshooter.grid-columns: 2
+server.rack.grid-columns: 2
+title: {label: "ZShooter"; class: title; near: top-center; link: "../../controls/harnesses/diagram-guide.html"}
+vars: { d2-legend: @../legends.navigation }

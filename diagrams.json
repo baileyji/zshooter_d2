@@ -1,116 +1,146 @@
 {
-  "zfront_full": {
-    "title": "ZFront · panels and shared services",
+  "zshooter_overview": {
+    "layout": "elk",
+    "category": "Concepts",
+    "order": 0,
+    "aliases": [
+      "hardware_overview.svg"
+    ]
+  },
+  "zshooter_optics": {
+    "layout": "elk",
+    "category": "Concepts",
+    "order": 1,
+    "aliases": [
+      "optical_train_full.svg"
+    ]
+  },
+  "zshooter_ethernet": {
+    "layout": "elk",
+    "category": "Concepts",
+    "order": 2,
+    "aliases": [
+      "network_only.svg"
+    ]
+  },
+  "zimager_readout": {
+    "layout": "elk",
+    "category": "Concepts",
+    "order": 3,
+    "aliases": [
+      "imager_readout.svg"
+    ]
+  },
+  "zspec_nir_feedthroughs": {
+    "layout": "elk",
+    "category": "Concepts",
+    "order": 4,
+    "aliases": [
+      "nir_feedthroughs.svg"
+    ]
+  },
+  "zspec_shutters": {
+    "layout": "elk",
+    "category": "Concepts",
+    "order": 5,
+    "aliases": [
+      "shutter_triggers.svg"
+    ]
+  },
+  "zshooter_vacuum": {
+    "layout": "elk",
+    "category": "Concepts",
+    "order": 6,
+    "aliases": [
+      "vacuum_protection.svg"
+    ]
+  },
+  "zshooter_glycol": {
+    "layout": "elk",
+    "category": "Concepts",
+    "order": 7,
+    "aliases": [
+      "glycol_only.svg"
+    ]
+  },
+  "zshooter_software": {
+    "layout": "elk",
+    "category": "Concepts",
+    "order": 8,
+    "aliases": [
+      "software_runtime_full.svg"
+    ]
+  },
+  "zspec_nir_support": {
+    "layout": "elk",
+    "category": "Concepts",
+    "order": 9,
+    "aliases": [
+      "nir_support_cabinet.svg"
+    ]
+  },
+  "zshooter_usb": {
+    "layout": "elk",
+    "category": "Concepts",
+    "order": 10,
+    "aliases": [
+      "usb_only.svg"
+    ]
+  },
+  "zshooter_connections": {
     "layout": "elk",
     "category": "Connections",
-    "order": 13
+    "order": 11,
+    "aliases": [
+      "hardware_systems_full.svg"
+    ]
   },
-  "zimager_full": {
-    "title": "ZImager · panel connections",
+  "zfront_connections": {
     "layout": "elk",
     "category": "Connections",
-    "order": 14
+    "order": 12,
+    "aliases": [
+      "zfront_full.svg"
+    ]
   },
-  "zspec_vis": {
-    "title": "ZSpec VIS · panel connections",
+  "zimager_connections": {
     "layout": "elk",
     "category": "Connections",
-    "order": 15
+    "order": 13,
+    "aliases": [
+      "zimager_full.svg"
+    ]
   },
-  "zspec_nir": {
-    "title": "ZSpec NIR · panel connections",
+  "zspec_vis_connections": {
     "layout": "elk",
     "category": "Connections",
-    "order": 16
+    "order": 14,
+    "aliases": [
+      "zspec_vis.svg"
+    ]
   },
-  "hardware_systems_full": {
-    "title": "ZShooter · complete panel connections",
+  "zspec_nir_connections": {
     "layout": "elk",
     "category": "Connections",
-    "order": 12
+    "order": 15,
+    "aliases": [
+      "zspec_nir.svg"
+    ]
   },
-  "rnas_systems_full": {
-    "title": "RNAS · panel connections",
+  "zspec_connections": {
     "layout": "elk",
     "category": "Connections",
-    "order": 18
+    "order": 16,
+    "aliases": [
+      "zspec_full.svg"
+    ]
   },
-  "zspec_full": {
-    "title": "ZSpec · VIS / NIR panel connections",
+  "rnas_connections": {
     "layout": "elk",
     "category": "Connections",
-    "order": 17
-  },
-  "hardware_overview": {
-    "title": "ZShooter · explore the instrument",
-    "layout": "elk",
-    "category": "Concepts",
-    "order": 0
-  },
-  "optical_train_full": {
-    "title": "Optical routing · focus and warm / cold boundaries",
-    "layout": "elk",
-    "category": "Concepts",
-    "order": 1
-  },
-  "network_only": {
-    "title": "Control and readout network",
-    "layout": "elk",
-    "category": "Concepts",
-    "order": 2
-  },
-  "glycol_only": {
-    "title": "Glycol · independent service branches",
-    "layout": "elk",
-    "category": "Concepts",
-    "order": 8
-  },
-  "vacuum_protection": {
-    "title": "Vacuum · local protection and isolation",
-    "layout": "elk",
-    "category": "Concepts",
-    "order": 7
-  },
-  "shutter_triggers": {
-    "title": "Shared shutters · hardware trigger paths",
-    "layout": "elk",
-    "category": "Concepts",
-    "order": 6
-  },
-  "imager_readout": {
-    "title": "Imager readout · one path per detector",
-    "layout": "elk",
-    "category": "Concepts",
-    "order": 4
-  },
-  "nir_feedthroughs": {
-    "title": "NIR · warm / cold connections",
-    "layout": "elk",
-    "category": "Concepts",
-    "order": 5
-  },
-  "nir_support_cabinet": {
-    "title": "NIR · off-instrument support",
-    "layout": "elk",
-    "category": "Concepts",
-    "order": 10
-  },
-  "software_runtime_full": {
-    "title": "Software · host roles and data paths",
-    "layout": "elk",
-    "category": "Concepts",
-    "order": 9
-  },
-  "usb_only": {
-    "title": "Local USB connections",
-    "layout": "elk",
-    "category": "Concepts",
-    "order": 11
-  },
-  "module_isolation": {
-    "title": "Removal boundaries · retain the remaining instrument",
-    "layout": "elk",
-    "category": "Concepts",
-    "order": 3
+    "order": 17,
+    "aliases": [
+      "rnas_systems_full.svg"
+    ]
   }
 }
