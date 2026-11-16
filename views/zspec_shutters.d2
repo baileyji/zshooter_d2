@@ -1,0 +1,18 @@
+# zspec_shutters: visibility and layout only. Edit equipment and wiring in model/.
+direction: right
+...@../styles
+...@../model/instrument
+
+title: {label: "ZSpec Shutters"; class: title; near: top-center; link: "../../controls/operations/zspec.html#shutters"}
+vars: { d2-legend: @../legends.shutter }
+
+**: suspend
+(** -- **)[*]: suspend
+(** -> **)[*]: suspend
+(** <-> **)[*]: suspend
+(** -> **)[*]: unsuspend { &class: trigger }
+(**.*shutter* -- **)[*]: unsuspend { &class: motion }
+(** -- **.*shutter*)[*]: unsuspend { &class: motion }
+(**.*SHUTTER -- **)[*]: unsuspend { &class: motion }
+(** -- **.*SHUTTER)[*]: unsuspend { &class: motion }
+title: unsuspend

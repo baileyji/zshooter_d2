@@ -1,0 +1,34 @@
+# This configuration is imported only by the off-instrument support view.
+support_cabinet: {
+  label: "NIR support cabinet"
+  class: ebox
+  link: "../../controls/harnesses/zspec-nir.html"
+  dc: {...@../equipment.dc_supply; link: "../../controls/harnesses/zspec-nir.html"}
+  network: {label: "Bench network"; class: computer; link: "../../controls/harnesses/zspec-nir.html"}
+  cooling: {label: "Cooling connections"; class: manifold; link: "../../controls/harnesses/zspec-nir.html"}
+  panel: {
+    label: "Cabinet service panel"
+    class: panel
+    link: "../../controls/harnesses/zspec-nir.html"
+    DC: "Power"
+    NET: "Ethernet"
+    GLYCOL: "Supply / return"
+  }
+  dc -- panel.DC: {class: dc}
+  network -- panel.NET: {class: ethernet}
+  cooling -- panel.GLYCOL: {class: glycol}
+}
+zspec_nir: {
+  label: @zspec_nir.zspec_nir.label
+  class: module
+  link: @zspec_nir.zspec_nir.link
+  ebox: {
+    label: @zspec_nir.zspec_nir.ebox.label
+    class: ebox
+    input_panel: @zspec_nir.zspec_nir.ebox.input_panel
+  }
+  glycol_manifold: @zspec_nir.zspec_nir.glycol_manifold
+}
+support_cabinet.panel.DC -- zspec_nir.ebox.input_panel.DC: {class: dc}
+support_cabinet.panel.NET -- zspec_nir.ebox.input_panel.NET: {class: ethernet}
+support_cabinet.panel.GLYCOL -- zspec_nir.glycol_manifold: {class: glycol}

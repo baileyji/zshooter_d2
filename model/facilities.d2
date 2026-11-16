@@ -1,0 +1,25 @@
+rnas: {
+  label: "RNAS"
+  class: room
+  link: "../../controls/harnesses/zfront.html"
+  panel: {
+    label: "RNAS facility panel"
+    class: panel
+    link: "../../controls/harnesses/zfront.html#rnas-to-zfront-ebox"
+    AC: "120 VAC / facility UPS"
+    NET: "10G fiber"
+    AIR: "Dry air"
+    GLYCOL: "Supply / return"
+  }
+  ac_feed: {label: "Facility UPS AC"; class: utility; link: "../../controls/harnesses/power.html"; tooltip: "120 VAC facility feed to the RNAS panel."}
+  ac_feed -- panel.AC: {class: power; label: "120 VAC"}
+  fiber_panel: {
+    label: "RNAS fiber panel"
+    class: panel
+    link: "../../controls/harnesses/zimager.html#detector-readout"
+    U: "U CXP optical transport"
+    V: "V CXP optical transport"
+    Z: "Z CXP optical transport"
+  }
+}
+facility_network: {label: "Keck instrument network"; class: computer; link: "../../controls/harnesses/networking.html"}
