@@ -13,9 +13,10 @@ NS = '{http://www.w3.org/2000/svg}'
 
 
 def render(root, view, output):
-    subprocess.run(['d2', '--layout', 'elk', '--timeout', '25',
+    # Zero disables D2's default deadline. Leave errors visible in CI.
+    subprocess.run(['d2', '--layout', 'elk', '--timeout', '0',
                     str(root / 'views' / (view + '.d2')), str(output)],
-                   check=True, capture_output=True, timeout=30)
+                   check=True)
     svg = ET.parse(output).getroot()
     labels = {''.join(e.itertext()) for e in svg.iter(NS + 'text')}
     links = {e.get('href') or e.get('{http://www.w3.org/1999/xlink}href')

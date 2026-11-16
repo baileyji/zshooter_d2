@@ -67,7 +67,7 @@ python3 -m unittest discover -s zshooter-arch/tests
 For one view, add `--view zspec_nir_connections`. Standalone D2 rendering also works, with native whole-container links; use the parent renderer for the label-only links and linked legend headings:
 
 ```bash
-d2 --layout elk --elk-nodeNodeBetweenLayers 25 --elk-edgeNodeBetweenLayers 15 \
+d2 --timeout 0 --layout elk --elk-nodeNodeBetweenLayers 25 --elk-edgeNodeBetweenLayers 15 \
   views/zshooter_usb.d2 svg/zshooter_usb.svg
 ```
 
