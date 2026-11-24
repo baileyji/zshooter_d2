@@ -1,0 +1,21 @@
+# rnas_connections: visibility and layout only. Edit equipment and wiring in model/.
+direction: down
+...@../styles
+...@../model/instrument
+
+title: {label: "RNAS Connections"; class: title; near: top-center; link: "../../controls/harnesses/index.html"}
+vars: { d2-legend: @../legends.connections }
+
+# Generic cable types are in the legend; retain explicit cable labels.
+(** -- **)[*]: {!&label: *; label: ""}
+(** -> **)[*]: {!&label: *; label: ""}
+
+**: suspend
+(** -- **)[*]: suspend
+(** -> **)[*]: suspend
+(** <-> **)[*]: suspend
+(rnas.** -- **)[*]: unsuspend { !&class: optical }
+(** -- rnas.**)[*]: unsuspend { !&class: optical }
+(rnas.** -> **)[*]: unsuspend { !&class: optical }
+(** -> rnas.**)[*]: unsuspend { !&class: optical }
+title: unsuspend

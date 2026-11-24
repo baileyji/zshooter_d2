@@ -1,0 +1,13 @@
+mechanical: {
+  label: "Mechanical room"
+  class: room
+  link: "../../controls/harnesses/zspec-nir.html#coldhead-and-compressor-connections"
+  ac: {label: "Facility AC"; class: utility; link: "../../controls/harnesses/power.html"}
+  glycol: {label: "Facility glycol"; class: manifold; link: "../../controls/harnesses/glycol.html"}
+  compressor: {label: "NIR compressor"; class: device; link: "../../controls/harnesses/zspec-nir.html#coldhead-and-compressor-connections"}
+  cryo_monitor: {label: "Cryo monitor"; class: controller; link: "../../controls/operations/environmental-services.html"}
+  ac -- compressor: {class: power}
+  ac -- cryo_monitor: {class: power}
+  glycol -- compressor: {class: glycol}
+  cryo_monitor -- compressor: {class: sense; label: "Control / status"}
+}

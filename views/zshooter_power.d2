@@ -1,0 +1,22 @@
+# All modeled electrical supply paths, including powered combined harnesses.
+direction: right
+...@../styles
+...@../model/instrument
+
+title: {label: "Instrument Power"; class: title; near: top-center; link: "../../controls/harnesses/power.html"}
+vars: {d2-legend: @../legends.power}
+
+# Generic cable types are in the legend; retain explicit cable labels.
+(** -- **)[*]: {!&label: *; label: ""}
+(** -> **)[*]: {!&label: *; label: ""}
+
+**: suspend
+(** -- **)[*]: suspend
+(** -> **)[*]: suspend
+(** <-> **)[*]: suspend
+(** -- **)[*]: unsuspend {&class: power}
+(** -- **)[*]: unsuspend {&class: dc}
+(** -- **)[*]: unsuspend {&class: motion}
+(** -- **)[*]: unsuspend {&class: detector}
+(** -- **)[*]: unsuspend {&class: carries_power}
+title: unsuspend

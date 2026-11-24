@@ -1,0 +1,71 @@
+# Instrument-scale light and acquisition relationships. No cable/interface choices here.
+telescope: @optical_paths.telescope
+left_neighbor: @optical_paths.left_neighbor
+right_neighbor: @optical_paths.right_neighbor
+rnas: {
+  label: @facilities.rnas.label
+  class: room
+  link: @facilities.rnas.link
+  zfront: {
+    label: @zfront.zfront.label
+    class: module
+    link: @zfront.zfront.link
+    tooltip: "Routes telescope and calibration light. Distributes AC, air and glycol to the instrument."
+  }
+  zimager: {
+    label: @zimager.zimager.label
+    class: module
+    link: @zimager.zimager.link
+    tooltip: "U, V and Z imaging channels. Follow the readout view for detectors, CXP transport and panels."
+  }
+  zspec_vis: {
+    label: @zspec_vis.zspec_vis.label
+    class: module
+    link: @zspec_vis.zspec_vis.link
+    tooltip: "B, G and R spectrograph channels. One Archon per detector."
+  }
+  zspec_nir: {
+    label: @zspec_nir.zspec_nir.label
+    class: module
+    link: @zspec_nir.zspec_nir.link
+    tooltip: "YJ, H and K spectrograph channels. DC power and network enter through VIS."
+  }
+}
+server: {
+  label: @server.server.label
+  class: room
+  link: @server.server.link
+  imager: {
+    label: @server.server.rack.zimage_readout_computer.label
+    class: computer
+    link: @server.server.rack.zimage_readout_computer.link
+  }
+  zspec: {
+    label: @server.server.rack.zspec_readout_computer.label
+    class: computer
+    link: @server.server.rack.zspec_readout_computer.link
+  }
+  nas: @server.server.rack.nas
+  drp: {
+    label: @server.server.rack.reduction_computer.label
+    class: computer
+    link: @server.server.rack.reduction_computer.link
+    tooltip: "Reduction and quicklook use data on the shared storage."
+  }
+}
+
+# Optical routes: model/optical_paths.d2 owns the detailed train.
+telescope -> rnas.zfront: {class: optical; link: "../archwrap.html?selected=zshooter_optics.svg"}
+rnas.zfront -> left_neighbor: {class: optical}
+rnas.zfront -> right_neighbor: {class: optical}
+rnas.zfront -> rnas.zimager: {class: optical; label: "Imaging"}
+rnas.zfront -> rnas.zspec_vis: {class: optical; label: "VIS"}
+rnas.zfront -> rnas.zspec_nir: {class: optical; label: "NIR"}
+
+# Acquisition routes: physical readout transport and model/software.d2's data flow.
+rnas.zimager -> server.imager: {class: data; link: "../archwrap.html?selected=zimager_readout.svg"; tooltip: "Three detector paths through the imager, RNAS and server-room panels."}
+rnas.zspec_vis -> server.zspec: {class: data; link: "../archwrap.html?selected=zshooter_ethernet.svg"}
+rnas.zspec_nir -> server.zspec: {class: data; link: "../archwrap.html?selected=zshooter_ethernet.svg"}
+server.imager -> server.nas: {class: data}
+server.zspec -> server.nas: {class: data}
+server.nas -> server.drp: {class: data; link: "../archwrap.html?selected=zshooter_software.svg"}

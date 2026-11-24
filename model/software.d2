@@ -1,0 +1,78 @@
+# Logical requests, publications and data. Boxes with the computer style are hosts.
+# A queue-shaped node is a collection of daemons, not a single shared busy state.
+clients: {label: "Observing / engineering clients"; class: application; link: "../../controls/operations/digital-functions.html"; tooltip: "Applications and scripts issue requests and subscribe to published state. Instrument policy and observing workflows live in these clients."}
+zfront: {
+  label: @zfront.zfront.label
+  class: module
+  link: @zfront.zfront.link
+  host: @zfront.zfront.ebox.computer
+  host.daemons: {label: "Device daemons"; class: daemon_group; link: "../../controls/operations/zfront-zcal.html"; tooltip: "A collection of device/controller daemons. The grouping does not imply a single process or a daemon-wide busy state."}
+}
+clients -> zfront.host.daemons: {class: request}
+zfront.host.daemons -> clients: {class: publication}
+zimager: {
+  label: @zimager.zimager.label
+  class: module
+  link: @zimager.zimager.link
+  host: @zimager.zimager.ebox.computer
+  host.daemons: {label: "Device daemons"; class: daemon_group; link: "../../controls/operations/zimager.html"; tooltip: "A collection of device/controller daemons. The grouping does not imply a single process or a daemon-wide busy state."}
+}
+clients -> zimager.host.daemons: {class: request}
+zimager.host.daemons -> clients: {class: publication}
+zspec_vis: {
+  label: @zspec_vis.zspec_vis.label
+  class: module
+  link: @zspec_vis.zspec_vis.link
+  host: @zspec_vis.zspec_vis.ebox.computer
+  host.daemons: {label: "Device daemons"; class: daemon_group; link: "../../controls/operations/zspec.html"; tooltip: "A collection of device/controller daemons. The grouping does not imply a single process or a daemon-wide busy state."}
+}
+clients -> zspec_vis.host.daemons: {class: request}
+zspec_vis.host.daemons -> clients: {class: publication}
+zspec_nir: {
+  label: @zspec_nir.zspec_nir.label
+  class: module
+  link: @zspec_nir.zspec_nir.link
+  host: @zspec_nir.zspec_nir.ebox.computer
+  host.daemons: {label: "Device daemons"; class: daemon_group; link: "../../controls/operations/zspec.html"; tooltip: "A collection of device/controller daemons. The grouping does not imply a single process or a daemon-wide busy state."}
+}
+clients -> zspec_nir.host.daemons: {class: request}
+zspec_nir.host.daemons -> clients: {class: publication}
+readout: {
+  label: "Server room"
+  class: room
+  link: @server.server.link
+  imager: {
+    label: @server.server.rack.zimage_readout_computer.label
+    class: computer
+    link: @server.server.rack.zimage_readout_computer.link
+    daemons: {label: "Readout daemons"; class: daemon_group; link: "../../controls/operations/zimager.html#detector-acquisition"}
+  }
+  zspec: {
+    label: @server.server.rack.zspec_readout_computer.label
+    class: computer
+    link: @server.server.rack.zspec_readout_computer.link
+    daemons: {label: "Readout daemons"; class: daemon_group; link: "../../controls/operations/zspec.html"}
+  }
+  nas: @server.server.rack.nas
+  drp: {
+    label: @server.server.rack.reduction_computer.label
+    class: computer
+    link: @server.server.rack.reduction_computer.link
+    reduction: {label: "Reduction / quicklook"; class: application; link: "../../controls/operations/digital-functions.html"}
+  }
+  imager.daemons -> nas: {class: data}
+  zspec.daemons -> nas: {class: data}
+  nas -> drp.reduction: {class: data}
+}
+clients -> readout.imager.daemons: {class: request}
+readout.imager.daemons -> clients: {class: publication}
+clients -> readout.zspec.daemons: {class: request}
+readout.zspec.daemons -> clients: {class: publication}
+telemetry: {label: "Logging / telemetry"; class: application; link: "../../controls/operations/digital-functions.html"; tooltip: "A subscriber to published state and events; host placement is not represented in this view."}
+# The subscription is shown for each producing collection, without imposing a broker.
+zfront.host.daemons -> telemetry: {class: publication}
+zimager.host.daemons -> telemetry: {class: publication}
+zspec_vis.host.daemons -> telemetry: {class: publication}
+zspec_nir.host.daemons -> telemetry: {class: publication}
+readout.imager.daemons -> telemetry: {class: publication}
+readout.zspec.daemons -> telemetry: {class: publication}

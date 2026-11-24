@@ -1,0 +1,348 @@
+zspec_vis: {
+  label: "ZSpec VIS"
+  class: module
+  link: "../../controls/harnesses/zspec-vis.html"
+  ebox: {
+    label: "VIS EBox"
+    class: ebox
+    link: "../../controls/harnesses/zspec-vis.html"
+    power_bus: {...@../equipment.ac_distribution; link: "../../controls/harnesses/zspec-vis.html"}
+    dc: {...@../equipment.dc_supply; link: "../../controls/harnesses/zspec-vis.html"}
+    dc_distribution: {...@../equipment.dc_distribution; link: "../../controls/harnesses/power.html"}
+    dc_ups: {...@../equipment.dc_ups; link: "../../controls/harnesses/power.html"}
+    network_switch: {...@../equipment.ethernet_switch; link: "../../controls/harnesses/zspec-vis.html"}
+    computer: {...@../equipment.module_computer; link: "../../controls/operations/computer-management.html"}
+    master: {...@../equipment.beckhoff_master; link: "../../controls/harnesses/zspec-vis.html"}
+    temperature_hub: {...@../equipment.temperature_hub; link: "../../controls/harnesses/zspec-vis.html"}
+    heat_exchanger: {...@../equipment.heat_exchanger; link: "../../controls/harnesses/zspec-vis.html"}
+    input_panel.AC -- power_bus: {class: power}
+    power_bus -- dc: {class: power}
+    dc -- dc_distribution: {class: dc}
+    dc_distribution -- dc_ups: {class: dc}
+    input_panel.NET -- network_switch: {class: ethernet}
+    dc_distribution -- computer: {class: dc}
+    dc_distribution -- master: {class: dc}
+    dc_distribution -- network_switch: {class: dc}
+    network_switch -- dc_distribution: {class: ethernet}
+    network_switch -- computer: {class: ethernet}
+    network_switch -- master: {class: ethernet}
+    computer -- temperature_hub: {class: [usb; carries_power]}
+    temperature_hub -- panels.aux_panel.TEMP: {class: [sense; carries_power]; label: "1-Wire"}
+    drive_preoptic: {label: "Relay Optic (VIS/NIR focus) drive"; class: controller; link: "../../controls/operations/zspec.html"}
+    dc_distribution -- drive_preoptic: {class: dc}
+    master -- drive_preoptic: {class: ethercat}
+    drive_preoptic -- panels.motion_panel.PREOPTIC: {class: motion}
+    drive_adc_a: {label: "ADC prism A drive"; class: controller; link: "../../controls/operations/zspec.html"}
+    dc_distribution -- drive_adc_a: {class: dc}
+    master -- drive_adc_a: {class: ethercat}
+    drive_adc_a -- panels.motion_panel.ADC_A: {class: motion}
+    drive_adc_b: {label: "ADC prism B drive"; class: controller; link: "../../controls/operations/zspec.html"}
+    dc_distribution -- drive_adc_b: {class: dc}
+    master -- drive_adc_b: {class: ethercat}
+    drive_adc_b -- panels.motion_panel.ADC_B: {class: motion}
+    drive_rotator: {label: "Field rotator drive"; class: controller; link: "../../controls/operations/zspec.html"}
+    dc_distribution -- drive_rotator: {class: dc}
+    master -- drive_rotator: {class: ethercat}
+    drive_rotator -- panels.motion_panel.ROTATOR: {class: motion}
+    drive_steer_x: {label: "X steering drive"; class: controller; link: "../../controls/operations/zspec.html"}
+    dc_distribution -- drive_steer_x: {class: dc}
+    master -- drive_steer_x: {class: ethercat}
+    drive_steer_x -- panels.motion_panel.STEER_X: {class: motion}
+    drive_steer_y: {label: "Y steering drive"; class: controller; link: "../../controls/operations/zspec.html"}
+    dc_distribution -- drive_steer_y: {class: dc}
+    master -- drive_steer_y: {class: ethercat}
+    drive_steer_y -- panels.motion_panel.STEER_Y: {class: motion}
+    drive_slit: {label: "Slit Selector drive"; class: controller; link: "../../controls/operations/zspec.html"}
+    dc_distribution -- drive_slit: {class: dc}
+    master -- drive_slit: {class: ethercat}
+    drive_slit -- panels.motion_panel.SLIT: {class: motion}
+    drive_focus_b: {label: "B detector focus drive"; class: controller; link: "../../controls/operations/zspec.html"}
+    dc_distribution -- drive_focus_b: {class: dc}
+    master -- drive_focus_b: {class: ethercat}
+    drive_focus_b -- panels.motion_panel.FOCUS_B: {class: motion}
+    drive_focus_g: {label: "G detector focus drive"; class: controller; link: "../../controls/operations/zspec.html"}
+    dc_distribution -- drive_focus_g: {class: dc}
+    master -- drive_focus_g: {class: ethercat}
+    drive_focus_g -- panels.motion_panel.FOCUS_G: {class: motion}
+    drive_focus_r: {label: "R detector focus drive"; class: controller; link: "../../controls/operations/zspec.html"}
+    dc_distribution -- drive_focus_r: {class: dc}
+    master -- drive_focus_r: {class: ethercat}
+    drive_focus_r -- panels.motion_panel.FOCUS_R: {class: motion}
+    panels.cooling_panel.GLYCOL -- heat_exchanger: {class: glycol}
+    shutter_or: {label: "Shutter hardware OR"; class: controller; link: "../../controls/harnesses/zspec-vis.html#shutter-triggers"}
+    shutter_controller: {label: "Shutter controller"; class: controller; link: "../../controls/harnesses/zspec-vis.html#shutter-triggers"}
+    dc_distribution -- panels.readout_panel.B_POWER: {class: dc}
+    network_switch -- panels.readout_panel.B_NET: {class: ethernet}
+    panels.readout_panel.B_TRIG -> shutter_or: {class: trigger; label: "B"}
+    dc_distribution -- panels.readout_panel.G_POWER: {class: dc}
+    network_switch -- panels.readout_panel.G_NET: {class: ethernet}
+    panels.readout_panel.G_TRIG -> shutter_or: {class: trigger; label: "G"}
+    dc_distribution -- panels.readout_panel.R_POWER: {class: dc}
+    network_switch -- panels.readout_panel.R_NET: {class: ethernet}
+    panels.readout_panel.R_TRIG -> shutter_or: {class: trigger; label: "R"}
+    shutter_or -> shutter_controller: {class: trigger}
+    dc_distribution -- shutter_or: {class: dc}
+    dc_distribution -- shutter_controller: {class: dc}
+    master -- shutter_controller: {class: ethercat}
+    shutter_controller -- panels.motion_panel.SHUTTER: {class: motion}
+    dc_distribution -- panels.aux_panel.CAM_POWER: {class: dc}
+    computer -- panels.aux_panel.CAM_DATA: {class: usb}
+    computer -- panels.aux_panel.GAUGE_B: {class: [usb; usb_serial]}
+    computer -- panels.aux_panel.GAUGE_G: {class: [usb; usb_serial]}
+    computer -- panels.aux_panel.GAUGE_R: {class: [usb; usb_serial]}
+    dc_distribution -- panels.aux_panel.GAUGE_DC: {class: dc}
+    dc_distribution -- panels.aux_panel.VALVE_DC: {class: dc}
+    panels.motion_panel.SHUTTER: "Entrance shutter"
+    panels.motion_panel.SLITCAM: "Slit viewer focus"
+    drive_slitcam: {label: "Slit viewer focus drive"; class: [controller; optional]; link: "../../controls/operations/zspec.html"}
+    dc_distribution -- drive_slitcam: {class: dc}
+    master -- drive_slitcam: {class: ethercat}
+    drive_slitcam -- panels.motion_panel.SLITCAM: {class: [motion; optional]}
+    dc_distribution -- panels.nir_panel.DC: {class: dc}
+    network_switch -- panels.nir_panel.NET: {class: ethernet}
+    cryo_b: {label: "B Cryotel controller"; class: controller; link: "../../controls/harnesses/zspec-vis.html"}
+    dc_distribution -- cryo_b: {class: dc}
+    computer -- cryo_b: {class: [usb; usb_serial]}
+    cryo_b -- panels.cryo_panel.B: {class: [sense; carries_power]; label: "Power + control"}
+    cryo_g: {label: "G Cryotel controller"; class: controller; link: "../../controls/harnesses/zspec-vis.html"}
+    dc_distribution -- cryo_g: {class: dc}
+    computer -- cryo_g: {class: [usb; usb_serial]}
+    cryo_g -- panels.cryo_panel.G: {class: [sense; carries_power]; label: "Power + control"}
+    cryo_r: {label: "R Cryotel controller"; class: controller; link: "../../controls/harnesses/zspec-vis.html"}
+    dc_distribution -- cryo_r: {class: dc}
+    computer -- cryo_r: {class: [usb; usb_serial]}
+    cryo_r -- panels.cryo_panel.R: {class: [sense; carries_power]; label: "Power + control"}
+    # Separate input from outgoing panels to preserve service flow in layout.
+    input_panel: {
+      label: "Service input panel"
+      class: panel
+      link: "../../controls/harnesses/zspec-vis.html"
+      AC: "Power"
+      NET: "Control / readout"
+    }
+    panels: {
+      class: panel_group
+      motion_panel: {
+        label: "Mechanism panel"
+        class: panel
+        link: "../../controls/harnesses/zspec-vis.html"
+        PREOPTIC: "Relay Optic (VIS/NIR focus)"
+        ADC_A: "ADC prism A"
+        ADC_B: "ADC prism B"
+        ROTATOR: "Field rotator"
+        STEER_X: "X steering"
+        STEER_Y: "Y steering"
+        SLIT: "Slit Selector"
+        FOCUS_B: "B detector focus"
+        FOCUS_G: "G detector focus"
+        FOCUS_R: "R detector focus"
+      }
+      aux_panel: {
+        label: "Auxiliary panel"
+        class: panel
+        link: "../../controls/harnesses/zspec-vis.html"
+        TEMP: "1Wire Temp Sensors"
+        CAM_POWER: "Slit viewer DC"
+        CAM_DATA: "Slit viewer data"
+        GAUGE_B: "B vacuum gauge"
+        GAUGE_G: "G vacuum gauge"
+        GAUGE_R: "R vacuum gauge"
+        GAUGE_DC: "Gauge power"
+        VALVE_DC: "Gate-valve power"
+      }
+      cooling_panel: {
+        label: "Cooling panel"
+        class: panel
+        link: "../../controls/harnesses/zspec-vis.html#glycol-connections"
+        GLYCOL: "Supply / return"
+      }
+      readout_panel: {
+        label: "Readout panel"
+        class: panel
+        link: "../../controls/harnesses/zspec-vis.html"
+        B_POWER: "Archon DC"
+        B_NET: "Archon network"
+        B_TRIG: "Shutter trigger"
+        G_POWER: "Archon DC"
+        G_NET: "Archon network"
+        G_TRIG: "Shutter trigger"
+        R_POWER: "Archon DC"
+        R_NET: "Archon network"
+        R_TRIG: "Shutter trigger"
+      }
+      nir_panel: {
+        label: "NIR Interface Panel"
+        class: panel
+        link: "../../controls/harnesses/zspec-vis.html#vis-ebox-to-nir-ebox"
+        DC: "Power"
+        NET: "Control / readout"
+      }
+      cryo_panel: {
+        label: "Cryocooler panel"
+        class: panel
+        link: "../../controls/harnesses/zspec-vis.html"
+        B: "Coldhead power / control"
+        G: "Coldhead power / control"
+        R: "Coldhead power / control"
+      }
+    }
+  }
+  glycol_manifold: {label: "VIS glycol manifold"; class: manifold; link: "../../controls/harnesses/zspec-vis.html#glycol-connections"}
+  air_dryer: {label: "Enclosure air dryer"; class: utility; link: "../../controls/harnesses/zspec-vis.html#air-connections"}
+  glycol_manifold -- ebox.panels.cooling_panel.GLYCOL: {class: glycol}
+  preoptic_focus: {label: "Relay Optic (VIS/NIR focus)"; tooltip: "First pre-optic, before the ADC and field rotator."; class: actuator; link: "../../controls/operations/zspec.html"}
+  ebox.panels.motion_panel.PREOPTIC -- preoptic_focus: {class: motion}
+  adc_a: {label: "ADC prism A"; class: actuator; link: "../../controls/operations/zspec.html"}
+  ebox.panels.motion_panel.ADC_A -- adc_a: {class: motion}
+  adc_b: {label: "ADC prism B"; class: actuator; link: "../../controls/operations/zspec.html"}
+  ebox.panels.motion_panel.ADC_B -- adc_b: {class: motion}
+  rotator: {label: "Field rotator"; class: actuator; link: "../../controls/operations/zspec.html"}
+  ebox.panels.motion_panel.ROTATOR -- rotator: {class: motion}
+  steer_x: {label: "X steering"; class: actuator; link: "../../controls/operations/zspec.html"}
+  ebox.panels.motion_panel.STEER_X -- steer_x: {class: motion}
+  steer_y: {label: "Y steering"; class: actuator; link: "../../controls/operations/zspec.html"}
+  ebox.panels.motion_panel.STEER_Y -- steer_y: {class: motion}
+  slit: {label: "Slit Selector"; class: actuator; link: "../../controls/operations/zspec.html"}
+  ebox.panels.motion_panel.SLIT -- slit: {class: motion}
+  shutter: {label: "Entrance shutter"; class: actuator; link: "../../controls/operations/zspec.html"}
+  ebox.panels.motion_panel.SHUTTER -- shutter: {class: motion}
+  slit_viewer: {label: "VIS slit viewer"; class: camera; link: "../../controls/harnesses/zspec-vis.html#slit-viewer-connections"}
+  slit_view_focus: {label: "Slit viewer focus"; class: [actuator; optional]; link: "../../controls/operations/zspec.html"}
+  ebox.panels.motion_panel.SLITCAM -- slit_view_focus: {class: [motion; optional]}
+  ebox.panels.aux_panel.CAM_POWER -- slit_viewer: {class: dc}
+  ebox.panels.aux_panel.CAM_DATA -- slit_viewer: {class: usb}
+  enclosure_probes: {label: "1Wire Temp Sensors"; class: device; link: "../../controls/harnesses/zspec-vis.html"}
+  ebox.panels.aux_panel.TEMP -- enclosure_probes: {class: [sense; carries_power]; label: "1-Wire"}
+  archon_b: {...@../equipment.archon; label: "B Archon"; link: "../../controls/harnesses/zspec-vis.html#detector-harnesses-and-feedthroughs"}
+  ebox.panels.readout_panel.B_POWER -- archon_b: {class: dc}
+  ebox.panels.readout_panel.B_NET -- archon_b: {class: ethernet}
+  archon_b -> ebox.panels.readout_panel.B_TRIG: {class: trigger; label: "B"}
+  glycol_manifold -- archon_b: {class: glycol}
+  dewar_b: {
+    label: "B detector vessel"
+    class: cryostat
+    link: "../../controls/harnesses/zspec-vis.html"
+    vib: {
+      label: "B detector VIB"
+      class: panel
+      link: "../../controls/harnesses/zspec-vis.html#detector-harnesses-and-feedthroughs"
+      DET: "Detector harness"
+      FOCUS: "Focus motor / position"
+      THERM: "Detector thermal circuits"
+    }
+    detector: {label: "B STA5900q"; class: camera; link: "../../detector_technologies.html#zspec-vis-qccds"}
+    focus: {label: "B detector focus"; class: actuator; link: "../../controls/operations/zspec.html"}
+    vib.DET -- detector: {class: detector}
+    vib.FOCUS -- focus: {class: motion}
+    vib.THERM -- detector: {class: [sense; carries_power]; label: "Temperature / heater"}
+    service_ports: {
+      label: "B vessel ports"
+      class: panel
+      link: "../../controls/harnesses/zspec-vis.html"
+      VAC: "Vacuum"
+      COLD: "Coldhead interface"
+    }
+    gate_valve: {label: "B automatic gate valve"; class: controller; tooltip: "Part of the detector vessel assembly; mounted outside vacuum."; link: "../../controls/harnesses/vacuum.html"}
+    gauge: {label: "B vacuum gauge"; class: device; tooltip: "Mounted on the detector vessel, outside vacuum."; link: "../../controls/harnesses/vacuum.html"}
+  }
+  archon_b -- dewar_b.vib.DET: {class: detector}
+  archon_b -- dewar_b.vib.THERM: {class: [sense; carries_power]; label: "Temperature / heater"}
+  ebox.panels.motion_panel.FOCUS_B -- dewar_b.vib.FOCUS: {class: motion}
+  coldhead_b: {label: "B Cryotel coldhead"; class: device; link: "../../controls/harnesses/zspec-vis.html"}
+  ebox.panels.cryo_panel.B -- coldhead_b: {class: [sense; carries_power]; label: "Power + control"}
+  glycol_manifold -- coldhead_b: {class: glycol}
+  coldhead_b -- dewar_b.service_ports.COLD: {class: thermal; label: "Cold finger"}
+  ebox.panels.aux_panel.GAUGE_B -- dewar_b.gauge: {class: [usb; usb_serial]}
+  ebox.panels.aux_panel.GAUGE_DC -- dewar_b.gauge: {class: dc}
+  ebox.panels.aux_panel.VALVE_DC -- dewar_b.gate_valve: {class: dc}
+  dewar_b.gauge -- dewar_b.service_ports.VAC: {class: vacuum}
+  dewar_b.gate_valve -- dewar_b.service_ports.VAC: {class: vacuum}
+  archon_g: {...@../equipment.archon; label: "G Archon"; link: "../../controls/harnesses/zspec-vis.html#detector-harnesses-and-feedthroughs"}
+  ebox.panels.readout_panel.G_POWER -- archon_g: {class: dc}
+  ebox.panels.readout_panel.G_NET -- archon_g: {class: ethernet}
+  archon_g -> ebox.panels.readout_panel.G_TRIG: {class: trigger; label: "G"}
+  glycol_manifold -- archon_g: {class: glycol}
+  dewar_g: {
+    label: "G detector vessel"
+    class: cryostat
+    link: "../../controls/harnesses/zspec-vis.html"
+    vib: {
+      label: "G detector VIB"
+      class: panel
+      link: "../../controls/harnesses/zspec-vis.html#detector-harnesses-and-feedthroughs"
+      DET: "Detector harness"
+      FOCUS: "Focus motor / position"
+      THERM: "Detector thermal circuits"
+    }
+    detector: {label: "G STA5900q"; class: camera; link: "../../detector_technologies.html#zspec-vis-qccds"}
+    focus: {label: "G detector focus"; class: actuator; link: "../../controls/operations/zspec.html"}
+    vib.DET -- detector: {class: detector}
+    vib.FOCUS -- focus: {class: motion}
+    vib.THERM -- detector: {class: [sense; carries_power]; label: "Temperature / heater"}
+    service_ports: {
+      label: "G vessel ports"
+      class: panel
+      link: "../../controls/harnesses/zspec-vis.html"
+      VAC: "Vacuum"
+      COLD: "Coldhead interface"
+    }
+    gate_valve: {label: "G automatic gate valve"; class: controller; tooltip: "Part of the detector vessel assembly; mounted outside vacuum."; link: "../../controls/harnesses/vacuum.html"}
+    gauge: {label: "G vacuum gauge"; class: device; tooltip: "Mounted on the detector vessel, outside vacuum."; link: "../../controls/harnesses/vacuum.html"}
+  }
+  archon_g -- dewar_g.vib.DET: {class: detector}
+  archon_g -- dewar_g.vib.THERM: {class: [sense; carries_power]; label: "Temperature / heater"}
+  ebox.panels.motion_panel.FOCUS_G -- dewar_g.vib.FOCUS: {class: motion}
+  coldhead_g: {label: "G Cryotel coldhead"; class: device; link: "../../controls/harnesses/zspec-vis.html"}
+  ebox.panels.cryo_panel.G -- coldhead_g: {class: [sense; carries_power]; label: "Power + control"}
+  glycol_manifold -- coldhead_g: {class: glycol}
+  coldhead_g -- dewar_g.service_ports.COLD: {class: thermal; label: "Cold finger"}
+  ebox.panels.aux_panel.GAUGE_G -- dewar_g.gauge: {class: [usb; usb_serial]}
+  ebox.panels.aux_panel.GAUGE_DC -- dewar_g.gauge: {class: dc}
+  ebox.panels.aux_panel.VALVE_DC -- dewar_g.gate_valve: {class: dc}
+  dewar_g.gauge -- dewar_g.service_ports.VAC: {class: vacuum}
+  dewar_g.gate_valve -- dewar_g.service_ports.VAC: {class: vacuum}
+  archon_r: {...@../equipment.archon; label: "R Archon"; link: "../../controls/harnesses/zspec-vis.html#detector-harnesses-and-feedthroughs"}
+  ebox.panels.readout_panel.R_POWER -- archon_r: {class: dc}
+  ebox.panels.readout_panel.R_NET -- archon_r: {class: ethernet}
+  archon_r -> ebox.panels.readout_panel.R_TRIG: {class: trigger; label: "R"}
+  glycol_manifold -- archon_r: {class: glycol}
+  dewar_r: {
+    label: "R detector vessel"
+    class: cryostat
+    link: "../../controls/harnesses/zspec-vis.html"
+    vib: {
+      label: "R detector VIB"
+      class: panel
+      link: "../../controls/harnesses/zspec-vis.html#detector-harnesses-and-feedthroughs"
+      DET: "Detector harness"
+      FOCUS: "Focus motor / position"
+      THERM: "Detector thermal circuits"
+    }
+    detector: {label: "R STA5900q"; class: camera; link: "../../detector_technologies.html#zspec-vis-qccds"}
+    focus: {label: "R detector focus"; class: actuator; link: "../../controls/operations/zspec.html"}
+    vib.DET -- detector: {class: detector}
+    vib.FOCUS -- focus: {class: motion}
+    vib.THERM -- detector: {class: [sense; carries_power]; label: "Temperature / heater"}
+    service_ports: {
+      label: "R vessel ports"
+      class: panel
+      link: "../../controls/harnesses/zspec-vis.html"
+      VAC: "Vacuum"
+      COLD: "Coldhead interface"
+    }
+    gate_valve: {label: "R automatic gate valve"; class: controller; tooltip: "Part of the detector vessel assembly; mounted outside vacuum."; link: "../../controls/harnesses/vacuum.html"}
+    gauge: {label: "R vacuum gauge"; class: device; tooltip: "Mounted on the detector vessel, outside vacuum."; link: "../../controls/harnesses/vacuum.html"}
+  }
+  archon_r -- dewar_r.vib.DET: {class: detector}
+  archon_r -- dewar_r.vib.THERM: {class: [sense; carries_power]; label: "Temperature / heater"}
+  ebox.panels.motion_panel.FOCUS_R -- dewar_r.vib.FOCUS: {class: motion}
+  coldhead_r: {label: "R Cryotel coldhead"; class: device; link: "../../controls/harnesses/zspec-vis.html"}
+  ebox.panels.cryo_panel.R -- coldhead_r: {class: [sense; carries_power]; label: "Power + control"}
+  glycol_manifold -- coldhead_r: {class: glycol}
+  coldhead_r -- dewar_r.service_ports.COLD: {class: thermal; label: "Cold finger"}
+  ebox.panels.aux_panel.GAUGE_R -- dewar_r.gauge: {class: [usb; usb_serial]}
+  ebox.panels.aux_panel.GAUGE_DC -- dewar_r.gauge: {class: dc}
+  ebox.panels.aux_panel.VALVE_DC -- dewar_r.gate_valve: {class: dc}
+  dewar_r.gauge -- dewar_r.service_ports.VAC: {class: vacuum}
+  dewar_r.gate_valve -- dewar_r.service_ports.VAC: {class: vacuum}
+}
